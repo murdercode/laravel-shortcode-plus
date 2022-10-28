@@ -2,11 +2,8 @@
 
 namespace Murdercode\LaravelShortcodePlus;
 
-use Illuminate\Contracts\View\View;
-
 class LaravelShortcodePlus
 {
-
     public static function source(string $source): static
     {
         return new static($source);
@@ -32,6 +29,7 @@ class LaravelShortcodePlus
                 ]);
                 $response = curl_exec($curl);
                 curl_close($curl);
+
                 return json_decode($response)->html ?? 'No twitter defined';
             },
             $this->content
@@ -41,9 +39,9 @@ class LaravelShortcodePlus
     public function parseYoutubeTag()
     {
         preg_match('/\[youtube url="(.*?)"]/', $this->content, $matches);
-        $video_id = explode("?v=", $matches[1]);
+        $video_id = explode('?v=', $matches[1]);
         $video_id = $video_id[1];
+
         return view('shortcode-plus::youtube', ['video_id' => $video_id])->render();
     }
-
 }
