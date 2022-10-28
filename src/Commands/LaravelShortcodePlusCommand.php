@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Murdercode\LaravelShortcodePlus\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelShortcodePlusCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-shortcode-plus';
 
     public $description = 'My command';
 
