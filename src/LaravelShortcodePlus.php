@@ -2,6 +2,8 @@
 
 namespace Murdercode\LaravelShortcodePlus;
 
+use Illuminate\Contracts\View\View;
+
 class LaravelShortcodePlus
 {
 
@@ -36,12 +38,12 @@ class LaravelShortcodePlus
         );
     }
 
-    public function parseYoutubeTag(): string|null
+    public function parseYoutubeTag()
     {
         preg_match('/\[youtube url="(.*?)"]/', $this->content, $matches);
         $video_id = explode("?v=", $matches[1]);
         $video_id = $video_id[1];
-        return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $video_id . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        return view('shortcode-plus::youtube', ['video_id' => $video_id])->render();
     }
 
 }

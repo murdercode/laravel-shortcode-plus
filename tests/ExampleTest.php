@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\View\View;
 use Murdercode\LaravelShortcodePlus\LaravelShortcodePlus;
 
 it('can parse twitter shortcode', function() {
@@ -11,5 +12,5 @@ it('can parse twitter shortcode', function() {
 it('can parse youtube shortcode', function() {
     $html = "[youtube url=\"https://www.youtube.com/watch?v=9bZkp7q19f0\"]";
     $youtubeOembed = LaravelShortcodePlus::source($html)->parseYoutubeTag();
-    expect($youtubeOembed)->toContain('https://www.youtube.com/embed/9bZkp7q19f0');
+    expect($youtubeOembed)->toContain('https://www.youtube-nocookie.com/embed/9bZkp7q19f0&autoplay=1');
 });
