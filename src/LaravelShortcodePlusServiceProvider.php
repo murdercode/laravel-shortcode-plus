@@ -2,9 +2,9 @@
 
 namespace Murdercode\LaravelShortcodePlus;
 
+use Murdercode\LaravelShortcodePlus\Commands\LaravelShortcodePlusCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Murdercode\LaravelShortcodePlus\Commands\LaravelShortcodePlusCommand;
 
 class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
 {
