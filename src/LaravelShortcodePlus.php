@@ -7,6 +7,10 @@ use Illuminate\Contracts\View\View;
 class LaravelShortcodePlus
 {
 
+    public static function css(): string
+    {
+        return "<link rel=\"stylesheet\" href=\"" . route('shortcode-plus.css') . "\">";
+    }
 
     public static function source(string $source): static
     {
@@ -36,7 +40,10 @@ class LaravelShortcodePlus
                 ]);
                 $response = curl_exec($curl);
                 curl_close($curl);
-                return json_decode($response)->html ?? 'No twitter URL defined';
+                return json_decode($response)->html
+                    ? view('shortcode-plus::twitter', ['html' => json_decode($response)->html])
+                        ->render()
+                    : 'No twitter URL defined';
             },
             $this->content
         );
@@ -49,7 +56,11 @@ class LaravelShortcodePlus
         if ($youtubeId) {
             $youtubeId = explode('v=', $youtubeId)[1];
             $youtubeId = explode('&', $youtubeId)[0];
-            return view('shortcode-plus::components.youtube', ['video_id' => $youtubeId]);
+            return str_replace(
+                $matches[0],
+                view('shortcode-plus::youtube', ['video_id' => $youtubeId])->render(),
+                $this->content
+            );
         } else {
             return preg_replace(
                 '/\[youtube]/',

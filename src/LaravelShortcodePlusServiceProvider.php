@@ -3,6 +3,7 @@
 namespace Murdercode\LaravelShortcodePlus;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Murdercode\LaravelShortcodePlus\Commands\LaravelShortcodePlusCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -22,6 +23,14 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->hasMigration('create_laravel-shortcode-plus_table')
             ->hasCommand(LaravelShortcodePlusCommand::class);
+    }
+
+    public function packageRegistered()
+    {
+        Route::prefix('shortcode-plus')->name('shortcode-plus.')->group(function () {
+            Route::get('/style.css', fn() => view('shortcode-plus::components.css.shortcodes'))
+                ->name('css');
+        });
     }
 
     public function packageBooted()

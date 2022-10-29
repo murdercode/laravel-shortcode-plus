@@ -49,14 +49,21 @@ php artisan vendor:publish --tag="laravel-shortcode-plus-views"
 
 ## Usage
 
-If you want to parse all shortcodes you can use:
+Laravel Shortcode Plus is shipped with a default CSS for a better user experience. You can add the following line before your `</head>`:
+    
+```php
+{!! LaravelShortcodePlus::css() !!}
+```
+
+
+Now you can parse your source as follow:
 ```php
 use Murdercode\ShortcodePlus\Facades\ShortcodePlus;
 
 $html = "I want to parse this twitter tag: [twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\"]";
-$output = LaravelShortcodePlus::source($html)->parse();
-// output will be: "I want to parse thi twitter tag: <html from twitter>"
+return LaravelShortcodePlus::source($html)->parse();
 ```
+
 You can also specify a specific shortcode to parse:
 
 ```php
