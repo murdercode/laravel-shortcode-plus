@@ -2,11 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-{/* Youtube */}
-{/* Path: resources/src/css/shortcodes.css */}
+{ /* Youtube */
+}
 .__shortcode_youtube {
     @apply block my-8 bg-black rounded-lg max-w-[1080px];
 }
+
 .__shortcode_youtube iframe {
-        @apply w-full h-full max-h-[480px] rounded-lg;
+    @apply w-full h-full max-h-[480px] rounded-lg;
+}
+
+{ /* Spotify */
+}
+.__shortcode_spotify {
+    @apply w-full max-w-[1080px] my-8 rounded-lg h-96;
 }

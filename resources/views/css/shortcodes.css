@@ -512,7 +512,6 @@ video {
 
 {
   /* Youtube */
-  /* Path: resources/src/css/shortcodes.css */
 }
 
 .__shortcode_youtube {
@@ -529,5 +528,18 @@ video {
   height: 100%;
   max-height: 480px;
   width: 100%;
+  border-radius: 0.5rem;
+}
+
+{
+/* Spotify */
+}
+
+.__shortcode_spotify {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  height: 24rem;
+  width: 100%;
+  max-width: 1080px;
   border-radius: 0.5rem;
 }
