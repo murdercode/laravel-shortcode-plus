@@ -28,7 +28,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
     public function packageRegistered()
     {
         Route::prefix('shortcode-plus')->name('shortcode-plus.')->group(function () {
-            Route::get('/style.css', fn() => view('shortcode-plus::components.css.shortcodes'))
+            Route::get('/style.css', fn() => view('shortcode-plus::css.shortcodes'))
                 ->name('css');
         });
     }
