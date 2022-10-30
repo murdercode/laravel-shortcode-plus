@@ -2,6 +2,7 @@
 
 namespace Murdercode\LaravelShortcodePlus;
 
+use Murdercode\LaravelShortcodePlus\Parsers\Faq;
 use Murdercode\LaravelShortcodePlus\Parsers\Spotify;
 use Murdercode\LaravelShortcodePlus\Parsers\Twitter;
 use Murdercode\LaravelShortcodePlus\Parsers\Youtube;
@@ -28,6 +29,7 @@ class LaravelShortcodePlus
         $this->content = $this->parseTwitterTag();
         $this->content = $this->parseYoutubeTag();
         $this->content = $this->parseSpotifyTag();
+        $this->content = $this->parseFaqTag();
         return $this->content;
     }
 
@@ -45,6 +47,11 @@ class LaravelShortcodePlus
     public function parseSpotifyTag(): string
     {
         return Spotify::parse($this->content);
+    }
+
+    public function parseFaqTag(): string
+    {
+        return Faq::parse($this->content);
     }
 
 }
