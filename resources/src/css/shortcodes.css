@@ -42,7 +42,7 @@
     @apply text-center text-white bg-red-600 cursor-pointer;
 }
 
-.shortcode_spoiler > span {
+.shortcode_spoiler > details > span {
     @apply block p-3 bg-gray-100 dark:bg-gray-900;
 }
 
