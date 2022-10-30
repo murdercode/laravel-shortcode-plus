@@ -14,12 +14,12 @@ class Twitter
 
                 if ($url) {
                     $html = str_contains($url, 'twitter.com') ? self::getOembed($url) : null;
+
                     return view('shortcode-plus::twitter', ['html' => $html])->render();
                 }
 
                 return 'No twitter URL defined';
-            }
-            , $content
+            }, $content
         );
     }
 
@@ -31,6 +31,7 @@ class Twitter
         ]);
         $response = curl_exec($curl);
         curl_close($curl);
+
         return json_decode($response)->html ?? null;
     }
 }

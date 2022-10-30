@@ -13,6 +13,7 @@ class Faq
                     'Show hidden content'
                 );
                 $content = $matches[2] ?? '';
+
                 return view('shortcode-plus::faq', compact('title', 'content'))->render();
             },
             $content

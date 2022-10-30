@@ -4,7 +4,6 @@ namespace Murdercode\LaravelShortcodePlus\Parsers;
 
 class Spotify
 {
-
     public static function parse(string $content): string
     {
         return preg_replace_callback('/\[spotify uri="(.+)"]/', function ($matches) {
@@ -23,5 +22,4 @@ class Spotify
             return 'No spotify URI defined';
         }, $content);
     }
-
 }
