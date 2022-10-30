@@ -4,7 +4,7 @@
 			{{$title}}
 		</summary>
 		<span>
-			{{$content}}
+			{!! $content !!}
 		</span>
 	</details>
 </div>
