@@ -7,9 +7,10 @@
 
 ---
 
-**Laravel Shortcode Plus** is a package that allows you to create shortcodes for your Laravel application.
+**This package is under heavy development. Please avoid using it in production.**
 
-
+**Laravel Shortcode Plus** is a package that allows you to use shortcodes for your Laravel
+application.
 
 ---
 
