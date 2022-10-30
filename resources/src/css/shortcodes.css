@@ -2,46 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-.__shortcode_youtube {
+.shortcode_youtube {
     @apply block my-8 bg-black rounded-lg max-w-[1080px];
 }
 
-.__shortcode_youtube > iframe {
+.shortcode_youtube > iframe {
     @apply w-full h-full max-h-[480px] rounded-lg;
 }
 
-.__shortcode_spotify {
+.shortcode_spotify {
     @apply w-full max-w-[1080px] my-8 rounded-lg h-96;
 }
 
-.__shortcode_faq {
+.shortcode_faq {
     @apply relative p-2 mx-auto transition duration-150 ease-in-out border-t-4 border-gray-900 dark:border-gray-100 sm:px-4 overflow-hidden;
 }
 
-.__shortcode_faq > summary {
+.shortcode_faq > summary {
     @apply font-sans text-base cursor-pointer hover:opacity-90;
 }
 
-.__shortcode_faq > summary > span {
+.shortcode_faq > summary > span {
     @apply ml-2 text-xl font-black text-gray-900 dark:text-gray-100 sm:text-2xl;
 }
 
-.__shortcode_faq > p {
+.shortcode_faq > p {
     @apply max-w-2xl p-4 sm:px-0 overflow-hidden;
 }
 
-.__shortcode_spoiler {
+.shortcode_spoiler {
     @apply block mb-4;
 }
 
-.__shortcode_spoiler > details {
+.shortcode_spoiler > details {
     @apply border-4 border-red-600;
 }
 
-.__shortcode_spoiler > details > summary {
+.shortcode_spoiler > details > summary {
     @apply text-center text-white bg-red-600 cursor-pointer;
 }
 
-.__shortcode_spoiler > span {
+.shortcode_spoiler > span {
     @apply block p-3 bg-gray-100 dark:bg-gray-900;
 }

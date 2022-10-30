@@ -7,6 +7,7 @@ All notable changes to `laravel-shortcode-plus` will be documented in this file.
 - Phpstan now passes
 - Test passes on php 8.2 (locally)
 - Temporary remove tests on php 8.2 (github actions)
+- Fix double underscore not working CSS classes
 
 ## v0.0.3 - 2022-10-30
 

@@ -1,4 +1,4 @@
-<details class="__shortcode_faq">
+<details class="shortcode_faq">
 	<summary><span>{{$title}}</span></summary>
 	<p>{!! $content !!}</p>
 </details>

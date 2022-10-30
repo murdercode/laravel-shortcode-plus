@@ -1,4 +1,4 @@
-<div class="__shortcode_spoiler">
+<div class="shortcode_spoiler">
 	<details>
 		<summary>
 			{{$title}}
