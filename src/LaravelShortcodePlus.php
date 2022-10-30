@@ -8,11 +8,11 @@ use Murdercode\LaravelShortcodePlus\Parsers\Spotify;
 use Murdercode\LaravelShortcodePlus\Parsers\Twitter;
 use Murdercode\LaravelShortcodePlus\Parsers\Youtube;
 
-class LaravelShortcodePlus
+final class LaravelShortcodePlus
 {
     public static function css(): string
     {
-        return '<link rel="stylesheet" href="'.route('shortcode-plus.css').'">';
+        return '<link rel="stylesheet" href="' . route('shortcode-plus.css') . '">';
     }
 
     public static function source(string $source): static
