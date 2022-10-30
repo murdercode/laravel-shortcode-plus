@@ -45,3 +45,7 @@
 .shortcode_spoiler > span {
     @apply block p-3 bg-gray-100 dark:bg-gray-900;
 }
+
+.shortcode_facebook {
+    @apply block;
+}

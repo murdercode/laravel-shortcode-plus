@@ -71,9 +71,23 @@ You can also specify a specific shortcode to parse:
 $html = "[twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\"]";
 $twitterOembed = LaravelShortcodePlus::source($html)->parseTwitterTag();
 ```
+
 You can use those methods:
+
 - `parseTwitterTag()` - It converts [twitter url="<your-url-here>"] tags to oembed html
 - `parseYoutubeTag()` - It converts [youtube url="<your-url-here>"] tags to oembed html
+
+### TODO: Facebook
+
+Please remember to call the SDK before </body>:
+
+```html
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
+        nonce="UcAjseAO"></script>
+```
 
 ## Testing
 
