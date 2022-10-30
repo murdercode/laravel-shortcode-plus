@@ -602,13 +602,47 @@ video {
 
 .__shortcode_faq > p {
   max-width: 42rem;
-  overflow: hidden;
-  padding: 1rem;
+    overflow: hidden;
+    padding: 1rem;
 }
 
 @media (min-width: 640px) {
-  .__shortcode_faq > p {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+    .__shortcode_faq > p {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.__shortcode_spoiler {
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.__shortcode_spoiler > details {
+    border-width: 4px;
+    --tw-border-opacity: 1;
+    border-color: rgb(220 38 38 / var(--tw-border-opacity));
+}
+
+.__shortcode_spoiler > details > summary {
+    cursor: pointer;
+    --tw-bg-opacity: 1;
+    background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+    text-align: center;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.__shortcode_spoiler > span {
+    display: block;
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+    padding: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .__shortcode_spoiler > span {
+        --tw-bg-opacity: 1;
+        background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+    }
 }

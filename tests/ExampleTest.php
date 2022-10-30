@@ -80,3 +80,9 @@ it('cannot parse faq shortcode if title is missing', function () {
     $faqOembed = LaravelShortcodePlus::source($html)->parseFaqTag();
     expect($faqOembed)->toContain('[faq]Boh![/faq]');
 });
+
+it('can parse spoiler shortcode', function () {
+    $html = "[spoiler]This is a spoiler![/spoiler]";
+    $spoilerOembed = LaravelShortcodePlus::source($html)->parseSpoilerTag();
+    expect($spoilerOembed)->toContain('This is a spoiler!');
+});

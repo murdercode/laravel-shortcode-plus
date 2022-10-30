@@ -29,3 +29,19 @@
 .__shortcode_faq > p {
     @apply max-w-2xl p-4 sm:px-0 overflow-hidden;
 }
+
+.__shortcode_spoiler {
+    @apply block mb-4;
+}
+
+.__shortcode_spoiler > details {
+    @apply border-4 border-red-600;
+}
+
+.__shortcode_spoiler > details > summary {
+    @apply text-center text-white bg-red-600 cursor-pointer;
+}
+
+.__shortcode_spoiler > span {
+    @apply block p-3 bg-gray-100 dark:bg-gray-900;
+}
