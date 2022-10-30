@@ -2,7 +2,6 @@
 
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
-
 class Youtube
 {
     public static function parse(string $content): string
@@ -22,10 +21,10 @@ class Youtube
                         ['youtubeId' => $youtubeId]
                     )->render();
                 }
+
                 return 'No youtube URL defined';
             },
             $content
         );
     }
-
 }

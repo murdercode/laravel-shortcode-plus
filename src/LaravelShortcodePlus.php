@@ -10,10 +10,9 @@ use Murdercode\LaravelShortcodePlus\Parsers\Youtube;
 
 class LaravelShortcodePlus
 {
-
     public static function css(): string
     {
-        return "<link rel=\"stylesheet\" href=\"" . route('shortcode-plus.css') . "\">";
+        return '<link rel="stylesheet" href="'.route('shortcode-plus.css').'">';
     }
 
     public static function source(string $source): static
@@ -32,9 +31,9 @@ class LaravelShortcodePlus
         $this->content = $this->parseSpotifyTag();
         $this->content = $this->parseFaqTag();
         $this->content = $this->parseSpoilerTag();
+
         return $this->content;
     }
-
 
     public function parseTwitterTag(): string
     {
@@ -60,5 +59,4 @@ class LaravelShortcodePlus
     {
         return Spoiler::parse($this->content);
     }
-
 }
