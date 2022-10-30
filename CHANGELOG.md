@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v0.0.5 - 2022-10-30
+
+- Return mime types css correctly
+- Support for [facebook] shortcode
+
 ## v0.0.4 - 2022-10-30
 
 - Phpstan now passes
