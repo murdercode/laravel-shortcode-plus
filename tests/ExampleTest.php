@@ -47,8 +47,16 @@ it('cannot parse youtube shortcode if the url is not defined', function () {
     expect($youtubeOembed)->toContain('[youtube]');
 });
 
-it('can parse spotify shortcode', function () {
+it('can parse spotify shortcode with uri', function () {
     $html = '[spotify uri="spotify:album:1DFixLWuPkv3KT3TnV35m3"]';
+    $spotifyOembed = LaravelShortcodePlus::source($html)->parseSpotifyTag();
+    expect($spotifyOembed)->toContain(
+        'src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"'
+    );
+});
+
+it('can parse spotify shortcode with url', function () {
+    $html = '[spotify url="https://open.spotify.com/album/1DFixLWuPkv3KT3TnV35m3"]';
     $spotifyOembed = LaravelShortcodePlus::source($html)->parseSpotifyTag();
     expect($spotifyOembed)->toContain(
         'src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"'
