@@ -31,7 +31,7 @@ it('can parse youtube shortcode', function () {
     $html = '[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]';
     $youtubeOembed = LaravelShortcodePlus::source($html)->parseYoutubeTag();
     expect($youtubeOembed)->toContain(
-        'https://www.youtube-nocookie.com/embed/9bZkp7q19f0&autoplay=1'
+        'src="https://www.youtube-nocookie.com/embed/9bZkp7q19f0&autoplay=1"'
     );
 });
 
@@ -51,7 +51,7 @@ it('can parse spotify shortcode', function () {
     $html = '[spotify uri="spotify:album:1DFixLWuPkv3KT3TnV35m3"]';
     $spotifyOembed = LaravelShortcodePlus::source($html)->parseSpotifyTag();
     expect($spotifyOembed)->toContain(
-        'https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3'
+        'src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"'
     );
 });
 
