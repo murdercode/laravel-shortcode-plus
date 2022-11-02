@@ -65,7 +65,7 @@ Now you can parse your source as follow:
 use Murdercode\ShortcodePlus\Facades\ShortcodePlus;
 
 $html = "I want to parse this twitter tag: [twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\"]";
-return LaravelShortcodePlus::source($html)->parse();
+return LaravelShortcodePlus::source($html)->parseAll();
 ```
 
 You can also specify a specific shortcode to parse:
