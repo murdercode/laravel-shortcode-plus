@@ -4,11 +4,11 @@ namespace Murdercode\LaravelShortcodePlus\Parsers;
 
 class Spotify
 {
-
     public static function parse(string $content): string
     {
         $content = self::parseWithUri($content);
         $content = self::parseWithUrl($content);
+
         return $content;
     }
 
@@ -49,7 +49,7 @@ class Spotify
         $type = $uri[0] ?? null;
         $id = $uri[1] ?? null;
 
-        return 'https://open.spotify.com/embed/' . $type . '/' . $id;
+        return 'https://open.spotify.com/embed/'.$type.'/'.$id;
     }
 
     private static function getUrlFromUrl(string $url): string
@@ -59,7 +59,6 @@ class Spotify
         $type = $url[0] ?? null;
         $id = $url[1] ?? null;
 
-        return 'https://open.spotify.com/embed/' . $type . '/' . $id;
+        return 'https://open.spotify.com/embed/'.$type.'/'.$id;
     }
-
 }
