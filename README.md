@@ -22,6 +22,7 @@ You can install the package via composer:
 composer require murdercode/laravel-shortcode-plus
 ```
 
+<!--
 You can publish and run the migrations with:
 
 ```bash
@@ -47,17 +48,19 @@ Optionally, you can publish the views using
 ```bash
 php artisan vendor:publish --tag="laravel-shortcode-plus-views"
 ```
+-->
 
 ## Usage
 
-Laravel Shortcode Plus is shipped with a default CSS for a better user experience. You can add the following line before your `</head>`:
-    
+Laravel Shortcode Plus is shipped with a default CSS for a better user experience. You can add the
+following line before your `</head>`:
+
 ```php
 {!! LaravelShortcodePlus::css() !!}
 ```
 
-
 Now you can parse your source as follow:
+
 ```php
 use Murdercode\ShortcodePlus\Facades\ShortcodePlus;
 
@@ -72,12 +75,20 @@ $html = "[twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\
 $twitterOembed = LaravelShortcodePlus::source($html)->parseTwitterTag();
 ```
 
-You can use those methods:
+## Parsers
 
-- `parseTwitterTag()` - It converts [twitter url="<your-url-here>"] tags to oembed html
-- `parseYoutubeTag()` - It converts [youtube url="<your-url-here>"] tags to oembed html
+Here is the list of the available parsers:
 
-### TODO: Facebook
+| Parser | Description              | Parameters     | Example                                                                   |
+| --- |--------------------------|----------------|---------------------------------------------------------------------------|
+| `parseTwitterTag()` | Parse a `[twitter]` tag. | `url`          | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]` |
+| `parseYoutubeTag()` | Parse a `[youtube]` tag. | `url`          | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`             |
+| `parseSpotifyTag()` | Parse a `[spotify]` tag. | `url` or `uri` | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`   |
+| `parseFaqTag()`     | Parse a `[faq]` tag.     | `title`        | `[faq title="What is the answer to the ultimate question?"]42[/faq]`      |
+| `parseSpoilerTag()` | Parse a `[spoiler]` tag. | `title`        | `[spoiler title="Spoiler"]This is hidden content[/spoiler]`               |
+| `parseFacebookTag()` | Parse a `[facebook]` tag. | `url` | `[facebook url="https://www.facebook.com/elonmusk/posts/10157744420210129"]` |
+
+### Note for Facebook
 
 Please remember to call the SDK before </body>:
 
@@ -105,7 +116,8 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+Please review [our security policy](../../security/policy) on how to report security
+vulnerabilities.
 
 ## Credits
 

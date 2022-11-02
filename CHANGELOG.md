@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v1.0.0 - 2022-11-02
+
+- Supports Spotify Url
+- Better tests
+
 ## v0.0.5 - 2022-10-30
 
 - Return mime types css correctly
