@@ -6,8 +6,7 @@ class Spotify
 {
     public static function parse(string $content): string
     {
-        return preg_replace_callback('/\[spotify uri="(.+)"]/', function ($matches)
-        {
+        return preg_replace_callback('/\[spotify uri="(.+)"]/', function ($matches) {
             $url = $matches[1] ?? null;
             $url = str_contains($url, 'album:') ? $url : null;
             $url = $url ? str_replace(
@@ -16,8 +15,7 @@ class Spotify
                 $url
             ) : null;
 
-            if ($url)
-            {
+            if ($url) {
                 return view('shortcode-plus::spotify', ['url' => $url]);
             }
 
