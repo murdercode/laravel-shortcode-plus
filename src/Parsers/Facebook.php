@@ -2,7 +2,6 @@
 
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
-
 class Facebook
 {
     public static function parse(string $content): string
@@ -14,7 +13,8 @@ class Facebook
                 if ($url) {
                     return view('shortcode-plus::facebook', compact('url'))->render();
                 }
-                return "No Facebook URL found";
+
+                return 'No Facebook URL found';
             },
             $content
         );

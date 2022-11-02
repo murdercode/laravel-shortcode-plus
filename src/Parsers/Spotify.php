@@ -6,14 +6,14 @@ class Spotify
 {
     public static function parse(string $content): string
     {
+    }
+
+    private static function parseWithUri(string $content): string
+    {
         return preg_replace_callback('/\[spotify uri="(.+)"]/', function ($matches) {
-            $url = $matches[1] ?? null;
-            $url = str_contains($url, 'spotify') ? $url : null;
-            $url = $url ? str_replace(
-                'spotify:album:',
-                'https://open.spotify.com/embed/album/',
-                $url
-            ) : null;
+            $uri = $matches[1] ?? null;
+            $uri = str_contains($uri, 'spotify') ? $uri : null;
+            $url = $uri ? self::getUrlFromUri($uri) : null;
 
             if ($url) {
                 return view('shortcode-plus::spotify', ['url' => $url]);
@@ -21,5 +21,15 @@ class Spotify
 
             return 'No spotify URI defined';
         }, $content);
+    }
+
+    private static function getUrlFromUri(string $uri): string
+    {
+        $uri = str_replace('spotify:', '', $uri);
+        $uri = explode(':', $uri);
+        $type = $uri[0] ?? null;
+        $id = $uri[1] ?? null;
+
+        return 'https://open.spotify.com/embed/' . $type . '/' . $id;
     }
 }
