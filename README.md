@@ -87,6 +87,7 @@ Here is the list of the available parsers:
 | `parseFaqTag()`     | Parse a `[faq]` tag.     | `title`        | `[faq title="What is the answer to the ultimate question?"]42[/faq]`      |
 | `parseSpoilerTag()` | Parse a `[spoiler]` tag. | `title`        | `[spoiler title="Spoiler"]This is hidden content[/spoiler]`               |
 | `parseFacebookTag()` | Parse a `[facebook]` tag. | `url` | `[facebook url="https://www.facebook.com/elonmusk/posts/10157744420210129"]` |
+| `parseImageTag()` | Parse an `[image]` tag. | `id`, `caption` (optional) | `[image id="123"]` |
 
 ### Note for Facebook
 
