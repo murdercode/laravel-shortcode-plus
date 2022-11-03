@@ -2,6 +2,8 @@
 
 namespace Murdercode\LaravelShortcodePlus\Helpers;
 
+use Illuminate\Database\Eloquent\Model;
+
 class Config
 {
     private static function getImageConfigKey()
@@ -14,8 +16,13 @@ class Config
         return config(Config::getImageConfigKey().'.class');
     }
 
-    public static function getImageAttribute(string $key)
+    public static function getInstance(int $id)
     {
-        return config(Config::getImageConfigKey().'.attributes.'.$key);
+        return Config::getImageClass()::find($id);
+    }
+
+    public static function getValue(Model $model, string $key)
+    {
+        return $model->{config(Config::getImageConfigKey().'.attributes.'.$key)};
     }
 }
