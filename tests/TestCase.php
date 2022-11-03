@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Murdercode\\LaravelShortcodePlus\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Murdercode\\LaravelShortcodePlus\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
@@ -28,9 +28,7 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-shortcode-plus_table.php.stub';
+        $migration = include __DIR__ . '/../database/migrations/create_images_table.php';
         $migration->up();
-        */
     }
 }
