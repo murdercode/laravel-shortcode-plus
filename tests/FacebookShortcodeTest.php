@@ -2,9 +2,7 @@
 
 use Murdercode\LaravelShortcodePlus\LaravelShortcodePlus;
 
-
-it('can parse facebook shortcode', function ()
-{
+it('can parse facebook shortcode', function () {
     $html = '[facebook url="https://www.facebook.com/elonmusk/posts/10157710103910177"]';
     $facebookOembed = LaravelShortcodePlus::source($html)->parseFacebookTag();
     expect($facebookOembed)->toContain(
@@ -12,8 +10,7 @@ it('can parse facebook shortcode', function ()
     );
 });
 
-it('can parse facebook shortcode, even if the url is incorrect', function ()
-{
+it('can parse facebook shortcode, even if the url is incorrect', function () {
     $html = '[facebook url="blablabla"]';
     $facebookOembed = LaravelShortcodePlus::source($html)->parseFacebookTag();
     expect($facebookOembed)->toContain('No Facebook URL found');
