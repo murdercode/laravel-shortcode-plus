@@ -1,4 +1,4 @@
-# Laravel Shortcode+
+<p align="center"><img src="https://github.com/murdercode/laravel-shortcode-plus/raw/HEAD/art/laravel-shortcode-logo.svg" width="50%" alt="Logo Laravel Shortcode Plus"></p>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/murdercode/laravel-shortcode-plus.svg?style=flat-square)](https://packagist.org/packages/murdercode/laravel-shortcode-plus)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/murdercode/laravel-shortcode-plus/run-tests?label=tests)](https://github.com/murdercode/laravel-shortcode-plus/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -7,10 +7,27 @@
 
 ---
 
-**This package is under heavy development. Please avoid using it in production.**
+## How it Works
 
-**Laravel Shortcode Plus** is a package that allows you to use shortcodes for your Laravel
-application.
+This package allows you to use shortcodes in your application.
+
+For example, you can use the following shortcode to embed a Youtube video:
+
+```markdown
+[youtube id="123456789"]
+```
+
+This will be rendered as:
+
+```html
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/123456789" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+```
+
+_Note: the example is for purposes of demonstration only. The package apply a lot of optimizations
+for better SEO and performance._
 
 ---
 
@@ -22,7 +39,6 @@ You can install the package via composer:
 composer require murdercode/laravel-shortcode-plus
 ```
 
-<!--
 You can publish and run the migrations with:
 
 ```bash
@@ -48,7 +64,6 @@ Optionally, you can publish the views using
 ```bash
 php artisan vendor:publish --tag="laravel-shortcode-plus-views"
 ```
--->
 
 ## Usage
 
