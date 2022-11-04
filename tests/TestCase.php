@@ -28,9 +28,7 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-shortcode-plus_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_shortcode_images_table.php';
         $migration->up();
-        */
     }
 }
