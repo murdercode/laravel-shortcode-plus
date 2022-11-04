@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v1.1.0 - 2022-11-04
+
+### What's Changed
+
+- Feature/image parser by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/2
+
+### New Contributors
+
+- @DispatchCode made their first contribution in https://github.com/murdercode/laravel-shortcode-plus/pull/2
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.0.0...v1.1.0
+
 ## v1.0.0 - 2022-11-02
 
 - Supports Spotify Url
