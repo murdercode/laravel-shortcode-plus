@@ -10,12 +10,4 @@ class ShortcodeImage extends Model
     use HasFactory;
 
     protected $guarded = [];
-
-    /*
-    If you have JSON fields, uncomment and put them here
-
-    protected $casts = [
-        'field_name' => 'array',
-    ];
-    */
 }
