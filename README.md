@@ -7,8 +7,8 @@
 
 ---
 
-**This package is under heavy development. Please avoid using it in production.**
-
+<p align="center"><img src="https://github.com/laravel/pint/raw/HEAD/art/logo.svg" width="50%" alt="Logo Laravel Pint"></p>
+https://github.com/murdercode/laravel-shortcode-plus/blob/main/art/laravel-shortcode-logo.png?raw=true
 **Laravel Shortcode Plus** is a package that allows you to use shortcodes for your Laravel
 application.
 
