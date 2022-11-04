@@ -2,7 +2,7 @@
 
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
-use Murdercode\LaravelShortcodePlus\Helpers\Config;
+use Murdercode\LaravelShortcodePlus\Helpers\ModelHelper;
 
 class Image
 {
@@ -14,19 +14,19 @@ class Image
                 $id_image = $matches[1];
                 $caption = $matches[2] ? Helper::escapeQuotes($matches[2]) : null;
 
-                $image = Config::getInstance($id_image);
+                $image = ModelHelper::getInstance($id_image);
 
                 if (! $image) {
                     return 'Image not found';
                 }
 
-                $caption = $caption ?: Config::getValue($image, 'caption') ?: null;
-                $credits = Config::getValue($image, 'credits') ?: null;
-                $width = Config::getValue($image, 'width') ?: '1920';
-                $height = Config::getValue($image, 'height') ?: '1080';
-                $path = Config::getValue($image, 'path') ?: null;
-                $alternative_text = Config::getValue($image, 'alternative_text') ?: null;
-                $title = Config::getValue($image, 'title') ?: null;
+                $caption = $caption ?: ModelHelper::getValue($image, 'caption') ?: null;
+                $credits = ModelHelper::getValue($image, 'credits') ?: null;
+                $width = ModelHelper::getValue($image, 'width') ?: '1920';
+                $height = ModelHelper::getValue($image, 'height') ?: '1080';
+                $path = ModelHelper::getValue($image, 'path') ?: null;
+                $alternative_text = ModelHelper::getValue($image, 'alternative_text') ?: null;
+                $title = ModelHelper::getValue($image, 'title') ?: null;
 
                 return view('shortcode-plus::image', compact('caption', 'path', 'credits', 'width', 'height', 'alternative_text', 'title'))->render();
             },
