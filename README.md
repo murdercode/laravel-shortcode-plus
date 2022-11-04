@@ -104,6 +104,7 @@ Here is the list of the available parsers:
 | `parseSpoilerTag()` | Parse a `[spoiler]` tag. | `title`        | `[spoiler title="Spoiler"]This is hidden content[/spoiler]`               |
 | `parseFacebookTag()` | Parse a `[facebook]` tag. | `url` | `[facebook url="https://www.facebook.com/elonmusk/posts/10157744420210129"]` |
 | `parseImageTag()` | Parse an `[image]` tag. | `id`, `caption` (optional) | `[image id="123"]` |
+| `parseGalleryTag()` | Parse a `[gallery]` tag. | `title`, `images`  | Single or multiple images: `[image title="Gallery title here" images="1"]` or `[image title="Gallery title here" images="1,2,3"]` |
 
 ### Note for Facebook
 
