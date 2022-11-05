@@ -3,6 +3,7 @@
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
 use Murdercode\LaravelShortcodePlus\Helpers\ModelHelper;
+use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
 
 class Image
 {
@@ -12,11 +13,11 @@ class Image
             '/\[image id="(\d+)"(?:\scaption="(.*?)")?(?:(.*?))\]/',
             function ($matches) {
                 $id_image = $matches[1];
-                $caption = $matches[2] ? Helper::escapeQuotes($matches[2]) : null;
+                $caption = $matches[2] ? Sanitizer::escapeQuotes($matches[2]) : null;
 
                 $image = ModelHelper::getInstance($id_image);
 
-                if (! $image) {
+                if (!$image) {
                     return 'Image not found';
                 }
 
@@ -28,7 +29,18 @@ class Image
                 $alternative_text = ModelHelper::getValue($image, 'alternative_text') ?: null;
                 $title = ModelHelper::getValue($image, 'title') ?: null;
 
-                return view('shortcode-plus::image', compact('caption', 'path', 'credits', 'width', 'height', 'alternative_text', 'title'))->render();
+                return view(
+                    'shortcode-plus::image',
+                    compact(
+                        'caption',
+                        'path',
+                        'credits',
+                        'width',
+                        'height',
+                        'alternative_text',
+                        'title'
+                    )
+                )->render();
             },
             $content
         );

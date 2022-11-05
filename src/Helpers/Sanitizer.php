@@ -1,8 +1,8 @@
 <?php
 
-namespace Murdercode\LaravelShortcodePlus\Parsers;
+namespace Murdercode\LaravelShortcodePlus\Helpers;
 
-class Helper
+class Sanitizer
 {
     public static function escapeQuotes(string|null $content): string
     {
