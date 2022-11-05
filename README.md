@@ -8,9 +8,19 @@
 
 ---
 
-## How it Works
+## Why Shortcode+?
 
-This package allows you to use shortcodes in your application.
+This package allows you to use shortcodes in your application, like a Wordpress / BBS style
+websites.
+
+In our days, shortcodes are a great way to preserve the integrity of the data within the content
+published on our site (such as a blog or forum) without risking having to rewrite the format each
+time.
+
+With Laravel Shortcode+ we have the ability to turn a standard shortcode into a dynamic asset that
+can update over time (new HTML standards, cookie consent, AMP versions, and more)!
+
+## How it Works
 
 For example, you can use the following shortcode to embed a Youtube video:
 
@@ -22,13 +32,13 @@ This will be rendered as:
 
 ```html
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/123456789"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/123456789&autoplay=1" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/123456789?autoplay=1><img style='object-fit:cover;height:100%;' loading='lazy' src=https://img.youtube.com/vi/123456789/hqdefault.jpg alt='123456789'
+        loading=lazy><span>▶</span></a>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
+        picture-in-picture" allowfullscreen title="123456789"></iframe>
 ```
 
-_Note: the example is for purposes of demonstration only. The package apply a lot of optimizations
-for better SEO and performance._
+As you can see, we don't just generate an iframe but make it accessible, performant and in line with
+the best SEO practices around.
 
 ---
 
