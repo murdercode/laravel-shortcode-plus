@@ -17,7 +17,7 @@ class Image
 
                 $image = ModelHelper::getInstance($id_image);
 
-                if (!$image) {
+                if (! $image) {
                     return 'Image not found';
                 }
 
