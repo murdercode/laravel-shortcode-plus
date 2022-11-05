@@ -4,6 +4,7 @@ namespace Murdercode\LaravelShortcodePlus;
 
 use Murdercode\LaravelShortcodePlus\Parsers\Facebook;
 use Murdercode\LaravelShortcodePlus\Parsers\Faq;
+use Murdercode\LaravelShortcodePlus\Parsers\Gallery;
 use Murdercode\LaravelShortcodePlus\Parsers\Image;
 use Murdercode\LaravelShortcodePlus\Parsers\Spoiler;
 use Murdercode\LaravelShortcodePlus\Parsers\Spotify;
@@ -35,6 +36,7 @@ final class LaravelShortcodePlus
         $this->content = $this->parseFaqTag();
         $this->content = $this->parseSpoilerTag();
         $this->content = $this->parseImageTag();
+        $this->content = $this->parseGalleryTag();
 
         return $this->content;
     }
@@ -72,5 +74,10 @@ final class LaravelShortcodePlus
     public function parseImageTag(): string
     {
         return Image::parse($this->content);
+    }
+
+    public function parseGalleryTag(): string
+    {
+        return Gallery::parse($this->content);
     }
 }
