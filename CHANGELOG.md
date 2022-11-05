@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v1.2.0 - 2022-11-05
+
+### What's Changed
+
+- Feature/gallery parser by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/3
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.1.0...v1.2.0
+
 ## v1.1.0 - 2022-11-04
 
 ### What's Changed
