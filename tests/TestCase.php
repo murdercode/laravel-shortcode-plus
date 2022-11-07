@@ -15,6 +15,8 @@ class TestCase extends Orchestra
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Murdercode\\LaravelShortcodePlus\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
+
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     protected function getPackageProviders($app)
@@ -27,8 +29,5 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
-
-        $migration = include __DIR__.'/../database/migrations/create_shortcode_images_table.php';
-        $migration->up();
     }
 }
