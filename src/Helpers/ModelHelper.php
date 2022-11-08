@@ -2,27 +2,34 @@
 
 namespace Murdercode\LaravelShortcodePlus\Helpers;
 
-use Illuminate\Database\Eloquent\Model;
-
 class ModelHelper
 {
-    private static function getImageConfigKey()
+    private $config_key;
+
+    private $model;
+
+    public function __construct(string $class_name)
     {
-        return 'shortcode-plus.model.image';
+        $this->config_key = 'shortcode-plus.model.'.strtolower($class_name);
+        $this->model = null;
     }
 
-    public static function getImageClass()
+    public function getModelClass()
     {
-        return config(ModelHelper::getImageConfigKey().'.class');
+        return config($this->config_key.'.class');
     }
 
-    public static function getInstance(int $id)
+    public function setModelInstance($model)
     {
-        return ModelHelper::getImageClass()::find($id);
+        $this->model = $model;
     }
 
-    public static function getValue(Model $model, string $key)
+    public function getValueFromInstance(string $field)
     {
-        return $model->{config(ModelHelper::getImageConfigKey().'.attributes.'.$key)};
+        if (! $this->model) {
+            return null;
+        }
+
+        return $this->model->{config($this->config_key.'.attributes.'.$field)};
     }
 }

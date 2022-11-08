@@ -15,19 +15,21 @@ class Image
                 $id_image = $matches[1];
                 $caption = $matches[2] ? Sanitizer::escapeQuotes($matches[2]) : null;
 
-                $image = ModelHelper::getInstance($id_image);
+                $model = new ModelHelper('image');
+                $image = $model->getModelClass()::find($id_image);
 
                 if (! $image) {
                     return 'Image not found';
                 }
 
-                $caption = $caption ?: ModelHelper::getValue($image, 'caption') ?: null;
-                $credits = ModelHelper::getValue($image, 'credits') ?: null;
-                $width = ModelHelper::getValue($image, 'width') ?: '1920';
-                $height = ModelHelper::getValue($image, 'height') ?: '1080';
-                $path = ModelHelper::getValue($image, 'path') ?: null;
-                $alternative_text = ModelHelper::getValue($image, 'alternative_text') ?: null;
-                $title = ModelHelper::getValue($image, 'title') ?: null;
+                $model->setModelInstance($image);
+                $caption = $caption ?: $model->getValueFromInstance('caption') ?: null;
+                $credits = $model->getValueFromInstance('credits') ?: null;
+                $width = $model->getValueFromInstance('width') ?: '1920';
+                $height = $model->getValueFromInstance('height') ?: '1080';
+                $path = $model->getValueFromInstance('path') ?: null;
+                $alternative_text = $model->getValueFromInstance('alternative_text') ?: null;
+                $title = $model->getValueFromInstance('title') ?: null;
 
                 return view(
                     'shortcode-plus::image',
