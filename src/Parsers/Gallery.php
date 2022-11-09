@@ -2,8 +2,8 @@
 
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
+use Murdercode\LaravelShortcodePlus\Helpers\ModelHelper;
 use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
-use Murdercode\LaravelShortcodePlus\Models\ShortcodeImage;
 
 class Gallery
 {
@@ -15,7 +15,9 @@ class Gallery
                 $title = Sanitizer::escapeQuotes($matches[1]);
 
                 $imagesArray = explode(',', $matches[2]);
-                $images = ShortcodeImage::whereIn('id', $imagesArray)->get()->toArray();
+
+                $model = new ModelHelper('image');
+                $images = $model->getModelClass()::whereIn('id', $imagesArray)->get()->toArray();
 
                 return view('shortcode-plus::gallery', compact('title', 'images'))
                     ->render();
