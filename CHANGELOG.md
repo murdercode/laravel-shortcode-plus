@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v1.2.2 - 2022-11-28
+
+- ModelHelper refactoring
+
 ## v1.2.1 - 2022-11-07
 
 ### What's Changed
