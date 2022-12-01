@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Murdercode\LaravelShortcodePlus\Commands\LaravelShortcodePlusCommand;
+use Murdercode\LaravelShortcodePlus\Http\Livewire\Modals\ModalImage;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -42,7 +43,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
 
     public function packageBooted()
     {
-        Livewire::component('modal-image', \App\Http\Livewire\Modals\ModalImage::class);
+        Livewire::component('modal-image', ModalImage::class);
 
         Blade::componentNamespace('Murdercode\LaravelShortcodePlus\View\Components', 'laravel-shortcode-plus');
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Modals;
+namespace Murdercode\LaravelShortcodePlus\Http\Livewire\Modals;
 
 use Livewire\Component;
 
