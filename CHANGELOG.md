@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v1.2.4 - 2022-12-01
+
+### What's Changed
+
+- fix title using addslashes by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/14
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.2.3...v1.2.4
+
 ## v1.2.3 - 2022-12-01
 
 ### What's Changed
