@@ -7,12 +7,14 @@ use Livewire\Component;
 class ModalImage extends Component
 {
     public $show;
+
     public $path;
+
     public $title;
 
     protected $listeners = [
         'showImageModal' => 'showImageModal',
-        'doCloseModal' => 'doCloseModal'
+        'doCloseModal' => 'doCloseModal',
     ];
 
     public function mount($path = null, $title = null)

@@ -2,10 +2,9 @@
 
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
+use Murdercode\LaravelShortcodePlus\Helpers\ConfigHelper;
 use Murdercode\LaravelShortcodePlus\Helpers\ModelHelper;
 use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
-
-use Murdercode\LaravelShortcodePlus\Helpers\ConfigHelper;
 
 class Image
 {
@@ -15,16 +14,14 @@ class Image
 
         return preg_replace_callback(
             '/\[image id="(\d+)"(?:\scaption="(.*?)")?(?:(.*?))\]/',
-            function ($matches) use ($enable_modal)
-            {
+            function ($matches) use ($enable_modal) {
                 $id_image = $matches[1];
                 $caption = $matches[2] ? Sanitizer::escapeQuotes($matches[2]) : null;
 
                 $model = new ModelHelper('image');
                 $image = $model->getModelClass()::find($id_image);
 
-                if (!$image)
-                {
+                if (! $image) {
                     return 'Image not found';
                 }
 

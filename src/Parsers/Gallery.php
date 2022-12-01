@@ -2,9 +2,9 @@
 
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
+use Murdercode\LaravelShortcodePlus\Helpers\ConfigHelper;
 use Murdercode\LaravelShortcodePlus\Helpers\ModelHelper;
 use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
-use Murdercode\LaravelShortcodePlus\Helpers\ConfigHelper;
 
 class Gallery
 {
@@ -14,8 +14,7 @@ class Gallery
 
         return preg_replace_callback(
             '/\[gallery title="(.*?)" images="(.*?)"\]/',
-            function ($matches) use ($enable_modal)
-            {
+            function ($matches) use ($enable_modal) {
                 $title = Sanitizer::escapeQuotes($matches[1]);
 
                 $imagesArray = explode(',', $matches[2]);
