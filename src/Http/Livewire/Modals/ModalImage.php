@@ -54,6 +54,6 @@ class ModalImage extends Component
 
     public function render()
     {
-        return view('livewire.modals.modal-image');
+        return view('shortcode-plus::livewire.modals.modal-image');
     }
 }
