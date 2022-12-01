@@ -4,7 +4,7 @@
         {{ $credits }}
     </span>
     <figure>
-        <img @if($enable_modal) onclick="window.livewire.emit('showImageModal', '{{ asset('storage/' . $path) }}', '{{ $title }}')" @endif 
+        <img @if($enable_modal) onclick="window.livewire.emit('showImageModal', '{{ asset('storage/' . $path) }}', '{{ addslashes($title) }}')" @endif 
         class="mx-auto cursor-pointer" src="{{ asset('storage/' . $path) }}" alt="{{ $alternative_text }}"
             title="Clicca per vedere l'immagine originale" loading="lazy" width="{{ $width }}" height="{{ $height }}" />
         <figcaption>{!! $caption !!}</figcaption>
