@@ -43,7 +43,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
 
     public function packageBooted()
     {
-        Livewire::component('modal-image', ModalImage::class);
+        Livewire::component('shortcode-plus::modals.modal-image', ModalImage::class);
 
         Blade::componentNamespace('Murdercode\LaravelShortcodePlus\View\Components', 'laravel-shortcode-plus');
     }
