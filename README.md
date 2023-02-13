@@ -50,6 +50,12 @@ You can install the package via composer:
 composer require murdercode/laravel-shortcode-plus
 ```
 
+You can use shortcodes CSS publishing the assets:
+
+```bash
+php artisan vendor:publish --tag="laravel-shortcode-plus-assets"
+```
+
 You can publish and run the migrations with:
 
 ```bash
@@ -71,6 +77,7 @@ return [
 ];
 ```
 -->
+
 Optionally, you can publish the views using
 
 ```bash
@@ -83,10 +90,10 @@ Laravel Shortcode Plus is shipped with a default CSS for a better user experienc
 following line before your `</head>`:
 
 ```php
-{!! LaravelShortcodePlus::css() !!}
+<link href="{{asset('vendor/shortcode-plus/css/shortcodes.css')}}" rel="stylesheet">
 ```
 
-Now you can parse your source as follow:
+Now you can parse your source as follows:
 
 ```php
 use Murdercode\ShortcodePlus\Facades\ShortcodePlus;
@@ -106,16 +113,16 @@ $twitterOembed = LaravelShortcodePlus::source($html)->parseTwitterTag();
 
 Here is the list of the available parsers:
 
-| Parser | Description              | Parameters     | Example                                                                   |
-| --- |--------------------------|----------------|---------------------------------------------------------------------------|
-| `parseTwitterTag()` | Parse a `[twitter]` tag. | `url`          | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]` |
-| `parseYoutubeTag()` | Parse a `[youtube]` tag. | `url`          | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`             |
-| `parseSpotifyTag()` | Parse a `[spotify]` tag. | `url` or `uri` | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`   |
-| `parseFaqTag()`     | Parse a `[faq]` tag.     | `title`        | `[faq title="What is the answer to the ultimate question?"]42[/faq]`      |
-| `parseSpoilerTag()` | Parse a `[spoiler]` tag. | `title`        | `[spoiler title="Spoiler"]This is hidden content[/spoiler]`               |
-| `parseFacebookTag()` | Parse a `[facebook]` tag. | `url` | `[facebook url="https://www.facebook.com/elonmusk/posts/10157744420210129"]` |
-| `parseImageTag()` | Parse an `[image]` tag. | `id`, `caption` (optional) | `[image id="123"]` |
-| `parseGalleryTag()` | Parse a `[gallery]` tag. | `title`, `images`  | Single or multiple images: `[gallery title="Gallery title here" images="1"]` or `[gallery title="Gallery title here" images="1,2,3"]` |
+| Parser               | Description               | Parameters                 | Example                                                                                                                               |
+|----------------------|---------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `parseTwitterTag()`  | Parse a `[twitter]` tag.  | `url`                      | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]`                                                             |
+| `parseYoutubeTag()`  | Parse a `[youtube]` tag.  | `url`                      | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`                                                                         |
+| `parseSpotifyTag()`  | Parse a `[spotify]` tag.  | `url` or `uri`             | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`                                                               |
+| `parseFaqTag()`      | Parse a `[faq]` tag.      | `title`                    | `[faq title="What is the answer to the ultimate question?"]42[/faq]`                                                                  |
+| `parseSpoilerTag()`  | Parse a `[spoiler]` tag.  | `title`                    | `[spoiler title="Spoiler"]This is hidden content[/spoiler]`                                                                           |
+| `parseFacebookTag()` | Parse a `[facebook]` tag. | `url`                      | `[facebook url="https://www.facebook.com/elonmusk/posts/10157744420210129"]`                                                          |
+| `parseImageTag()`    | Parse an `[image]` tag.   | `id`, `caption` (optional) | `[image id="123"]`                                                                                                                    |
+| `parseGalleryTag()`  | Parse a `[gallery]` tag.  | `title`, `images`          | Single or multiple images: `[gallery title="Gallery title here" images="1"]` or `[gallery title="Gallery title here" images="1,2,3"]` |
 
 ### Note for Facebook
 
