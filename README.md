@@ -1,10 +1,11 @@
 <p align="center"><img src="https://github.com/murdercode/laravel-shortcode-plus/raw/HEAD/art/laravel-shortcode-logo.svg" width="50%" alt="Logo Laravel Shortcode Plus"></p>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/murdercode/laravel-shortcode-plus.svg?style=flat-square)](https://packagist.org/packages/murdercode/laravel-shortcode-plus)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/murdercode/laravel-shortcode-plus/run-tests?label=tests)](https://github.com/murdercode/laravel-shortcode-plus/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/murdercode/laravel-shortcode-plus/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/murdercode/laravel-shortcode-plus/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/murdercode/laravel-shortcode-plus/run-tests.yml?branch=main)](https://github.com/murdercode/laravel-shortcode-plus/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/murdercode/laravel-shortcode-plus/fix-php-code-style-issues.yml?branch=main)](https://github.com/murdercode/laravel-shortcode-plus/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/murdercode/laravel-shortcode-plus.svg?style=flat-square)](https://packagist.org/packages/murdercode/laravel-shortcode-plus)
 ![License Mit](https://img.shields.io/github/license/murdercode/laravel-shortcode-plus)
+
 
 ---
 
@@ -44,10 +45,22 @@ the best SEO practices around.
 
 ## Installation
 
+First, you need Laravel Livewire:
+
+```bash
+composer require livewire/livewire
+```
+
 You can install the package via composer:
 
 ```bash
 composer require murdercode/laravel-shortcode-plus
+```
+
+You can use shortcodes CSS publishing the assets:
+
+```bash
+php artisan vendor:publish --tag="laravel-shortcode-plus-assets"
 ```
 
 You can publish and run the migrations with:
@@ -71,6 +84,7 @@ return [
 ];
 ```
 -->
+
 Optionally, you can publish the views using
 
 ```bash
@@ -83,10 +97,10 @@ Laravel Shortcode Plus is shipped with a default CSS for a better user experienc
 following line before your `</head>`:
 
 ```php
-{!! LaravelShortcodePlus::css() !!}
+<link href="{{asset('vendor/shortcode-plus/css/shortcodes.css')}}" rel="stylesheet">
 ```
 
-Now you can parse your source as follow:
+Now you can parse your source as follows:
 
 ```php
 use Murdercode\ShortcodePlus\Facades\ShortcodePlus;
@@ -106,16 +120,16 @@ $twitterOembed = LaravelShortcodePlus::source($html)->parseTwitterTag();
 
 Here is the list of the available parsers:
 
-| Parser | Description              | Parameters     | Example                                                                   |
-| --- |--------------------------|----------------|---------------------------------------------------------------------------|
-| `parseTwitterTag()` | Parse a `[twitter]` tag. | `url`          | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]` |
-| `parseYoutubeTag()` | Parse a `[youtube]` tag. | `url`          | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`             |
-| `parseSpotifyTag()` | Parse a `[spotify]` tag. | `url` or `uri` | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`   |
-| `parseFaqTag()`     | Parse a `[faq]` tag.     | `title`        | `[faq title="What is the answer to the ultimate question?"]42[/faq]`      |
-| `parseSpoilerTag()` | Parse a `[spoiler]` tag. | `title`        | `[spoiler title="Spoiler"]This is hidden content[/spoiler]`               |
-| `parseFacebookTag()` | Parse a `[facebook]` tag. | `url` | `[facebook url="https://www.facebook.com/elonmusk/posts/10157744420210129"]` |
-| `parseImageTag()` | Parse an `[image]` tag. | `id`, `caption` (optional) | `[image id="123"]` |
-| `parseGalleryTag()` | Parse a `[gallery]` tag. | `title`, `images`  | Single or multiple images: `[gallery title="Gallery title here" images="1"]` or `[gallery title="Gallery title here" images="1,2,3"]` |
+| Parser               | Description               | Parameters                 | Example                                                                                                                               |
+|----------------------|---------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `parseTwitterTag()`  | Parse a `[twitter]` tag.  | `url`                      | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]`                                                             |
+| `parseYoutubeTag()`  | Parse a `[youtube]` tag.  | `url`                      | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`                                                                         |
+| `parseSpotifyTag()`  | Parse a `[spotify]` tag.  | `url` or `uri`             | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`                                                               |
+| `parseFaqTag()`      | Parse a `[faq]` tag.      | `title`                    | `[faq title="What is the answer to the ultimate question?"]42[/faq]`                                                                  |
+| `parseSpoilerTag()`  | Parse a `[spoiler]` tag.  | `title`                    | `[spoiler title="Spoiler"]This is hidden content[/spoiler]`                                                                           |
+| `parseFacebookTag()` | Parse a `[facebook]` tag. | `url`                      | `[facebook url="https://www.facebook.com/elonmusk/posts/10157744420210129"]`                                                          |
+| `parseImageTag()`    | Parse an `[image]` tag.   | `id`, `caption` (optional) | `[image id="123"]`                                                                                                                    |
+| `parseGalleryTag()`  | Parse a `[gallery]` tag.  | `title`, `images`          | Single or multiple images: `[gallery title="Gallery title here" images="1"]` or `[gallery title="Gallery title here" images="1,2,3"]` |
 
 ### Note for Facebook
 

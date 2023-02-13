@@ -7,8 +7,8 @@
     "laravel-shortcodes"
   ],
   "scripts": {
-    "dev": "npx tailwindcss -i ./resources/src/css/shortcodes.css -o ./resources/views/css/shortcodes.css --watch",
-    "build": "npx tailwindcss -i ./resources/src/css/shortcodes.css -o ./resources/views/css/shortcodes.css --minify"
+    "dev": "npx tailwindcss -i ./resources/src/css/shortcodes.css -o resources/dist/css/shortcodes.css --watch",
+    "build": "npx tailwindcss -i ./resources/src/css/shortcodes.css -o resources/dist/css/shortcodes.css --minify"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.8",

@@ -14,7 +14,10 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Murdercode\\LaravelShortcodePlus\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName
+            ) => 'Murdercode\\LaravelShortcodePlus\\Database\\Factories\\'.class_basename(
+                $modelName
+            ).'Factory'
         );
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');

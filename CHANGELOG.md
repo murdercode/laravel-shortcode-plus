@@ -6,7 +6,8 @@ All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
 ### What's Changed
 
-- fix component render method by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/15
+- fix component render method by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/15
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.2.4...v1.2.5
 
@@ -14,7 +15,8 @@ All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
 ### What's Changed
 
-- fix title using addslashes by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/14
+- fix title using addslashes by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/14
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.2.3...v1.2.4
 
@@ -22,7 +24,8 @@ All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
 ### What's Changed
 
-- Feature/livewire modal images by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/13
+- Feature/livewire modal images by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/13
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.2.2...v1.2.3
 
@@ -34,13 +37,17 @@ All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
 ### What's Changed
 
-- bugfix gallery tag on readme by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/4
-- Loading all migrations from the migrations folder by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/5
-- Bump dependabot/fetch-metadata from 1.3.4 to 1.3.5 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/6
+- bugfix gallery tag on readme by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/4
+- Loading all migrations from the migrations folder by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/5
+- Bump dependabot/fetch-metadata from 1.3.4 to 1.3.5 by @dependabot
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/6
 
 ### New Contributors
 
-- @dependabot made their first contribution in https://github.com/murdercode/laravel-shortcode-plus/pull/6
+- @dependabot made their first contribution
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/6
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.2.0...v1.2.1
 
@@ -48,7 +55,8 @@ All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
 ### What's Changed
 
-- Feature/gallery parser by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/3
+- Feature/gallery parser by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/3
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.1.0...v1.2.0
 
@@ -56,11 +64,13 @@ All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
 ### What's Changed
 
-- Feature/image parser by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/2
+- Feature/image parser by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/2
 
 ### New Contributors
 
-- @DispatchCode made their first contribution in https://github.com/murdercode/laravel-shortcode-plus/pull/2
+- @DispatchCode made their first contribution
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/2
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.0.0...v1.1.0
 
