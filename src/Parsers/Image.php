@@ -21,7 +21,7 @@ class Image
                 $model = new ModelHelper('image');
                 $image = $model->getModelClass()::find($id_image);
 
-                if (!$image) {
+                if (! $image) {
                     return 'Image not found';
                 }
 
