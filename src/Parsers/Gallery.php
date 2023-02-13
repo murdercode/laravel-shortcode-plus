@@ -2,22 +2,27 @@
 
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
+use Murdercode\LaravelShortcodePlus\Helpers\ConfigHelper;
+use Murdercode\LaravelShortcodePlus\Helpers\ModelHelper;
 use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
-use Murdercode\LaravelShortcodePlus\Models\ShortcodeImage;
 
 class Gallery
 {
     public static function parse(string $content): string
     {
+        $enable_modal = ConfigHelper::enableImageModal();
+
         return preg_replace_callback(
             '/\[gallery title="(.*?)" images="(.*?)"\]/',
-            function ($matches) {
+            function ($matches) use ($enable_modal) {
                 $title = Sanitizer::escapeQuotes($matches[1]);
 
                 $imagesArray = explode(',', $matches[2]);
-                $images = ShortcodeImage::whereIn('id', $imagesArray)->get()->toArray();
 
-                return view('shortcode-plus::gallery', compact('title', 'images'))
+                $model = new ModelHelper('image');
+                $images = $model->getModelClass()::whereIn('id', $imagesArray)->get()->toArray();
+
+                return view('shortcode-plus::gallery', compact('title', 'images', 'enable_modal'))
                     ->render();
             },
             $content

@@ -2,11 +2,61 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v.1.2.5 - 2022-12-01
+
+### What's Changed
+
+- fix component render method by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/15
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.2.4...v1.2.5
+
+## v1.2.4 - 2022-12-01
+
+### What's Changed
+
+- fix title using addslashes by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/14
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.2.3...v1.2.4
+
+## v1.2.3 - 2022-12-01
+
+### What's Changed
+
+- Feature/livewire modal images by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/13
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.2.2...v1.2.3
+
+## v1.2.2 - 2022-11-28
+
+- ModelHelper refactoring
+
+## v1.2.1 - 2022-11-07
+
+### What's Changed
+
+- bugfix gallery tag on readme by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/4
+- Loading all migrations from the migrations folder by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/5
+- Bump dependabot/fetch-metadata from 1.3.4 to 1.3.5 by @dependabot
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/6
+
+### New Contributors
+
+- @dependabot made their first contribution
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/6
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.2.0...v1.2.1
+
 ## v1.2.0 - 2022-11-05
 
 ### What's Changed
 
-- Feature/gallery parser by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/3
+- Feature/gallery parser by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/3
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.1.0...v1.2.0
 
@@ -14,11 +64,13 @@ All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
 ### What's Changed
 
-- Feature/image parser by @DispatchCode in https://github.com/murdercode/laravel-shortcode-plus/pull/2
+- Feature/image parser by @DispatchCode
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/2
 
 ### New Contributors
 
-- @DispatchCode made their first contribution in https://github.com/murdercode/laravel-shortcode-plus/pull/2
+- @DispatchCode made their first contribution
+  in https://github.com/murdercode/laravel-shortcode-plus/pull/2
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v1.0.0...v1.1.0
 

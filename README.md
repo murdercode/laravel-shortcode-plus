@@ -45,6 +45,12 @@ the best SEO practices around.
 
 ## Installation
 
+First, you need Laravel Livewire:
+
+```bash
+composer require livewire/livewire
+```
+
 You can install the package via composer:
 
 ```bash
@@ -60,14 +66,14 @@ php artisan vendor:publish --tag="laravel-shortcode-plus-assets"
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-shortcode-plus-migrations"
+php artisan vendor:publish --tag="shortcode-plus-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-shortcode-plus-config"
+php artisan vendor:publish --tag="shortcode-plus-config"
 ```
 
 <!--
@@ -82,7 +88,7 @@ return [
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="laravel-shortcode-plus-views"
+php artisan vendor:publish --tag="shortcode-plus-views"
 ```
 
 ## Usage
