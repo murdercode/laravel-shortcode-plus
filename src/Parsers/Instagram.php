@@ -9,10 +9,6 @@ class Instagram
         return preg_replace_callback(
             '/\[instagram url="(.*?)"]/',
             function ($matches) {
-                //$url = "https://www.instagram.com/p/Cn11ke-obrU";
-                //$post_id = substr(strrchr($url, "/"), 1);
-                //$embed_url = "https://www.instagram.com/p/" . $post_id . "/embed";
-                //echo '<iframe src="' . $embed_url . '"></iframe>';
 
                 $url = str_contains($matches[1], 'instagram.com') ? $matches[1] : null;
 
