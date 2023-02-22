@@ -6,6 +6,7 @@ use Murdercode\LaravelShortcodePlus\Parsers\Facebook;
 use Murdercode\LaravelShortcodePlus\Parsers\Faq;
 use Murdercode\LaravelShortcodePlus\Parsers\Gallery;
 use Murdercode\LaravelShortcodePlus\Parsers\Image;
+use Murdercode\LaravelShortcodePlus\Parsers\Instagram;
 use Murdercode\LaravelShortcodePlus\Parsers\Spoiler;
 use Murdercode\LaravelShortcodePlus\Parsers\Spotify;
 use Murdercode\LaravelShortcodePlus\Parsers\Twitter;
@@ -30,6 +31,7 @@ final class LaravelShortcodePlus
     public function parseAll(): string
     {
         $this->content = $this->parseFacebookTag();
+        $this->content = $this->parseInstagramTag();
         $this->content = $this->parseTwitterTag();
         $this->content = $this->parseYoutubeTag();
         $this->content = $this->parseSpotifyTag();
@@ -69,6 +71,11 @@ final class LaravelShortcodePlus
     public function parseFacebookTag(): string
     {
         return Facebook::parse($this->content);
+    }
+
+    public function parseInstagramTag(): string
+    {
+        return Instagram::parse($this->content);
     }
 
     public function parseImageTag(): string
