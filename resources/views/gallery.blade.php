@@ -1,18 +1,44 @@
-<span>
-    <span class="flex max-w-2xl gap-4 overflow-auto not-prose sm:px-0 snap-x snap-mandatory">
-        @foreach ($images as $image)
-		    <span class="w-48 rounded-lg snap-center shrink-0 focus:ring-2 ring-red-500">
-            <img
-		            @if($enable_modal) onclick="window.livewire.emit('showImageModal','{{ asset('storage/' . $image['path']) }}', '{{ addslashes($image['title']) }}')"
-		            @endif class="cursor-pointer relative object-cover w-full h-full rounded-lg"
-		            src="{{ asset('storage/' . $image["path"]) }}"
-		            alt="{{ $image["alternative_text"] }}"
-		            title="Clicca per vedere l'immagine originale"/></span>
-	    @endforeach
-    </span>
-    <span class="font-sans text-base">
-        <span class="text-sm font-bold text-red-500 uppercase">
-            Gallery: </span>{{ $title }}
-        </span>
-    </span>
-</span>
+<div class="w-full">
+	<div class="grid grid-cols-4 grid-rows-2 not-prose sm:px-0">
+		@foreach ($images as $image)
+
+			@if($loop->iteration <= 5)
+				<a class="
+
+			@if($loop->count > 2 && $loop->iteration == 1) col-span-2 row-span-2 @endif
+			@if($loop->count == 2 && ($loop->iteration == 1 || $loop->iteration == 2)) col-span-2 row-span-2 @endif
+			@if($loop->count == 2 && $loop->iteration == 2) col-span-2 @endif
+			@if($loop->count == 3 && ($loop->iteration == 2 || $loop->iteration == 3)) col-span-2 @endif
+			@if($loop->count == 4 && $loop->iteration == 4) col-span-2 @endif
+
+			glightbox hover:brightness-110 relative"
+				   href="{{ asset('storage' . $image["path"]) }}"
+				   data-glightbox="{{ addslashes($image['title']) }}">
+					<img
+							class="cursor-pointer relative object-cover w-full h-full"
+							src="{{ asset('storage' . $image["path"]) }}"
+							alt="{{ $image["alternative_text"] }}"
+							title="Clicca per vedere l'immagine originale"/>
+					{{--Hover Count--}}
+					@if($loop->iteration == 5 && $loop->count > 5)
+						<div class="absolute inset-0 text-white flex items-center justify-center bg-red-500/50 font-black">
+							+{{$loop->count - 5}}
+						</div>
+					@endif
+
+				</a>
+
+				{{--Hidden images--}}
+			@else($loop->iteration > 5)
+				<a href="{{ asset('storage' . $image["path"]) }}"
+				   class="hidden"></a>
+			@endif
+
+		@endforeach
+	</div>
+	@if($title)
+		<div class="font-sans text-base bg-gray-200 dark:bg-zinc-800 px-2 py-1.5">
+			{{ $title }}
+		</div>
+	@endif
+</div>

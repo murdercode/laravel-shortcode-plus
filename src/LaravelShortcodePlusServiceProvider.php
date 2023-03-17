@@ -3,8 +3,6 @@
 namespace Murdercode\LaravelShortcodePlus;
 
 use Illuminate\Support\Facades\Blade;
-use Livewire\Livewire;
-use Murdercode\LaravelShortcodePlus\Http\Livewire\Modals\ModalImage;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -36,7 +34,6 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
             'Murdercode\LaravelShortcodePlus\View\Components',
             'laravel-shortcode-plus'
         );
-        Livewire::component('shortcode-plus::modals.modal-image', ModalImage::class);
 
         Blade::componentNamespace(
             'Murdercode\LaravelShortcodePlus\View\Components',

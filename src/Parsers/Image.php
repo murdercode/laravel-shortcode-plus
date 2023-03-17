@@ -2,7 +2,6 @@
 
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
-use Murdercode\LaravelShortcodePlus\Helpers\ConfigHelper;
 use Murdercode\LaravelShortcodePlus\Helpers\ModelHelper;
 use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
 
@@ -10,11 +9,10 @@ class Image
 {
     public static function parse(string $content): string
     {
-        $enable_modal = ConfigHelper::enableImageModal();
 
         return preg_replace_callback(
             '/\[image id="(\d+)"(?:\scaption="(.*?)")?(?:(.*?))\]/',
-            function ($matches) use ($enable_modal) {
+            function ($matches) {
                 $id_image = $matches[1];
                 $caption = $matches[2] ? Sanitizer::escapeQuotes($matches[2]) : null;
 
@@ -44,7 +42,6 @@ class Image
                         'height',
                         'alternative_text',
                         'title',
-                        'enable_modal'
                     )
                 )->render();
             },

@@ -16,12 +16,4 @@ return [
             ],
         ],
     ],
-
-    'livewire' => [
-        // Whether to use Livewire or not
-        'enabled' => true,
-
-        // Wether clicking on the image should open the modal or not
-        'modal' => true,
-    ],
 ];

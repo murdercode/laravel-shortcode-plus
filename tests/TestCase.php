@@ -3,7 +3,6 @@
 namespace Murdercode\LaravelShortcodePlus\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Livewire\LivewireServiceProvider;
 use Murdercode\LaravelShortcodePlus\LaravelShortcodePlusServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -27,7 +26,6 @@ class TestCase extends Orchestra
     {
         return [
             LaravelShortcodePlusServiceProvider::class,
-            LivewireServiceProvider::class,
         ];
     }
 

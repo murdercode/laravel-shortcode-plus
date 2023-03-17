@@ -4,12 +4,15 @@
         {{ $credits }}
     </span>
 	<figure>
-		<img @if($enable_modal) onclick="window.livewire.emit('showImageModal', '{{ asset('storage/' . $path) }}', '{{ addslashes($title) }}')"
-		     @endif
-		     class="mx-auto cursor-pointer" src="{{ asset('storage/' . $path) }}"
-		     alt="{{ $alternative_text }}"
-		     title="Clicca per vedere l'immagine originale" loading="lazy" width="{{ $width }}"
-		     height="{{ $height }}"/>
-		<figcaption>{!! $caption !!}</figcaption>
+		<a href="{{ asset('storage' . $path) }}" class="glightbox"
+		   data-glightbox="{{ addslashes($title) }}">
+			<img class="mx-auto cursor-pointer" src="{{ asset('storage' . $path) }}"
+			     alt="{{ $alternative_text }}"
+			     title="Clicca per vedere l'immagine originale" loading="lazy" width="{{ $width }}"
+			     height="{{ $height }}"/>
+		</a>
+		<figcaption class="bg-gray-200 dark:bg-zinc-800 px-2 py-1.5 font-sans text-base">
+			{!! $caption !!}
+		</figcaption>
 	</figure>
 </div>
