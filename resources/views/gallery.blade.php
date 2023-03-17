@@ -13,7 +13,7 @@
 			glightbox hover:brightness-110 relative"
                     href="{{ asset('storage/' . $image['path']) }}" data-glightbox="{{ addslashes($image['title']) }}">
                     <img class="relative object-contain w-full h-full cursor-pointer"
-                        src="{{ asset('storage/' . $image['path']) }}" alt="{{ $image['alternative_text'] }}"
+                        src="{{ asset('storage/' . $image['path']) }}?width=400" alt="{{ $image['alternative_text'] }}"
                         title="Clicca per vedere l'immagine originale" />
                     {{-- Hover Count --}}
                     @if ($loop->iteration == 5 && $loop->count > 5)
