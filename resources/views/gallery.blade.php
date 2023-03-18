@@ -27,7 +27,7 @@
 
                 {{-- Hidden images --}}
             @else($loop->iteration > 5)
-                <a href="{{ asset('storage' . $image['path']) }}" class="hidden glightbox"></a>
+                <a href="{{ asset('storage/' . $image['path']) }}" class="hidden glightbox"></a>
             @endif
         @endforeach
     </div>
