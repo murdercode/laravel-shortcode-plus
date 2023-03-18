@@ -12,7 +12,7 @@
 
 			glightbox hover:brightness-110 relative"
                     href="{{ asset('storage/' . $image['path']) }}" data-glightbox="{{ addslashes($image['title']) }}">
-                    <img class="relative object-contain w-full h-full cursor-pointer"
+                    <img class="relative object-cover w-full h-full cursor-pointer"
                         src="{{ asset('storage/' . $image['path']) }}?width=400" alt="{{ $image['alternative_text'] }}"
                         title="Clicca per vedere l'immagine originale" />
                     {{-- Hover Count --}}
@@ -27,7 +27,7 @@
 
                 {{-- Hidden images --}}
             @else($loop->iteration > 5)
-                <a href="{{ asset('storage' . $image['path']) }}" class="hidden"></a>
+                <a href="{{ asset('storage' . $image['path']) }}" class="hidden glightbox"></a>
             @endif
         @endforeach
     </div>
