@@ -26,8 +26,6 @@
 				   data-glightbox="{{ addslashes($image['title']) }}">
 					<img class="
 
-                    @if($loop->count == 2) h-1/2 @else @h-full @endif
-
                     relative object-cover w-full cursor-pointer"
 					     src="{{ asset('storage/' . $image['path']) }}?width=400"
 					     alt="{{ $image['alternative_text'] }}"
