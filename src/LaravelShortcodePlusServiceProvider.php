@@ -3,8 +3,10 @@
 namespace Murdercode\LaravelShortcodePlus;
 
 use Illuminate\Support\Facades\Blade;
+use Murdercode\LaravelShortcodePlus\Parsers\RedditShortcode;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Webwizo\Shortcodes\Facades\Shortcode;
 
 class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
 {
@@ -26,6 +28,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
 
     public function packageRegistered()
     {
+
     }
 
     public function packageBooted()
@@ -39,5 +42,13 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
             'Murdercode\LaravelShortcodePlus\View\Components',
             'laravel-shortcode-plus'
         );
+    }
+
+    public function register()
+    {
+        parent::register();
+        $this->app->register(\Webwizo\Shortcodes\ShortcodesServiceProvider::class);
+
+        Shortcode::register('reddit', RedditShortcode::class);
     }
 }

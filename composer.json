@@ -22,7 +22,8 @@
     "php": "^8.1|^8.2",
     "ext-curl": "*",
     "illuminate/contracts": "^9.0|^10.0",
-    "spatie/laravel-package-tools": "^1.13.0"
+    "spatie/laravel-package-tools": "^1.13.0",
+    "webwizo/laravel-shortcodes": "1.0.*"
   },
   "require-dev": {
     "laravel/pint": "^1.0",

@@ -11,6 +11,7 @@ use Murdercode\LaravelShortcodePlus\Parsers\Spoiler;
 use Murdercode\LaravelShortcodePlus\Parsers\Spotify;
 use Murdercode\LaravelShortcodePlus\Parsers\Twitter;
 use Murdercode\LaravelShortcodePlus\Parsers\Youtube;
+use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
 {
@@ -39,6 +40,8 @@ final class LaravelShortcodePlus
         $this->content = $this->parseSpoilerTag();
         $this->content = $this->parseImageTag();
         $this->content = $this->parseGalleryTag();
+
+        $this->content = Shortcode::compile($this->content);
 
         return $this->content;
     }
