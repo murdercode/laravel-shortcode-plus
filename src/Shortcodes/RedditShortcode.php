@@ -1,6 +1,6 @@
 <?php
 
-namespace Murdercode\LaravelShortcodePlus\Parsers;
+namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class RedditShortcode
 {

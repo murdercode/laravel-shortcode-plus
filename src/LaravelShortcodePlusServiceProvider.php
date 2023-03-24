@@ -3,7 +3,9 @@
 namespace Murdercode\LaravelShortcodePlus;
 
 use Illuminate\Support\Facades\Blade;
-use Murdercode\LaravelShortcodePlus\Parsers\RedditShortcode;
+use Murdercode\LaravelShortcodePlus\Shortcodes\FacebookShortcode;
+use Murdercode\LaravelShortcodePlus\Shortcodes\RedditShortcode;
+use Murdercode\LaravelShortcodePlus\Shortcodes\YoutubeShortcode;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Webwizo\Shortcodes\Facades\Shortcode;
@@ -50,5 +52,8 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         $this->app->register(\Webwizo\Shortcodes\ShortcodesServiceProvider::class);
 
         Shortcode::register('reddit', RedditShortcode::class);
+        Shortcode::register('facebook', FacebookShortcode::class);
+        Shortcode::register('youtube', YoutubeShortcode::class);
+
     }
 }

@@ -31,7 +31,6 @@ final class LaravelShortcodePlus
 
     public function parseAll(): string
     {
-        $this->content = $this->parseFacebookTag();
         $this->content = $this->parseInstagramTag();
         $this->content = $this->parseTwitterTag();
         $this->content = $this->parseYoutubeTag();
