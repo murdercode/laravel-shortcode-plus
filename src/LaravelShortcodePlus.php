@@ -31,12 +31,6 @@ final class LaravelShortcodePlus
 
     public function parseAll(): string
     {
-        $this->content = $this->parseInstagramTag();
-        $this->content = $this->parseTwitterTag();
-        $this->content = $this->parseYoutubeTag();
-        $this->content = $this->parseSpotifyTag();
-        $this->content = $this->parseFaqTag();
-        $this->content = $this->parseSpoilerTag();
         $this->content = $this->parseImageTag();
         $this->content = $this->parseGalleryTag();
 
@@ -45,40 +39,6 @@ final class LaravelShortcodePlus
         return $this->content;
     }
 
-    public function parseTwitterTag(): string
-    {
-        return Twitter::parse($this->content);
-    }
-
-    public function parseYoutubeTag(): string
-    {
-        return Youtube::parse($this->content);
-    }
-
-    public function parseSpotifyTag(): string
-    {
-        return Spotify::parse($this->content);
-    }
-
-    public function parseFaqTag(): string
-    {
-        return Faq::parse($this->content);
-    }
-
-    public function parseSpoilerTag(): string
-    {
-        return Spoiler::parse($this->content);
-    }
-
-    public function parseFacebookTag(): string
-    {
-        return Facebook::parse($this->content);
-    }
-
-    public function parseInstagramTag(): string
-    {
-        return Instagram::parse($this->content);
-    }
 
     public function parseImageTag(): string
     {
