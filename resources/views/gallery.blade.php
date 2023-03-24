@@ -51,7 +51,7 @@
 	</div>
 	@if ($title)
 		<div class="font-sans text-base bg-gray-200 dark:bg-zinc-800 px-2 py-1.5">
-			{{ $title }}
+			{!! $title !!}
 		</div>
 	@endif
 </div>
