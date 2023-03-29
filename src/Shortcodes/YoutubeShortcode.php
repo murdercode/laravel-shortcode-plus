@@ -12,7 +12,9 @@ class YoutubeShortcode
         // Extract Video ID from URL
         $queryString = parse_url($url, PHP_URL_QUERY);
         parse_str($queryString, $queryParams);
-        $youtubeId = $queryParams['v'] ?? null;
+
+        // $shortcode->url can be also a shortner URL version like https://youtu.be/VIDEO_ID
+        $youtubeId = $queryParams['v'] ?? $shortcode->url;
 
         return view('shortcode-plus::youtube', compact('youtubeId'))->render();
     }
