@@ -14,7 +14,7 @@ class YoutubeShortcode
         parse_str($queryString, $queryParams);
 
         // $shortcode->url can be also a shortner URL version like https://youtu.be/VIDEO_ID
-        $youtubeId = $queryParams['v'] ?? $shortcode->url;
+        $youtubeId = $queryParams['v'] ?? substr($url, strrpos($url, '/') + 1);
 
         return view('shortcode-plus::youtube', compact('youtubeId'))->render();
     }
