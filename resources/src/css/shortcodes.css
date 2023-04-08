@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .shortcode_youtube {
-    @apply block my-8 bg-black rounded-lg max-w-[1080px] aspect-video;
+    @apply block my-8 bg-black rounded-lg max-w-[1080px];
 }
 
 .shortcode_youtube > iframe {
