@@ -30,7 +30,7 @@
 				   href="{{ asset('storage/' . $image['path']) }}"
 				   data-glightbox="{{ addslashes($image['title']) }}">
 					<img class="aspect-square relative object-cover w-full h-full cursor-pointer"
-					     src="{{ asset('storage/' . $image['path']) }}?width=400"
+					     src="{{ asset('storage/' . $image['path']) }}?height=400"
 					     alt="{{ $image['alternative_text'] }}"
 					     title="Clicca per vedere l'immagine originale"/>
 					{{-- Hover Count --}}
