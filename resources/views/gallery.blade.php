@@ -30,7 +30,7 @@
 				   href="{{ asset('storage/' . $image['path']) }}"
 				   data-glightbox="{{ addslashes($image['title']) }}">
 					<img class="aspect-square relative object-cover w-full h-full cursor-pointer"
-					     src="{{ asset('storage/' . $image['path']) }}?height=400"
+					     src="{{asset('storage/'. ($media->mime_type !== 'imported' ? $media->getPathAttribute() : '') . $media->file_name)}}?height=400"
 					     alt="{{ $image['alternative_text'] }}"
 					     title="Clicca per vedere l'immagine originale"/>
 					{{-- Hover Count --}}
@@ -45,7 +45,7 @@
 
 				{{-- Hidden images --}}
 			@else($loop->iteration > 5)
-				<a href="{{ asset('storage/' . $image['path']) }}" class="hidden glightbox"></a>
+				<a href="{{asset('storage/'. ($media->mime_type !== 'imported' ? $media->getPathAttribute() : '') . $media->file_name)}}" class="hidden glightbox"></a>
 			@endif
 		@endforeach
 	</div>
