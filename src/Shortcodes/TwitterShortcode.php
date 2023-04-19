@@ -4,7 +4,6 @@ namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class TwitterShortcode
 {
-
     public function register($shortcode, $content, $compiler, $name, $viewData)
     {
         $url = $shortcode->url;
@@ -16,7 +15,7 @@ class TwitterShortcode
             return 'No twitter URL defined';
         }
 
-            return view('shortcode-plus::twitter', compact('html'))->render();
+        return view('shortcode-plus::twitter', compact('html'))->render();
     }
 
     private static function getOembed(string $url): string|null

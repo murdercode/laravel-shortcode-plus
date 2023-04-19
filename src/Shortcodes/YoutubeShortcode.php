@@ -4,7 +4,6 @@ namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class YoutubeShortcode
 {
-
     public function register($shortcode, $content, $compiler, $name, $viewData)
     {
         $url = $shortcode->url;

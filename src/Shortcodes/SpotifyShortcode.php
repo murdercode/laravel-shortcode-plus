@@ -4,7 +4,6 @@ namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class SpotifyShortcode
 {
-
     public function register($shortcode, $content, $compiler, $name, $viewData)
     {
         [$url, $uri] = [$shortcode->url, $shortcode->uri];

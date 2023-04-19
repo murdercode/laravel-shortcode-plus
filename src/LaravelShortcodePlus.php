@@ -2,15 +2,8 @@
 
 namespace Murdercode\LaravelShortcodePlus;
 
-use Murdercode\LaravelShortcodePlus\Parsers\Facebook;
-use Murdercode\LaravelShortcodePlus\Parsers\Faq;
 use Murdercode\LaravelShortcodePlus\Parsers\Gallery;
 use Murdercode\LaravelShortcodePlus\Parsers\Image;
-use Murdercode\LaravelShortcodePlus\Parsers\Instagram;
-use Murdercode\LaravelShortcodePlus\Parsers\Spoiler;
-use Murdercode\LaravelShortcodePlus\Parsers\Spotify;
-use Murdercode\LaravelShortcodePlus\Parsers\Twitter;
-use Murdercode\LaravelShortcodePlus\Parsers\Youtube;
 use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
