@@ -32,7 +32,8 @@
 					<img class="aspect-square relative object-cover w-full h-full cursor-pointer"
 					     src="{{ asset('storage/' . $image['path']) }}?height=400"
 					     alt="{{ $image['alternative_text'] }}"
-					     title="Clicca per vedere l'immagine originale"/>
+					     title="Clicca per vedere l'immagine originale"
+					loading="lazy"/>
 					{{-- Hover Count --}}
 					@if ($loop->iteration == 5 && $loop->count > 5)
 						<div
