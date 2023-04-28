@@ -28,6 +28,7 @@
 
 		  glightbox hover:brightness-110 relative"
 				   href="{{ asset('storage/' . $image['path']) }}"
+				   aria-label="{{ $image['alternative_text'] }}"
 				   data-glightbox="{{ addslashes($image['title']) }}">
 					<img class="aspect-square relative object-cover w-full h-full cursor-pointer"
 					     src="{{ asset('storage/' . $image['path']) }}?height=400"
