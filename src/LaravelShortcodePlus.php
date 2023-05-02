@@ -15,7 +15,7 @@ final class LaravelShortcodePlus
 
     public static function source(string $source): static
     {
-        return new static($source);
+        return new self($source);
     }
 
     public function __construct(protected string $content = '')
@@ -31,7 +31,6 @@ final class LaravelShortcodePlus
 
         return $this->content;
     }
-
 
     public function parseImageTag(): string
     {

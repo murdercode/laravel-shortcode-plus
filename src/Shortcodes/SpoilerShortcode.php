@@ -13,5 +13,4 @@ class SpoilerShortcode
         return view('shortcode-plus::spoiler', compact('title', 'content'))->render();
 
     }
-
 }

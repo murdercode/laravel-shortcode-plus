@@ -17,5 +17,4 @@ class YoutubeShortcode
 
         return view('shortcode-plus::youtube', compact('youtubeId'))->render();
     }
-
 }

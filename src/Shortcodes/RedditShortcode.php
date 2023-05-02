@@ -8,7 +8,7 @@ class RedditShortcode
     {
 
         $url = $shortcode->url;
+
         return view('shortcode-plus::reddit', compact('url'))->render();
     }
-
 }

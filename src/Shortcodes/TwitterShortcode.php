@@ -29,5 +29,4 @@ class TwitterShortcode
 
         return json_decode($response)->html ?? null;
     }
-
 }

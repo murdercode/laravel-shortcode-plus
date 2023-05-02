@@ -9,6 +9,7 @@ class InstagramShortcode
         $url = $shortcode->url;
         $post_id = self::getPostId($url);
         $embed_url = 'https://www.instagram.com/'.self::getPathType($url).'/'.$post_id.'/embed';
+
         return view('shortcode-plus::instagram', compact('embed_url'))->render();
 
     }
@@ -17,6 +18,7 @@ class InstagramShortcode
     {
         $regex = '/\/(?:p|reel)\/([a-zA-Z0-9_-]+)/';
         preg_match($regex, $url, $matches);
+
         return $matches[1] ?? null;
     }
 
@@ -29,7 +31,7 @@ class InstagramShortcode
         if ($isReel) {
             return 'reel';
         }
+
         return null;
     }
-
 }

@@ -13,5 +13,4 @@ class FaqShortcode
         return view('shortcode-plus::faq', compact('title', 'content'))->render();
 
     }
-
 }

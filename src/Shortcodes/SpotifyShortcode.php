@@ -33,5 +33,4 @@ class SpotifyShortcode
 
         return 'https://open.spotify.com/embed/'.$type.'/'.$id;
     }
-
 }
