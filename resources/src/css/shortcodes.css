@@ -79,25 +79,32 @@
     display: block;
 }
 
+/* DISTICO */
 .shortcode_distico {
     position: relative;
-    margin: 0.5rem;
     width: 100%;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    /*text-align: justify;*/
+    /*text-justify: inter-word;*/
+    /*text-decoration: underline;*/
+    /*text-decoration-thickness: 1px;*/
+    /*text-decoration-color: #cbd5e1;*/
 }
 
-.shortcode_distico > .shortcode_distico_container {
-    background-color: #374151;
-    color: #FFFFFF;
-    padding: 1rem;
-    z-index: 10;
-    position: relative;
+@media (min-width: 768px) {
+    .shortcode_distico {
+        float:left;
+        max-width: 14rem;
+        margin: 0.5rem 2rem;
+
+    }
 }
+
 .shortcode_distico > .shortcode_distico_border {
-    background: #DC2626;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    bottom: -10px;
-    right:-10px;
-    z-index: 0;
+    height:16px;
+    width:4rem;
+    background-color: #ef4444;
+    margin-bottom: 10px;
 }
