@@ -11,6 +11,7 @@ use Murdercode\LaravelShortcodePlus\Shortcodes\RedditShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\SpoilerShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\SpotifyShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\TwitterShortcode;
+use Murdercode\LaravelShortcodePlus\Shortcodes\WidgetbayShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\YoutubeShortcode;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -66,6 +67,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         Shortcode::register('spoiler', SpoilerShortcode::class);
         Shortcode::register('twitter', TwitterShortcode::class);
         Shortcode::register('distico', DisticoShortcode::class);
+        Shortcode::register('widgetbay', WidgetbayShortcode::class);
 
     }
 }
