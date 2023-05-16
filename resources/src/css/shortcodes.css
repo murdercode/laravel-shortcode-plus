@@ -119,3 +119,14 @@
 .shortcode_distico > .shortcode_distico_container {
     padding:2rem 1rem;
 }
+
+/* WIDGETBAY */
+.shortcode_widgetbay {
+    height: 420px;
+}
+
+@media (min-width: 647px) {
+    .shortcode_widgetbay {
+        height: 220px;
+    }
+}
