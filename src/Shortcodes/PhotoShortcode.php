@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Shortcodes;
+namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 use Illuminate\Support\Facades\Blade;
-use Outl1ne\NovaMediaHub\Models\Media;
+use Outl1ne\NovaMediaHub\Models\Media as Media;
 
 class PhotoShortcode
 {
