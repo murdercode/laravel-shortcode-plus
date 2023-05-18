@@ -2,6 +2,7 @@
 
 namespace Murdercode\LaravelShortcodePlus;
 
+use App\Shortcodes\LeggiancheShortcode;
 use Illuminate\Support\Facades\Blade;
 use Murdercode\LaravelShortcodePlus\Shortcodes\DisticoShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\FacebookShortcode;
@@ -68,6 +69,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         Shortcode::register('twitter', TwitterShortcode::class);
         Shortcode::register('distico', DisticoShortcode::class);
         Shortcode::register('widgetbay', WidgetbayShortcode::class);
+        Shortcode::register('leggianche', LeggiancheShortcode::class);
 
     }
 }
