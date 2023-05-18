@@ -22,9 +22,11 @@ class PhotoShortcode
                     $images[$key]['alt'] = $image['data']['alt'][0] ?? null;
                 }
                 $title = $shortcode->didascalia ?? '';
-                return Blade::render(
-                    "<x-shortcodes.gallery images='$images' title='$title'></x-shortcodes.gallery>"
-                );
+//                return Blade::render(
+//                    "<x-shortcodes.gallery images='$images' title='$title'></x-shortcodes.gallery>"
+//                );
+
+                return view('shortcode-plus::new-gallery', compact('images', 'title'))->render();
             }
         }
 
@@ -41,14 +43,19 @@ class PhotoShortcode
         $alt = $media->data['alt'][0] ?? null;
         $title = $media->data['title'][0] ?? null;
 
+        $width = $shortcode->width ?? $maxWidth ?? 1920;
+        $height = $shortcode->height ?? $maxHeight ?? 1080;
+
         $maxWidth = preg_match(
             '/max-width="(\d+)"/',
             $shortcode->get(0),
             $matches
         ) ? $matches[1] : 896;
 
-        return Blade::render(
-            "<x-articles.shortcodes.media path='$path' align='$align' maxWidth=$maxWidth link='$link' didascalia='$didascalia' credits='$credits' alt='$alt' title='$title'></x-articles.shortcodes.media>"
-        );
+//        return Blade::render(
+//            "<x-articles.shortcodes.media path='$path' align='$align' maxWidth=$maxWidth link='$link' didascalia='$didascalia' credits='$credits' alt='$alt' title='$title'></x-articles.shortcodes.media>"
+//        );
+
+        return view('shortcode-plus::media', compact('path', 'align', 'maxWidth', 'link', 'didascalia', 'credits', 'alt', 'title', 'width', 'height'))->render();
     }
 }
