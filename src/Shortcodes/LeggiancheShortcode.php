@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shortcodes;
+namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class LeggiancheShortcode
 {

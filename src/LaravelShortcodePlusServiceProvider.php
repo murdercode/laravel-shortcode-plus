@@ -5,7 +5,6 @@ namespace Murdercode\LaravelShortcodePlus;
 use Illuminate\Support\Facades\Blade;
 use Murdercode\LaravelShortcodePlus\Shortcodes\DisticoShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\LeggiancheShortcode;
-use Murdercode\LaravelShortcodePlus\Shortcodes\PhotoShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\FacebookShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\FaqShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\InstagramShortcode;
