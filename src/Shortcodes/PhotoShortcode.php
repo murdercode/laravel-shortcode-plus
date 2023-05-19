@@ -38,11 +38,13 @@ class PhotoShortcode
         $path = $media->path . $media->file_name;
         $align = $shortcode->align ?? null;
         $link = $shortcode->link ? str_replace("'", "%27", $shortcode->link) : null;
-        $didascalia = $shortcode->didascalia ?? $media->data['caption'][0] ?? null;
+
+        $didascalia = $shortcode->didascalia ?? $media->data['caption'] ?? null;
         $didascalia = htmlentities($didascalia, ENT_QUOTES, 'UTF-8');
-        $credits = $media->data['credits'][0] ?? null;
-        $alt = $media->data['alt'][0] ?? null;
-        $title = $media->data['title'][0] ?? null;
+
+        $credits = $media->data['credits'] ?? null;
+        $alt = $media->data['alt'] ?? null;
+        $title = $media->data['title'] ?? null;
 
         $width = $shortcode->width ?? $maxWidth ?? 1920;
         $height = $shortcode->height ?? $maxHeight ?? 1080;
