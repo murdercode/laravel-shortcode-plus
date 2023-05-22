@@ -40,11 +40,25 @@ class PhotoShortcode
         $link = $shortcode->link ? str_replace("'", "%27", $shortcode->link) : null;
 
         $didascalia = $shortcode->didascalia ?? $media->data['caption'] ?? null;
+        // If didascalia is array, get first element
+        if (is_array($didascalia)) {
+            $didascalia = $didascalia[0];
+        }
+
         $didascalia = htmlentities($didascalia, ENT_QUOTES, 'UTF-8');
 
         $credits = $media->data['credits'] ?? null;
+        if(is_array($credits)) {
+            $credits = $credits[0];
+        }
         $alt = $media->data['alt'] ?? null;
+        if(is_array($alt)) {
+            $alt = $alt[0];
+        }
         $title = $media->data['title'] ?? null;
+        if(is_array($title)) {
+            $title = $title[0];
+        }
 
         $width = $shortcode->width ?? $maxWidth ?? 1920;
         $height = $shortcode->height ?? $maxHeight ?? 1080;
