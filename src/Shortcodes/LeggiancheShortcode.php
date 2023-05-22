@@ -18,10 +18,10 @@ class LeggiancheShortcode
         if (!$article) {
             return '';
         }
-        return sprintf(
-            '<div class="font-sans border-l-[8px] border-red-600 p-4"><span class="uppercase font-bold text-red-600">Leggi anche</span><a class="text-2xl block !no-underline font-bold" href="%s">%s</a></div>',
-            $article->route,
-            $article->title
-        );
+
+        $title = $article->title;
+        $route = $article->route;
+
+        return view('shortcode-plus::leggianche', compact('title', 'route'))->render();
     }
 }
