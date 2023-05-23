@@ -12,7 +12,7 @@
 ## Why Shortcode+?
 
 This package allows you to use shortcodes in your application, like a Wordpress / BBS style
-websites.
+websites. **Warning: this is a very opinionated package and it's not intended to be multi-purpose.**
 
 In our days, shortcodes are a great way to preserve the integrity of the data within the content
 published on our site (such as a blog or forum) without risking having to rewrite the format each
@@ -120,17 +120,20 @@ $twitterOembed = LaravelShortcodePlus::source($html)->parseTwitterTag();
 
 Here is the list of the available parsers:
 
-| Parser                | Description                 | Parameters                 | Example                                                                                                                               |
-|-----------------------|-----------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `parseTwitterTag()`   | Parse a `[twitter]` tag.    | `url`                      | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]`                                                             |
-| `parseYoutubeTag()`   | Parse a `[youtube]` tag.    | `url`                      | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`                                                                         |
-| `parseSpotifyTag()`   | Parse a `[spotify]` tag.    | `url` or `uri`             | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`                                                               |
-| `parseFaqTag()`       | Parse a `[faq]` tag.        | `title`                    | `[faq title="What is the answer to the ultimate question?"]42[/faq]`                                                                  |
-| `parseSpoilerTag()`   | Parse a `[spoiler]` tag.    | `title`                    | `[spoiler title="Spoiler"]This is hidden content[/spoiler]`                                                                           |
-| `parseFacebookTag()`  | Parse a `[facebook]` tag.   | `url`                      | `[facebook url="https://www.facebook.com/elonmusk/posts/10157744420210129"]`                                                          |
-| `parseInstagramTag()` | Parse an `[instagram]` tag. | `url`                      | `[instagram url="https://www.instagram.com/p/CApQfIjBGxC/"]`                                                         |
-| `parseImageTag()`     | Parse an `[image]` tag.     | `id`, `caption` (optional) | `[image id="123"]`                                                                                                                    |
-| `parseGalleryTag()`   | Parse a `[gallery]` tag.    | `title`, `images`          | Single or multiple images: `[gallery title="Gallery title here" images="1"]` or `[gallery title="Gallery title here" images="1,2,3"]` |
+| Shortcode      | Description                                                                                     | Parameters                 | Example                                                                                                                               |
+|----------------|-------------------------------------------------------------------------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `[twitter]  `  | Get a Twitter card                                                                              | `url`                      | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]`                                                             |
+| `[youtube]`    | Get a Youtube (light) player                                                                    | `url`                      | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`                                                                         |
+| `[spotify]`    | Get a Spotify player                                                                            | `url` or `uri`             | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`                                                               |
+| `[faq]`        | Create a `<details>` tag with embedded content                                                  | `title`                    | `[faq title="What is the answer to the ultimate question?"]42[/faq]`                                                                  |
+| `[spoiler]`    | Create a `<details>` tag with embedded content                                                  | `title`                    | `[spoiler title="Spoiler"]This is hidden content[/spoiler]`                                                                           |
+| `[facebook]`   | Get a Facebook card                                                                             | `url`                      | `[facebook url="https://www.facebook.com/elonmusk/posts/10157744420210129"]`                                                          |
+| `[instagram]`  | Get a Instagram card                                                                            | `url`                      | `[instagram url="https://www.instagram.com/p/CApQfIjBGxC/"]`                                                                          |
+| `[image]`      | Create an image with `Image::class` model                                                       | `id`, `caption` (optional) | `[image id="123"]`                                                                                                                    |
+| `[gallery]`    | Create a gallery image with `Image::class` model                                                | `title`, `images`          | Single or multiple images: `[gallery title="Gallery title here" images="1"]` or `[gallery title="Gallery title here" images="1,2,3"]` |
+| `[photo]`      | Create a gallery image with `[Nova Media Hub](https://github.com/outl1ne/nova-media-hub)` model | `didascalia`               | Single or multiple images: `[photo didascalia="Gallery title here" id="1,2,3"]`                                                       |
+| `[leggianche]` | Create a Read more div, based on `Article` or `Post` model                                      | `id`                       | `[leggianche id="1"]`                                                                                                                 |
+| `[distico]`    | Create a side text block, based on `Article` or `Post` model                                    | `id`                       | `[distico id="1"]`                                                                                                                     |
 
 ### Note for Facebook
 
