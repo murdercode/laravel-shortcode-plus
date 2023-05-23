@@ -25,7 +25,7 @@
                             @if($didascalia)
                                 <figcaption
                                     class="!mt-0 font-sans !text-sm py-2 px-4 bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200">
-                                    {!! htmlentities($didascalia) !!}
+                                    {!! html_entity_decode($didascalia) !!}
                                 </figcaption>
                             @endif
                         </a>
