@@ -60,14 +60,15 @@ class PhotoShortcode
             $title = $title[0];
         }
 
-        $width = $shortcode->width ?? $maxWidth ?? 1920;
-        $height = $shortcode->height ?? $maxHeight ?? 1080;
-
         $maxWidth = preg_match(
             '/max-width="(\d+)"/',
             $shortcode->get(0),
             $matches
         ) ? $matches[1] : 896;
+
+        $width = $shortcode->width ?? $maxWidth ?? 1920;
+        $height = $shortcode->height ?? $maxHeight ?? 1080;
+
 
 //        return Blade::render(
 //            "<x-articles.shortcodes.media path='$path' align='$align' maxWidth=$maxWidth link='$link' didascalia='$didascalia' credits='$credits' alt='$alt' title='$title'></x-articles.shortcodes.media>"
