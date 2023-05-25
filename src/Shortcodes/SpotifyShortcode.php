@@ -10,7 +10,7 @@ class SpotifyShortcode
 
         $convertedUrl = $url ? self::getUrlFromUrl($url) : ($uri ? self::getUrlFromUri($uri) : null);
 
-        if(!isset($convertedUrl)) {
+        if (! isset($convertedUrl)) {
             return 'No url or uri Spotify provided';
         }
 

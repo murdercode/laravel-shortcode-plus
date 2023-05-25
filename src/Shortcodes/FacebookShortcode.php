@@ -12,7 +12,7 @@ class FacebookShortcode
             return 'No Facebook parameter url defined';
         }
 
-        if (!str_contains($url, 'facebook.com')) {
+        if (! str_contains($url, 'facebook.com')) {
             return 'No Facebook URL found';
         }
 

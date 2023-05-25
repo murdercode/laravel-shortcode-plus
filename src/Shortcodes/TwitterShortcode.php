@@ -18,7 +18,7 @@ class TwitterShortcode
 
         $html = self::getOembed($url) ?? null;
 
-        if (!isset($html)) {
+        if (! isset($html)) {
             return 'Cannot get Twitter oembed';
         }
 
