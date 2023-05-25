@@ -6,7 +6,11 @@ class YoutubeShortcode
 {
     public function register($shortcode, $content, $compiler, $name, $viewData)
     {
-        $url = $shortcode->url;
+        $url = $shortcode->url ?? '';
+
+        if (empty($url)) {
+            return 'No Youtube parameter url defined';
+        }
 
         // Extract Video ID from URL
         $queryString = parse_url($url, PHP_URL_QUERY);

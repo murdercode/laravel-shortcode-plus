@@ -6,13 +6,20 @@ class TwitterShortcode
 {
     public function register($shortcode, $content, $compiler, $name, $viewData)
     {
-        $url = $shortcode->url;
-        $url = str_contains($url, 'twitter.com') ? $url : null;
+        $url = $shortcode->url ?? '';
 
-        if ($url) {
-            $html = str_contains($url, 'twitter.com') ? self::getOembed($url) : null;
-        } else {
-            return 'No twitter URL defined';
+        if (empty($url)) {
+            return 'No Twitter parameter url defined';
+        }
+
+        if (str_contains($url, 'twitter.com') === false) {
+            return 'No Twitter.com URL defined';
+        }
+
+        $html = self::getOembed($url) ?? null;
+
+        if (!isset($html)) {
+            return 'Cannot get Twitter oembed';
         }
 
         return view('shortcode-plus::twitter', compact('html'))->render();

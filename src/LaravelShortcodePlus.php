@@ -22,6 +22,11 @@ final class LaravelShortcodePlus
     {
     }
 
+    /**
+     * A function that returns the parsed content.
+     *
+     * @return string
+     */
     public function parseAll(): string
     {
         $this->content = $this->parseImageTag();

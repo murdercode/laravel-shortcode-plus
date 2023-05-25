@@ -109,13 +109,6 @@ $html = "I want to parse this twitter tag: [twitter url=\"https://twitter.com/el
 return LaravelShortcodePlus::source($html)->parseAll();
 ```
 
-You can also specify a specific shortcode to parse:
-
-```php
-$html = "[twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\"]";
-$twitterOembed = LaravelShortcodePlus::source($html)->parseTwitterTag();
-```
-
 ## Parsers
 
 Here is the list of the available parsers:
@@ -133,7 +126,7 @@ Here is the list of the available parsers:
 | `[gallery]`    | Create a gallery image with `Image::class` model                                                | `title`, `images`          | Single or multiple images: `[gallery title="Gallery title here" images="1"]` or `[gallery title="Gallery title here" images="1,2,3"]` |
 | `[photo]`      | Create a gallery image with `[Nova Media Hub](https://github.com/outl1ne/nova-media-hub)` model | `didascalia`               | Single or multiple images: `[photo didascalia="Gallery title here" id="1,2,3"]`                                                       |
 | `[leggianche]` | Create a Read more div, based on `Article` or `Post` model                                      | `id`                       | `[leggianche id="1"]`                                                                                                                 |
-| `[distico]`    | Create a side text block, based on `Article` or `Post` model                                    | `id`                       | `[distico id="1"]`                                                                                                                     |
+| `[distico]`    | Create a side text block, based on `Article` or `Post` model                                    | `id`                       | `[distico id="1"]`                                                                                                                    |
 
 ### Note for Facebook
 

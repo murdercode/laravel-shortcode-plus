@@ -6,7 +6,15 @@ class FacebookShortcode
 {
     public function register($shortcode, $content, $compiler, $name, $viewData)
     {
-        $url = $shortcode->url;
+        $url = $shortcode->url ?? '';
+
+        if (empty($url)) {
+            return 'No Facebook parameter url defined';
+        }
+
+        if (!str_contains($url, 'facebook.com')) {
+            return 'No Facebook URL found';
+        }
 
         return view('shortcode-plus::facebook', compact('url'))->render();
     }

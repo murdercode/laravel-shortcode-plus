@@ -6,12 +6,20 @@ class InstagramShortcode
 {
     public function register($shortcode, $content, $compiler, $name, $viewData)
     {
-        $url = $shortcode->url;
+        $url = $shortcode->url ?? '';
+
+        if (empty($url)) {
+            return 'No Instagram parameter url defined';
+        }
+
+        if (str_contains($url, 'instagram.com') === false) {
+            return 'No Instagram.com URL defined';
+        }
+
         $post_id = self::getPostId($url);
-        $embed_url = 'https://www.instagram.com/'.self::getPathType($url).'/'.$post_id.'/embed';
+        $embed_url = 'https://www.instagram.com/' . self::getPathType($url) . '/' . $post_id . '/embed';
 
         return view('shortcode-plus::instagram', compact('embed_url'))->render();
-
     }
 
     private static function getPostId($url)
@@ -24,7 +32,9 @@ class InstagramShortcode
 
     private static function getPathType($url)
     {
-        [$isPost, $isReel] = [str_contains($url, 'reel'), str_contains($url, 'p')];
+        $isPost = str_contains($url, '/p/');
+        $isReel = str_contains($url, '/reel/');
+
         if ($isPost) {
             return 'p';
         }
