@@ -2,7 +2,6 @@
 
 namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
-use Illuminate\Support\Facades\Blade;
 use Outl1ne\NovaMediaHub\Models\Media as Media;
 
 class PhotoShortcode
@@ -10,6 +9,10 @@ class PhotoShortcode
     public function register($shortcode, $content, $compiler, $name, $viewData)
     {
         $multipleIds = preg_match('/\d+(,\s*\d+)*/', $shortcode->id, $matches) ? $matches[0] : null;
+
+        if(!class_exists('\Outl1ne\NovaMediaHub\Models\Media')) {
+            return '';
+        }
 
         // Multiple images
         if ($multipleIds) {
@@ -22,10 +25,6 @@ class PhotoShortcode
                     $images[$key]['alt'] = $image['data']['alt'][0] ?? null;
                 }
                 $title = $shortcode->didascalia ?? '';
-//                return Blade::render(
-//                    "<x-shortcodes.gallery images='$images' title='$title'></x-shortcodes.gallery>"
-//                );
-
                 return view('shortcode-plus::new-gallery', compact('images', 'title'))->render();
             }
         }
@@ -64,15 +63,12 @@ class PhotoShortcode
             '/max-width="(\d+)"/',
             $shortcode->get(0),
             $matches
-        ) ? $matches[1] : 896;
+        )
+            ? $matches[1]
+            : 896;
 
-        $width = $shortcode->width ?? $maxWidth ?? 1920;
-        $height = $shortcode->height ?? $maxHeight ?? 1080;
-
-
-//        return Blade::render(
-//            "<x-articles.shortcodes.media path='$path' align='$align' maxWidth=$maxWidth link='$link' didascalia='$didascalia' credits='$credits' alt='$alt' title='$title'></x-articles.shortcodes.media>"
-//        );
+        $width = $shortcode->width ?? $maxWidth;
+        $height = $shortcode->height ?? null;
 
         return view('shortcode-plus::media', compact('path', 'align', 'maxWidth', 'link', 'didascalia', 'credits', 'alt', 'title', 'width', 'height'))->render();
     }
