@@ -10,7 +10,7 @@ class PhotoShortcode
     {
         $multipleIds = preg_match('/\d+(,\s*\d+)*/', $shortcode->id, $matches) ? $matches[0] : null;
 
-        if(!class_exists('\Outl1ne\NovaMediaHub\Models\Media')) {
+        if (! class_exists('\Outl1ne\NovaMediaHub\Models\Media')) {
             return '';
         }
 
@@ -20,11 +20,12 @@ class PhotoShortcode
             if (count($ids) > 1) {
                 $images = Media::whereIn('id', $ids)->get();
                 foreach ($images as $key => $image) {
-                    $images[$key]['src'] = $image->path . $image->file_name;
+                    $images[$key]['src'] = $image->path.$image->file_name;
                     $images[$key]['title'] = $image['data']['title'][0] ?? null;
                     $images[$key]['alt'] = $image['data']['alt'][0] ?? null;
                 }
                 $title = $shortcode->didascalia ?? '';
+
                 return view('shortcode-plus::new-gallery', compact('images', 'title'))->render();
             }
         }

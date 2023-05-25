@@ -16,7 +16,7 @@ class LeggiancheShortcode
             $article = \App\Models\Post::find($id);
         }
 
-        if (!isset($article)) {
+        if (! isset($article)) {
             return '';
         }
 
