@@ -31,12 +31,12 @@ class PhotoShortcode
 
         // Single image
         $media = Media::find($shortcode->id);
-        if (!$media) {
+        if (! $media) {
             return '';
         }
-        $path = $media->path . $media->file_name;
+        $path = $media->path.$media->file_name;
         $align = $shortcode->align ?? null;
-        $link = $shortcode->link ? str_replace("'", "%27", $shortcode->link) : null;
+        $link = $shortcode->link ? str_replace("'", '%27', $shortcode->link) : null;
 
         $didascalia = $shortcode->didascalia ?? $media->data['caption'] ?? null;
         // If didascalia is array, get first element
@@ -47,15 +47,15 @@ class PhotoShortcode
         $didascalia = htmlentities($didascalia, ENT_QUOTES, 'UTF-8');
 
         $credits = $media->data['credits'] ?? null;
-        if(is_array($credits)) {
+        if (is_array($credits)) {
             $credits = $credits[0];
         }
         $alt = $media->data['alt'] ?? null;
-        if(is_array($alt)) {
+        if (is_array($alt)) {
             $alt = $alt[0];
         }
         $title = $media->data['title'] ?? null;
-        if(is_array($title)) {
+        if (is_array($title)) {
             $title = $title[0];
         }
 
