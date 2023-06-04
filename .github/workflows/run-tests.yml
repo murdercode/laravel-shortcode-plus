@@ -58,9 +58,6 @@ jobs:
         run: |
           vendor/bin/pest --coverage-clover clover.xml
 
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-
       - name: Upload coverage reports to Code Climate
         run: |
           cc-test-reporter after-build
