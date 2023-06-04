@@ -25,3 +25,10 @@ it('cannot parse twitter shortcode if the url is not defined', function () {
     $twitterOembed = LaravelShortcodePlus::source($html)->parseAll();
     expect($twitterOembed)->toContain('No Twitter parameter url defined');
 });
+
+it('cannot get twitter oembed', function()
+{
+    $html = '[twitter url="https://twitter.com/elonmusk/status/000"]';
+    $twitterOembed = LaravelShortcodePlus::source($html)->parseAll();
+    expect($twitterOembed)->toContain('Cannot get Twitter oembed');
+});
