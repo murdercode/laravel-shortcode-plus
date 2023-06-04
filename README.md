@@ -13,7 +13,7 @@
 ## Why Shortcode+?
 
 This package allows you to use shortcodes in your application, like a Wordpress / BBS style
-websites. **Warning: this is a very opinionated package and it's not intended to be multi-purpose.**
+websites.
 
 In our days, shortcodes are a great way to preserve the integrity of the data within the content
 published on our site (such as a blog or forum) without risking having to rewrite the format each
@@ -21,6 +21,8 @@ time.
 
 With Laravel Shortcode+ we have the ability to turn a standard shortcode into a dynamic asset that
 can update over time (new HTML standards, cookie consent, AMP versions, and more)!
+
+**Warning: this is a very opinionated package and it's not intended to be multi-purpose.**
 
 ## How it Works
 
@@ -137,7 +139,7 @@ Here is the list of the available parsers:
 
 ### Note for Facebook
 
-Please remember to call the SDK before </body>:
+Please remember to call the SDK before `</body>`:
 
 ```html
 <div id="fb-root"></div>
