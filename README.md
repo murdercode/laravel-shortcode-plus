@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/murdercode/laravel-shortcode-plus/raw/HEAD/art/laravel-shortcode-logo.svg" width="50%" alt="Logo Laravel Shortcode Plus"></p>
+<p align="center"><img src="https://github.com/murdercode/laravel-shortcode-plus/raw/HEAD/art/laravel-shortcode-logo.svg" alt="Logo Laravel Shortcode Plus"></p>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/murdercode/laravel-shortcode-plus.svg?style=flat-square)](https://packagist.org/packages/murdercode/laravel-shortcode-plus)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/murdercode/laravel-shortcode-plus/run-tests.yml?branch=main&label=pest)](https://github.com/murdercode/laravel-shortcode-plus/actions?query=workflow%3Arun-tests+branch%3Amain)
