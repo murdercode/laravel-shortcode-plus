@@ -9,8 +9,6 @@ on:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
-    env:
-      CODACY_PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       fail-fast: true
       matrix:
