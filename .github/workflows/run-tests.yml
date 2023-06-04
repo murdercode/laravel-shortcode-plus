@@ -48,4 +48,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          vendor/bin/pest --coverage-clover clover.xml --configuration phpunit.xml.dist
+          vendor/bin/pest --coverage-clover clover.xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
