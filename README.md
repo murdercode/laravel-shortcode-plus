@@ -5,8 +5,8 @@
 [![GitHub PHPStan](https://img.shields.io/github/actions/workflow/status/murdercode/laravel-shortcode-plus/phpstan.yml?branch=main&label=phpstan)](https://github.com/murdercode/laravel-shortcode-plus/actions?query=workflow%3Aphpstan+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/murdercode/laravel-shortcode-plus/fix-php-code-style-issues.yml?branch=main&label=pint)](https://github.com/murdercode/laravel-shortcode-plus/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/murdercode/laravel-shortcode-plus.svg?style=flat-square)](https://packagist.org/packages/murdercode/laravel-shortcode-plus)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ebf1003822baede56567/maintainability)](https://codeclimate.com/github/murdercode/laravel-shortcode-plus/maintainability)
 ![License Mit](https://img.shields.io/github/license/murdercode/laravel-shortcode-plus)
-
 
 ---
 
@@ -33,10 +33,16 @@ For example, you can use the following shortcode to embed a Youtube video:
 This will be rendered as:
 
 ```html
-
-<iframe src="https://www.youtube-nocookie.com/embed/123456789&autoplay=1" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/123456789?autoplay=1><img style='object-fit:cover;height:100%;' loading='lazy' src=https://img.youtube.com/vi/123456789/hqdefault.jpg alt='123456789'
-        loading=lazy><span>▶</span></a>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
-        picture-in-picture" allowfullscreen title="123456789"></iframe>
+<iframe
+    src="https://www.youtube-nocookie.com/embed/123456789&autoplay=1"
+    srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/123456789?autoplay=1><img style='object-fit:cover;height:100%;' loading='lazy' src=https://img.youtube.com/vi/123456789/hqdefault.jpg alt='123456789'
+        loading=lazy><span>▶</span></a>"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope;
+        picture-in-picture"
+    allowfullscreen
+    title="123456789"
+></iframe>
 ```
 
 As you can see, we don't just generate an iframe but make it accessible, performant and in line with
@@ -115,7 +121,7 @@ return LaravelShortcodePlus::source($html)->parseAll();
 Here is the list of the available parsers:
 
 | Shortcode      | Description                                                                                     | Parameters                 | Example                                                                                                                               |
-|----------------|-------------------------------------------------------------------------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| -------------- | ----------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `[twitter]  `  | Get a Twitter card                                                                              | `url`                      | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]`                                                             |
 | `[youtube]`    | Get a Youtube (light) player                                                                    | `url`                      | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`                                                                         |
 | `[spotify]`    | Get a Spotify player                                                                            | `url` or `uri`             | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`                                                               |
@@ -134,11 +140,14 @@ Here is the list of the available parsers:
 Please remember to call the SDK before </body>:
 
 ```html
-
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
-        nonce="UcAjseAO"></script>
+<script
+    async
+    defer
+    crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
+    nonce="UcAjseAO"
+></script>
 ```
 
 ## Testing
@@ -162,8 +171,8 @@ vulnerabilities.
 
 ## Credits
 
-- [Stefano Novelli](https://github.com/murdercode)
-- [All Contributors](../../contributors)
+-   [Stefano Novelli](https://github.com/murdercode)
+-   [All Contributors](../../contributors)
 
 ## License
 
