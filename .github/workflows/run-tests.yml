@@ -51,7 +51,3 @@ jobs:
       - name: Run Tests
         run: |
           vendor/bin/pest --coverage-clover clover.xml --configuration phpunit.xml.dist
-
-      - name: Upload Coverage
-        run: /
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r clover.xml -l PHP -t $CODACY_PROJECT_TOKEN
