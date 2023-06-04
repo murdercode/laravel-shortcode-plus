@@ -8,10 +8,6 @@ use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
 {
-    public static function css(): string
-    {
-        return '<link rel="stylesheet" href="'.route('shortcode-plus.css').'">';
-    }
 
     public static function source(string $source): static
     {
