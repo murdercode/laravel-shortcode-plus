@@ -63,4 +63,4 @@ jobs:
 
       - name: Upload coverage reports to Code Climate
         run: |
-          cc-test-reporter after-build --exit-code ${{ job.status }}
+          cc-test-reporter after-build
