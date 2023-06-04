@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1685881173">
+  <project timestamp="1685881173">
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Facades/LaravelShortcodePlus.php">
+      <class name="Murdercode\LaravelShortcodePlus\Facades\LaravelShortcodePlus" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+      </class>
+      <line num="12" type="method" name="getFacadeAccessor" visibility="protected" complexity="1" crap="2" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <metrics loc="17" ncloc="14" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Helpers/ModelHelper.php">
+      <class name="Murdercode\LaravelShortcodePlus\Helpers\ModelHelper" namespace="global">
+        <metrics complexity="5" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="11" coveredelements="0"/>
+      </class>
+      <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="17" type="method" name="getModelClass" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="22" type="method" name="setModelInstance" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="27" type="method" name="getValueFromInstance" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <metrics loc="36" ncloc="36" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="11" coveredelements="0"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Helpers/Sanitizer.php">
+      <class name="Murdercode\LaravelShortcodePlus\Helpers\Sanitizer" namespace="global">
+        <metrics complexity="2" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
+      </class>
+      <line num="7" type="method" name="escapeQuotes" visibility="public" complexity="2" crap="2" count="6"/>
+      <line num="9" type="stmt" count="6"/>
+      <line num="10" type="stmt" count="2"/>
+      <line num="12" type="stmt" count="4"/>
+      <line num="13" type="stmt" count="4"/>
+      <line num="15" type="stmt" count="4"/>
+      <metrics loc="18" ncloc="18" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/LaravelShortcodePlus.php">
+      <class name="Murdercode\LaravelShortcodePlus\LaravelShortcodePlus" namespace="global">
+        <metrics complexity="6" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="8" elements="15" coveredelements="13"/>
+      </class>
+      <line num="11" type="method" name="css" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <line num="16" type="method" name="source" visibility="public" complexity="1" crap="1" count="27"/>
+      <line num="18" type="stmt" count="27"/>
+      <line num="21" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="27"/>
+      <line num="23" type="stmt" count="27"/>
+      <line num="28" type="method" name="parseAll" visibility="public" complexity="1" crap="1" count="27"/>
+      <line num="30" type="stmt" count="27"/>
+      <line num="31" type="stmt" count="27"/>
+      <line num="33" type="stmt" count="27"/>
+      <line num="35" type="stmt" count="27"/>
+      <line num="38" type="method" name="parseImageTag" visibility="public" complexity="1" crap="1" count="27"/>
+      <line num="40" type="stmt" count="27"/>
+      <line num="43" type="method" name="parseGalleryTag" visibility="public" complexity="1" crap="1" count="27"/>
+      <line num="45" type="stmt" count="27"/>
+      <metrics loc="48" ncloc="45" classes="1" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="8" elements="15" coveredelements="13"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/LaravelShortcodePlusServiceProvider.php">
+      <class name="Murdercode\LaravelShortcodePlus\LaravelShortcodePlusServiceProvider" namespace="global">
+        <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="33" coveredelements="33"/>
+      </class>
+      <line num="24" type="method" name="configurePackage" visibility="public" complexity="1" crap="1" count="33"/>
+      <line num="31" type="stmt" count="33"/>
+      <line num="32" type="stmt" count="33"/>
+      <line num="33" type="stmt" count="33"/>
+      <line num="34" type="stmt" count="33"/>
+      <line num="35" type="stmt" count="33"/>
+      <line num="36" type="stmt" count="33"/>
+      <line num="39" type="method" name="packageRegistered" visibility="public" complexity="1" crap="1" count="33"/>
+      <line num="42" type="stmt" count="33"/>
+      <line num="44" type="method" name="packageBooted" visibility="public" complexity="1" crap="1" count="33"/>
+      <line num="46" type="stmt" count="33"/>
+      <line num="47" type="stmt" count="33"/>
+      <line num="48" type="stmt" count="33"/>
+      <line num="49" type="stmt" count="33"/>
+      <line num="51" type="stmt" count="33"/>
+      <line num="52" type="stmt" count="33"/>
+      <line num="53" type="stmt" count="33"/>
+      <line num="54" type="stmt" count="33"/>
+      <line num="57" type="method" name="register" visibility="public" complexity="1" crap="1" count="33"/>
+      <line num="59" type="stmt" count="33"/>
+      <line num="60" type="stmt" count="33"/>
+      <line num="62" type="stmt" count="33"/>
+      <line num="63" type="stmt" count="33"/>
+      <line num="64" type="stmt" count="33"/>
+      <line num="65" type="stmt" count="33"/>
+      <line num="66" type="stmt" count="33"/>
+      <line num="67" type="stmt" count="33"/>
+      <line num="68" type="stmt" count="33"/>
+      <line num="69" type="stmt" count="33"/>
+      <line num="70" type="stmt" count="33"/>
+      <line num="71" type="stmt" count="33"/>
+      <line num="72" type="stmt" count="33"/>
+      <line num="73" type="stmt" count="33"/>
+      <metrics loc="77" ncloc="72" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="33" coveredelements="33"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Models/ShortcodeImage.php">
+      <class name="Murdercode\LaravelShortcodePlus\Models\ShortcodeImage" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="14" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Parsers/Gallery.php">
+      <class name="Murdercode\LaravelShortcodePlus\Parsers\Gallery" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="6" elements="13" coveredelements="6"/>
+      </class>
+      <line num="10" type="method" name="parse" visibility="public" complexity="1" crap="1.12" count="27"/>
+      <line num="13" type="stmt" count="27"/>
+      <line num="14" type="stmt" count="27"/>
+      <line num="15" type="stmt" count="27"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="27"/>
+      <line num="26" type="stmt" count="27"/>
+      <line num="27" type="stmt" count="27"/>
+      <metrics loc="30" ncloc="30" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="6" elements="13" coveredelements="6"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Parsers/Image.php">
+      <class name="Murdercode\LaravelShortcodePlus\Parsers\Image" namespace="global">
+        <metrics complexity="11" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="6" elements="33" coveredelements="6"/>
+      </class>
+      <line num="10" type="method" name="parse" visibility="public" complexity="11" crap="75.90" count="27"/>
+      <line num="13" type="stmt" count="27"/>
+      <line num="14" type="stmt" count="27"/>
+      <line num="15" type="stmt" count="27"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="27"/>
+      <line num="48" type="stmt" count="27"/>
+      <line num="49" type="stmt" count="27"/>
+      <metrics loc="52" ncloc="52" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="6" elements="33" coveredelements="6"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/DisticoShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\DisticoShortcode" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="9" type="stmt" count="2"/>
+      <line num="11" type="stmt" count="2"/>
+      <metrics loc="14" ncloc="14" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/FacebookShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\FacebookShortcode" namespace="global">
+        <metrics complexity="3" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="3" crap="3" count="3"/>
+      <line num="9" type="stmt" count="3"/>
+      <line num="11" type="stmt" count="3"/>
+      <line num="12" type="stmt" count="1"/>
+      <line num="15" type="stmt" count="2"/>
+      <line num="16" type="stmt" count="1"/>
+      <line num="19" type="stmt" count="1"/>
+      <metrics loc="22" ncloc="22" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/FaqShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\FaqShortcode" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="10" type="stmt" count="2"/>
+      <line num="11" type="stmt" count="2"/>
+      <line num="13" type="stmt" count="2"/>
+      <metrics loc="17" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/InstagramShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\InstagramShortcode" namespace="global">
+        <metrics complexity="7" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="17" elements="21" coveredelements="19"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="3" crap="3" count="5"/>
+      <line num="9" type="stmt" count="5"/>
+      <line num="11" type="stmt" count="5"/>
+      <line num="12" type="stmt" count="1"/>
+      <line num="15" type="stmt" count="4"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="19" type="stmt" count="2"/>
+      <line num="20" type="stmt" count="2"/>
+      <line num="22" type="stmt" count="2"/>
+      <line num="25" type="method" name="getPostId" visibility="private" complexity="1" crap="1" count="2"/>
+      <line num="27" type="stmt" count="2"/>
+      <line num="28" type="stmt" count="2"/>
+      <line num="30" type="stmt" count="2"/>
+      <line num="33" type="method" name="getPathType" visibility="private" complexity="3" crap="3.03" count="2"/>
+      <line num="35" type="stmt" count="2"/>
+      <line num="36" type="stmt" count="2"/>
+      <line num="38" type="stmt" count="2"/>
+      <line num="39" type="stmt" count="1"/>
+      <line num="41" type="stmt" count="1"/>
+      <line num="42" type="stmt" count="1"/>
+      <line num="45" type="stmt" count="0"/>
+      <metrics loc="48" ncloc="48" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="17" elements="21" coveredelements="19"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/LeggiancheShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\LeggiancheShortcode" namespace="global">
+        <metrics complexity="5" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="11" coveredelements="0"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="5" crap="30" count="0"/>
+      <line num="10" type="stmt" count="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="15" type="stmt" count="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <metrics loc="29" ncloc="28" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="11" coveredelements="0"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/PhotoShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\PhotoShortcode" namespace="global">
+        <metrics complexity="13" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="42" coveredstatements="0" elements="43" coveredelements="0"/>
+      </class>
+      <line num="9" type="method" name="register" visibility="public" complexity="13" crap="182" count="0"/>
+      <line num="11" type="stmt" count="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="59" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="66" type="stmt" count="0"/>
+      <line num="67" type="stmt" count="0"/>
+      <line num="68" type="stmt" count="0"/>
+      <line num="69" type="stmt" count="0"/>
+      <line num="71" type="stmt" count="0"/>
+      <line num="72" type="stmt" count="0"/>
+      <line num="74" type="stmt" count="0"/>
+      <metrics loc="77" ncloc="74" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="42" coveredstatements="0" elements="43" coveredelements="0"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/RedditShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\RedditShortcode" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="10" type="stmt" count="2"/>
+      <line num="12" type="stmt" count="2"/>
+      <metrics loc="15" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/SpoilerShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\SpoilerShortcode" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="10" type="stmt" count="1"/>
+      <line num="11" type="stmt" count="1"/>
+      <line num="13" type="stmt" count="1"/>
+      <metrics loc="17" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/SpotifyShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\SpotifyShortcode" namespace="global">
+        <metrics complexity="7" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="18" coveredelements="18"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="5" crap="5" count="4"/>
+      <line num="9" type="stmt" count="4"/>
+      <line num="11" type="stmt" count="4"/>
+      <line num="13" type="stmt" count="4"/>
+      <line num="14" type="stmt" count="1"/>
+      <line num="17" type="stmt" count="3"/>
+      <line num="21" type="method" name="getUrlFromUri" visibility="private" complexity="1" crap="1" count="2"/>
+      <line num="23" type="stmt" count="2"/>
+      <line num="24" type="stmt" count="2"/>
+      <line num="25" type="stmt" count="2"/>
+      <line num="26" type="stmt" count="2"/>
+      <line num="28" type="stmt" count="2"/>
+      <line num="31" type="method" name="getUrlFromUrl" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="33" type="stmt" count="1"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="35" type="stmt" count="1"/>
+      <line num="36" type="stmt" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <metrics loc="41" ncloc="41" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="18" coveredelements="18"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/TwitterShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\TwitterShortcode" namespace="global">
+        <metrics complexity="5" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="15" elements="18" coveredelements="16"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="4" crap="4.02" count="5"/>
+      <line num="9" type="stmt" count="5"/>
+      <line num="11" type="stmt" count="5"/>
+      <line num="12" type="stmt" count="1"/>
+      <line num="15" type="stmt" count="4"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="19" type="stmt" count="2"/>
+      <line num="21" type="stmt" count="2"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="2"/>
+      <line num="28" type="method" name="getOembed" visibility="private" complexity="1" crap="1" count="2"/>
+      <line num="30" type="stmt" count="2"/>
+      <line num="31" type="stmt" count="2"/>
+      <line num="32" type="stmt" count="2"/>
+      <line num="33" type="stmt" count="2"/>
+      <line num="34" type="stmt" count="2"/>
+      <line num="35" type="stmt" count="2"/>
+      <line num="37" type="stmt" count="2"/>
+      <metrics loc="40" ncloc="40" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="15" elements="18" coveredelements="16"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/WidgetbayShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\WidgetbayShortcode" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="9" type="stmt" count="0"/>
+      <line num="11" type="stmt" count="0"/>
+      <metrics loc="14" ncloc="14" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+    </file>
+    <file name="/Users/stefanonovelli/Sites/Components/laravel-shortcode-plus/src/Shortcodes/YoutubeShortcode.php">
+      <class name="Murdercode\LaravelShortcodePlus\Shortcodes\YoutubeShortcode" namespace="global">
+        <metrics complexity="2" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="8" coveredelements="8"/>
+      </class>
+      <line num="7" type="method" name="register" visibility="public" complexity="2" crap="2" count="3"/>
+      <line num="9" type="stmt" count="3"/>
+      <line num="11" type="stmt" count="3"/>
+      <line num="12" type="stmt" count="1"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="17" type="stmt" count="2"/>
+      <line num="20" type="stmt" count="2"/>
+      <line num="22" type="stmt" count="2"/>
+      <metrics loc="25" ncloc="23" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="8" coveredelements="8"/>
+    </file>
+    <metrics files="20" loc="651" ncloc="634" classes="19" methods="35" coveredmethods="22" conditionals="0" coveredconditionals="0" statements="221" coveredstatements="124" elements="256" coveredelements="146"/>
+  </project>
+</coverage>
