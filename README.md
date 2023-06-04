@@ -52,7 +52,7 @@ the best SEO practices around.
 
 ## Installation
 
-First, you need Laravel Livewire:
+(Only for 1.x) First, you need Laravel Livewire:
 
 ```bash
 composer require livewire/livewire
