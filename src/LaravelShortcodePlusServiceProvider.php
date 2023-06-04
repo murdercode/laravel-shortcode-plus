@@ -34,7 +34,6 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->hasAssets()
             ->hasMigration('create_laravel-shortcode-plus_table');
-        //->hasCommand(LaravelShortcodePlusCommand::class);
     }
 
     public function packageRegistered()
