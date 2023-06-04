@@ -10,7 +10,7 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     env:
-      CC_TEST_REPORTER_ID: 455814c408b94d321f08ab91531562120d89714134fe377d9410cbd191492dc2
+      CODACY_PROJECT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       fail-fast: true
       matrix:
@@ -33,7 +33,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
-          coverage: none
+          coverage: xdebug
 
       - name: Setup problem matchers
         run: |
@@ -48,12 +48,10 @@ jobs:
       - name: List Installed Dependencies
         run: composer show -D
 
-      - name: Code Climate Setup
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter && chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
-
       - name: Run Tests
         run: |
           vendor/bin/pest --coverage-clover clover.xml --configuration phpunit.xml.dist
-          ./cc-test-reporter after-build -t clover --exit-code $?
+
+      - name: Upload Coverage
+        run: /
+          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r clover.xml -l PHP -t $CODACY_PROJECT_TOKEN
