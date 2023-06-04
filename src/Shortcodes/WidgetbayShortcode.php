@@ -6,11 +6,13 @@ class WidgetbayShortcode
 {
     public function register($shortcode)
     {
-        if (! isset($shortcode->id) || ! is_numeric($shortcode->id)) {
+
+        if (! $shortcode->id || ! is_numeric($shortcode->id)
+        ) {
             return 'No Widgetbay parameter id defined';
         }
 
-        $id = $shortcode->id;
+        $id = (number_format($shortcode->id));
 
         return view('shortcode-plus::widgetbay', compact('id'))->render();
     }
