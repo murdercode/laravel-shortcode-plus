@@ -46,6 +46,14 @@ jobs:
       - name: List Installed Dependencies
         run: composer show -D
 
+      - name: Setup Code Climate
+        uses: amancevice/setup-code-climate@v1
+        with:
+          cc_test_reporter_id: 455814c408b94d321f08ab91531562120d89714134fe377d9410cbd191492dc2
+
+      - name: Install Code Climate Test Reporter
+        run: cc-test-reporter before-build
+
       - name: Run Tests
         run: |
           vendor/bin/pest --coverage-clover clover.xml
@@ -53,10 +61,6 @@ jobs:
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
 
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v4.0.0
-        env:
-          CC_TEST_REPORTER_ID: 455814c408b94d321f08ab91531562120d89714134fe377d9410cbd191492dc2
-        with:
-          coverageCommand: npm run coverage
-          debug: true
+      - name: Upload coverage reports to Code Climate
+        run: |
+          cc-test-reporter after-build --exit-code ${{ job.status }}
