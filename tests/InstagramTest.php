@@ -31,3 +31,9 @@ it('can parse instagram shortcode with post url', function () {
     $instagramOembed = LaravelShortcodePlus::source($html)->parseAll();
     expect($instagramOembed)->toContain('<iframe src="https://www.instagram.com/p/CQ1Zxq1n1Zq/embed"');
 });
+
+it('cannot parse instagram shortcode without reel or post url', function () {
+    $html = '[instagram url="https://www.instagram.com/"]';
+    $instagramOembed = LaravelShortcodePlus::source($html)->parseAll();
+    expect($instagramOembed)->toContain('No Instagram parameter url defined');
+});

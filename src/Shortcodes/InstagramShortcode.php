@@ -16,8 +16,14 @@ class InstagramShortcode
             return 'No Instagram.com URL defined';
         }
 
+        $pathType = self::getPathType($url);
+
+        if (empty($pathType)) {
+            return 'No Instagram parameter url defined';
+        }
+
         $post_id = self::getPostId($url);
-        $embed_url = 'https://www.instagram.com/'.self::getPathType($url).'/'.$post_id.'/embed';
+        $embed_url = 'https://www.instagram.com/'.$pathType.'/'.$post_id.'/embed';
 
         return view('shortcode-plus::instagram', compact('embed_url'))->render();
     }
