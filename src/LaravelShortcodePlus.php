@@ -8,7 +8,6 @@ use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
 {
-
     public static function source(string $source): static
     {
         return new self($source);
