@@ -72,8 +72,7 @@ class PhotoShortcode
         //$sizes = self::getImageSizes($path);
 
         $width = $shortcode->width ?? $maxWidth;
-        $height = $shortcode->height ?? null;
-        //$height = $shortcode->height ?? $sizes['height'] * ($width / $sizes['width']);
+        $height = $shortcode->height ?? self::getImageHeight($path, $width);
 
         return view('shortcode-plus::media', compact('path', 'align', 'maxWidth', 'link', 'didascalia', 'credits', 'alt', 'title', 'width', 'height'))->render();
     }
@@ -81,23 +80,26 @@ class PhotoShortcode
     /**
      * Calculate image sizes based on max width and height
      *
-     * @return array
+     * @return int
      */
-    public static function getImageSizes(string $path)
+    public static function getImageHeight(string $path, int $width = 0)
     {
 
+        $localPath = storage_path('app/public/'.$path);
+
         // Check if file exists
-        if (! file_exists('/storage/app/public'.$path)) {
-            $sizes['width'] = 0;
-            $sizes['height'] = 0;
+        if (! file_exists($localPath)) {
+            return 0;
         }
 
         // Get image sizes
         $sizes = [];
-        $imageSizes = getimagesize('/storage/app/public/'.$path) ?? [0, 0];
+        $imageSizes = @getimagesize($localPath) ?? [0, 0];
         $sizes['width'] = $imageSizes[0];
         $sizes['height'] = $imageSizes[1];
 
-        return $sizes;
+        // Calculate height
+        $height = $sizes['height'] * $width / $sizes['width'];
+        return $height;
     }
 }
