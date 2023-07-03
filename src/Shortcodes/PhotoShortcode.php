@@ -100,6 +100,7 @@ class PhotoShortcode
 
         // Calculate height
         $height = $sizes['height'] * $width / $sizes['width'];
+
         return $height;
     }
 }
