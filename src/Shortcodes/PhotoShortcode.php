@@ -88,10 +88,10 @@ class PhotoShortcode
     /**
      * Calculate image sizes based on max width and height
      *
-     * @param string $path
      * @return array
      */
-    public static function getImageSizes(string $path) {
+    public static function getImageSizes(string $path)
+    {
 
         // Check if file exists
         if (! file_exists(asset('storage/'.$path))) {
@@ -104,6 +104,7 @@ class PhotoShortcode
         $imageSizes = getimagesize(asset('storage/'.$path));
         $sizes['width'] = $imageSizes[0];
         $sizes['height'] = $imageSizes[1];
+
         return $sizes;
     }
 }
