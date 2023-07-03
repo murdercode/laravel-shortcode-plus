@@ -86,14 +86,14 @@ class PhotoShortcode
     {
 
         // Check if file exists
-        if (! file_exists(asset('storage/'.$path))) {
+        if (! file_exists('storage/app/public'.$path)) {
             $sizes['width'] = 0;
             $sizes['height'] = 0;
         }
 
         // Get image sizes
         $sizes = [];
-        $imageSizes = getimagesize(asset('storage/'.$path));
+        $imageSizes = getimagesize('storage/app/public/'.$path);
         $sizes['width'] = $imageSizes[0];
         $sizes['height'] = $imageSizes[1];
 
