@@ -35,6 +35,7 @@ class PhotoShortcode
         if (! $media) {
             return '';
         }
+
         $path = $media->path.$media->file_name;
         $align = $shortcode->align ?? null;
         $link = $shortcode->link ? str_replace("'", '%27', $shortcode->link) : null;
@@ -68,9 +69,41 @@ class PhotoShortcode
             ? $matches[1]
             : 896;
 
+        $maxHeight = preg_match(
+            '/max-height="(\d+)"/',
+            $shortcode->get(0),
+            $matches
+        )
+            ? $matches[1]
+            : null;
+
+        $sizes = self::getImageSizes($path);
+
         $width = $shortcode->width ?? $maxWidth;
-        $height = $shortcode->height ?? null;
+        $height = $shortcode->height ?? $sizes['height'] * ($width / $sizes['width']);
 
         return view('shortcode-plus::media', compact('path', 'align', 'maxWidth', 'link', 'didascalia', 'credits', 'alt', 'title', 'width', 'height'))->render();
+    }
+
+    /**
+     * Calculate image sizes based on max width and height
+     *
+     * @param string $path
+     * @return array
+     */
+    public static function getImageSizes(string $path) {
+
+        // Check if file exists
+        if (! file_exists(asset('storage/'.$path))) {
+            $sizes['width'] = 0;
+            $sizes['height'] = 0;
+        }
+
+        // Get image sizes
+        $sizes = [];
+        $imageSizes = getimagesize(asset('storage/'.$path));
+        $sizes['width'] = $imageSizes[0];
+        $sizes['height'] = $imageSizes[1];
+        return $sizes;
     }
 }
