@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v2.1.1 - 2023-07-03
+
+### What's Changed
+
+- Can get image sizes for [photo] shortcode
+- Bump aglipanci/laravel-pint-action from 2.1.0 to 2.3.0 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/26
+- Bump dependabot/fetch-metadata from 1.3.6 to 1.5.1 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/27
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.0...v2.1.1
+
 ## v2.1.0 - 2023-05-25
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.0.3...v2.1.0
