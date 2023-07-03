@@ -55,7 +55,7 @@ the best SEO practices around.
 
 ## Installation
 
-(Only for 1.x) First, you need Laravel Livewire:
+**(Only for 1.x)** First, you need Laravel Livewire:
 
 ```bash
 composer require livewire/livewire
@@ -124,7 +124,7 @@ return LaravelShortcodePlus::source($html)->parseAll();
 Here is the list of the available parsers:
 
 | Shortcode      | Description                                                                                     | Parameters                 | Example                                                                                                                               |
-| -------------- | ----------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------|-------------------------------------------------------------------------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | `[twitter]  `  | Get a Twitter card                                                                              | `url`                      | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]`                                                             |
 | `[youtube]`    | Get a Youtube (light) player                                                                    | `url`                      | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`                                                                         |
 | `[spotify]`    | Get a Spotify player                                                                            | `url` or `uri`             | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`                                                               |
@@ -174,8 +174,8 @@ vulnerabilities.
 
 ## Credits
 
--   [Stefano Novelli](https://github.com/murdercode)
--   [All Contributors](../../contributors)
+- [Stefano Novelli](https://github.com/murdercode)
+- [All Contributors](../../contributors)
 
 ## License
 
