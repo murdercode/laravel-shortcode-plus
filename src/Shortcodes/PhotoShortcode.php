@@ -72,6 +72,7 @@ class PhotoShortcode
         //$sizes = self::getImageSizes($path);
 
         $width = $shortcode->width ?? $maxWidth;
+        $height = $shortcode->height ?? null;
         //$height = $shortcode->height ?? $sizes['height'] * ($width / $sizes['width']);
 
         return view('shortcode-plus::media', compact('path', 'align', 'maxWidth', 'link', 'didascalia', 'credits', 'alt', 'title', 'width', 'height'))->render();
