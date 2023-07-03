@@ -69,14 +69,6 @@ class PhotoShortcode
             ? $matches[1]
             : 896;
 
-        $maxHeight = preg_match(
-            '/max-height="(\d+)"/',
-            $shortcode->get(0),
-            $matches
-        )
-            ? $matches[1]
-            : null;
-
         $sizes = self::getImageSizes($path);
 
         $width = $shortcode->width ?? $maxWidth;
