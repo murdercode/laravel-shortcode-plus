@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v2.1.3 - 2023-07-03
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/28
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.2...v2.1.3
+
 ## v2.1.1 - 2023-07-03
 
 ### What's Changed
