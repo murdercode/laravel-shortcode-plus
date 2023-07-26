@@ -36,6 +36,7 @@ For example, you can use the following shortcode to embed a Youtube video:
 This will be rendered as:
 
 ```html
+
 <iframe
     src="https://www.youtube-nocookie.com/embed/123456789&autoplay=1"
     srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/123456789?autoplay=1><img style='object-fit:cover;height:100%;' loading='lazy' src=https://img.youtube.com/vi/123456789/hqdefault.jpg alt='123456789'
@@ -124,7 +125,7 @@ return LaravelShortcodePlus::source($html)->parseAll();
 Here is the list of the available parsers:
 
 | Shortcode      | Description                                                                                     | Parameters                 | Example                                                                                                                               |
-| -------------- | ----------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------|-------------------------------------------------------------------------------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | `[twitter]  `  | Get a Twitter card                                                                              | `url`                      | `[twitter url="https://twitter.com/elonmusk/status/1585841080431321088"]`                                                             |
 | `[youtube]`    | Get a Youtube (light) player                                                                    | `url`                      | `[youtube url="https://www.youtube.com/watch?v=9bZkp7q19f0"]`                                                                         |
 | `[spotify]`    | Get a Spotify player                                                                            | `url` or `uri`             | `[spotify url="https://open.spotify.com/track/2TpxZ7JUBn3uw46aR7qd6V"]`                                                               |
@@ -137,12 +138,14 @@ Here is the list of the available parsers:
 | `[photo]`      | Create a gallery image with `[Nova Media Hub](https://github.com/outl1ne/nova-media-hub)` model | `didascalia`               | Single or multiple images: `[photo didascalia="Gallery title here" id="1,2,3"]`                                                       |
 | `[leggianche]` | Create a Read more div, based on `Article` or `Post` model                                      | `id`                       | `[leggianche id="1"]`                                                                                                                 |
 | `[distico]`    | Create a side text block, based on `Article` or `Post` model                                    | `id`                       | `[distico id="1"]`                                                                                                                    |
+| `[button]`     | Create a button that links to an URL                                                            | `link`, `label`, `level`   | `[button link="https://www.google.com" label="Google" level="primary/secondary"]`                                                     |
 
 ### Note for Facebook
 
 Please remember to call the SDK before `</body>`:
 
 ```html
+
 <div id="fb-root"></div>
 <script
     async
@@ -174,8 +177,8 @@ vulnerabilities.
 
 ## Credits
 
--   [Stefano Novelli](https://github.com/murdercode)
--   [All Contributors](../../contributors)
+- [Stefano Novelli](https://github.com/murdercode)
+- [All Contributors](../../contributors)
 
 ## License
 
