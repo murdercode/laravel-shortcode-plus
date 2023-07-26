@@ -121,6 +121,32 @@
     padding: 2rem 1rem;
 }
 
+/* BUTTON */
+a.shortcode_distico {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
+
+a.shortcode_distico.primary {
+    color: #fff;
+    background: #DC2626;
+}
+
+a.shortcode_distico.primary:hover {
+    background: #b91c1c;
+}
+
+a.shortcode_distico.secondary {
+    color: #1f2937;
+    background: #e5e7eb;
+}
+
+a.shortcode_distico.secondary:hover {
+    background: #d1d5db;
+}
+
 /* WIDGETBAY */
 .shortcode_widgetbay {
     height: 420px;
