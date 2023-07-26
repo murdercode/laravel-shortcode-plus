@@ -25,7 +25,7 @@ class TwitterShortcode
         return view('shortcode-plus::twitter', compact('html'))->render();
     }
 
-    private static function getOembed(string $url): string|null
+    private static function getOembed(string $url): ?string
     {
         curl_setopt_array($curl = curl_init(), [
             CURLOPT_URL => "https://publish.twitter.com/oembed?url=$url",
