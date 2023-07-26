@@ -2,9 +2,6 @@
 
 namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
-use App\Models\Article;
-use App\Models\Post;
-
 class LeggiancheShortcode
 {
     public function register($shortcode): string
