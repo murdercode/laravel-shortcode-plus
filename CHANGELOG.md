@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## New shortcode [button] - 2023-07-26
+
+### What's Changed
+
+- Now we can render a `[button link="#" label"#"]` shortcode
+- A shortcode button by @murdercode in https://github.com/murdercode/laravel-shortcode-plus/pull/29
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.3...v2.1.4
+
 ## v2.1.3 - 2023-07-03
 
 ### What's Changed
