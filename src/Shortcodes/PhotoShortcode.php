@@ -94,7 +94,7 @@ class PhotoShortcode
 
         // Get image sizes
         $sizes = [];
-        $imageSizes = @getimagesize($localPath) ?? [0, 0];
+        $imageSizes = @getimagesize($localPath);
         $sizes['width'] = $imageSizes[0];
         $sizes['height'] = $imageSizes[1];
 
