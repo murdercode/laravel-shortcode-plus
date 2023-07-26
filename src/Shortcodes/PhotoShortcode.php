@@ -6,7 +6,7 @@ use Outl1ne\NovaMediaHub\Models\Media as Media;
 
 class PhotoShortcode
 {
-    public function register($shortcode, $content, $compiler, $name, $viewData)
+    public function register($shortcode): string
     {
         $multipleIds = preg_match('/\d+(,\s*\d+)*/', $shortcode->id, $matches) ? $matches[0] : null;
 
@@ -79,10 +79,8 @@ class PhotoShortcode
 
     /**
      * Calculate image sizes based on max width and height
-     *
-     * @return int
      */
-    public static function getImageHeight(string $path, int $width = 0)
+    public static function getImageHeight(string $path, int $width = 0): float|int
     {
 
         $localPath = storage_path('app/public/'.$path);
@@ -99,8 +97,6 @@ class PhotoShortcode
         $sizes['height'] = $imageSizes[1];
 
         // Calculate height
-        $height = $sizes['height'] * $width / $sizes['width'];
-
-        return $height;
+        return $sizes['height'] * $width / $sizes['width'];
     }
 }

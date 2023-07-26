@@ -4,7 +4,7 @@ namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class TwitterShortcode
 {
-    public function register($shortcode, $content, $compiler, $name, $viewData)
+    public function register($shortcode): string
     {
         $url = $shortcode->url ?? '';
 

@@ -4,7 +4,7 @@ namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class DisticoShortcode
 {
-    public function register($shortcode)
+    public function register($shortcode): string
     {
         $content = $shortcode->content ?? '';
 

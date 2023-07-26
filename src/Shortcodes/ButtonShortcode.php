@@ -4,7 +4,7 @@ namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class ButtonShortcode
 {
-    public function register($shortcode)
+    public function register($shortcode): string
     {
         $link = $shortcode->link ?? '#';
         $label = $shortcode->label ?? 'Click here';
