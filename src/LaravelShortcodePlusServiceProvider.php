@@ -3,6 +3,7 @@
 namespace Murdercode\LaravelShortcodePlus;
 
 use Illuminate\Support\Facades\Blade;
+use Murdercode\LaravelShortcodePlus\Shortcodes\ButtonShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\DisticoShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\FacebookShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\FaqShortcode;
@@ -71,6 +72,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         Shortcode::register('widgetbay', WidgetbayShortcode::class);
         Shortcode::register('leggianche', LeggiancheShortcode::class);
         Shortcode::register('photo', PhotoShortcode::class);
+        Shortcode::register('button', ButtonShortcode::class);
 
     }
 }

@@ -4,7 +4,7 @@ namespace Murdercode\LaravelShortcodePlus\Helpers;
 
 class Sanitizer
 {
-    public static function escapeQuotes(string|null $content): string
+    public static function escapeQuotes(?string $content): string
     {
         if ($content == null) {
             return '';
