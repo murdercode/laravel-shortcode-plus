@@ -4,37 +4,45 @@ namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class SpotifyShortcode
 {
+    protected $spotify_embed_url = 'https://open.spotify.com/embed/';
+
     public function register($shortcode): string
     {
-        [$url, $uri] = [$shortcode->url, $shortcode->uri];
 
-        $convertedUrl = $url ? self::getUrlFromUrl($url) : ($uri ? self::getUrlFromUri($uri) : null);
+        $urlOrUri = $shortcode->url ?? $shortcode->uri ?? null;
 
-        if (! isset($convertedUrl)) {
+        if (! isset($urlOrUri)) {
             return 'No url or uri Spotify provided';
         }
 
-        return $convertedUrl ? view('shortcode-plus::spotify', compact('convertedUrl'))->render() : ($url ?? $uri);
+        $convertedUrl = $this->getEmbedUrl($urlOrUri);
+
+        return view('shortcode-plus::spotify', compact('convertedUrl'))->render();
 
     }
 
-    private static function getUrlFromUrl(string $url): string
+    protected function getEmbedUrl(string $urlOrUri): string
     {
-        $url = str_replace('https://open.spotify.com/', '', $url);
-        $url = explode('/', $url);
-        $type = $url[0] ?? null;
-        $id = $url[1] ?? null;
+        $typeAndId = self::extractTypeAndId($urlOrUri);
+        $type = $typeAndId[0];
+        $id = $typeAndId[1];
 
-        return 'https://open.spotify.com/embed/'.$type.'/'.$id;
+        return $this->spotify_embed_url.$type.'/'.$id;
     }
 
-    private static function getUrlFromUri(string $uri): string
+    protected function extractTypeAndId(string $urlOrUri): array
     {
-        $uri = str_replace('spotify:', '', $uri);
-        $uri = explode(':', $uri);
-        $type = $uri[0] ?? null;
-        $id = $uri[1] ?? null;
 
-        return 'https://open.spotify.com/embed/'.$type.'/'.$id;
+        if (str_contains($urlOrUri, 'spotify:')) {
+            $uri = str_replace('spotify:', '', $urlOrUri);
+            $parts = explode(':', $uri);
+        } else {
+            $url = str_replace('https://open.spotify.com/', '', $urlOrUri);
+            $parts = explode('/', $url);
+        }
+        $type = $parts[0] ?? null;
+        $id = $parts[1] ?? null;
+
+        return [$type, $id];
     }
 }
