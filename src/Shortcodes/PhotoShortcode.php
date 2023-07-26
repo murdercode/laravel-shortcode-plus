@@ -2,23 +2,20 @@
 
 namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
-use Outl1ne\NovaMediaHub\Models\Media as Media;
-
 class PhotoShortcode
 {
-    public function register($shortcode, $content, $compiler, $name, $viewData)
+    public function register($shortcode): string
     {
-        $multipleIds = preg_match('/\d+(,\s*\d+)*/', $shortcode->id, $matches) ? $matches[0] : null;
-
         if (! class_exists('\Outl1ne\NovaMediaHub\Models\Media')) {
             return '';
         }
 
-        // Multiple images
+        $multipleIds = preg_match('/\d+(,\s*\d+)*/', $shortcode->id, $matches) ? $matches[0] : null;
+
         if ($multipleIds) {
             $ids = explode(',', $multipleIds);
             if (count($ids) > 1) {
-                $images = Media::whereIn('id', $ids)->get();
+                $images = \Outl1ne\NovaMediaHub\Models\Media::whereIn('id', $ids)->get();
                 foreach ($images as $key => $image) {
                     $images[$key]['src'] = $image->path.$image->file_name;
                     $images[$key]['title'] = $image['data']['title'][0] ?? null;
@@ -31,7 +28,7 @@ class PhotoShortcode
         }
 
         // Single image
-        $media = Media::find($shortcode->id);
+        $media = \Outl1ne\NovaMediaHub\Models\Media::find($shortcode->id);
         if (! $media) {
             return '';
         }
@@ -41,7 +38,7 @@ class PhotoShortcode
         $link = $shortcode->link ? str_replace("'", '%27', $shortcode->link) : null;
 
         $didascalia = $shortcode->didascalia ?? $media->data['caption'] ?? null;
-        // If didascalia is array, get first element
+
         if (is_array($didascalia)) {
             $didascalia = $didascalia[0];
         }
@@ -69,8 +66,6 @@ class PhotoShortcode
             ? $matches[1]
             : 896;
 
-        //$sizes = self::getImageSizes($path);
-
         $width = $shortcode->width ?? $maxWidth;
         $height = $shortcode->height ?? self::getImageHeight($path, $width);
 
@@ -79,10 +74,8 @@ class PhotoShortcode
 
     /**
      * Calculate image sizes based on max width and height
-     *
-     * @return int
      */
-    public static function getImageHeight(string $path, int $width = 0)
+    public static function getImageHeight(string $path, int $width = 0): float|int
     {
 
         $localPath = storage_path('app/public/'.$path);
@@ -99,8 +92,6 @@ class PhotoShortcode
         $sizes['height'] = $imageSizes[1];
 
         // Calculate height
-        $height = $sizes['height'] * $width / $sizes['width'];
-
-        return $height;
+        return $sizes['height'] * $width / $sizes['width'];
     }
 }

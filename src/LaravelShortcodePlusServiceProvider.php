@@ -19,6 +19,7 @@ use Murdercode\LaravelShortcodePlus\Shortcodes\YoutubeShortcode;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Webwizo\Shortcodes\Facades\Shortcode;
+use Webwizo\Shortcodes\ShortcodesServiceProvider;
 
 class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
 {
@@ -42,7 +43,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
 
     }
 
-    public function packageBooted()
+    public function packageBooted(): void
     {
         Blade::componentNamespace(
             'Murdercode\LaravelShortcodePlus\View\Components',
@@ -55,10 +56,10 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         );
     }
 
-    public function register()
+    public function register(): void
     {
         parent::register();
-        $this->app->register(\Webwizo\Shortcodes\ShortcodesServiceProvider::class);
+        $this->app->register(ShortcodesServiceProvider::class);
 
         Shortcode::register('reddit', RedditShortcode::class);
         Shortcode::register('facebook', FacebookShortcode::class);

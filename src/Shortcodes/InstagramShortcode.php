@@ -4,7 +4,7 @@ namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class InstagramShortcode
 {
-    public function register($shortcode, $content, $compiler, $name, $viewData)
+    public function register($shortcode): string
     {
         $url = $shortcode->url ?? '';
 
@@ -28,14 +28,6 @@ class InstagramShortcode
         return view('shortcode-plus::instagram', compact('embed_url'))->render();
     }
 
-    private static function getPostId($url)
-    {
-        $regex = '/\/(?:p|reel)\/([a-zA-Z0-9_-]+)/';
-        preg_match($regex, $url, $matches);
-
-        return $matches[1] ?? null;
-    }
-
     private static function getPathType($url)
     {
         $isPost = str_contains($url, '/p/');
@@ -49,5 +41,13 @@ class InstagramShortcode
         }
 
         return null;
+    }
+
+    private static function getPostId($url)
+    {
+        $regex = '/\/(?:p|reel)\/([a-zA-Z0-9_-]+)/';
+        preg_match($regex, $url, $matches);
+
+        return $matches[1] ?? null;
     }
 }

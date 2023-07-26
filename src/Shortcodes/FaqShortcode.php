@@ -4,7 +4,7 @@ namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 class FaqShortcode
 {
-    public function register($shortcode, $content, $compiler, $name, $viewData)
+    public function register($shortcode): string
     {
 
         $title = $shortcode->title ?? __('Show hidden content');
