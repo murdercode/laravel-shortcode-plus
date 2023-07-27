@@ -13,6 +13,7 @@ use Murdercode\LaravelShortcodePlus\Shortcodes\PhotoShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\RedditShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\SpoilerShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\SpotifyShortcode;
+use Murdercode\LaravelShortcodePlus\Shortcodes\TmdbShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\TwitterShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\WidgetbayShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\YoutubeShortcode;
@@ -74,6 +75,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         Shortcode::register('leggianche', LeggiancheShortcode::class);
         Shortcode::register('photo', PhotoShortcode::class);
         Shortcode::register('button', ButtonShortcode::class);
+        Shortcode::register('tmdb', TmdbShortcode::class);
 
     }
 }
