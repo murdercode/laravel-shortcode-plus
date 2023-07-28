@@ -56,8 +56,6 @@ class TmdbShortcode
             ->acceptJson()
             ->get("https://api.themoviedb.org/$tmdbApiVersion/$type/$id?language=$tmdbLanguage");
 
-
-
         if ($response->failed()) {
             throw new \Exception('Error while fetching data from TMDB API');
         }
@@ -68,21 +66,21 @@ class TmdbShortcode
     /**
      * Generate More Link
      */
-    public function generateMoreLink($type, $id) : ?string
+    public function generateMoreLink($type, $id): ?string
     {
         $moreLinkDomain = config('shortcode-plus.tmdb.more_link.domain');
 
-        if(!$moreLinkDomain) {
+        if (! $moreLinkDomain) {
             return null;
         }
 
-        $moreLinkType = match($type) {
+        $moreLinkType = match ($type) {
             'movie' => config('shortcode-plus.tmdb.more_link.movie-prefix'),
             'tv' => config('shortcode-plus.tmdb.more_link.tv-prefix'),
             default => null,
         };
 
-        if(!$moreLinkType) {
+        if (! $moreLinkType) {
             return null;
         }
 
