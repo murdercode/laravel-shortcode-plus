@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v2.1.5 - 2023-07-28
+
+### What's Changed
+
+- Cleanup by @murdercode in https://github.com/murdercode/laravel-shortcode-plus/pull/30
+- Tmdb shortcode by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/32
+
+### New Contributors
+
+- @Claudio-Emmolo made their first contribution in https://github.com/murdercode/laravel-shortcode-plus/pull/32
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.4...v2.1.5
+
 ## New shortcode [button] - 2023-07-26
 
 ### What's Changed
