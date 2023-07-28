@@ -25,7 +25,7 @@ return [
         'more_link' => [
             'domain' => 'https://example.com',
             'movie-prefix' => 'movies',
-            'tv-prefix' => 'tvs'
+            'tv-prefix' => 'tvs',
         ],
         'cache_ttl' => 60 * 60 * 24, // 1 day
         'justwatch_api_key' => env('JUSTWATCH_API_KEY'),
