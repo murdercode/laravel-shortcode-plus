@@ -1,2 +1,2 @@
-<a class="shortcode_button {{$level}}" href="{{$link}}">{{$label}}</a>
+<a class="shortcode_button {{$level}}" href="{{$link}}" target="_blank">{{$label}}</a>
 
