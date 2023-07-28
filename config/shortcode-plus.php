@@ -30,4 +30,10 @@ return [
         'cache_ttl' => 60 * 60 * 24, // 1 day
         'justwatch_api_key' => env('JUSTWATCH_API_KEY'),
     ],
+    'button' => [
+        'sponsored' => [
+            // If the domain is not in the whitelist, the link will be nofollow
+            'whitelist' => ['example.com', 'example2.com'],
+        ],
+    ],
 ];
