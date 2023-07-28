@@ -26,7 +26,7 @@ class TmdbShortcode
         $data = $this->getTmdbDataFromApi($type, $id);
         $moreLink = $this->generateMoreLink($type, $id);
 
-        return view('shortcode-plus::tmdb', compact('data'))->render();
+        return view('shortcode-plus::tmdb', compact('data', 'moreLink'))->render();
 
     }
 
