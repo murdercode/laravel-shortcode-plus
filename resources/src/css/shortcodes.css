@@ -129,7 +129,7 @@ a.shortcode_button {
     border-radius: 0.25rem;
 }
 
-a.shortcode_buttono.primary {
+a.shortcode_button.primary {
     color: #fff;
     background: #DC2626;
 }
