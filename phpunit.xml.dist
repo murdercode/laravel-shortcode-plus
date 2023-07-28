@@ -18,6 +18,7 @@
     beStrictAboutOutputDuringTests="true"
     verbose="true"
 >
+
     <testsuites>
         <testsuite name="Murdercode Test Suite">
             <directory>tests</directory>

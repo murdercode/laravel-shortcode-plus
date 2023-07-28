@@ -25,9 +25,7 @@ final class LaravelShortcodePlus
         $this->content = $this->parseImageTag();
         $this->content = $this->parseGalleryTag();
 
-        $this->content = Shortcode::compile($this->content);
-
-        return $this->content;
+        return Shortcode::compile($this->content);
     }
 
     public function parseImageTag(): string
