@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v2.1.6 - 2023-08-01
+
+- Set custom phrase for TMDB
+
 ## v2.1.5 - 2023-07-28
 
 ### What's Changed
