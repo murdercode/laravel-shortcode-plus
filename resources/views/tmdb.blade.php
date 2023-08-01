@@ -3,7 +3,8 @@
     <div class="top-box flex">
         {{-- Poster--}}
         <div class="movie-poster">
-            <img src="{{config('shortcode-plus.tmdb.image_base_uri')}}/w154{{$data->poster_path}}" alt="Immagine di {{$data->title ?? $data->name}}" loading="lazy">
+            <img src="{{config('shortcode-plus.tmdb.image_base_uri')}}/w154{{$data->poster_path}}"
+                 alt="Immagine di {{$data->title ?? $data->name}}" loading="lazy">
         </div>
 
         {{-- Movie Info --}}
@@ -61,13 +62,16 @@
                      data-id-type="tmdb"
                      data-scale="0.8"
                      data-offer-label="price"
-                     data-theme="light"> </div>
+                     data-no-offers-message="Non ancora disponibile per la visione."
+                     data-theme="light">
+                </div>
                 <div>
                     {{--                    <a style="font-size: 11px; font-family: sans-serif; color: black; text-decoration: none; display: flex; flex-direction: column; padding: 10px;"--}}
                     {{--                       target="_blank" data-original="https://www.justwatch.com" href="https://www.justwatch.com/it"> Powered by--}}
                     {{--                        <span style="display: -moz-inline-box; display: inline-block; width: 66px; height: 10px; margin-left: 3px; background: url(https://widget.justwatch.com/assets/JW_logo_color_10px.svg); overflow: hidden; text-indent: -3000px;">JustWatch</span>--}}
                     {{--                    </a>--}}
-                    <a target="_blank" data-original="https://www.justwatch.com" href="https://www.justwatch.com/it" class="justwatch-logo-box"> Powered by
+                    <a target="_blank" data-original="https://www.justwatch.com" href="https://www.justwatch.com/it"
+                       class="justwatch-logo-box"> Powered by
                         <span></span>
                     </a>
                 </div>
@@ -75,6 +79,7 @@
         </div>
     </div>
 
-    <div class="movie-poster-backdrop" style="background-image:url('{{config('shortcode-plus.tmdb.image_base_uri')}}/w780{{$data->backdrop_path}}')"></div>
+    <div class="movie-poster-backdrop"
+         style="background-image:url('{{config('shortcode-plus.tmdb.image_base_uri')}}/w780{{$data->backdrop_path}}')"></div>
 
 </div>
