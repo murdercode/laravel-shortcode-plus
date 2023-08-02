@@ -66,13 +66,8 @@
                      data-theme="light">
                 </div>
                 <div>
-                    {{--                    <a style="font-size: 11px; font-family: sans-serif; color: black; text-decoration: none; display: flex; flex-direction: column; padding: 10px;"--}}
-                    {{--                       target="_blank" data-original="https://www.justwatch.com" href="https://www.justwatch.com/it"> Powered by--}}
-                    {{--                        <span style="display: -moz-inline-box; display: inline-block; width: 66px; height: 10px; margin-left: 3px; background: url(https://widget.justwatch.com/assets/JW_logo_color_10px.svg); overflow: hidden; text-indent: -3000px;">JustWatch</span>--}}
-                    {{--                    </a>--}}
                     <a target="_blank" data-original="https://www.justwatch.com" href="https://www.justwatch.com/it"
-                       class="justwatch-logo-box"> Powered by
-                        <span></span>
+                       class="justwatch-logo-box"> Powered by <span>JustWatch</span>
                     </a>
                 </div>
             @endif
