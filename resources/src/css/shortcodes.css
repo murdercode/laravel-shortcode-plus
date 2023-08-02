@@ -288,7 +288,7 @@ a.shortcode_button.secondary:hover {
     margin-left: 3px;
     background: url("https://widget.justwatch.com/assets/JW_logo_black_10px.svg");
     overflow: hidden;
-    text-indent: -3000;
+    text-indent: -3000px;
 }
 
 @media (prefers-color-scheme: dark) {
