@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## Fix JustWatch text - 2023-08-02
+
+- As requested by JustWatch, add JustWatch in span for better Google results
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.6...v2.1.7
+
 ## v2.1.6 - 2023-08-01
 
 - Set custom phrase for TMDB
