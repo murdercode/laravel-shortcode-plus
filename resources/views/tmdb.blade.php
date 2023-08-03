@@ -67,7 +67,9 @@
                 </div>
                 <div>
                     <a target="_blank" data-original="https://www.justwatch.com" href="https://www.justwatch.com/it"
-                       class="justwatch-logo-box"> Powered by <span>JustWatch</span>
+                       class="justwatch-logo-box"> Powered by <img
+                            src="https://widget.justwatch.com/assets/JW_logo_black_10px.svg" alt="JustWatch"
+                            loading="lazy"/>
                     </a>
                 </div>
             @endif

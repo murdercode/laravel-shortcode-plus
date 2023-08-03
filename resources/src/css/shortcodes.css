@@ -281,14 +281,11 @@ a.shortcode_button.secondary:hover {
     padding: 10px;
 }
 
-.shortcode_tmdb .bottom-box .justwatch-logo-box span {
+.shortcode_tmdb .bottom-box .justwatch-logo-box img {
     display: inline-block;
     width: 66px;
     height: 10px;
     margin-left: 3px;
-    background: url("https://widget.justwatch.com/assets/JW_logo_black_10px.svg");
-    overflow: hidden;
-    text-indent: -3000px;
 }
 
 @media (prefers-color-scheme: dark) {
