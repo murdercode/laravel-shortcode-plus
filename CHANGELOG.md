@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v2.1.8 - Add TikTok support - 2023-08-10
+
+### What's Changed
+
+- Add tiktok shortcode by @murdercode in https://github.com/murdercode/laravel-shortcode-plus/pull/33
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.7...v2.1.8
+
 ## Fix JustWatch text - 2023-08-02
 
 - As requested by JustWatch, add JustWatch in span for better Google results
