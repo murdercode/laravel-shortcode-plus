@@ -18,14 +18,15 @@ class TikTokShortcode
 
         $html = self::getOembed($url) ?? null;
 
-        if (!isset($html)) {
+        if (! isset($html)) {
             return 'Cannot get TikTok oembed';
         }
 
         return view('shortcode-plus::tiktok', compact('html'))->render();
     }
 
-    private static function getOembed(string $url): ?string{
+    private static function getOembed(string $url): ?string
+    {
         curl_setopt_array($curl = curl_init(), [
             CURLOPT_URL => "https://www.tiktok.com/oembed?url=$url",
             CURLOPT_RETURNTRANSFER => true,
