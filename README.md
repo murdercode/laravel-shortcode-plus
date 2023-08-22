@@ -119,6 +119,29 @@ use Murdercode\ShortcodePlus\Facades\ShortcodePlus;
 $html = "I want to parse this twitter tag: [twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\"]";
 return LaravelShortcodePlus::source($html)->parseAll();
 ```
+If you want to use the **photo gallery** you will need to install **GLightbox**
+```bash
+npm install glightbox
+```
+and in **app.css** add:
+```php
+@import url("/public/vendor/shortcode-plus/css/shortcodes.css");
+@import 'glightbox/dist/css/glightbox.min.css';
+```
+in **app.js** add:
+```php
+import GLightbox from 'glightbox';
+
+const lightbox = GLightbox();
+```
+finally, in **layout.blade.php**, call only app.css and app.js:
+```html
+<head>
+    ...
+	@vite(['resources/css/app.css', 'resources/js/app.js'])
+    ...
+</head>
+```
 
 ## Parsers
 
