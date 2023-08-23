@@ -108,7 +108,7 @@ Laravel Shortcode Plus is shipped with a default CSS for a better user experienc
 following line before your `</head>`:
 
 ```php
-<link href="{{asset('vendor/shortcode-plus/css/shortcodes.css')}}" rel="stylesheet">
+<link href="{{asset('vendor/shortcode-plus/css/app.css')}}" rel="stylesheet">
 ```
 
 Now you can parse your source as follows:

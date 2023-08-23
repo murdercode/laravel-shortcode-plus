@@ -23,7 +23,7 @@ class PhotoShortcode
                 }
                 $title = $shortcode->didascalia ?? '';
 
-                if ($shortcode->carousel) {
+                if ($shortcode->effect == 'carousel') {
                     return view('shortcode-plus::carousel', compact('images', 'title'))->render();
                 }
 
