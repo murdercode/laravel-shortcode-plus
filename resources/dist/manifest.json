@@ -1,8 +1,8 @@
 {
   "resources/src/css/app.css": {
     "file": "app.css",
-    "src": "resources/src/css/app.css",
-    "isEntry": true
+    "isEntry": true,
+    "src": "resources/src/css/app.css"
   },
   "resources/src/js/app.js": {
     "file": "app2.js",

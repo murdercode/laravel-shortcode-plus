@@ -1,0 +1,11 @@
+name: Npm Build
+
+on: [pull_request, push]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Build
+        run: npm run build
