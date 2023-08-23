@@ -1,6 +1,7 @@
-@import 'juxtaposejs/build/css/juxtapose.css';
+/*@import 'juxtaposejs/build/css/juxtapose.css';*/
 @import '@splidejs/splide/dist/css/splide.min.css';
 @import 'glightbox/dist/css/glightbox.min.css';
+@import 'image-compare-viewer/dist/image-compare-viewer.min.css';
 
 /*Splide*/
 .splide__arrow{

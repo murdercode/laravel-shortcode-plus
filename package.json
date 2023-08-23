@@ -21,6 +21,6 @@
     "vite": "^4.0.0"
   },
   "dependencies": {
-    "juxtaposejs": "^1.1.6"
+    "image-compare-viewer": "^1.5.0"
   }
 }

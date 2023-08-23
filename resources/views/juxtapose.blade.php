@@ -1,7 +1,5 @@
-<div class="juxtapose">
+<div class="image-compare">
     @foreach($images as $image)
-        <img src="{{ asset('storage/' . $image->src ) }}" alt="{{$image->title}}" class="w-full h-full object-cover" />
+        <img src="{{ asset('storage/' . $image->src ) }}" alt="{{$image->title}}" />
     @endforeach
 </div>
-
-<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
