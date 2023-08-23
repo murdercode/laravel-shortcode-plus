@@ -101,14 +101,16 @@ Optionally, you can publish the views using
 ```bash
 php artisan vendor:publish --tag="shortcode-plus-views"
 ```
-
 ## Usage
 
-Laravel Shortcode Plus is shipped with a default CSS for a better user experience. You can add the
-following line before your `</head>`:
-
-```php
-<link href="{{asset('vendor/shortcode-plus/css/shortcodes.css')}}" rel="stylesheet">
+Laravel Shortcode Plus is shipped with a default CSS and JS for a better user experience. 
+You can add on **resources/css/app.css** the CSS files:
+```css
+@import url("/public/vendor/shortcode-plus/app.css");
+```
+and in **resources/js/app.js** the JS files:
+```js
+import '/public/vendor/shortcode-plus/app2.js';
 ```
 
 Now you can parse your source as follows:
@@ -119,30 +121,6 @@ use Murdercode\ShortcodePlus\Facades\ShortcodePlus;
 $html = "I want to parse this twitter tag: [twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\"]";
 return LaravelShortcodePlus::source($html)->parseAll();
 ```
-If you want to use the **photo gallery** you will need to install **GLightbox**
-```bash
-npm install glightbox
-```
-and in **app.css** add:
-```php
-@import url("/public/vendor/shortcode-plus/css/shortcodes.css");
-@import 'glightbox/dist/css/glightbox.min.css';
-```
-in **app.js** add:
-```php
-import GLightbox from 'glightbox';
-
-const lightbox = GLightbox();
-```
-finally, in **layout.blade.php**, call only app.css and app.js:
-```html
-<head>
-    ...
-	@vite(['resources/css/app.css', 'resources/js/app.js'])
-    ...
-</head>
-```
-
 ## Parsers
 
 Here is the list of the available parsers:
