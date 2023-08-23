@@ -27,6 +27,10 @@ class PhotoShortcode
                     return view('shortcode-plus::carousel', compact('images', 'title'))->render();
                 }
 
+                if ($shortcode->effect == 'juxtapose' && count($images) == 2) {
+                    return view('shortcode-plus::juxtapose', compact('images', 'title'))->render();
+                }
+
                 return view('shortcode-plus::new-gallery', compact('images', 'title'))->render();
             }
         }
