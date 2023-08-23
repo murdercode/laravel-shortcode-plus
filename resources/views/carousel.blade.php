@@ -14,6 +14,7 @@
     </div>
 </section>
 
+
 {{--<script>--}}
 {{--    let splide = new Splide( '.splide', {--}}
 {{--        type   : 'loop',--}}
