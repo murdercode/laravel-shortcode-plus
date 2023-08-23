@@ -101,14 +101,16 @@ Optionally, you can publish the views using
 ```bash
 php artisan vendor:publish --tag="shortcode-plus-views"
 ```
-
 ## Usage
 
-Laravel Shortcode Plus is shipped with a default CSS for a better user experience. You can add the
-following line before your `</head>`:
-
-```php
-<link href="{{asset('vendor/shortcode-plus/css/app.css')}}" rel="stylesheet">
+Laravel Shortcode Plus is shipped with a default CSS and JS for a better user experience. 
+You can add on **resources/css/app.css** the CSS files:
+```css
+@import url("/public/vendor/shortcode-plus/app.css");
+```
+and in **resources/js/app.js** the JS files:
+```js
+import '/public/vendor/shortcode-plus/app2.js';
 ```
 
 Now you can parse your source as follows:
@@ -119,7 +121,6 @@ use Murdercode\ShortcodePlus\Facades\ShortcodePlus;
 $html = "I want to parse this twitter tag: [twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\"]";
 return LaravelShortcodePlus::source($html)->parseAll();
 ```
-
 ## Parsers
 
 Here is the list of the available parsers:
@@ -135,7 +136,7 @@ Here is the list of the available parsers:
 | `[instagram]`  | Get a Instagram card                                                                            | `url`                               | `[instagram url="https://www.instagram.com/p/CApQfIjBGxC/"]`                                                                          |
 | `[image]`      | Create an image with `Image::class` model                                                       | `id`, `caption` (optional)          | `[image id="123"]`                                                                                                                    |
 | `[gallery]`    | Create a gallery image with `Image::class` model                                                | `title`, `images`                   | Single or multiple images: `[gallery title="Gallery title here" images="1"]` or `[gallery title="Gallery title here" images="1,2,3"]` |
-| `[photo]`      | Create a gallery image with `[Nova Media Hub](https://github.com/outl1ne/nova-media-hub)` model | `didascalia`                        | Single or multiple images: `[photo didascalia="Gallery title here" id="1,2,3"]`                                                       |
+| `[photo]`      | Create a gallery image with `[Nova Media Hub](https://github.com/outl1ne/nova-media-hub)` model | `didascalia` `effect`(optional)     | Single or multiple images: `[photo didascalia="Gallery title here" id="1,2,3"]` Effect [photo id="1,2,3" effect="carousel|juxtapose"] |
 | `[leggianche]` | Create a Read more div, based on `Article` or `Post` model                                      | `id`                                | `[leggianche id="1"]`                                                                                                                 |
 | `[distico]`    | Create a side text block, based on `Article` or `Post` model                                    | `id`                                | `[distico id="1"]`                                                                                                                    |
 | `[button]`     | Create a button that links to an URL                                                            | `link`, `label`, `level (optional)` | `[button link="https://www.google.com" label="Google" level="primary/secondary"]`                                                     |
