@@ -23,6 +23,11 @@ class PhotoShortcode
                 }
                 $title = $shortcode->didascalia ?? '';
 
+                if($shortcode->carousel)
+                {
+                    return view('shortcode-plus::carousel', compact('images', 'title'))->render();
+                }
+
                 return view('shortcode-plus::new-gallery', compact('images', 'title'))->render();
             }
         }
