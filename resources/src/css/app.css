@@ -1,6 +1,13 @@
 @import '@splidejs/splide/dist/css/splide.min.css';
 @import 'glightbox/dist/css/glightbox.min.css';
 
+/*Splide*/
+.splide__arrow{
+    background-color: white !important;
+    padding: 10px !important;
+}
+
+
 .shortcode_youtube {
     display: block;
     margin-top: 8px;
