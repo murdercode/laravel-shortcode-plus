@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v3.0.0 - 2023-08-23
+
+### What's Changed
+
+- 36 add carousel in photo by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/38
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.8...v3.0.0
+
 ## v2.1.8 - Add TikTok support - 2023-08-10
 
 ### What's Changed
