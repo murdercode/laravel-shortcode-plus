@@ -56,12 +56,6 @@ the best SEO practices around.
 
 ## Installation
 
-**(Only for 1.x)** First, you need Laravel Livewire:
-
-```bash
-composer require livewire/livewire
-```
-
 You can install the package via composer:
 
 ```bash
@@ -95,6 +89,14 @@ return [
 ];
 ```
 -->
+
+If you want to upgrade every time your assets, add in your composer.json:
+
+```json
+    "scripts": {
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=shortcode-plus-assets --ansi --force",
+```
 
 Optionally, you can publish the views using
 
