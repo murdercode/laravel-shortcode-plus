@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v3.0.1 - 2023-08-24
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v3.0.0...v3.0.1
+[Add width on carousel image](https://github.com/murdercode/laravel-shortcode-plus/commit/5a6ed40348257735a98703914f55a61c31a171a5)
+
 ## v3.0.0 - 2023-08-23
 
 ### What's Changed
