@@ -3,19 +3,28 @@ import GLightbox from 'glightbox';
 import ImageCompare from "image-compare-viewer";
 
 // Splide
-let splide = new Splide( '.splide', {
-    type   : 'loop',
-    padding: '5rem',
-} );
+const checkSpide = document.querySelector(".splide");
+if (checkSpide !== null) {
 
-splide.mount();
+    let splide = new Splide('.splide', {
+        type: 'loop',
+        padding: '5rem',
+    });
+
+    splide.mount();
+
+}
 
 // GLightbox
-const lightbox = GLightbox();
+const checkLightbox = document.querySelector(".glightbox");
 
+if (checkLightbox !== null) {
+    const lightbox = GLightbox();
+}
 // Image Compare
 const viewers = document.querySelectorAll(".image-compare");
-
-viewers.forEach((element) => {
-    let view = new ImageCompare(element).mount();
-});
+if(viewers !== null){
+    viewers.forEach((element) => {
+        let view = new ImageCompare(element).mount();
+    });
+}
