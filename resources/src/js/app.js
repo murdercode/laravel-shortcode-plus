@@ -12,7 +12,6 @@ if (checkSpide !== null) {
     });
 
     splide.mount();
-
 }
 
 // GLightbox
