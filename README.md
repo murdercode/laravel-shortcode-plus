@@ -65,7 +65,7 @@ composer require murdercode/laravel-shortcode-plus
 You can use shortcodes CSS publishing the assets:
 
 ```bash
-php artisan vendor:publish --tag="laravel-shortcode-plus-assets"
+php artisan vendor:publish --tag="shortcode-plus-assets"
 ```
 
 You can publish and run the migrations with:
