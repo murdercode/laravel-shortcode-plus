@@ -2,6 +2,31 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v3.0.2 - 2023-08-29
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v3.0.1...v3.0.2
+
+## v3.0.1 - 2023-08-24
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v3.0.0...v3.0.1
+[Add width on carousel image](https://github.com/murdercode/laravel-shortcode-plus/commit/5a6ed40348257735a98703914f55a61c31a171a5)
+
+## v3.0.0 - 2023-08-23
+
+### What's Changed
+
+- 36 add carousel in photo by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/38
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.8...v3.0.0
+
+## v2.1.8 - Add TikTok support - 2023-08-10
+
+### What's Changed
+
+- Add tiktok shortcode by @murdercode in https://github.com/murdercode/laravel-shortcode-plus/pull/33
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.7...v2.1.8
+
 ## Fix JustWatch text - 2023-08-02
 
 - As requested by JustWatch, add JustWatch in span for better Google results

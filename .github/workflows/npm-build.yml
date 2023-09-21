@@ -1,0 +1,17 @@
+name: Npm Build
+
+on: [pull_request, push]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Npm Install
+        run: npm install
+
+      - name: Run Build
+        run: npm run build
