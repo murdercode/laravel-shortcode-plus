@@ -11,7 +11,7 @@
         <figure class="relative" @if($align) style="float: {{$align}}" @endif>
 
             @if($link)
-                <a class="stretched-link" href="{!! $link !!}" rel="nofollow norefereer sponsored">
+                <a class="stretched-link" target="_blank" href="{!! $link !!}" rel="nofollow norefereer sponsored">
                     @else
                         <a class="stretched-link glightbox hover:brightness-110 !no-underline"
                            href="{{asset('storage/'.$path)}}">

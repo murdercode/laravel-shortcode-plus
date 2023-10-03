@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v3.0.3 - 2023-09-21
+
+### What's Changed
+
+- Add target _blank to photo link
+- Add tiktok shortcode by @murdercode in https://github.com/murdercode/laravel-shortcode-plus/pull/33
+- 36 add carousel in photo by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/38
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v2.1.7...v3.0.3
+
 ## v3.0.2 - 2023-08-29
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v3.0.1...v3.0.2
