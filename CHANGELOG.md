@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v3.0.4 - 2023-10-03
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v3.0.2...v3.0.4
+
+Fix special characters on button shortcode
+
 ## v3.0.3 - 2023-09-21
 
 ### What's Changed
