@@ -44,6 +44,7 @@ class PhotoShortcode
         $path = $media->path.$media->file_name;
         $align = $shortcode->align ?? null;
         $link = $shortcode->link ? str_replace("'", '%27', $shortcode->link) : null;
+        $shape = $shortcode->shape ?? null;
 
         $didascalia = $shortcode->didascalia ?? $media->data['caption'] ?? null;
 
@@ -77,7 +78,7 @@ class PhotoShortcode
         $width = $shortcode->width ?? $maxWidth;
         $height = $shortcode->height ?? self::getImageHeight($path, $width);
 
-        return view('shortcode-plus::media', compact('path', 'align', 'maxWidth', 'link', 'didascalia', 'credits', 'alt', 'title', 'width', 'height'))->render();
+        return view('shortcode-plus::media', compact('path', 'align', 'maxWidth', 'link', 'shape', 'didascalia', 'credits', 'alt', 'title', 'width', 'height'))->render();
     }
 
     /**
