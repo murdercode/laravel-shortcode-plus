@@ -8,7 +8,7 @@
 		    </span>
         @endif
 
-        <figure class="relative" style=";@if($align) float: {{$align}}; @endif  @if($shape === 'rounded')width: 160px; margin: 15px;@endif">
+        <figure class="relative" style=";@if($align) float: {{$align}}; @endif">
 
             @if($link)
                 <a class="stretched-link" target="_blank" href="{!! $link !!}" rel="nofollow norefereer sponsored">
