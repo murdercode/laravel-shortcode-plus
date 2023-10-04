@@ -33,7 +33,7 @@ return [
     'button' => [
         'sponsored' => [
             // If the domain is not in the whitelist, the link will be nofollow
-            'whitelist' => ['example.com', 'example2.com'],
+            'whitelist' => ['ebay.com', 'amazon.com', 'ebay.it', 'amazon.it'],
         ],
     ],
 ];
