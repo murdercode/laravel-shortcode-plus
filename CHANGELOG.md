@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v3.0.5 - 2023-10-04
+
+### What's Changed
+
+- Add shape images by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/44
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v3.0.4...v3.0.5
+
 ## v3.0.4 - 2023-10-03
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v3.0.2...v3.0.4
