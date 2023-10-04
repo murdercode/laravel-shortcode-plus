@@ -58,7 +58,7 @@ class PhotoShortcode
         if (is_array($credits)) {
             $credits = $credits[0];
         }
-        $alt = $media->data['alt'] ?? null;
+        $alt = $media->data['alt'] ?? 'Immagine id '. $shortcode->id;
         if (is_array($alt)) {
             $alt = $alt[0];
         }
