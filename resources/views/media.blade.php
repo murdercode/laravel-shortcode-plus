@@ -3,7 +3,7 @@
     <div class="relative block">
         @if(isset($credits))
             <span
-                class="block absolute right-0 px-1 py-0.5 text-xs text-gray-600 bg-white not-prose dark:bg-gray-900 dark:text-gray-300 opacity-60">
+                class="block absolute right-0 px-1 py-0.5 text-xs text-gray-600 bg-white not-prose dark:bg-gray-900 dark:text-gray-300 opacity-60 z-10">
 		        {{ $credits }}
 		    </span>
         @endif
