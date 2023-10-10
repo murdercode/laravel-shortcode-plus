@@ -8,7 +8,7 @@
 		    </span>
         @endif
 
-        <figure class="relative" @if($align) style="float: {{$align}}" @endif>
+        <figure class="relative" style=";@if($align) float: {{$align}}; @endif">
 
             @if($link)
                 <a class="stretched-link" target="_blank" href="{!! $link !!}" rel="nofollow norefereer sponsored">
@@ -17,8 +17,14 @@
                            href="{{asset('storage/'.$path)}}">
                             @endif
 
-                            <img class="!my-0 mx-auto"
+                            <img class="!my-0 mx-auto @if($shape === 'rounded') rounded-full @endif"
                                  src="{{asset('storage/'.$path)}}?width={{ $width }}"
+                                 srcset="
+                                     {{ asset('storage/'.$path)}}?width=358 400w,
+                                     {{ asset('storage/'.$path)}}?width=607 640w,
+                                     {{ asset('storage/'.$path)}}?width=735 768w,
+                                     {{ asset('storage/'.$path)}}?width={{$width}} 1024w,
+                                 "
                                  alt="{{ $alt }}"
                                  title="{{ $title }}" loading="lazy" width="{{ $width }}"
                                  height="{{ $height }}"/>
