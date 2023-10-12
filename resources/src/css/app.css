@@ -299,6 +299,10 @@ a.shortcode_button.secondary:hover {
     margin-left: 3px;
 }
 
+.twitter-card blockquote{
+    display: none;
+}
+
 @media (prefers-color-scheme: dark) {
 
     .shortcode_tmdb {
