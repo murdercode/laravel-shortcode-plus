@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v3.0.7 - 2023-10-12
+
+### What's Changed
+
+- Fix loading twitter card by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/47
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v3.0.6...v3.0.7
+
 ## v3.0.6 - 2023-10-10
 
 ### What's Changed
