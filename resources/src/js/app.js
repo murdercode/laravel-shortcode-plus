@@ -5,15 +5,17 @@ import ImageCompare from "image-compare-viewer";
 document.addEventListener( 'DOMContentLoaded', function() {
 
 // Splide
-    const checkSpide = document.querySelector(".splide");
-    if (checkSpide !== null) {
+    const checkSplide = document.getElementsByClassName('splide');
 
-        let splide = new Splide('.splide', {
-            type: 'loop',
-            padding: '5rem',
-        });
+    if (checkSplide !== null) {
 
-        splide.mount();
+        for (let i = 0; i < checkSplide.length; i++) {
+            new Splide(checkSplide[i], {
+                type: 'loop',
+                padding: '5rem',
+            }).mount();
+        }
+
     }
 
 // GLightbox
