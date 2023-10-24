@@ -1,5 +1,5 @@
 @if($html)
-	<div class="flex justify-center twitter-card" style="height: 764px">
+	<div class="flex justify-center twitter-card" style="min-height: 764px">
 	    {!! $html !!}
     </div>
 @else
