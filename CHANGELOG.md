@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v3.0.11 - 2023-10-24
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v3.0.10...v3.0.11
+
 ## v3.0.10 - 2023-10-17
 
 ### What's Changed
