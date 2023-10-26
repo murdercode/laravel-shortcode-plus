@@ -26,6 +26,10 @@ class TmdbShortcode
         $data = $this->getTmdbDataFromApi($type, $id);
         $moreLink = $this->generateMoreLink($type, $id);
 
+        if (! $data || ! $moreLink) {
+            return '';
+        }
+
         return view('shortcode-plus::tmdb', compact('data', 'moreLink', 'id', 'type'))->render();
 
     }
@@ -60,7 +64,7 @@ class TmdbShortcode
 //            if(config('app.debug')) {
 //                throw new \Exception('Error while fetching data from TMDB API');
 //            }
-            return '';
+            return null;
         }
 
         return json_decode($response->body());
