@@ -57,10 +57,10 @@ class TmdbShortcode
             ->get("https://api.themoviedb.org/$tmdbApiVersion/$type/$id?language=$tmdbLanguage");
 
         if ($response->failed()){
-            if(config('app.debug')) {
-                throw new \Exception('Error while fetching data from TMDB API');
-            }
-            return null;
+//            if(config('app.debug')) {
+//                throw new \Exception('Error while fetching data from TMDB API');
+//            }
+            return '';
         }
 
         return json_decode($response->body());
