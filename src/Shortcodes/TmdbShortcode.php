@@ -56,8 +56,11 @@ class TmdbShortcode
             ->acceptJson()
             ->get("https://api.themoviedb.org/$tmdbApiVersion/$type/$id?language=$tmdbLanguage");
 
-        if ($response->failed()) {
-            throw new \Exception('Error while fetching data from TMDB API');
+        if ($response->failed()){
+            if(config('app.debug')) {
+                throw new \Exception('Error while fetching data from TMDB API');
+            }
+            return null;
         }
 
         return json_decode($response->body());
