@@ -28,7 +28,7 @@ class TwitterShortcode
     private static function getOembed(string $url): ?string
     {
         curl_setopt_array($curl = curl_init(), [
-            CURLOPT_URL => "https://publish.twitter.com/oembed?url=$url",
+            CURLOPT_URL => "https://publish.twitter.com/oembed?url=$url&omit_script=1",
             CURLOPT_RETURNTRANSFER => true,
         ]);
         $response = curl_exec($curl);
