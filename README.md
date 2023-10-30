@@ -160,6 +160,47 @@ Please remember to call the SDK before `</body>`:
 ></script>
 ```
 
+### Note for Twitter
+
+Please remember to call the SDK before `</body>`:
+
+```html
+<script type="text/javascript">
+    window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));
+</script>
+```
+
+### Note for Reddit
+
+Please remember to call the SDK before `</body>`:
+
+```html
+<script async src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+```
+
+### Note for Justwatch
+
+Please remember to call the SDK before `</body>`:
+
+```html
+<script async src="https://widget.justwatch.com/justwatch_widget.js" type="text/javascript"></script>
+```
+
 ## Testing
 
 ```bash
