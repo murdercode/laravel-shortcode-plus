@@ -4,7 +4,7 @@
 @import 'image-compare-viewer/dist/image-compare-viewer.min.css';
 
 /*Splide*/
-.splide__arrow{
+.splide__arrow {
     background-color: white !important;
     padding: 10px !important;
 }
@@ -160,12 +160,12 @@ a.shortcode_button.secondary:hover {
 
 /* WIDGETBAY */
 .shortcode_widgetbay {
-    height: 420px;
+    height: 460px;
 }
 
 @media (min-width: 647px) {
     .shortcode_widgetbay {
-        height: 220px;
+        height: 265px;
     }
 }
 
@@ -299,7 +299,7 @@ a.shortcode_button.secondary:hover {
     margin-left: 3px;
 }
 
-.twitter-card blockquote{
+.twitter-card blockquote {
     display: none;
 }
 
