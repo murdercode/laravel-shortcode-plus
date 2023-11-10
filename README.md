@@ -138,12 +138,14 @@ Here is the list of the available parsers:
 | `[instagram]`  | Get a Instagram card                                                                            | `url`                               | `[instagram url="https://www.instagram.com/p/CApQfIjBGxC/"]`                                                                          |
 | `[image]`      | Create an image with `Image::class` model                                                       | `id`, `caption` (optional)          | `[image id="123"]`                                                                                                                    |
 | `[gallery]`    | Create a gallery image with `Image::class` model                                                | `title`, `images`                   | Single or multiple images: `[gallery title="Gallery title here" images="1"]` or `[gallery title="Gallery title here" images="1,2,3"]` |
-| `[photo]`      | Create a gallery image with `[Nova Media Hub](https://github.com/outl1ne/nova-media-hub)` model | `didascalia` `effect`(optional)     | Single or multiple images: `[photo didascalia="Gallery title here" id="1,2,3"]` Effect [photo id="1,2,3" effect="carousel|juxtapose"] |
+| `[photo]`      | Create a gallery image with `[Nova Media Hub](https://github.com/outl1ne/nova-media-hub)` model | `didascalia` `effect`(optional)     | Single or multiple images: `[photo didascalia="Gallery title here" id="1,2,3"]` Effect [photo id="1,2,3" effect="carousel             |
 | `[leggianche]` | Create a Read more div, based on `Article` or `Post` model                                      | `id`                                | `[leggianche id="1"]`                                                                                                                 |
 | `[distico]`    | Create a side text block, based on `Article` or `Post` model                                    | `id`                                | `[distico id="1"]`                                                                                                                    |
 | `[button]`     | Create a button that links to an URL                                                            | `link`, `label`, `level (optional)` | `[button link="https://www.google.com" label="Google" level="primary/secondary"]`                                                     |
 | `[tmdb]`       | Create a TMDB card                                                                              | `type`, `id`                        | `[tmdb type="movie/tv" id="123"]`                                                                                                     |
+| `[widgetbay]`  | Create a Widgetbay iframe                                                                       | `id (optional)`, `link (optional)`  | `[widgetbay id="1"]` `[widgetbay link="https://www.amazon.it/product?tag="41515&subtag="5151"..."]`                                   |
 
+    
 ### Note for Facebook
 
 Please remember to call the SDK before `</body>`:
