@@ -14,7 +14,6 @@ class WidgetbayShortcode
         $id = $shortcode->id ? (number_format($shortcode->id)) : null;
         $link = $shortcode->link;
 
-
         return view('shortcode-plus::widgetbay', compact('id', 'link'))->render();
     }
 }
