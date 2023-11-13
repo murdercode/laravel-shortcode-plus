@@ -7,13 +7,20 @@ class WidgetbayShortcode
     public function register($shortcode)
     {
 
-        if (! $shortcode->id && ! $shortcode->link || $shortcode->id && $shortcode->link || $shortcode->id && ! is_numeric($shortcode->id)) {
+        $widgetbayLink = '';
+
+        if ($shortcode->id){
+            $widgetbayLink = 'https://widgetbay.it/widgetbox/' . $shortcode->id;
+        }
+
+        if($shortcode->link){
+            $widgetbayLink = 'https://widgetbay.it/widgetbox?link=' . $shortcode->link;
+        }
+
+        if(empty($widgetbayLink)){
             return 'No Widgetbay parameter id or link defined';
         }
 
-        $id = $shortcode->id ? (number_format($shortcode->id)) : null;
-        $link = $shortcode->link;
-
-        return view('shortcode-plus::widgetbay', compact('id', 'link'))->render();
+        return view('shortcode-plus::widgetbay', compact('widgetbayLink'))->render();
     }
 }
