@@ -9,15 +9,15 @@ class WidgetbayShortcode
 
         $widgetbayLink = '';
 
-        if ($shortcode->id){
-            $widgetbayLink = 'https://widgetbay.it/widgetbox/' . $shortcode->id;
+        if ($shortcode->id) {
+            $widgetbayLink = 'https://widgetbay.it/widgetbox/'.$shortcode->id;
         }
 
-        if($shortcode->link){
-            $widgetbayLink = 'https://widgetbay.it/widgetbox?link=' . $shortcode->link;
+        if ($shortcode->link) {
+            $widgetbayLink = 'https://widgetbay.it/widgetbox?link='.$shortcode->link;
         }
 
-        if(empty($widgetbayLink)){
+        if (empty($widgetbayLink)) {
             return 'No Widgetbay parameter id or link defined';
         }
 
