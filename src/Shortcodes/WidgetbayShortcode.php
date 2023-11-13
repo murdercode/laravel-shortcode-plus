@@ -14,6 +14,7 @@ class WidgetbayShortcode
         }
 
         if ($shortcode->link) {
+            $shortcode->link = str_replace('&', '%26', $shortcode->link);
             $widgetbayLink = 'https://widgetbay.3labs.it/widgetbox?link='.$shortcode->link;
         }
 
