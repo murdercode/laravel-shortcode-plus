@@ -10,11 +10,11 @@ class WidgetbayShortcode
         $widgetbayLink = '';
 
         if ($shortcode->id) {
-            $widgetbayLink = 'https://widgetbay.it/widgetbox/'.$shortcode->id;
+            $widgetbayLink = 'https://widgetbay.3labs.it/widgetbox/'.$shortcode->id;
         }
 
         if ($shortcode->link) {
-            $widgetbayLink = 'https://widgetbay.it/widgetbox?link='.$shortcode->link;
+            $widgetbayLink = 'https://widgetbay.3labs.it/widgetbox?link='.$shortcode->link;
         }
 
         if (empty($widgetbayLink)) {
