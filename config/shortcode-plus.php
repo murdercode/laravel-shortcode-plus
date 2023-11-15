@@ -36,4 +36,5 @@ return [
             'whitelist' => ['example.com', 'example2.com'],
         ],
     ],
+    'widgetbox-token' => env('SHORTCODE_PLUS_WIDGETBOX_TOKEN'),
 ];
