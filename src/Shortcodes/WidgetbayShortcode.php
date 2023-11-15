@@ -18,7 +18,7 @@ class WidgetbayShortcode
             $widgetbayLink = 'https://widgetbay.3labs.it/widgetbox?link='.$shortcode->link;
         }
 
-        if($shortcode->type === 'iframe'){
+        if ($shortcode->type === 'iframe') {
             if (empty($widgetbayLink)) {
                 return 'No Widgetbay parameter id or link defined';
             }
@@ -36,10 +36,10 @@ class WidgetbayShortcode
     private static function getOembed(?string $url, ?int $id)
     {
         curl_setopt_array($curl = curl_init(), [
-            CURLOPT_URL => 'http://widgetbay.test/apibox' . ($url != null ? '?link=' . $url : '/' . $id),
+            CURLOPT_URL => 'http://widgetbay.test/apibox'.($url != null ? '?link='.$url : '/'.$id),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPHEADER => [
-                'Token: ' . config('shortcode-plus.widgetbox-token'),
+                'Token: '.config('shortcode-plus.widgetbox-token'),
                 'Content-Type: application/json',
             ],
         ]);
