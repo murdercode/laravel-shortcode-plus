@@ -25,9 +25,8 @@ class WidgetbayShortcode
             return view('shortcode-plus::widgetbay', compact('widgetbayLink'))->render();
         } else {
             $oembed = self::getOembed($shortcode->link ?? null, $shortcode->id ?? null);
-            $isFirstCss = $shortcode->firstcss ?? false;
 
-            return view('shortcode-plus::widgetbay', compact('oembed', 'isFirstCss'))->render();
+            return view('shortcode-plus::widgetbay', compact('oembed'))->render();
         }
 
     }
