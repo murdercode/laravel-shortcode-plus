@@ -5,7 +5,7 @@
     @if($isFirstCss)
     {!! $oembed->css !!}
     @endif
-    <div class="not-prose">
+    <div class="not-prose" style="max-width: 750px">
         {!! $oembed->html !!}
     </div>
 @endif
