@@ -118,7 +118,7 @@ import '/public/vendor/shortcode-plus/app2.js';
 Now you can parse your source as follows:
 
 ```php
-use Murdercode\ShortcodePlus\Facades\ShortcodePlus;
+use Murdercode\LaravelShortcodePlus\Facades\LaravelShortcodePlus;
 
 $html = "I want to parse this twitter tag: [twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\"]";
 return LaravelShortcodePlus::source($html)->parseAll();
