@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v4.1.3 - 2023-12-18
+
+### What's Changed
+
+* Bump vite from 4.4.9 to 4.4.12 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/57
+* Update Twitter card height to 500px by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/58
+* Fix TMDB layout by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/60
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.1.2...v4.1.3
+
 ## v4.1.2 - 2023-11-13
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.1.1...v4.1.2
