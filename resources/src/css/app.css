@@ -86,7 +86,7 @@
 }
 
 .shortcode_facebook {
-    display: block;
+    display: block !important;
     background-color: white !important;
 }
 
