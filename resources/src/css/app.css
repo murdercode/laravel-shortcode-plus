@@ -87,6 +87,7 @@
 
 .shortcode_facebook {
     display: block;
+    background-color: white !important;
 }
 
 /* DISTICO */
@@ -173,12 +174,17 @@ a.shortcode_button.secondary:hover {
 
 .shortcode_tmdb {
     width: 100%;
-    background: linear-gradient(90deg, #F3F4F6 0%, #F3F4F6 63%, rgba(255, 255, 255, 0) 100%);
     position: relative;
-    padding: 2rem;
     border-radius: .6rem;
     overflow: hidden;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .20);
+}
+
+.shortcode_tmdb_bg{
+    background: linear-gradient(90deg, #F3F4F6 0%, #F3F4F6 63%, rgba(255, 255, 255, 0) 100%);
+    position: relative;
+    padding: 2rem;
+    z-index: 2;
 }
 
 .shortcode_tmdb .top-box {
@@ -205,11 +211,8 @@ a.shortcode_button.secondary:hover {
     width: 50%;
     height: 100%;
     margin: 0;
-    z-index: -1;
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
+    object-fit: cover;
+    z-index: 1;
 }
 
 .shortcode_tmdb .top-box .movie-info h3 {
@@ -266,7 +269,7 @@ a.shortcode_button.secondary:hover {
 }
 
 .shortcode_tmdb .bottom-box {
-    width: 80%;
+    width: 90%;
 }
 
 .shortcode_tmdb .bottom-box p {
