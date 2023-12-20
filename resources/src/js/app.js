@@ -13,6 +13,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
             new Splide(checkSplide[i], {
                 type: 'loop',
                 padding: '5rem',
+                pagination: false,
             }).mount();
         }
 

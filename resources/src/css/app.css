@@ -3,12 +3,6 @@
 @import 'glightbox/dist/css/glightbox.min.css';
 @import 'image-compare-viewer/dist/image-compare-viewer.min.css';
 
-/*Splide*/
-.splide__arrow {
-    background-color: white !important;
-    padding: 10px !important;
-}
-
 .shortcode_youtube {
     display: block;
     margin-top: 8px;
@@ -305,6 +299,33 @@ a.shortcode_button.secondary:hover {
 .twitter-card blockquote {
     display: none;
 }
+
+
+/*Splide*/
+.splide__arrow.splide__arrow--next,.splide__arrow.splide__arrow--prev{
+    background-color:#fff!important;
+    scale: .75 !important;
+    padding: 10px !important;
+}
+
+.splide__track{
+    padding: 0 !important;
+}
+
+.splide{
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.splide__slide{
+    padding: 5px !important;
+}
+
+.splide_pag {
+    transform: translateY(50px);
+    font-size: .85rem;
+}
+
 
 @media (prefers-color-scheme: dark) {
 
