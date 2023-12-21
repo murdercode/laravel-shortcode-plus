@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## 4.1.5 - 2023-12-21
+
+Better carousel layout
+
 ## v4.1.4 - 2023-12-18
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.1.3...v4.1.4
