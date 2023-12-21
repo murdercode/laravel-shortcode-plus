@@ -75,4 +75,4 @@ function Ri(t,n){for(var r=0;r<n.length;r++){var s=n[r];s.enumerable=s.enumerabl
  
         background-image: url(${s});
         
-      `,this.el.appendChild(c)}}}document.addEventListener("DOMContentLoaded",function(){const t=document.getElementsByClassName("splide");if(t!==null)for(let s=0;s<t.length;s++)new Oi(t[s],{type:"loop",padding:"5rem"}).mount();document.querySelector(".glightbox")!==null&&ls();const r=document.querySelectorAll(".image-compare");r!==null&&r.forEach(s=>{new vs(s).mount()})},!1);
+      `,this.el.appendChild(c)}}}document.addEventListener("DOMContentLoaded",function(){const t=document.getElementsByClassName("splide");if(t!==null)for(let s=0;s<t.length;s++)new Oi(t[s],{type:"loop",padding:"5rem",pagination:!1}).mount();document.querySelector(".glightbox")!==null&&ls();const r=document.querySelectorAll(".image-compare");r!==null&&r.forEach(s=>{new vs(s).mount()})},!1);
