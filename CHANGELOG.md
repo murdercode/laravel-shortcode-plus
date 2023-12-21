@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v4.1.6 - 2023-12-21
+
+### What's Changed
+
+* Fix carousel width by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/63
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.1.5...v4.1.6
+
 ## 4.1.5 - 2023-12-21
 
 Better carousel layout
