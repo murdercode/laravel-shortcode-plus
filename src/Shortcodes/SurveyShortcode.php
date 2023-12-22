@@ -6,7 +6,7 @@ class SurveyShortcode
 {
     public function register($shortcode): string
     {
-        $ids =explode(',', $shortcode->id) ?? '';
+        $ids = explode(',', $shortcode->id) ?? '';
 
         if (empty($ids)) {
             return 'No Survey parameter id defined';
