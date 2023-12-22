@@ -13,6 +13,7 @@ use Murdercode\LaravelShortcodePlus\Shortcodes\PhotoShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\RedditShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\SpoilerShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\SpotifyShortcode;
+use Murdercode\LaravelShortcodePlus\Shortcodes\SurveyShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\TikTokShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\TmdbShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\TwitterShortcode;
@@ -78,6 +79,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         Shortcode::register('button', ButtonShortcode::class);
         Shortcode::register('tmdb', TmdbShortcode::class);
         Shortcode::register('tiktok', TikTokShortcode::class);
+        Shortcode::register('survey', SurveyShortcode::class);
 
     }
 }
