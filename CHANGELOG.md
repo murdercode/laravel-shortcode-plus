@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v4.1.8 - 2023-12-22
+
+### What's Changed
+
+* Create survey shortcode by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/64
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.1.7...v4.1.8
+
 ## v4.1.7 - 2023-12-22
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.1.6...v4.1.7
