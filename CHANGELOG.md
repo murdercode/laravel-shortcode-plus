@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v4.1.9 - 2024-01-10
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.0 to 2.3.1 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/65
+* Restyling FAQ by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/66
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.1.8...v4.1.9
+
 ## v4.1.8 - 2023-12-22
 
 ### What's Changed
