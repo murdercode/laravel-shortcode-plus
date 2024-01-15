@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v4.1.10 - 2024-01-15
+
+### What's Changed
+
+* Refactor TwitterShortcode.php to include check for 'x.com' in URL. by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/67
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.1.9...v4.1.10
+
 ## v4.1.9 - 2024-01-10
 
 ### What's Changed
