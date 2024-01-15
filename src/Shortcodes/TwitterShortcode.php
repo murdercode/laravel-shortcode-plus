@@ -12,7 +12,7 @@ class TwitterShortcode
             return 'No Twitter parameter url defined';
         }
 
-        if (str_contains($url, 'twitter.com') === false) {
+        if (str_contains($url, 'twitter.com') === false && str_contains($url, 'x.com') === false) {
             return 'No Twitter.com URL defined';
         }
 
