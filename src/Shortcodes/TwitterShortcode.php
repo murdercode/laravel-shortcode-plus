@@ -12,8 +12,8 @@ class TwitterShortcode
             return 'No Twitter parameter url defined';
         }
 
-        if (str_contains($url, 'twitter.com') === false) {
-            return 'No Twitter.com URL defined';
+        if (str_contains($url, 'twitter.com') === false && str_contains($url, 'x.com') === false) {
+            return 'No X.com URL defined';
         }
 
         $html = self::getOembed($url) ?? null;
