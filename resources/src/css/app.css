@@ -223,11 +223,15 @@ a.shortcode_button.secondary:hover {
 
 .shortcode_tmdb .top-box .movie-info .release-date {
     font-size: .95rem;
-    color: #6B7280;
+    color: #6B7280 !important;
     text-transform: uppercase;
 }
 
-.shortcode_tmdb .top-box .movie-info .runtime-page-container {
+html.dark .shortcode_tmdb .top-box .movie-info .release-date {
+    color: #6B7280 !important;
+}
+
+    .shortcode_tmdb .top-box .movie-info .runtime-page-container {
     display: flex;
     margin: 10px 0;
 }

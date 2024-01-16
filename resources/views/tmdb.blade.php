@@ -13,7 +13,7 @@
             <div class="movie-info">
 
                 {{--Title--}}
-                <h3>
+                <h3 class="dark:text-dark">
                     {{$data->title ?? $data->name}} ({{substr($data->release_date ?? $data->first_air_date, 0, 4)}})
                 </h3>
 
@@ -52,7 +52,7 @@
         </div>
 
         <div class="bottom-box">
-            <p>
+            <p class="text-gray-700">
                 {{Str::limit($data->overview, 160)}}
             </p>
 
