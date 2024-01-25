@@ -2,6 +2,8 @@
 
 namespace Murdercode\LaravelShortcodePlus\Parsers;
 
+use Illuminate\Support\Str;
+
 class Index
 {
     public static function parse(string $content): string
@@ -26,10 +28,16 @@ class Index
         $xpath = new \DOMXPath($dom);
         $headings = $xpath->query('//h2 | //h3 | //h4');
 
+        //If there are no headlines, return empty array and content
+        if($headings->count() == 0) {
+            return [[], $content];
+        }
+
         foreach ($headings as $heading) {
 
             //Create and add id to the heading
-            $heading->setAttribute('id', str_replace(' ', '-', strtolower($heading->textContent)));
+            $headingId = Str::slug($heading->textContent);
+            $heading->setAttribute('id', $headingId);
             $newContent = $dom->saveHTML();
 
             $headlines[] = [

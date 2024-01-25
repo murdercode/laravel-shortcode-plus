@@ -1,13 +1,12 @@
-<section class="index not-prose">
+<ul class="shortcode_index">
+
     @foreach($index as $item)
-        <a href="#{{$item['id']}}"
-        style="
-        {{$item['level'] == 3 ? 'margin-left: 15px; color: #313131;' : ''}}
-        {{$item['level'] == 4 ? 'margin-left: 30px; color: #484848;' : ''}};"
-        >
-            {{$item['title']}}
-        </a>
+            <li class="level-{{ $item['level'] }}">
+                <a href="#{{$item['id']}}">
+                    {{$item['title']}}
+                </a>
+            </li>
 
     @endforeach
 
-</section>
+</ul>
