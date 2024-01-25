@@ -30,7 +30,7 @@ class Index
         $headings = $xpath->query('//h2 | //h3 | //h4');
 
         //If there are no headlines, return empty array and content
-        if($headings->count() == 0) {
+        if ($headings->count() == 0) {
             return [[], $content];
         }
 
