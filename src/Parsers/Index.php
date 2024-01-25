@@ -17,12 +17,6 @@ class Index
             $newContent
         );
     }
-
-    public static function newDom()
-    {
-        return '<div class="index">Ciao</div>';
-    }
-
     public static function extractHeadlines($content)
     {
         //Get all the headlines from the content
