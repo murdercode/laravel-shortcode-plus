@@ -335,6 +335,26 @@ html.dark .shortcode_tmdb .top-box .movie-info .release-date {
     font-size: .85rem;
 }
 
+/*Index*/
+
+.index{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    background-color: #F3F4F6;
+}
+
+.index a{
+    padding: 5px;
+    text-decoration: none !important;
+}
+
+.index a:hover {
+    background-color: rgba(239, 68, 68, 0.75) !important;
+    color: black !important
+}
+
 
 @media (prefers-color-scheme: dark) {
 
