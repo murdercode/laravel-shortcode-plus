@@ -13,12 +13,13 @@ class Index
 
         return preg_replace_callback(
             '/\[index\]/',
-            function ($matches) use($index, $newContent) {
+            function ($matches) use ($index, $newContent) {
                 return view('shortcode-plus::index', compact('index'))->render();
             },
             $newContent
         );
     }
+
     public static function extractHeadlines($content)
     {
         //Get all the headlines from the content
@@ -49,5 +50,4 @@ class Index
 
         return [$headlines, $newContent];
     }
-
 }

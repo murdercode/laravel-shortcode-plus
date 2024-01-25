@@ -1,4 +1,5 @@
 <?php
+
 //
 //namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 //
