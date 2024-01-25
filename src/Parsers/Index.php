@@ -41,13 +41,55 @@ class Index
             $heading->setAttribute('id', $headingId);
             $newContent = $dom->saveHTML();
 
-            $headlines[] = [
-                'id' => $heading->getAttribute('id'),
-                'title' => $heading->textContent,
-                'level' => (int) substr($heading->tagName, 1),
-            ];
+            $level = (int) substr($heading->tagName, 1);
+
+            [$lastHeadline, $lastHeadlineKey] = self::getLastHeadline($headlines, []);
+            [$lastHeadlineChildren, $lastHeadlineChildrenKey] = self::getLastHeadline($headlines, $lastHeadline);
+
+            // Third level
+            if(count($headlines) > 0 && isset($lastHeadlineChildren['level']) && $lastHeadlineChildren['level'] < $level) {
+                $headlines[$lastHeadlineKey]['childrens'][$lastHeadlineChildrenKey]['childrens'][] = self::indexTemplate($headingId, $heading->textContent, $level);
+            }
+            //Second level
+            elseif(count($headlines) > 0 && $headlines[$lastHeadlineKey]['level'] < $level) {
+                $headlines[$lastHeadlineKey]['childrens'][] = self::indexTemplate($headingId, $heading->textContent, $level);
+            }
+            //First level
+            else {
+                $headlines[] = self::indexTemplate($headingId, $heading->textContent, $level);
+            }
         }
 
         return [$headlines, $newContent];
+    }
+
+    /**
+     * Get last headline or last headline children and key, if present.
+     * @param $headlines
+     * @param $lastHeadline
+     * @return array
+     */
+    protected static function getLastHeadline($headlines, $lastHeadline): array {
+        $headline = isset($lastHeadline['childrens']) ? end($lastHeadline['childrens']) : end($headlines) ?? [];
+        $key = isset($lastHeadline['childrens']) ? array_key_last($lastHeadline['childrens']) : array_key_last($headlines) ?? null;
+
+        return [$headline, $key];
+    }
+
+    /**
+     * Index template, used to create the index array [id, title, level, childrens]
+     * @param $id
+     * @param $title
+     * @param $level
+     * @return array
+     */
+    protected static function indexTemplate($id, $title, $level): array {
+        return [
+            'id' => $id,
+            'title' => $title,
+            'level' => $level,
+            'childrens' => []
+        ];
+
     }
 }
