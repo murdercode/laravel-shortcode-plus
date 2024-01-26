@@ -24,10 +24,7 @@ class Index
     {
         //Get all the headlines from the content
         $headlines = [];
-        $dom = new \DOMDocument();
-        $dom->loadHTML('<?xml encoding="utf-8" ?>'.$content);
-        $xpath = new \DOMXPath($dom);
-        $headings = $xpath->query('//h2 | //h3 | //h4');
+        [$headings, $dom] = self::getHeadings($content);
 
         //If there are no headlines, return empty array and content
         if ($headings->count() == 0) {
@@ -61,6 +58,15 @@ class Index
         }
 
         return [$headlines, $newContent];
+    }
+
+    public static function getHeadings($content)
+    {
+        $dom = new \DOMDocument();
+        $dom->loadHTML('<?xml encoding="utf-8" ?>'.$content);
+        $xpath = new \DOMXPath($dom);
+        $headings = $xpath->query('//h2 | //h3 | //h4');
+        return [$headings, $dom];
     }
 
     /**
