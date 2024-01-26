@@ -66,6 +66,7 @@ class Index
         $dom->loadHTML('<?xml encoding="utf-8" ?>'.$content);
         $xpath = new \DOMXPath($dom);
         $headings = $xpath->query('//h2 | //h3 | //h4');
+
         return [$headings, $dom];
     }
 
