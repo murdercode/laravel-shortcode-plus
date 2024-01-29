@@ -80,6 +80,5 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         Shortcode::register('tmdb', TmdbShortcode::class);
         Shortcode::register('tiktok', TikTokShortcode::class);
         Shortcode::register('survey', SurveyShortcode::class);
-
     }
 }

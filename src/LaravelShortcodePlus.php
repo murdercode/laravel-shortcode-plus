@@ -4,6 +4,7 @@ namespace Murdercode\LaravelShortcodePlus;
 
 use Murdercode\LaravelShortcodePlus\Parsers\Gallery;
 use Murdercode\LaravelShortcodePlus\Parsers\Image;
+use Murdercode\LaravelShortcodePlus\Parsers\Index;
 use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
@@ -24,6 +25,7 @@ final class LaravelShortcodePlus
     {
         $this->content = $this->parseImageTag();
         $this->content = $this->parseGalleryTag();
+        $this->content = $this->parseIndex();
 
         return Shortcode::compile($this->content);
     }
@@ -36,5 +38,10 @@ final class LaravelShortcodePlus
     public function parseGalleryTag(): string
     {
         return Gallery::parse($this->content);
+    }
+
+    public function parseIndex(): string
+    {
+        return Index::parse($this->content);
     }
 }
