@@ -11,23 +11,23 @@ it('can parse twitter shortcode', function () {
 it('can parse twitter shortcode, even if the url is incorrect', function () {
     $html = '[twitter url="blablabla"]';
     $twitterOembed = LaravelShortcodePlus::source($html)->parseAll();
-    expect($twitterOembed)->toContain('No Twitter.com URL defined');
+    expect($twitterOembed)->toContain('No X.com URL defined');
 });
 
 it('cannot parse twitter shortcode if the url is not twitter.com', function () {
     $html = '[twitter url="https://google.com"]';
     $twitterOembed = LaravelShortcodePlus::source($html)->parseAll();
-    expect($twitterOembed)->toContain('No Twitter.com URL defined');
+    expect($twitterOembed)->toContain('No X.com URL defined');
 });
 
 it('cannot parse twitter shortcode if the url is not defined', function () {
     $html = '[twitter]';
     $twitterOembed = LaravelShortcodePlus::source($html)->parseAll();
-    expect($twitterOembed)->toContain('No Twitter parameter url defined');
+    expect($twitterOembed)->toContain('No X.com parameter url defined');
 });
 
 it('cannot get twitter oembed', function () {
     $html = '[twitter url="https://twitter.com/elonmusk/status/000"]';
     $twitterOembed = LaravelShortcodePlus::source($html)->parseAll();
-    expect($twitterOembed)->toContain('Cannot get Twitter oembed');
+    expect($twitterOembed)->toContain('Cannot get X.com oEmbed');
 });

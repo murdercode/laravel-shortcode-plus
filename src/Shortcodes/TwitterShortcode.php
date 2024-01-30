@@ -9,7 +9,7 @@ class TwitterShortcode
         $url = $shortcode->url ?? '';
 
         if (empty($url)) {
-            return 'No Twitter parameter url defined';
+            return 'No X.com parameter url defined';
         }
 
         if (str_contains($url, 'twitter.com') === false && str_contains($url, 'x.com') === false) {
@@ -19,7 +19,7 @@ class TwitterShortcode
         $html = self::getOembed($url) ?? null;
 
         if (! isset($html)) {
-            return 'Cannot get Twitter oembed';
+            return 'Cannot get X.com oEmbed';
         }
 
         return view('shortcode-plus::twitter', compact('html'))->render();

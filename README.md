@@ -94,8 +94,8 @@ If you want to upgrade every time your assets, add in your composer.json:
 
 ```json
     "scripts": {
-        "post-update-cmd": [
-            "@php artisan vendor:publish --tag=shortcode-plus-assets --ansi --force",
+"post-update-cmd": [
+"@php artisan vendor:publish --tag=shortcode-plus-assets --ansi --force",
 ```
 
 Optionally, you can publish the views using
@@ -103,14 +103,18 @@ Optionally, you can publish the views using
 ```bash
 php artisan vendor:publish --tag="shortcode-plus-views"
 ```
+
 ## Usage
 
-Laravel Shortcode Plus is shipped with a default CSS and JS for a better user experience. 
+Laravel Shortcode Plus is shipped with a default CSS and JS for a better user experience.
 You can add on **resources/css/app.css** the CSS files:
+
 ```css
 @import url("/public/vendor/shortcode-plus/app.css");
 ```
+
 and in **resources/js/app.js** the JS files:
+
 ```js
 import '/public/vendor/shortcode-plus/app2.js';
 ```
@@ -123,6 +127,18 @@ use Murdercode\LaravelShortcodePlus\Facades\LaravelShortcodePlus;
 $html = "I want to parse this twitter tag: [twitter url=\"https://twitter.com/elonmusk/status/1585841080431321088\"]";
 return LaravelShortcodePlus::source($html)->parseAll();
 ```
+
+### Indexing feature
+
+If you want to use the `[index]` shortcode, you can add the `withHeadingIds()` method to your source **before**
+parsing it. It will add an automatic ID to every heading (h2, h3, h4 etc...) in your source:
+
+```php
+return LaravelShortcodePlus::source($html)->withHeadingIds()->parseAll();
+```
+
+This will add an ID to every heading (h2, h3, h4 etc...) in your source.
+
 ## Parsers
 
 Here is the list of the available parsers:
@@ -144,8 +160,8 @@ Here is the list of the available parsers:
 | `[button]`     | Create a button that links to an URL                                                            | `link`, `label`, `level (optional)` | `[button link="https://www.google.com" label="Google" level="primary/secondary"]`                                                     |
 | `[tmdb]`       | Create a TMDB card                                                                              | `type`, `id`                        | `[tmdb type="movie/tv" id="123"]`                                                                                                     |
 | `[widgetbay]`  | Create a Widgetbay iframe                                                                       | `id (optional)`, `link (optional)`  | `[widgetbay id="1"]` `[widgetbay link="https://www.amazon.it/product?tag="41515&subtag="5151"..."]`                                   |
+| `[index]`      | Create an automatic index based on Heading (h2, h3, h4 etc...)                                  | none                                | `[index]`                                                                                                                             |
 
-    
 ### Note for Facebook
 
 Please remember to call the SDK before `</body>`:
@@ -167,8 +183,9 @@ Please remember to call the SDK before `</body>`:
 Please remember to call the SDK before `</body>`:
 
 ```html
+
 <script type="text/javascript">
-    window.twttr = (function(d, s, id) {
+    window.twttr = (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
             t = window.twttr || {};
         if (d.getElementById(id)) return t;
@@ -178,7 +195,7 @@ Please remember to call the SDK before `</body>`:
         fjs.parentNode.insertBefore(js, fjs);
 
         t._e = [];
-        t.ready = function(f) {
+        t.ready = function (f) {
             t._e.push(f);
         };
 
@@ -192,6 +209,7 @@ Please remember to call the SDK before `</body>`:
 Please remember to call the SDK before `</body>`:
 
 ```html
+
 <script async src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
 ```
 
@@ -200,6 +218,7 @@ Please remember to call the SDK before `</body>`:
 Please remember to call the SDK before `</body>`:
 
 ```html
+
 <script async src="https://widget.justwatch.com/justwatch_widget.js" type="text/javascript"></script>
 ```
 
