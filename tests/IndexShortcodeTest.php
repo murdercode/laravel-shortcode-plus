@@ -37,7 +37,7 @@ it('can get headings', function () {
 });
 
 it('can get h2 and h3', function () {
-    $html = "<h2>Title</h2> <h3>Subtitle</h3> <p>Content</p>";
+    $html = '<h2>Title</h2> <h3>Subtitle</h3> <p>Content</p>';
     [$headings, $indexedContent] = Index::getHeadings($html);
     expect($headings)->toBeArray()
         ->and($headings)->toContain([
@@ -82,26 +82,26 @@ it('can get articulated structure', function () {
     expect($headings)->toBeArray()
         ->and($headings)->toContain(
             [
-                "id" => "title",
-                "title" => "Title",
-                "level" => 2,
-                "childrens" => [
+                'id' => 'title',
+                'title' => 'Title',
+                'level' => 2,
+                'childrens' => [
                     [
-                        "id" => "subtitle",
-                        "title" => "Subtitle",
-                        "level" => 3,
-                        "childrens" => [],
+                        'id' => 'subtitle',
+                        'title' => 'Subtitle',
+                        'level' => 3,
+                        'childrens' => [],
                     ],
                     [
-                        "id" => "subtitle",
-                        "title" => "Subtitle",
-                        "level" => 3,
-                        "childrens" => [
+                        'id' => 'subtitle',
+                        'title' => 'Subtitle',
+                        'level' => 3,
+                        'childrens' => [
                             [
-                                "id" => "subtitle",
-                                "title" => "Subtitle",
-                                "level" => 4,
-                                "childrens" => [],
+                                'id' => 'subtitle',
+                                'title' => 'Subtitle',
+                                'level' => 4,
+                                'childrens' => [],
                             ],
                         ],
                     ],

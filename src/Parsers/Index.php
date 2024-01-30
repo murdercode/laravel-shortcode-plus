@@ -75,7 +75,7 @@ class Index
             }
             //First level
             else {
-                $headlines[] = $heading;;
+                $headlines[] = $heading;
             }
         }
 
@@ -92,7 +92,6 @@ class Index
 
         return [$headline, $key];
     }
-
 
     /**
      * This method will add id to the headlines.
