@@ -39,7 +39,60 @@ class Index
             return [[], $content];
         }
 
+        //Generate the headlines array
+        foreach ($matches[1] as $key => $value) {
+            $headings[] = [
+                'id' => Str::slug($matches[3][$key]),
+                'title' => $matches[3][$key],
+                'level' => (int) Str::substr($matches[1][$key], 1),
+                'childrens' => [],
+            ];
+        }
+
+        // Generate the tree structure
+        $headings = self::generateTree($headings);
+
+        return [$headings, $content];
     }
+
+    protected static function generateTree($headings)
+    {
+        $headlines = [];
+
+        foreach ($headings as $heading) {
+
+            $level = $heading['level'];
+            [$lastHeadline, $lastHeadlineKey] = self::getLastHeadline($headlines, []);
+            [$lastHeadlineChildren, $lastHeadlineChildrenKey] = self::getLastHeadline($headlines, $lastHeadline);
+
+            // Third level
+            if (count($headlines) > 0 && isset($lastHeadlineChildren['level']) && $lastHeadlineChildren['level'] < $level) {
+                $headlines[$lastHeadlineKey]['childrens'][$lastHeadlineChildrenKey]['childrens'][] = $heading;
+            }
+            //Second level
+            elseif (count($headlines) > 0 && $headlines[$lastHeadlineKey]['level'] < $level) {
+                $headlines[$lastHeadlineKey]['childrens'][] = $heading;
+            }
+            //First level
+            else {
+                $headlines[] = $heading;;
+            }
+        }
+
+        return $headlines;
+    }
+
+    /**
+     * Get last headline or last headline children and key, if present.
+     */
+    protected static function getLastHeadline($headlines, $lastHeadline): array
+    {
+        $headline = isset($lastHeadline['childrens']) ? end($lastHeadline['childrens']) : end($headlines) ?? [];
+        $key = isset($lastHeadline['childrens']) ? array_key_last($lastHeadline['childrens']) : array_key_last($headlines) ?? null;
+
+        return [$headline, $key];
+    }
+
 
     /**
      * This method will add id to the headlines.
