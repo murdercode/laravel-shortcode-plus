@@ -54,7 +54,7 @@ it('can get an h2 with id and cannot take h3 without id', function () {
 });
 
 it('can get h2 and h3', function () {
-    $html = '<h2>Title</h2> <h3>Subtitle</h3> <p>Content</p>';
+    $html = '<h2 id="title">Title</h2> <h3 id="subtitle">Subtitle</h3> <p>Content</p>';
     $headings = Index::getHeadings($html);
     expect($headings)->toBeArray()
         ->and($headings)->toContain([
@@ -73,7 +73,7 @@ it('can get h2 and h3', function () {
 });
 
 it('can get h2 and h4', function () {
-    $html = '<h2>Title</h2> <h4>Subtitle</h4> <p>Content</p>';
+    $html = '<h2 id="title">Title</h2> <h4 id="subtitle">Subtitle</h4> <p>Content</p>';
     $headings = Index::getHeadings($html);
     expect($headings)->toBeArray()
         ->and($headings)->toContain([
@@ -92,37 +92,35 @@ it('can get h2 and h4', function () {
 });
 
 it('can get articulated structure', function () {
-    $html = '<h2>Title</h2> <h3>Subtitle</h3> <h3>Subtitle</h3> <h4>Subtitle</h4> <p>Content</p>';
+    $html = '<h2 id="title">Title</h2> <h3 id="subtitle">Subtitle</h3> <h3 id="subtitle-2">Subtitle 2</h3> <h4 id="sub-subtitle">Subtitle</h4> <p>Content</p>';
     $headings = Index::getHeadings($html);
     expect($headings)->toBeArray()
-        ->and($headings)->toContain(
-            [
-                'id' => 'title',
-                'title' => 'Title',
-                'level' => 2,
-                'childrens' => [
-                    [
-                        'id' => 'subtitle',
-                        'title' => 'Subtitle',
-                        'level' => 3,
-                        'childrens' => [],
-                    ],
-                    [
-                        'id' => 'subtitle',
-                        'title' => 'Subtitle',
-                        'level' => 3,
-                        'childrens' => [
-                            [
-                                'id' => 'subtitle',
-                                'title' => 'Subtitle',
-                                'level' => 4,
-                                'childrens' => [],
-                            ],
+        ->and($headings)->toContain([
+            'id' => 'title',
+            'title' => 'Title',
+            'level' => 2,
+            'childrens' => [
+                [
+                    'id' => 'subtitle',
+                    'title' => 'Subtitle',
+                    'level' => 3,
+                    'childrens' => [],
+                ],
+                [
+                    'id' => 'subtitle-2',
+                    'title' => 'Subtitle 2',
+                    'level' => 3,
+                    'childrens' => [
+                        [
+                            'id' => 'sub-subtitle',
+                            'title' => 'Subtitle',
+                            'level' => 4,
+                            'childrens' => [],
                         ],
                     ],
                 ],
-            ]
-        );
+            ],
+        ]);
 });
 
 it('cannot get headings if there are no headings', function () {
