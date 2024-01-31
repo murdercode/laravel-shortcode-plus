@@ -130,11 +130,11 @@ return LaravelShortcodePlus::source($html)->parseAll();
 
 ### Indexing feature
 
-If you want to use the `[index]` shortcode, you can add the `withHeadingIds()` method to your source **before**
-parsing it. It will add an automatic ID to every heading (h2, h3, h4 etc...) in your source:
+If you want to use the `[index]` shortcode, you can add the `withAutoHeadingIds()` method to your source **before**
+parsing it. It will add an automatic ID to every headline (h2, h3, h4 etc...) in your source:
 
 ```php
-return LaravelShortcodePlus::source($html)->withHeadingIds()->parseAll();
+return LaravelShortcodePlus::source($html)->withAutoHeadingIds()->parseAll();
 ```
 
 This will add an ID to every heading (h2, h3, h4 etc...) in your source.

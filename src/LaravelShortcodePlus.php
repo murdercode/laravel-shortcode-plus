@@ -21,9 +21,11 @@ final class LaravelShortcodePlus
     /**
      * A function that add heading id to the content.
      */
-    public function withHeadingIds()
+    public function withAutoHeadingIds()
     {
-        $this->content = Index::parse($this->content);
+        $this->content = Index::addIdsToHeadlines($this->content);
+
+        return $this;
     }
 
     /**
@@ -31,6 +33,7 @@ final class LaravelShortcodePlus
      */
     public function parseAll(): string
     {
+        $this->content = Index::parse($this->content);
         $this->content = Image::parse($this->content);
         $this->content = Gallery::parse($this->content);
 

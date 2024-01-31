@@ -12,47 +12,46 @@ class Index
     public static function parse(string $content): string
     {
         //Get index list and new content with ID
-        [$index, $newContent] = self::extractHeadlines($content);
+        $index = self::getHeadings($content);
 
         return preg_replace_callback(
             '/\[index]/',
-            function ($matches) use ($index, $newContent) {
+            function ($matches) use ($index, $content) {
                 return view('shortcode-plus::index', compact('index'))->render();
             },
-            $newContent
+            $content
         );
     }
 
     /**
      * This method will extract the headlines from the content.
-     * And return the headlines with a tree structure and the new content with id.
+     * And return the headlines with a tree structure.
      */
     public static function getHeadings(string $content): array
     {
         // Get all the headlines from the content
         $headings = [];
 
-        $pattern = '/<(h[1-6])(.*?)>(.*?)<\/h[1-6]>/';
+        // Regex pattern to get all the headlines
+        $pattern = '/<(h[1-6])(.*?)id="(.*?)"(.*?)>(.*?)<\/h[1-6]>/';
 
-        // If there are no headlines, return empty array and content
+        // If there are no headlines, return empty array
         if (! preg_match_all($pattern, $content, $matches)) {
-            return [[], $content];
+            return [];
         }
 
         //Generate the headlines array
         foreach ($matches[1] as $key => $value) {
             $headings[] = [
-                'id' => Str::slug($matches[3][$key]),
-                'title' => $matches[3][$key],
+                'id' => $matches[3][$key],
+                'title' => $matches[5][$key],
                 'level' => (int) Str::substr($matches[1][$key], 1),
                 'childrens' => [],
             ];
         }
 
         // Generate the tree structure
-        $headings = self::generateTree($headings);
-
-        return [$headings, $content];
+        return self::generateTree($headings);
     }
 
     protected static function generateTree($headings)
@@ -75,7 +74,7 @@ class Index
             }
             //First level
             else {
-                $headlines[] = $heading;;
+                $headlines[] = $heading;
             }
         }
 
@@ -92,7 +91,6 @@ class Index
 
         return [$headline, $key];
     }
-
 
     /**
      * This method will add id to the headlines.
