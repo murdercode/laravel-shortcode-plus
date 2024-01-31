@@ -27,7 +27,7 @@ class Index
      * This method will extract the headlines from the content.
      * And return the headlines with a tree structure.
      */
-    public static function getHeadings(string $content): array
+    public static function getHeadings(string $content, bool $showChildren = true): array
     {
         // Get all the headlines from the content
         $headings = [];
@@ -51,7 +51,7 @@ class Index
         }
 
         // Generate the tree structure
-        return self::generateTree($headings);
+        return $showChildren ? self::generateTree($headings) : $headings;
     }
 
     protected static function generateTree($headings)

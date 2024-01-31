@@ -130,6 +130,24 @@ it('cannot get headings if there are no headings', function () {
         ->and($headings)->toBeEmpty();
 });
 
+it('can get headings without childrens', function () {
+    $html = '<h2 id="title">Title</h2> <h3 id="subtitle">Subtitle</h3> <p>Content</p>';
+    $headings = Index::getHeadings($html, false);
+    expect($headings)->toBeArray()
+        ->toContain([
+            'id' => 'title',
+            'title' => 'Title',
+            'level' => 2,
+            'childrens' => [],
+        ])
+        ->toContain([
+            'id' => 'subtitle',
+            'title' => 'Subtitle',
+            'level' => 3,
+            'childrens' => [],
+        ]);
+});
+
 // Tests for Index shortcode
 it('can add ids to headlines', function () {
     $html = '<h2>Title</h2> <p>Content</p>';
