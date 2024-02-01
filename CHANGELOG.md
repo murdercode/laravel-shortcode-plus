@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v4.2.1 - 2024-02-01
+
+### What's Changed
+
+* New index method by @murdercode in https://github.com/murdercode/laravel-shortcode-plus/pull/70
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.2.0...v4.2.1
+
 ## v4.1.11 - 2024-01-16
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.1.10...v4.1.11
