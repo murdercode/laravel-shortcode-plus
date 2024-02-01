@@ -109,9 +109,10 @@ class Index
                 return $matches[0]; // Return the whole match without changes
             }
 
-            $id = Str::slug($matches[3]);
+            $title = strip_tags($matches[3]);
+            $id = Str::slug($title);
 
-            return "<$matches[1]$matches[2] id=\"$id\">$matches[3]</$matches[1]>";
+            return "<$matches[1]$matches[2] id=\"$id\">$title</$matches[1]>";
         }, $content);
     }
 }
