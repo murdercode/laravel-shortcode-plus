@@ -6,68 +6,79 @@ use Illuminate\Support\Str;
 
 class Index
 {
+    /**
+     * This method will parse the [index] shortcode.
+     */
     public static function parse(string $content): string
     {
         //Get index list and new content with ID
-        [$index, $newContent] = self::extractHeadlines($content);
+        $index = self::getHeadings($content);
 
         return preg_replace_callback(
-            '/\[index\]/',
-            function ($matches) use ($index, $newContent) {
+            '/\[index]/',
+            function ($matches) use ($index, $content) {
                 return view('shortcode-plus::index', compact('index'))->render();
             },
-            $newContent
+            $content
         );
     }
 
-    public static function extractHeadlines($content)
+    /**
+     * This method will extract the headlines from the content.
+     * And return the headlines with a tree structure.
+     */
+    public static function getHeadings(string $content, bool $showChildren = true): array
     {
-        //Get all the headlines from the content
-        $headlines = [];
-        [$headings, $dom] = self::getHeadings($content);
+        // Get all the headlines from the content
+        $headings = [];
 
-        //If there are no headlines, return empty array and content
-        if ($headings->count() == 0) {
-            return [[], $content];
+        // Regex pattern to get all the headlines
+        $pattern = '/<(h[1-6])(.*?)id="(.*?)"(.*?)>(.*?)<\/h[1-6]>/';
+
+        // If there are no headlines, return empty array
+        if (! preg_match_all($pattern, $content, $matches)) {
+            return [];
         }
+
+        //Generate the headlines array
+        foreach ($matches[1] as $key => $value) {
+            $headings[] = [
+                'id' => $matches[3][$key],
+                'title' => $matches[5][$key],
+                'level' => (int) Str::substr($matches[1][$key], 1),
+                'childrens' => [],
+            ];
+        }
+
+        // Generate the tree structure
+        return $showChildren ? self::generateTree($headings) : $headings;
+    }
+
+    protected static function generateTree($headings)
+    {
+        $headlines = [];
 
         foreach ($headings as $heading) {
 
-            //Create and add id to the heading
-            $headingId = Str::slug($heading->textContent);
-            $heading->setAttribute('id', $headingId);
-            $newContent = $dom->saveHTML();
-
-            $level = (int) substr($heading->tagName, 1);
-
+            $level = $heading['level'];
             [$lastHeadline, $lastHeadlineKey] = self::getLastHeadline($headlines, []);
             [$lastHeadlineChildren, $lastHeadlineChildrenKey] = self::getLastHeadline($headlines, $lastHeadline);
 
             // Third level
             if (count($headlines) > 0 && isset($lastHeadlineChildren['level']) && $lastHeadlineChildren['level'] < $level) {
-                $headlines[$lastHeadlineKey]['childrens'][$lastHeadlineChildrenKey]['childrens'][] = self::indexTemplate($headingId, $heading->textContent, $level);
+                $headlines[$lastHeadlineKey]['childrens'][$lastHeadlineChildrenKey]['childrens'][] = $heading;
             }
             //Second level
             elseif (count($headlines) > 0 && $headlines[$lastHeadlineKey]['level'] < $level) {
-                $headlines[$lastHeadlineKey]['childrens'][] = self::indexTemplate($headingId, $heading->textContent, $level);
+                $headlines[$lastHeadlineKey]['childrens'][] = $heading;
             }
             //First level
             else {
-                $headlines[] = self::indexTemplate($headingId, $heading->textContent, $level);
+                $headlines[] = $heading;
             }
         }
 
-        return [$headlines, $newContent];
-    }
-
-    public static function getHeadings($content)
-    {
-        $dom = new \DOMDocument();
-        $dom->loadHTML('<?xml encoding="utf-8" ?>'.$content);
-        $xpath = new \DOMXPath($dom);
-        $headings = $xpath->query('//h2 | //h3 | //h4');
-
-        return [$headings, $dom];
+        return $headlines;
     }
 
     /**
@@ -82,16 +93,25 @@ class Index
     }
 
     /**
-     * Index template, used to create the index array [id, title, level, childrens]
+     * This method will add id to the headlines.
      */
-    protected static function indexTemplate($id, $title, $level): array
+    public static function addIdsToHeadlines(string $content): string
     {
-        return [
-            'id' => $id,
-            'title' => $title,
-            'level' => $level,
-            'childrens' => [],
-        ];
+        if (! preg_match('/<h[1-6]/', $content)) {
+            return $content;
+        }
 
+        $pattern = '/<(h[1-6])(.*?)>(.*?)<\/h[1-6]>/';
+
+        return preg_replace_callback($pattern, function ($matches) {
+            // Check if id already exists
+            if (str_contains($matches[2], 'id=')) {
+                return $matches[0]; // Return the whole match without changes
+            }
+
+            $id = Str::slug($matches[3]);
+
+            return "<$matches[1]$matches[2] id=\"$id\">$matches[3]</$matches[1]>";
+        }, $content);
     }
 }

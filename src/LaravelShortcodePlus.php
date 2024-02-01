@@ -19,29 +19,24 @@ final class LaravelShortcodePlus
     }
 
     /**
+     * A function that add heading id to the content.
+     */
+    public function withAutoHeadingIds()
+    {
+        $this->content = Index::addIdsToHeadlines($this->content);
+
+        return $this;
+    }
+
+    /**
      * A function that returns the parsed content.
      */
     public function parseAll(): string
     {
-        $this->content = $this->parseImageTag();
-        $this->content = $this->parseGalleryTag();
-        $this->content = $this->parseIndex();
+        $this->content = Index::parse($this->content);
+        $this->content = Image::parse($this->content);
+        $this->content = Gallery::parse($this->content);
 
         return Shortcode::compile($this->content);
-    }
-
-    public function parseImageTag(): string
-    {
-        return Image::parse($this->content);
-    }
-
-    public function parseGalleryTag(): string
-    {
-        return Gallery::parse($this->content);
-    }
-
-    public function parseIndex(): string
-    {
-        return Index::parse($this->content);
     }
 }
