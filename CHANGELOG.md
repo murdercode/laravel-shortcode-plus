@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v4.2.3 - 2024-02-02
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v4.2.2...v4.2.3
+
 ## v4.2.2 - 2024-02-01
 
 Remove HTML tags from auto adding id & title
