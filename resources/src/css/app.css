@@ -26,38 +26,46 @@
     height: 96px;
 }
 
-.shortcode_faq{
-    position:relative;
-    padding:.5rem;
-    margin-left:auto;
-    margin-right:auto;
-    transition:all .15s ease-in-out;
-    overflow:hidden;
+.shortcode_faq {
+    position: relative;
+    padding: .5rem;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all .15s ease-in-out;
+    overflow: hidden;
     background-color: #F3F4F6;
     border-radius: 0.3rem;
 }
 
-.shortcode_faq>summary{
-    font-family:sans-serif;
-    font-size:1rem;
-    cursor:pointer;
-    padding:.5rem;
+.shortcode_faq > summary {
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: .5rem;
     background: transparent;
 }
 
-.shortcode_faq>summary>span{
-    margin-left:.5rem;
-    font-size:1.2rem;
-    font-weight:900;
+.shortcode_faq > summary > span {
+    margin-left: .5rem;
+    font-size: 1.2rem;
+    font-weight: 900;
     color: #1f2937;
 }
 
-.shortcode_faq>p{
+.shortcode_faq > p {
     margin: 0 !important;
     padding: .5rem 2rem;
-    overflow:hidden;
+    overflow: hidden;
     font-size: 1.1rem;
     line-height: 30px;
+}
+
+html.dark .shortcode_faq {
+    background-color: #090909;
+}
+
+html.dark .shortcode_faq > summary > span {
+    color: #eaeaea;
 }
 
 .shortcode_spoiler {
@@ -179,7 +187,7 @@ a.shortcode_button.secondary:hover {
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .20);
 }
 
-.shortcode_tmdb_bg{
+.shortcode_tmdb_bg {
     background: linear-gradient(90deg, #F3F4F6 0%, #F3F4F6 63%, rgba(255, 255, 255, 0) 100%);
     position: relative;
     padding: 2rem;
@@ -231,7 +239,7 @@ html.dark .shortcode_tmdb .top-box .movie-info .release-date {
     color: #6B7280 !important;
 }
 
-    .shortcode_tmdb .top-box .movie-info .runtime-page-container {
+.shortcode_tmdb .top-box .movie-info .runtime-page-container {
     display: flex;
     margin: 10px 0;
 }
@@ -311,22 +319,22 @@ html.dark .shortcode_tmdb .top-box .movie-info .release-date {
 
 
 /*Splide*/
-.splide__arrow.splide__arrow--next,.splide__arrow.splide__arrow--prev{
-    background-color:#fff!important;
+.splide__arrow.splide__arrow--next, .splide__arrow.splide__arrow--prev {
+    background-color: #fff !important;
     scale: .75 !important;
     padding: 10px !important;
 }
 
-.splide__track{
+.splide__track {
     padding: 0 !important;
 }
 
-.splide{
+.splide {
     /*max-width: 80%;*/
     margin: 0 auto;
 }
 
-.splide__slide{
+.splide__slide {
     padding: 5px !important;
 }
 
@@ -361,6 +369,14 @@ html.dark .shortcode_tmdb .top-box .movie-info .release-date {
 
     .shortcode_tmdb .bottom-box .justwatch-logo-box span {
         background: url("https://widget.justwatch.com/assets/JW_logo_color_10px.svg");
+    }
+
+    .shortcode_faq {
+        background-color: #090909;
+    }
+
+    .shortcode_faq > summary > span {
+        color: #eaeaea;
     }
 }
 
