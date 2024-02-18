@@ -30,7 +30,7 @@ can update over time (new HTML standards, cookie consent, AMP versions, and more
 For example, you can use the following shortcode to embed a Youtube video:
 
 ```markdown
-[youtube id="123456789"]
+[youtube url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
 ```
 
 This will be rendered as:
@@ -38,14 +38,14 @@ This will be rendered as:
 ```html
 
 <iframe
-    src="https://www.youtube-nocookie.com/embed/123456789&autoplay=1"
-    srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/123456789?autoplay=1><img style='object-fit:cover;height:100%;' loading='lazy' src=https://img.youtube.com/vi/123456789/hqdefault.jpg alt='123456789'
+    src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ&autoplay=1"
+    srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1><img style='object-fit:cover;height:100%;' loading='lazy' src=https://img.youtube.com/vi/123456789/hqdefault.jpg alt='dQw4w9WgXcQ'
         loading=lazy><span>▶</span></a>"
     frameborder="0"
     allow="accelerometer; autoplay; encrypted-media; gyroscope;
         picture-in-picture"
     allowfullscreen
-    title="123456789"
+    title="dQw4w9WgXcQ"
 ></iframe>
 ```
 
