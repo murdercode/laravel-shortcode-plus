@@ -3,12 +3,17 @@
     <div class="relative block">
         @if(isset($credits))
             <span
-                class="block absolute right-0 px-1 py-0.5 text-xs text-gray-600 bg-white not-prose dark:bg-gray-900 dark:text-gray-300 opacity-60 z-10">
+                    class="block absolute right-0 px-1 py-0.5 text-xs text-gray-600 bg-white not-prose dark:bg-gray-900 dark:text-gray-300 opacity-60 z-10">
 		        {{ $credits }}
 		    </span>
         @endif
 
-        <figure class="relative" style=";@if($align) float: {{$align}}; @endif">
+        <figure class="relative"
+                style="
+               @if($align === 'left') float: left; margin: 0 1rem 1rem 0;
+               @elseif($align === 'right') float: right; margin: 0 0 1rem 1rem;
+               @endif
+           ">
 
             @if($link)
                 <a class="stretched-link" target="_blank" href="{!! $link !!}" rel="nofollow norefereer sponsored">
@@ -30,7 +35,7 @@
                                  height="{{ $height }}"/>
                             @if($didascalia)
                                 <figcaption
-                                    class="!mt-0 font-sans !text-sm py-2 px-4 bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200">
+                                        class="!mt-0 font-sans !text-sm py-2 px-4 bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200">
                                     {!! html_entity_decode($didascalia) !!}
                                 </figcaption>
                             @endif
