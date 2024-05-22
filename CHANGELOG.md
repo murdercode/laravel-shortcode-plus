@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.0.1 - 2024-05-22
+
+### What's Changed
+
+* Add shortcode nocookie aside by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/78
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.0.0...v5.0.1
+
 ## v5.0.0 - 2024-04-30
 
 ### What's Changed
