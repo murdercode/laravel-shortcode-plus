@@ -1,5 +1,5 @@
 @if($html)
-    <div class="flex justify-center twitter-card" style="min-height: 500px">
+    <div class="flex justify-center twitter-card">
         {!! $html !!}
     </div>
     <aside class="shortcode_nocookie">
