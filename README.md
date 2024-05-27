@@ -175,6 +175,7 @@ Here is the list of the available parsers:
 | `[tmdb]`       | Create a TMDB card                                                                              | `type`, `id`                                                       | `[tmdb type="movie/tv" id="123"]`                                                                                                                           |
 | `[widgetbay]`  | Create a Widgetbay iframe                                                                       | `id (optional)`, `link (optional)`                                 | `[widgetbay id="1"]` `[widgetbay link="https://www.amazon.it/product?tag="41515&subtag="5151"..."]`                                                         |
 | `[index]`      | Create an automatic index based on Heading (h2, h3, h4 etc...)                                  | none                                                               | `[index]`                                                                                                                                                   |
+| `[trivia]`     | Create a trivia                                                                                 | `id`                                                               | `[trivia id="1"]`                                                                                                                                           |
 
 ### Note for Facebook
 

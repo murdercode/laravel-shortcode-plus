@@ -16,6 +16,7 @@ use Murdercode\LaravelShortcodePlus\Shortcodes\SpotifyShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\SurveyShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\TikTokShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\TmdbShortcode;
+use Murdercode\LaravelShortcodePlus\Shortcodes\TriviaShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\TwitterShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\WidgetbayShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\YoutubeShortcode;
@@ -80,5 +81,6 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         Shortcode::register('tmdb', TmdbShortcode::class);
         Shortcode::register('tiktok', TikTokShortcode::class);
         Shortcode::register('survey', SurveyShortcode::class);
+        Shortcode::register('trivia', TriviaShortcode::class);
     }
 }
