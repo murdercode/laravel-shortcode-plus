@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.0.4 - 2024-05-27
+
+### What's Changed
+
+* Create trivia shortcode by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/79
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.0.3...v5.0.4
+
 ## v5.0.3 - 2024-05-22
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.0.2...v5.0.3
