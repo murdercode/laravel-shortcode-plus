@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.0.5 - 2024-05-29
+
+### What's Changed
+
+* Fix shortcode_nocookie dark mode by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/81
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.0.4...v5.0.5
+
 ## v5.0.4 - 2024-05-27
 
 ### What's Changed
