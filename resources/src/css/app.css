@@ -353,6 +353,10 @@ html.dark .shortcode_tmdb .top-box .movie-info .release-date {
     text-align: center;
 }
 
+html.dark .shortcode_nocookie {
+    background-color: #090909;
+}
+
 @media (prefers-color-scheme: dark) {
 
     .shortcode_tmdb {
@@ -387,6 +391,7 @@ html.dark .shortcode_tmdb .top-box .movie-info .release-date {
     .shortcode_faq > summary > span {
         color: #eaeaea;
     }
+
 }
 
 
