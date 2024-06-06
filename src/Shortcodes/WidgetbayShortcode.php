@@ -18,6 +18,10 @@ class WidgetbayShortcode
             $widgetbayLink = 'https://widgetbay.3labs.it/widgetbox?link='.$shortcode->link;
         }
 
+        if ($shortcode->title) {
+            $widgetbayLink .= '&title='.$shortcode->title;
+        }
+
         if (empty($widgetbayLink)) {
             return 'No Widgetbay parameter id or link defined';
         }
