@@ -10,12 +10,16 @@ class WidgetbayShortcode
         $widgetbayLink = '';
 
         if ($shortcode->id) {
-            $widgetbayLink = 'https://widgetbay.3labs.it/widgetbox/'.$shortcode->id;
+            $widgetbayLink = 'https://widgetbay.3labs.it/widgetbox/' . $shortcode->id;
         }
 
         if ($shortcode->link) {
             $shortcode->link = str_replace('&', '%26', $shortcode->link);
-            $widgetbayLink = 'https://widgetbay.3labs.it/widgetbox?link='.$shortcode->link;
+            $widgetbayLink = 'https://widgetbay.3labs.it/widgetbox?link=' . $shortcode->link;
+        }
+
+        if ($shortcode->title) {
+            $widgetbayLink .= '&title=' . $shortcode->title;
         }
 
         if (empty($widgetbayLink)) {
