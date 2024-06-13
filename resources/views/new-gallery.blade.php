@@ -1,7 +1,7 @@
 <div class="w-full">
     <div class="
 	grid grid-cols-4 grid-rows-2 not-prose sm:px-0">
-        @foreach (json_decode($images) as $image)
+        @foreach ($images as $image)
             @if ($loop->iteration <= 5)
                 <a class="
 
