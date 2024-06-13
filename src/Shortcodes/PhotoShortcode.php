@@ -16,6 +16,12 @@ class PhotoShortcode
             $ids = explode(',', $multipleIds);
             if (count($ids) > 1) {
                 $images = \Outl1ne\NovaMediaHub\Models\Media::whereIn('id', $ids)->get();
+
+                //order images by shortcode order
+                $images = $images->sortBy(function ($image) use ($ids) {
+                    return array_search($image->id, $ids);
+                });
+
                 foreach ($images as $key => $image) {
                     $images[$key]['src'] = $image->path.$image->file_name;
                     $images[$key]['title'] = $image['data']['title'][0] ?? null;
