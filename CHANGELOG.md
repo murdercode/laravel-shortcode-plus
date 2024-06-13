@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.0.7 - 2024-06-13
+
+### What's Changed
+
+* Update README.md by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/83
+* Fix photo shortcode by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/84
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.0.6...v5.0.7
+
 ## v5.0.5 - 2024-05-29
 
 ### What's Changed
