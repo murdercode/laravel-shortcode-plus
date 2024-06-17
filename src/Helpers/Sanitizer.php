@@ -40,8 +40,14 @@ class Sanitizer
                 preg_match('/href="([^"]*)"/', $matches[1], $hrefMatches);
                 $link = $hrefMatches[1];
                 foreach ($linksToCheck as $linkToCheck) {
-                    if (strpos($link, $linkToCheck) === 0) {
-                        return str_replace('<a ' . $matches[1], '<a ' . $matches[1] . ' rel="' . $rel . '"', $matches[0]);
+                    if (@preg_match($linkToCheck, $link)) {
+                        if (preg_match($linkToCheck, $link)) {
+                            return str_replace('<a ' . $matches[1], '<a ' . $matches[1] . ' rel="' . $rel . '"', $matches[0]);
+                        }
+                    } else {
+                        if (strpos($link, $linkToCheck) === 0) {
+                            return str_replace('<a ' . $matches[1], '<a ' . $matches[1] . ' rel="' . $rel . '"', $matches[0]);
+                        }
                     }
                 }
             }

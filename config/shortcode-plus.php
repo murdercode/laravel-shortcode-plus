@@ -42,8 +42,8 @@ return [
 
     'linksToParse' => [
         'sponsored' => [
-            'https://www.amazon.it',
-            'https://www.ebay.it',
+            '#https://www\\.amazon\\.[A-Za-z]+#i',
+            '#https://www\\.ebay\\.[A-Za-z]+#i',
             'https://www.instant-gaming.com',
         ],
         'dofollow' => [
@@ -53,7 +53,6 @@ return [
             'https://www.youtube.com',
             'https://multiplayer.it',
             'https://www.everyeye.it',
-            'https://aibay.it'
         ],
     ],
 ];
