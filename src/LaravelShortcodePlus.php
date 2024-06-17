@@ -2,6 +2,7 @@
 
 namespace Murdercode\LaravelShortcodePlus;
 
+use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
 use Murdercode\LaravelShortcodePlus\Parsers\Gallery;
 use Murdercode\LaravelShortcodePlus\Parsers\Image;
 use Murdercode\LaravelShortcodePlus\Parsers\Index;
@@ -36,6 +37,7 @@ final class LaravelShortcodePlus
         $this->content = Index::parse($this->content);
         $this->content = Image::parse($this->content);
         $this->content = Gallery::parse($this->content);
+        $this->content = Sanitizer::parseAllLinks($this->content);
 
         return Shortcode::compile($this->content);
     }
