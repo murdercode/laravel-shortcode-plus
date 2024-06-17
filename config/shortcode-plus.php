@@ -48,6 +48,15 @@ return [
         ],
         'dofollow' => [
             'https://forum.tomshw.it/',
+            'https://forum.spaziogames.it/',
+            'https://www.tomshw.it/',
+            'https://www.spaziogames.it/',
+            'https://cpop.it',
+            'https://data4biz.com',
+            'https://global.techradar.com/',
+            'https://soshomegarden.com',
+            'https://aibay.it',
+            'https://3labs.it',
         ],
         'nofollow' => [
             'https://www.youtube.com',
