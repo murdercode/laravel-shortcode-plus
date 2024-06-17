@@ -29,6 +29,13 @@ final class LaravelShortcodePlus
         return $this;
     }
 
+    public function forceRel()
+    {
+        $this->content = Sanitizer::parseAllLinks($this->content);
+
+        return $this;
+    }
+
     /**
      * A function that returns the parsed content.
      */
@@ -37,7 +44,6 @@ final class LaravelShortcodePlus
         $this->content = Index::parse($this->content);
         $this->content = Image::parse($this->content);
         $this->content = Gallery::parse($this->content);
-        $this->content = Sanitizer::parseAllLinks($this->content);
 
         return Shortcode::compile($this->content);
     }

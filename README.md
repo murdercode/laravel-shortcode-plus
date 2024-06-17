@@ -237,6 +237,38 @@ Please remember to call the SDK before `</body>`:
 <script async src="https://widget.justwatch.com/justwatch_widget.js" type="text/javascript"></script>
 ```
 
+### Note for Parse links
+
+Please remember to add in config file the links to parse:
+
+```php
+    'linksToParse' => [
+        'sponsored' => [
+            '#https://www\\.amazon\\.[A-Za-z]+#i',
+            '#https://www\\.ebay\\.[A-Za-z]+#i',
+            'https://www.instant-gaming.com',
+        ],
+        'dofollow' => [
+            'https://forum.tomshw.it/',
+        ],
+        'nofollow' => [
+            'https://www.youtube.com',
+            'https://multiplayer.it',
+            'https://www.everyeye.it',
+        ],
+    ],
+```
+
+You can use a regex or a string to parse the links.
+
+And, when parse your content, you can use forceRel():
+
+```php
+    $content = LaravelShortcodePlus::source($content)
+        ->forceRel()
+        ->parseAll();
+```
+
 ## Testing
 
 ```bash

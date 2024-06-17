@@ -39,4 +39,20 @@ return [
     'nocookie' => [
         'text' => 'Questo contenuto è ospitato su una piattaforma esterna. Per visualizzarlo, è necessario <a href="javascript:void(0)" class="iubenda-cs-preferences-link">accettare i cookie</a>',
     ],
+
+    'linksToParse' => [
+        'sponsored' => [
+            '#https://www\\.amazon\\.[A-Za-z]+#i',
+            '#https://www\\.ebay\\.[A-Za-z]+#i',
+            'https://www.instant-gaming.com',
+        ],
+        'dofollow' => [
+            'https://forum.tomshw.it/',
+        ],
+        'nofollow' => [
+            'https://www.youtube.com',
+            'https://multiplayer.it',
+            'https://www.everyeye.it',
+        ],
+    ],
 ];
