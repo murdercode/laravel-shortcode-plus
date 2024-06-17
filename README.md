@@ -261,6 +261,14 @@ Please remember to add in config file the links to parse:
 
 You can use a regex or a string to parse the links.
 
+And, when parse your content, you can use forceRel():
+
+```php
+    $content = LaravelShortcodePlus::source($content)
+        ->forceRel()
+        ->parseAll();
+```
+
 ## Testing
 
 ```bash
