@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.0.10 - 2024-06-21
+
+* New config for links to parse
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.0.9...v5.0.10
+
 ## v5.0.9 - 2024-06-20
 
 Add Lazy load on Instagram iframe
