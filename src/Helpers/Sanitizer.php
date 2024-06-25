@@ -33,30 +33,30 @@ class Sanitizer
         return $content;
     }
 
-protected static function parseLink(string $content, array $linksToCheck, string $rel)
-{
-    return preg_replace_callback('/<a\s+([^>]+)>/', function ($matches) use ($linksToCheck, $rel) {
-        preg_match('/href="([^"]*)"/', $matches[1], $hrefMatches);
-        $link = $hrefMatches[1];
-        foreach ($linksToCheck as $linkToCheck) {
-            if ((@preg_match($linkToCheck, $link) || strpos($link, $linkToCheck) === 0)) {
-                if ($rel === 'dofollow') {
-                    if (preg_match('/rel="noopener"/', $matches[0])) {
-                        return str_replace('rel="noopener"', 'rel="'.$rel.'"', $matches[0]);
-                    } elseif (! preg_match('/rel="/', $matches[0])) {
-                        return str_replace('<a '.$matches[1], '<a '.$matches[1].' rel="'.$rel.'"', $matches[0]);
-                    }
-                } else {
-                    if (preg_match('/rel="noopener"/', $matches[0])) {
-                        return str_replace('rel="noopener"', 'rel="'.$rel.' noopener"', $matches[0]);
-                    } elseif (! preg_match('/rel="/', $matches[0])) {
-                        return str_replace('<a '.$matches[1], '<a '.$matches[1].' rel="'.$rel.' noopener"', $matches[0]);
+    protected static function parseLink(string $content, array $linksToCheck, string $rel)
+    {
+        return preg_replace_callback('/<a\s+([^>]+)>/', function ($matches) use ($linksToCheck, $rel) {
+            preg_match('/href="([^"]*)"/', $matches[1], $hrefMatches);
+            $link = $hrefMatches[1];
+            foreach ($linksToCheck as $linkToCheck) {
+                if ((@preg_match($linkToCheck, $link) || strpos($link, $linkToCheck) === 0)) {
+                    if ($rel === 'dofollow') {
+                        if (preg_match('/rel="noopener"/', $matches[0])) {
+                            return str_replace('rel="noopener"', 'rel="'.$rel.'"', $matches[0]);
+                        } elseif (! preg_match('/rel="/', $matches[0])) {
+                            return str_replace('<a '.$matches[1], '<a '.$matches[1].' rel="'.$rel.'"', $matches[0]);
+                        }
+                    } else {
+                        if (preg_match('/rel="noopener"/', $matches[0])) {
+                            return str_replace('rel="noopener"', 'rel="'.$rel.' noopener"', $matches[0]);
+                        } elseif (! preg_match('/rel="/', $matches[0])) {
+                            return str_replace('<a '.$matches[1], '<a '.$matches[1].' rel="'.$rel.' noopener"', $matches[0]);
+                        }
                     }
                 }
             }
-        }
 
-        return $matches[0];
-    }, $content);
-}
+            return $matches[0];
+        }, $content);
+    }
 }

@@ -76,8 +76,8 @@ it('cannot parse rel already nofollow', function () {
 });
 
 it('can parse rel if contains noopener', function () {
-    $html = '<a href="https://www.amazon.it/WYBOT-Cordless-aspirapolvere-Automatico-interrate/dp/B0B27WRG45" rel="noopener">Amazon Link</a>';
+    $html = '<a href="https://twitter.com/AttackOnFans/status/1804529901728330229" target="_blank" rel="noopener">AttackOnFans</a>';
     $parsedHtml = LaravelShortcodePlus::source($html)->forceRel()->parseAll();
     expect($parsedHtml)
-        ->toContain('<a href="https://www.amazon.it/WYBOT-Cordless-aspirapolvere-Automatico-interrate/dp/B0B27WRG45" rel="sponsored noopener">Amazon Link</a>');
+        ->toContain('<a href="https://twitter.com/AttackOnFans/status/1804529901728330229" target="_blank" rel="nofollow noopener">AttackOnFans</a>');
 });
