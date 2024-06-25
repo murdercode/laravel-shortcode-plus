@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.1.0 - 2024-06-25
+
+- Noopener logic, force it!
+
 ## v5.0.12 - 2024-06-24
 
 ### What's Changed
