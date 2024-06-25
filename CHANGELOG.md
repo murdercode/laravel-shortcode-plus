@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.1.1 - 2024-06-25
+
+Fix error array 1
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.0.12...v5.1.1
+
 ## v5.1.0 - 2024-06-25
 
 - Noopener logic, force it!
