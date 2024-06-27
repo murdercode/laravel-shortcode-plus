@@ -67,5 +67,4 @@ class Sanitizer
         // Return the modified HTML
         return htmlspecialchars_decode($doc->saveHTML());
     }
-
 }
