@@ -23,7 +23,7 @@ class InstagramShortcode
         }
 
         $post_id = self::getPostId($url);
-        $embed_url = 'https://www.instagram.com/'.$pathType.'/'.$post_id.'/embed';
+        $embed_url = 'https://www.instagram.com/' . $pathType . '/' . $post_id;
 
         return view('shortcode-plus::instagram', compact('embed_url'))->render();
     }
