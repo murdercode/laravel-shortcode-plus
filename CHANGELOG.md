@@ -2,6 +2,32 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.1.3 - 2024-06-26
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.2...v5.1.3
+
+## v5.1.2 - 2024-06-25
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.1...v5.1.2
+
+## v5.1.1 - 2024-06-25
+
+Fix error array 1
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.0.12...v5.1.1
+
+## v5.1.0 - 2024-06-25
+
+- Noopener logic, force it!
+
+## v5.0.12 - 2024-06-24
+
+### What's Changed
+
+* Bump braces from 3.0.2 to 3.0.3 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/87
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.0.8...v5.0.12
+
 ## v5.0.11 - 2024-06-21
 
 Add lazy load on galleries

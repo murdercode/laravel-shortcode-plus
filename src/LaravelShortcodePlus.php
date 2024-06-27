@@ -29,7 +29,11 @@ final class LaravelShortcodePlus
 
     public function forceRel()
     {
-        $this->content = Sanitizer::parseAllLinks($this->content);
+        try {
+            $this->content = Sanitizer::parseAllLinks($this->content);
+        } catch (\Exception $e) {
+            // Do nothing
+        }
 
         return $this;
     }

@@ -188,7 +188,7 @@ a.shortcode_button.secondary:hover {
 }
 
 .shortcode_tmdb_bg {
-    background: linear-gradient(90deg, #F3F4F6 0%, #F3F4F6 63%, rgba(255, 255, 255, 0) 100%);
+    background: white;
     position: relative;
     padding: 2rem;
     z-index: 2;
@@ -360,7 +360,7 @@ html.dark .shortcode_nocookie {
 @media (prefers-color-scheme: dark) {
 
     .shortcode_tmdb {
-        background: linear-gradient(90deg, black 0%, black 63%, rgba(0, 0, 0, 0) 100%);
+        background: white;
     }
 
     .shortcode_tmdb .top-box .movie-info h3 {

@@ -4,10 +4,10 @@
 
         <div class="top-box flex">
             {{-- Poster--}}
-            <div class="movie-poster">
-                <img src="{{config('shortcode-plus.tmdb.image_base_uri')}}/w154{{$data->poster_path}}"
-                     alt="Immagine di {{$data->title ?? $data->name}}" loading="lazy">
-            </div>
+            {{--            <div class="movie-poster">--}}
+            {{--                <img src="{{config('shortcode-plus.tmdb.image_base_uri')}}/w154{{$data->poster_path}}"--}}
+            {{--                     alt="Immagine di {{$data->title ?? $data->name}}" loading="lazy">--}}
+            {{--            </div>--}}
 
             {{-- Movie Info --}}
             <div class="movie-info">
@@ -56,7 +56,7 @@
                 {{Str::limit($data->overview, 160)}}
             </p>
 
-                <div class="justwatch-box">
+            <div class="justwatch-box">
                 @if(config('shortcode-plus.tmdb.justwatch_api_key'))
                     <div data-jw-widget data-api-key="{{config('shortcode-plus.tmdb.justwatch_api_key')}}"
                          data-object-type="{{$type}}"
@@ -68,8 +68,10 @@
                          data-theme="light">
                     </div>
                     <div class="not-prose">
-                        <a target="_blank" data-original="https://www.justwatch.com" href="https://www.justwatch.com/it">
-                            <img src="https://widget.justwatch.com/assets/JW_logo_black_10px.svg" width="90px" height="20px" alt="JustWatch" loading="lazy"/>
+                        <a target="_blank" data-original="https://www.justwatch.com"
+                           href="https://www.justwatch.com/it">
+                            <img src="https://widget.justwatch.com/assets/JW_logo_black_10px.svg" width="90px"
+                                 height="20px" alt="JustWatch" loading="lazy"/>
                         </a>
                     </div>
                 @endif
@@ -79,7 +81,8 @@
     </div>
 
     {{--    <div class="movie-poster-backdrop" style="background-image:url('{{config('shortcode-plus.tmdb.image_base_uri')}}/w780{{$data->backdrop_path}}')"></div>--}}
-        <img src="{{config('shortcode-plus.tmdb.image_base_uri') . '/w780' . $data->backdrop_path}}" alt="Immagine di {{$data->title ?? $data->name}}"
-             class="movie-poster-backdrop" loading="lazy">
+    {{--    <img src="{{config('shortcode-plus.tmdb.image_base_uri') . '/w780' . $data->backdrop_path}}"--}}
+    {{--         alt="Immagine di {{$data->title ?? $data->name}}"--}}
+    {{--         class="movie-poster-backdrop" loading="lazy">--}}
 
 </div>
