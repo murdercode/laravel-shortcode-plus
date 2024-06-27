@@ -357,6 +357,10 @@ html.dark .shortcode_nocookie {
     background-color: #090909;
 }
 
+.instagram-media {
+    margin: auto !important;
+}
+
 @media (prefers-color-scheme: dark) {
 
     .shortcode_tmdb {
