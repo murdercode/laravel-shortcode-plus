@@ -23,48 +23,41 @@ class Sanitizer
 
         $linksToParse = config('shortcode-plus.linksToParse');
 
-        return self::parseLink($content, $linksToParse);
+        foreach ($linksToParse as $rel => $links) {
+            if ($links === null) {
+                continue;
+            }
+            $content = self::parseLink($content, $links, $rel);
+        }
+
+        return $content;
     }
 
-    protected static function parseLink(string $content, array $linksToParse)
+    protected static function parseLink(string $content, array $linksToCheck, string $rel)
     {
-        // Create an associative array for more efficient lookups
-        $linksToRel = [];
-        foreach ($linksToParse as $rel => $links) {
-            foreach ($links as $link) {
-                $linksToRel[$link] = $rel;
-            }
-        }
-
-        // Use DOMDocument for parsing HTML
-        $doc = new \DOMDocument();
-        @$doc->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-
-        // Iterate over all 'a' elements
-        $aElements = $doc->getElementsByTagName('a');
-        foreach ($aElements as $a) {
-            $href = $a->getAttribute('href');
-            $oldRel = $a->getAttribute('rel');
-
-            foreach ($linksToRel as $link => $rel) {
-                if (@preg_match($link, $href)) {
-
-                    if ($rel === 'sponsored' || $rel === 'nofollow') {
-                        $rel .= ' noopener';
+        return preg_replace_callback('/<a\s+([^>]+)>/', function ($matches) use ($linksToCheck, $rel) {
+            if (preg_match('/href="([^"]*)"/', $matches[1], $hrefMatches)) {
+                $link = $hrefMatches[1];
+                foreach ($linksToCheck as $linkToCheck) {
+                    if ((@preg_match($linkToCheck, $link) || strpos($link, $linkToCheck) === 0)) {
+                        if ($rel === 'dofollow') {
+                            if (preg_match('/rel="noopener"/', $matches[0])) {
+                                return str_replace('rel="noopener"', 'rel="'.$rel.'"', $matches[0]);
+                            } elseif (! preg_match('/rel="/', $matches[0])) {
+                                return str_replace('<a '.$matches[1], '<a '.$matches[1].' rel="'.$rel.'"', $matches[0]);
+                            }
+                        } else {
+                            if (preg_match('/rel="noopener"/', $matches[0])) {
+                                return str_replace('rel="noopener"', 'rel="'.$rel.' noopener"', $matches[0]);
+                            } elseif (! preg_match('/rel="/', $matches[0])) {
+                                return str_replace('<a '.$matches[1], '<a '.$matches[1].' rel="'.$rel.' noopener"', $matches[0]);
+                            }
+                        }
                     }
-
-                    if ($oldRel === 'nofollow' || $oldRel === 'dofollow' || $oldRel === 'sponsored') {
-                        $a->setAttribute('rel', $oldRel); //return the old rel
-                    } else {
-                        $a->setAttribute('rel', $rel); // set the new rel
-                    }
-
-                    break;
                 }
             }
-        }
 
-        // Return the modified HTML
-        return htmlspecialchars_decode($doc->saveHTML());
+            return $matches[0];
+        }, $content);
     }
 }
