@@ -8,14 +8,14 @@ class WidgetbayShortcode
     {
 
         $widgetbayLink = '';
-        $height = null;
+        $heightListClass = null;
         if ($shortcode->id) {
             $widgetbayLink = 'https://widgetbay.test/widgetbox/' . $shortcode->id;
         }
 
         if ($shortcode->link) {
             $shortcode->link = str_replace('&', '%26', $shortcode->link);
-            $height = $this->calculateIframeHeight($shortcode->link);
+            $heightListClass = $this->calculateIframeHeight($shortcode->link);
             $widgetbayLink = 'https://widgetbay.test/widgetbox?link=' . $shortcode->link;
         }
 
@@ -27,7 +27,7 @@ class WidgetbayShortcode
             return 'No Widgetbay parameter id or link defined';
         }
 
-        return view('shortcode-plus::widgetbay', compact('widgetbayLink', 'height'))->render();
+        return view('shortcode-plus::widgetbay', compact('widgetbayLink', 'heightListClass'))->render();
     }
 
     protected function calculateIframeHeight($products)
@@ -37,13 +37,7 @@ class WidgetbayShortcode
 
 
         if ($count > 1) {
-            $defaultHeightDesktop = 92;
-            $defaultHeightMobile = 142;
-
-            return [
-                "desktop" => $defaultHeightDesktop * $count,
-                "mobile" => $defaultHeightMobile * $count
-            ];
+            return 'shortcode_widgetbay_list_' . $count;
         }
 
         return null;

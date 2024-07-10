@@ -171,6 +171,47 @@ a.shortcode_button.secondary:hover {
     height: 410px;
 }
 
+:root {
+    --widgetbay-base-height-mobile: 135px;
+    --widgetbay-base-height-desktop: 92px;
+}
+
+.shortcode_widgetbay_list_2 {
+    height: calc(var(--widgetbay-base-height-mobile) * 2);
+}
+
+.shortcode_widgetbay_list_3 {
+    height: calc(var(--widgetbay-base-height-mobile) * 3);
+}
+
+.shortcode_widgetbay_list_4 {
+    height: calc(var(--widgetbay-base-height-mobile) * 4);
+}
+
+.shortcode_widgetbay_list_5 {
+    height: calc(var(--widgetbay-base-height-mobile) * 5);
+}
+
+.shortcode_widgetbay_list_6 {
+    height: calc(var(--widgetbay-base-height-mobile) * 6);
+}
+
+.shortcode_widgetbay_list_7 {
+    height: calc(var(--widgetbay-base-height-mobile) * 7);
+}
+
+.shortcode_widgetbay_list_8 {
+    height: calc(var(--widgetbay-base-height-mobile) * 8);
+}
+
+.shortcode_widgetbay_list_9 {
+    height: calc(var(--widgetbay-base-height-mobile) * 9);
+}
+
+.shortcode_widgetbay_list_10 {
+    height: calc(var(--widgetbay-base-height-mobile) * 10);
+}
+
 @media (min-width: 451px) {
     .shortcode_widgetbay {
         height: 378px;
@@ -181,7 +222,49 @@ a.shortcode_button.secondary:hover {
     .shortcode_widgetbay {
         height: 215px;
     }
+
+    .shortcode_widgetbay_list_2 {
+        height: calc(var(--widgetbay-base-height-desktop) * 2);
+    }
+
+    .shortcode_widgetbay_list_3 {
+        height: calc(var(--widgetbay-base-height-desktop) * 3);
+    }
+
+    .shortcode_widgetbay_list_4 {
+        height: calc(var(--widgetbay-base-height-desktop) * 4);
+    }
+
+    .shortcode_widgetbay_list_5 {
+        height: calc(var(--widgetbay-base-height-desktop) * 5);
+    }
+
+    .shortcode_widgetbay_list_6 {
+        height: calc(var(--widgetbay-base-height-desktop) * 6);
+    }
+
+    .shortcode_widgetbay_list_7 {
+        height: calc(var(--widgetbay-base-height-desktop) * 7);
+    }
+
+    .shortcode_widgetbay_list_8 {
+        height: calc(var(--widgetbay-base-height-desktop) * 8);
+    }
+
+    .shortcode_widgetbay_list_9 {
+        height: calc(var(--widgetbay-base-height-desktop) * 9);
+    }
+
+    .shortcode_widgetbay_list_10 {
+        height: calc(var(--widgetbay-base-height-desktop) * 10);
+    }
+
 }
+
+/*
+Da 2 a 10 - 1 sola regola per ogni numero
+
+ */
 
 /*TMDB*/
 
