@@ -10,17 +10,17 @@ class WidgetbayShortcode
         $widgetbayLink = '';
         $height = null;
         if ($shortcode->id) {
-            $widgetbayLink = 'https://widgetbay.test/widgetbox/' . $shortcode->id;
+            $widgetbayLink = 'https://widgetbay.test/widgetbox/'.$shortcode->id;
         }
 
         if ($shortcode->link) {
             $shortcode->link = str_replace('&', '%26', $shortcode->link);
             $height = $this->calculateIframeHeight($shortcode->link);
-            $widgetbayLink = 'https://widgetbay.test/widgetbox?link=' . $shortcode->link;
+            $widgetbayLink = 'https://widgetbay.test/widgetbox?link='.$shortcode->link;
         }
 
         if ($shortcode->title) {
-            $widgetbayLink .= '&title=' . $shortcode->title;
+            $widgetbayLink .= '&title='.$shortcode->title;
         }
 
         if (empty($widgetbayLink)) {
@@ -35,14 +35,13 @@ class WidgetbayShortcode
         $products = explode(',', $products);
         $count = count($products);
 
-
         if ($count > 1) {
             $defaultHeightDesktop = 92;
             $defaultHeightMobile = 142;
 
             return [
-                "desktop" => $defaultHeightDesktop * $count,
-                "mobile" => $defaultHeightMobile * $count
+                'desktop' => $defaultHeightDesktop * $count,
+                'mobile' => $defaultHeightMobile * $count,
             ];
         }
 
