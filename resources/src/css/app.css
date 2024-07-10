@@ -168,12 +168,18 @@ a.shortcode_button.secondary:hover {
 
 /* WIDGETBAY */
 .shortcode_widgetbay {
-    height: 460px;
+    height: 410px;
+}
+
+@media (min-width: 451px) {
+    .shortcode_widgetbay {
+        height: 378px;
+    }
 }
 
 @media (min-width: 647px) {
     .shortcode_widgetbay {
-        height: 265px;
+        height: 215px;
     }
 }
 
