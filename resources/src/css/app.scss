@@ -1,0 +1,13 @@
+@for $i from 2 through 10 {
+    .shortcode_widgetbay_list_#{$i} {
+        height: #{135 * $i}px;
+    }
+}
+
+@media (min-width: 647px) {
+    @for $i from 2 through 10 {
+        .shortcode_widgetbay_list_#{$i} {
+            height: #{92 * $i}px;
+        }
+    }
+}
