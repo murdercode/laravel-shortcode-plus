@@ -4,11 +4,6 @@
     "isEntry": true,
     "src": "resources/src/css/app.css"
   },
-  "resources/src/css/app.scss": {
-    "file": "app2.css",
-    "isEntry": true,
-    "src": "resources/src/css/app.scss"
-  },
   "resources/src/js/app.js": {
     "file": "app2.js",
     "isEntry": true,
