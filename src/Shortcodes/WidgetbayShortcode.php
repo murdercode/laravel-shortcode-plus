@@ -6,21 +6,23 @@ class WidgetbayShortcode
 {
     public function register($shortcode)
     {
+        $endpoint = 'https://widgetbay.3labs.it/widgetbox';
+//        $endpoint = 'https://widgetbay.test/widgetbox';
 
         $widgetbayLink = '';
         $heightListClass = null;
         if ($shortcode->id) {
-            $widgetbayLink = 'https://widgetbay.test/widgetbox/'.$shortcode->id;
+            $widgetbayLink = $endpoint . '/' . $shortcode->id;
         }
 
         if ($shortcode->link) {
             $shortcode->link = str_replace('&', '%26', $shortcode->link);
             $heightListClass = $this->calculateIframeHeight($shortcode->link);
-            $widgetbayLink = 'https://widgetbay.test/widgetbox?link='.$shortcode->link;
+            $widgetbayLink = $endpoint . '?link=' . $shortcode->link;
         }
 
         if ($shortcode->title) {
-            $widgetbayLink .= '&title='.$shortcode->title;
+            $widgetbayLink .= '&title=' . $shortcode->title;
         }
 
         if (empty($widgetbayLink)) {
@@ -36,7 +38,7 @@ class WidgetbayShortcode
         $count = count($products);
 
         if ($count > 1) {
-            return 'shortcode_widgetbay_list_'.$count;
+            return 'shortcode_widgetbay_list_' . $count;
         }
 
         return null;
