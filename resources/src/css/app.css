@@ -171,41 +171,81 @@ a.shortcode_button.secondary:hover {
     height: 410px;
 }
 
-/* x 135px */
+/* x 150px */
 .shortcode_widgetbay_list_2 {
-    height: 270px
+    height: 300px
 }
 
 .shortcode_widgetbay_list_3 {
-    height: 405px
+    height: 450px
 }
 
 .shortcode_widgetbay_list_4 {
-    height: 540px
+    height: 600px
 }
 
 .shortcode_widgetbay_list_5 {
-    height: 675px
+    height: 750px
 }
 
 .shortcode_widgetbay_list_6 {
-    height: 810px
+    height: 864px
 }
 
 .shortcode_widgetbay_list_7 {
-    height: 945px
+    height: 1000px
 }
 
 .shortcode_widgetbay_list_8 {
-    height: 1080px
+    height: 1130px
 }
 
 .shortcode_widgetbay_list_9 {
-    height: 1215px
+    height: 1270px
 }
 
 .shortcode_widgetbay_list_10 {
-    height: 1350px
+    height: 1410px
+}
+
+@media (min-width: 405px) {
+
+    /* x 135px */
+    .shortcode_widgetbay_list_2 {
+        height: 270px
+    }
+
+    .shortcode_widgetbay_list_3 {
+        height: 405px
+    }
+
+    .shortcode_widgetbay_list_4 {
+        height: 540px
+    }
+
+    .shortcode_widgetbay_list_5 {
+        height: 675px
+    }
+
+    .shortcode_widgetbay_list_6 {
+        height: 810px
+    }
+
+    .shortcode_widgetbay_list_7 {
+        height: 945px
+    }
+
+    .shortcode_widgetbay_list_8 {
+        height: 1080px
+    }
+
+    .shortcode_widgetbay_list_9 {
+        height: 1215px
+    }
+
+    .shortcode_widgetbay_list_10 {
+        height: 1350px
+    }
 }
 
 @media (min-width: 451px) {
