@@ -25,6 +25,10 @@ class WidgetbayShortcode
             $widgetbayLink .= '&title='.$shortcode->title;
         }
 
+        if ($shortcode->forcelink) {
+            $widgetbayLink .= '&forceLink='.$shortcode->forcelink;
+        }
+
         if (empty($widgetbayLink)) {
             return 'No Widgetbay parameter id or link defined';
         }
