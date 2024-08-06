@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.1.11 - 2024-08-06
+
+### What's Changed
+
+* Widgetbay, add forceLink by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/90
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.10...v5.1.11
+
 ## v5.1.10 - 2024-07-22
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.9...v5.1.10
