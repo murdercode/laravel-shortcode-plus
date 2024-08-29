@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.1.13 - 2024-08-12
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.12...v5.1.13
+
+## v5.1.12 - 2024-08-09
+
+Add word break to distico
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.11...v5.1.12
+
 ## v5.1.11 - 2024-08-06
 
 ### What's Changed
