@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.1.14 - 2024-09-20
+
+### What's Changed
+
+* Bump vite from 4.5.3 to 4.5.5 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/91
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.13...v5.1.14
+
 ## v5.1.13 - 2024-08-12
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.12...v5.1.13

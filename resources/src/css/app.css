@@ -438,6 +438,22 @@ html.dark .shortcode_tmdb .top-box .movie-info .release-date {
     display: none;
 }
 
+.shortcode_index .ul-level-3 {
+    list-style: circle;
+}
+
+.shortcode_index .level-3 {
+    padding-left: 3rem;
+}
+
+.shortcode_index .ul-level-4 {
+    list-style: square;
+}
+
+.shortcode_index .level-4 {
+    padding-left: 4rem;
+}
+
 
 /*Splide*/
 .splide__arrow.splide__arrow--next, .splide__arrow.splide__arrow--prev {
