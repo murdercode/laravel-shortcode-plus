@@ -16,18 +16,18 @@ class TmdbShortcode
             default => null,
         };
 
-        if (!$id) {
+        if (! $id) {
             return 'Please provide a valid id';
         }
 
-        if (!$type) {
+        if (! $type) {
             return 'Please provide a valid type (movie or tv)';
         }
 
         $data = $this->getTmdbDataFromApi($type, $id);
         $moreLink = $this->generateMoreLink($type, $id);
 
-        if (!$data || !$moreLink) {
+        if (! $data || ! $moreLink) {
             return '';
         }
 
@@ -70,6 +70,7 @@ class TmdbShortcode
             }
         } catch (\Exception $e) {
             Log::error($e->getMessage());
+
             return '';
         }
 
@@ -83,7 +84,7 @@ class TmdbShortcode
     {
         $moreLinkDomain = config('shortcode-plus.tmdb.more_link.domain');
 
-        if (!$moreLinkDomain) {
+        if (! $moreLinkDomain) {
             return null;
         }
 
@@ -93,7 +94,7 @@ class TmdbShortcode
             default => null,
         };
 
-        if (!$moreLinkType) {
+        if (! $moreLinkType) {
             return null;
         }
 
