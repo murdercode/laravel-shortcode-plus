@@ -3,6 +3,7 @@
 namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class TmdbShortcode
 {
@@ -15,18 +16,18 @@ class TmdbShortcode
             default => null,
         };
 
-        if (! $id) {
+        if (!$id) {
             return 'Please provide a valid id';
         }
 
-        if (! $type) {
+        if (!$type) {
             return 'Please provide a valid type (movie or tv)';
         }
 
         $data = $this->getTmdbDataFromApi($type, $id);
         $moreLink = $this->generateMoreLink($type, $id);
 
-        if (! $data || ! $moreLink) {
+        if (!$data || !$moreLink) {
             return '';
         }
 
@@ -53,18 +54,23 @@ class TmdbShortcode
         $tmdbApiKey = config('shortcode-plus.tmdb.api_key');
         $tmdbLanguage = config('shortcode-plus.tmdb.language');
 
-        $response = Http::withHeaders([
-            'Authorization' => "Bearer $tmdbApiKey",
-            'accept' => 'application/json',
-        ])
-            ->acceptJson()
-            ->get("https://api.themoviedb.org/$tmdbApiVersion/$type/$id?language=$tmdbLanguage");
+        try {
+            $response = Http::withHeaders([
+                'Authorization' => "Bearer $tmdbApiKey",
+                'accept' => 'application/json',
+            ])
+                ->acceptJson()
+                ->get("https://api.themoviedb.org/$tmdbApiVersion/$type/$id?language=$tmdbLanguage");
 
-        if ($response->failed()) {
-            //            if(config('app.debug')) {
-            //                throw new \Exception('Error while fetching data from TMDB API');
-            //            }
-            return null;
+            if ($response->failed()) {
+                //            if(config('app.debug')) {
+                //                throw new \Exception('Error while fetching data from TMDB API');
+                //            }
+                return null;
+            }
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return '';
         }
 
         return json_decode($response->body());
@@ -77,7 +83,7 @@ class TmdbShortcode
     {
         $moreLinkDomain = config('shortcode-plus.tmdb.more_link.domain');
 
-        if (! $moreLinkDomain) {
+        if (!$moreLinkDomain) {
             return null;
         }
 
@@ -87,7 +93,7 @@ class TmdbShortcode
             default => null,
         };
 
-        if (! $moreLinkType) {
+        if (!$moreLinkType) {
             return null;
         }
 
