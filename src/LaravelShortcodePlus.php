@@ -2,6 +2,8 @@
 
 namespace Murdercode\LaravelShortcodePlus;
 
+use Murdercode\LaravelShortcodePlus\AltShortcodes\ButtonShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\WidgetbayShortcode;
 use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
 use Murdercode\LaravelShortcodePlus\Parsers\Gallery;
 use Murdercode\LaravelShortcodePlus\Parsers\Image;
@@ -10,7 +12,9 @@ use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
 {
-    public function __construct(protected string $content = '') {}
+    public function __construct(protected string $content = '')
+    {
+    }
 
     public static function source(string $source): LaravelShortcodePlus
     {
@@ -48,5 +52,14 @@ final class LaravelShortcodePlus
         $this->content = Gallery::parse($this->content);
 
         return Shortcode::compile($this->content);
+    }
+
+    public function parseBingContent(): string
+    {
+        $this->content = ButtonShortcode::parse($this->content);
+        $this->content = WidgetbayShortcode::parse($this->content);
+
+        $this->content = preg_replace('/\[.*?]/', '', $this->content);
+        return preg_replace('/<p><\/p>\r\n/', '', $this->content);
     }
 }
