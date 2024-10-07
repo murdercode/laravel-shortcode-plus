@@ -15,8 +15,9 @@ class WidgetbayShortcode
                 $links = explode(',', $link);
                 $htmlLinks = '';
                 foreach ($links as $link) {
-                    $htmlLinks .= self::getRandomHtmlLinkFromWidgetbay($link) . "<br />";
+                    $htmlLinks .= self::getRandomHtmlLinkFromWidgetbay($link).'<br />';
                 }
+
                 return $htmlLinks;
             },
             $content
@@ -36,7 +37,7 @@ class WidgetbayShortcode
         $shopName = self::getLabelFromUrl($link);
 
         $labels = [
-            "Acquista {$title} a {$price}€" . ($originalPrice ? " invece {$originalPrice}€" : '') . "{$percentages}{$shopName}",
+            "Acquista {$title} a {$price}€".($originalPrice ? " invece {$originalPrice}€" : '')."{$percentages}{$shopName}",
             "Vedi {$title}{$shopName}",
             "Scopri il prezzo di {$title}{$shopName}",
         ];
@@ -57,6 +58,6 @@ class WidgetbayShortcode
         $domain = str_replace('www.', '', $domain);
         $domain = explode('.', $domain);
 
-        return $domain[0] ? ' su ' . ucwords($domain[0]) : null;
+        return $domain[0] ? ' su '.ucwords($domain[0]) : null;
     }
 }
