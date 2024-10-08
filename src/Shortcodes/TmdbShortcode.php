@@ -3,6 +3,7 @@
 namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class TmdbShortcode
 {
@@ -53,18 +54,24 @@ class TmdbShortcode
         $tmdbApiKey = config('shortcode-plus.tmdb.api_key');
         $tmdbLanguage = config('shortcode-plus.tmdb.language');
 
-        $response = Http::withHeaders([
-            'Authorization' => "Bearer $tmdbApiKey",
-            'accept' => 'application/json',
-        ])
-            ->acceptJson()
-            ->get("https://api.themoviedb.org/$tmdbApiVersion/$type/$id?language=$tmdbLanguage");
+        try {
+            $response = Http::withHeaders([
+                'Authorization' => "Bearer $tmdbApiKey",
+                'accept' => 'application/json',
+            ])
+                ->acceptJson()
+                ->get("https://api.themoviedb.org/$tmdbApiVersion/$type/$id?language=$tmdbLanguage");
 
-        if ($response->failed()) {
-            //            if(config('app.debug')) {
-            //                throw new \Exception('Error while fetching data from TMDB API');
-            //            }
-            return null;
+            if ($response->failed()) {
+                //            if(config('app.debug')) {
+                //                throw new \Exception('Error while fetching data from TMDB API');
+                //            }
+                return null;
+            }
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+
+            return '';
         }
 
         return json_decode($response->body());
