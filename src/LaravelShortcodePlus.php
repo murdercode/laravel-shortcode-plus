@@ -4,6 +4,7 @@ namespace Murdercode\LaravelShortcodePlus;
 
 use Murdercode\LaravelShortcodePlus\AltShortcodes\ButtonShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\PhotoShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\TwitterShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\WidgetbayShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\YoutubeShortcode;
 use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
@@ -63,7 +64,9 @@ final class LaravelShortcodePlus
         $compiler->add('button', ButtonShortcode::class);
         $compiler->add('widgetbay', WidgetbayShortcode::class);
         $compiler->add('photo', PhotoShortcode::class);
+        //SOCIALS
         $compiler->add('youtube', YoutubeShortcode::class);
+        $compiler->add('twitter', TwitterShortcode::class);
         $compiler->enable();
 
         $this->content = $compiler->compile($this->content);
