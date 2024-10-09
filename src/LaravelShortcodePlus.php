@@ -5,10 +5,12 @@ namespace Murdercode\LaravelShortcodePlus;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\ButtonShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\PhotoShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\WidgetbayShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\YoutubeShortcode;
 use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
 use Murdercode\LaravelShortcodePlus\Parsers\Gallery;
 use Murdercode\LaravelShortcodePlus\Parsers\Image;
 use Murdercode\LaravelShortcodePlus\Parsers\Index;
+use Webwizo\Shortcodes\Compilers\ShortcodeCompiler;
 use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
@@ -57,10 +59,18 @@ final class LaravelShortcodePlus
 
     public function parseBingContent(): string
     {
-        $this->content = ButtonShortcode::parse($this->content);
-        $this->content = WidgetbayShortcode::parse($this->content);
-        $this->content = PhotoShortcode::parse($this->content);
+        $compiler = new ShortcodeCompiler();
+        $compiler->add('button', ButtonShortcode::class);
+        $compiler->add('youtube', YoutubeShortcode::class);
+        $compiler->add('photo', PhotoShortcode::class);
+        $compiler->enable();
 
+        $this->content = WidgetbayShortcode::parse($this->content); //TODO: Fix this using the compiler
+//        $this->content = PhotoShortcode::parse($this->content); //TODO: Fix this using the compiler
+
+        $this->content = $compiler->compile($this->content);
+
+        dd($this->content);
         $this->content = preg_replace('/\[.*?]/', '', $this->content);
         return preg_replace('/<p><\/p>\r\n/', '', $this->content);
     }
