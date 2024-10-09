@@ -62,6 +62,28 @@ final class LaravelShortcodePlus
         return Shortcode::compile($this->content);
     }
 
+    /**
+     * Return the content for feed. (Parse button and widgetbay shortcodes to <a> tags)
+     *
+     * @return string
+     */
+    public function parseSimpleContent(): string
+    {
+        $compiler = new ShortcodeCompiler();
+        $compiler->add('button', ButtonShortcode::class);
+        $compiler->add('widgetbay', WidgetbayShortcode::class);
+        $compiler->enable();
+
+        $this->content = $compiler->compile($this->content);
+
+        return self::cleanHtmlAndShortcodes($this->content);
+    }
+
+    /**
+     * Return the content for Bing Feed.
+     *
+     * @return string
+     */
     public function parseBingContent(): string
     {
         $compiler = new ShortcodeCompiler();
@@ -79,7 +101,18 @@ final class LaravelShortcodePlus
 
         $this->content = $compiler->compile($this->content);
 
-        $this->content = preg_replace('/\[.*?]/', '', $this->content);
-        return preg_replace('/<p><\/p>\r\n/', '', $this->content);
+        return self::cleanHtmlAndShortcodes($this->content);
+    }
+
+    /**
+     * Cleans the content by removing shortcodes and empty paragraphs.
+     *
+     * @param string $content The content to be cleaned.
+     * @return string
+     */
+    public static function cleanHtmlAndShortcodes(string $content): string
+    {
+        $content = preg_replace('/\[.*?]/', '', $content);
+        return preg_replace('/<p><\/p>\r\n/', '', $content);
     }
 }
