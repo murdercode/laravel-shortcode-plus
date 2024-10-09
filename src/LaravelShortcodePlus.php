@@ -3,7 +3,11 @@
 namespace Murdercode\LaravelShortcodePlus;
 
 use Murdercode\LaravelShortcodePlus\AltShortcodes\ButtonShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\FacebookShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\InstagramShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\PhotoShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\RedditShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\TikTokShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\TwitterShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\WidgetbayShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\YoutubeShortcode;
@@ -65,8 +69,12 @@ final class LaravelShortcodePlus
         $compiler->add('widgetbay', WidgetbayShortcode::class);
         $compiler->add('photo', PhotoShortcode::class);
         //SOCIALS
-        $compiler->add('youtube', YoutubeShortcode::class);
+        $compiler->add('facebook', FacebookShortcode::class);
+        $compiler->add('instagram', InstagramShortcode::class);
         $compiler->add('twitter', TwitterShortcode::class);
+        $compiler->add('reddit', RedditShortcode::class);
+        $compiler->add('youtube', YoutubeShortcode::class);
+        $compiler->add('tiktok', TikTokShortcode::class);
         $compiler->enable();
 
         $this->content = $compiler->compile($this->content);
