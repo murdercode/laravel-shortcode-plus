@@ -20,9 +20,7 @@ use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
 {
-    public function __construct(protected string $content = '')
-    {
-    }
+    public function __construct(protected string $content = '') {}
 
     public static function source(string $source): LaravelShortcodePlus
     {
@@ -64,12 +62,10 @@ final class LaravelShortcodePlus
 
     /**
      * Return the content for feed. (Parse button and widgetbay shortcodes to <a> tags)
-     *
-     * @return string
      */
     public function parseSimpleContent(): string
     {
-        $compiler = new ShortcodeCompiler();
+        $compiler = new ShortcodeCompiler;
         $compiler->add('button', ButtonShortcode::class);
         $compiler->add('widgetbay', WidgetbayShortcode::class);
         $compiler->enable();
@@ -81,12 +77,10 @@ final class LaravelShortcodePlus
 
     /**
      * Return the content for Bing Feed.
-     *
-     * @return string
      */
     public function parseBingContent(): string
     {
-        $compiler = new ShortcodeCompiler();
+        $compiler = new ShortcodeCompiler;
         $compiler->add('button', ButtonShortcode::class);
         $compiler->add('widgetbay', WidgetbayShortcode::class);
         $compiler->add('photo', PhotoShortcode::class);
@@ -107,12 +101,12 @@ final class LaravelShortcodePlus
     /**
      * Cleans the content by removing shortcodes and empty paragraphs.
      *
-     * @param string $content The content to be cleaned.
-     * @return string
+     * @param  string  $content  The content to be cleaned.
      */
     public static function cleanHtmlAndShortcodes(string $content): string
     {
         $content = preg_replace('/\[.*?]/', '', $content);
+
         return preg_replace('/<p><\/p>\r\n/', '', $content);
     }
 }

@@ -23,12 +23,12 @@ class InstagramShortcode
         }
 
         $post_id = self::getPostId($url);
-        $embed_url = 'https://www.instagram.com/' . $pathType . '/' . $post_id;
+        $embed_url = 'https://www.instagram.com/'.$pathType.'/'.$post_id;
 
         // embed_url = https://www.instagram.com/p/DA5NKFcouRS
         // <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/BjxlMSWnMJ-/" data-instgrm-version="8">    <div>        <p><a href="https://www.instagram.com/p/BjxlMSWnMJ-/">Imagine putting 864 servers at the bottom of the ocean #ProjectNatick.</a></p>        <p>A post shared by <a href="https://www.instagram.com/microsoft/">  Microsoft</a> (@microsoft) on <time>Apr 22, 2018 at 11:47am PDT</time></p>    </div></blockquote>
 
-        return '<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="' . $embed_url . '" data-instgrm-version="8"></blockquote>';
+        return '<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="'.$embed_url.'" data-instgrm-version="8"></blockquote>';
     }
 
     private static function getPathType($url)

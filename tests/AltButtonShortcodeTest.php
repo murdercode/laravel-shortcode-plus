@@ -18,7 +18,7 @@ it('can render a button without a link or a label', function () {
     expect($parsedHtml)
         ->toContain("<a href='#'")
         ->toContain("rel='nofollow noopener sponsored'")
-        ->toContain("Click here");
+        ->toContain('Click here');
 
 });
 
@@ -29,5 +29,5 @@ it('can render a button without label', function () {
         ->toContain("<a href='https://example.com'")
         ->toContain("target='_blank'")
         ->toContain("rel='nofollow noopener sponsored'")
-        ->toContain("Click here");
+        ->toContain('Click here');
 });

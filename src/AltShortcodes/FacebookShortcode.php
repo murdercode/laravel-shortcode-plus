@@ -12,10 +12,10 @@ class FacebookShortcode
             return 'No Facebook parameter url defined';
         }
 
-        if (!str_contains($url, 'facebook.com')) {
+        if (! str_contains($url, 'facebook.com')) {
             return 'No Facebook URL found';
         }
 
-        return '<div class="fb-post" data-href="' . $url . '" data-width="500" data-show-text="true"></div>';
+        return '<div class="fb-post" data-href="'.$url.'" data-width="500" data-show-text="true"></div>';
     }
 }
