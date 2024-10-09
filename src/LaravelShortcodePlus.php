@@ -3,6 +3,7 @@
 namespace Murdercode\LaravelShortcodePlus;
 
 use Murdercode\LaravelShortcodePlus\AltShortcodes\ButtonShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\PhotoShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\WidgetbayShortcode;
 use Murdercode\LaravelShortcodePlus\Helpers\Sanitizer;
 use Murdercode\LaravelShortcodePlus\Parsers\Gallery;
@@ -58,6 +59,7 @@ final class LaravelShortcodePlus
     {
         $this->content = ButtonShortcode::parse($this->content);
         $this->content = WidgetbayShortcode::parse($this->content);
+        $this->content = PhotoShortcode::parse($this->content);
 
         $this->content = preg_replace('/\[.*?]/', '', $this->content);
         return preg_replace('/<p><\/p>\r\n/', '', $this->content);
