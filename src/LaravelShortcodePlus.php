@@ -61,16 +61,13 @@ final class LaravelShortcodePlus
     {
         $compiler = new ShortcodeCompiler();
         $compiler->add('button', ButtonShortcode::class);
-        $compiler->add('youtube', YoutubeShortcode::class);
+        $compiler->add('widgetbay', WidgetbayShortcode::class);
         $compiler->add('photo', PhotoShortcode::class);
+        $compiler->add('youtube', YoutubeShortcode::class);
         $compiler->enable();
-
-        $this->content = WidgetbayShortcode::parse($this->content); //TODO: Fix this using the compiler
-//        $this->content = PhotoShortcode::parse($this->content); //TODO: Fix this using the compiler
 
         $this->content = $compiler->compile($this->content);
 
-        dd($this->content);
         $this->content = preg_replace('/\[.*?]/', '', $this->content);
         return preg_replace('/<p><\/p>\r\n/', '', $this->content);
     }

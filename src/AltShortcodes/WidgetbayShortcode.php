@@ -6,21 +6,39 @@ use The3LabsTeam\Widgetbay\Facades\Widgetbay;
 
 class WidgetbayShortcode
 {
-    public static function parse($content): string
+//    public static function parse($content): string
+//    {
+//        return preg_replace_callback(
+//            '/\[widgetbay link="(.*?)".*?\]/',
+//            function ($matches) {
+//                $link = $matches[1];
+//                $links = explode(',', $link);
+//                $htmlLinks = '';
+//                foreach ($links as $link) {
+//                    $htmlLinks .= self::getRandomHtmlLinkFromWidgetbay($link) . "<br />";
+//                }
+//                return $htmlLinks;
+//            },
+//            $content
+//        );
+//    }
+
+    public function register($shortcode): string
     {
-        return preg_replace_callback(
-            '/\[widgetbay link="(.*?)".*?\]/',
-            function ($matches) {
-                $link = $matches[1];
-                $links = explode(',', $link);
-                $htmlLinks = '';
-                foreach ($links as $link) {
-                    $htmlLinks .= self::getRandomHtmlLinkFromWidgetbay($link) . "<br />";
-                }
-                return $htmlLinks;
-            },
-            $content
-        );
+        if (!$shortcode->link) {
+            return '';
+        }
+
+        $links = str_replace('&', '%26', $shortcode->link);
+        $links = explode(',', $links);
+
+        $htmlLinks = '';
+
+        foreach ($links as $link) {
+            $htmlLinks .= self::getRandomHtmlLinkFromWidgetbay($link) . "<br />";
+        }
+
+        return $htmlLinks;
     }
 
     protected static function getRandomHtmlLinkFromWidgetbay(string $link): string
