@@ -8,7 +8,7 @@ class PhotoShortcode
 {
     public function register($shortcode): string
     {
-        if (!class_exists('\Outl1ne\NovaMediaHub\Models\Media')) {
+        if (! class_exists('\Outl1ne\NovaMediaHub\Models\Media')) {
             return '';
         }
 
@@ -25,7 +25,7 @@ class PhotoShortcode
         $imagesHtml = '';
 
         foreach ($images as $key => $image) {
-            $alt = isset($image['data']['alt']) && ($image['data']['alt'] !== '' || $image['data']['alt'] !== null) ? $image['data']['alt'] : 'Immagine id ' . $image->id;
+            $alt = isset($image['data']['alt']) && ($image['data']['alt'] !== '' || $image['data']['alt'] !== null) ? $image['data']['alt'] : 'Immagine id '.$image->id;
             $path = $image->url;
             $title = $image['data']['title'] ?? $alt;
             $figCaption = "<figcaption>{$title}</figcaption>";
@@ -33,9 +33,9 @@ class PhotoShortcode
             $imagesHtml .= "<figure><img src='{$path}' title='{$title}' alt='{$alt}'>{$figCaption}</figure>";
         }
 
-
         if (count($ids) > 1) {
             $titleOnGallery = $shortcode->didascalia ? "<title>{$shortcode->didascalia}</title>" : '';
+
             return "<div class='gallery'>{$titleOnGallery} {$imagesHtml}</div>";
         }
 

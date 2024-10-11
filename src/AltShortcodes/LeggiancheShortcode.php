@@ -17,7 +17,7 @@ class LeggiancheShortcode
             $article = null;
         }
 
-        if (!isset($article)) {
+        if (! isset($article)) {
             return '';
         }
 
