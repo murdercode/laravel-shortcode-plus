@@ -3,8 +3,10 @@
 namespace Murdercode\LaravelShortcodePlus;
 
 use Murdercode\LaravelShortcodePlus\AltShortcodes\ButtonShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\DisticoShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\FacebookShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\InstagramShortcode;
+use Murdercode\LaravelShortcodePlus\AltShortcodes\LeggiancheShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\PhotoShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\RedditShortcode;
 use Murdercode\LaravelShortcodePlus\AltShortcodes\TikTokShortcode;
@@ -86,6 +88,8 @@ final class LaravelShortcodePlus
         $compiler->add('button', ButtonShortcode::class);
 //        $compiler->add('widgetbay', WidgetbayShortcode::class);
         $compiler->add('photo', PhotoShortcode::class);
+        $compiler->add('distico', DisticoShortcode::class);
+        $compiler->add('leggianche', LeggiancheShortcode::class);
         //SOCIALS
         $compiler->add('facebook', FacebookShortcode::class);
         $compiler->add('instagram', InstagramShortcode::class);
