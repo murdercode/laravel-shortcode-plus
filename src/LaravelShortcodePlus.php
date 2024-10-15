@@ -22,9 +22,7 @@ use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
 {
-    public function __construct(protected string $content = '')
-    {
-    }
+    public function __construct(protected string $content = '') {}
 
     public static function source(string $source): LaravelShortcodePlus
     {
@@ -115,7 +113,7 @@ final class LaravelShortcodePlus
     /**
      * Cleans the content by removing shortcodes and empty paragraphs.
      *
-     * @param string $content The content to be cleaned.
+     * @param  string  $content  The content to be cleaned.
      */
     public static function cleanHtmlAndShortcodes(string $content): string
     {
