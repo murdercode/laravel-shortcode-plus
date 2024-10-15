@@ -22,7 +22,9 @@ use Webwizo\Shortcodes\Facades\Shortcode;
 
 final class LaravelShortcodePlus
 {
-    public function __construct(protected string $content = '') {}
+    public function __construct(protected string $content = '')
+    {
+    }
 
     public static function source(string $source): LaravelShortcodePlus
     {
@@ -69,7 +71,11 @@ final class LaravelShortcodePlus
     {
         $compiler = new ShortcodeCompiler;
         $compiler->add('button', ButtonShortcode::class);
-        $compiler->add('widgetbay', WidgetbayShortcode::class);
+
+        if (config('shortcode-plus.simpleContent.enable_widgetbay')) {
+            $compiler->add('widgetbay', WidgetbayShortcode::class);
+        }
+
         $compiler->enable();
 
         $this->content = $compiler->compile($this->content);
@@ -84,7 +90,11 @@ final class LaravelShortcodePlus
     {
         $compiler = new ShortcodeCompiler;
         $compiler->add('button', ButtonShortcode::class);
-        //        $compiler->add('widgetbay', WidgetbayShortcode::class);
+
+        if (config('shortcode-plus.bingContent.enable_widgetbay')) {
+            $compiler->add('widgetbay', WidgetbayShortcode::class);
+        }
+
         $compiler->add('photo', PhotoShortcode::class);
         $compiler->add('distico', DisticoShortcode::class);
         $compiler->add('leggianche', LeggiancheShortcode::class);
@@ -105,7 +115,7 @@ final class LaravelShortcodePlus
     /**
      * Cleans the content by removing shortcodes and empty paragraphs.
      *
-     * @param  string  $content  The content to be cleaned.
+     * @param string $content The content to be cleaned.
      */
     public static function cleanHtmlAndShortcodes(string $content): string
     {
