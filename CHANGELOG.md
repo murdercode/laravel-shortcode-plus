@@ -2,6 +2,29 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.2 - 2024-10-15
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.1...v5.2.2
+
+## v5.2.1 - 2024-10-11
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.0...v5.2.1
+
+## v5.2.0 - 2024-10-10
+
+### What's Changed
+
+* Bump rollup from 3.28.1 to 3.29.5 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/92
+* Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/39
+* Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/46
+* Bump ramsey/composer-install from 2 to 3 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/73
+* Bump amancevice/setup-code-climate from 1 to 2 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/74
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.2.0 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/88
+* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/93
+* Shortcode for bing content by @Claudio-Emmolo in https://github.com/murdercode/laravel-shortcode-plus/pull/94
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.15...v5.2.0
+
 ## v5.1.15 - 2024-09-26
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.1.14...v5.1.15

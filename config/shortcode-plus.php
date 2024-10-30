@@ -60,4 +60,12 @@ return [
             '#https?://.*#i', // All links
         ],
     ],
+
+    'simpleContent' => [
+        'enable_widgetbay' => false,
+    ],
+
+    'bingContent' => [
+        'enable_widgetbay' => false,
+    ],
 ];
