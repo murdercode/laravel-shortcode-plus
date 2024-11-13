@@ -22,8 +22,8 @@ class YoutubeShortcode
         //remove query string
         $youtubeId = explode('?', $youtubeId)[0];
 
-        $video = 'https://www.youtube.com/embed/' . $youtubeId;
-        $image = 'https://img.youtube.com/vi/' . $youtubeId . '/hqdefault.jpg';
+        $video = 'https://www.youtube.com/embed/'.$youtubeId;
+        $image = 'https://img.youtube.com/vi/'.$youtubeId.'/hqdefault.jpg';
 
         return view('shortcode-plus::youtube', compact('url', 'video', 'image'))->render();
     }
