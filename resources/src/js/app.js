@@ -2,7 +2,7 @@ import Splide from "@splidejs/splide";
 import GLightbox from 'glightbox';
 import ImageCompare from "image-compare-viewer";
 
-document.addEventListener( 'DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
 // Splide
     const checkSplide = document.getElementsByClassName('splide');
@@ -33,4 +33,24 @@ document.addEventListener( 'DOMContentLoaded', function() {
         });
     }
 
-}, false );
+}, false);
+
+
+//Youtube
+const ytbPlayers = document.querySelectorAll('.ytb-player');
+
+ytbPlayers.forEach((ytbPlayer) => {
+    const ytbPlayerElement = ytbPlayer.querySelector('.ytb-player-element');
+    ytbPlayerElement.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const iframe = ytbPlayer.querySelector('.ytb-player-iframe');
+        if (iframe) {
+            iframe.removeAttribute('srcdoc');
+        }
+
+        setTimeout(() => {
+            ytbPlayerElement.style.display = 'none';
+        }, 200);
+    });
+});
