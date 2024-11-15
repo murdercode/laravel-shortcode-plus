@@ -298,6 +298,124 @@ a.shortcode_button.secondary:hover {
     }
 }
 
+/* WIDGETBAY  HERO */
+/* + 135 */
+.shortcode_widgetbay_list_hero_2 {
+    height: 550px
+}
+
+.shortcode_widgetbay_list_hero_3 {
+    height: 685px
+}
+
+.shortcode_widgetbay_list_hero_4 {
+    height: 820px
+}
+
+.shortcode_widgetbay_list_hero_5 {
+    height: 955px
+}
+
+.shortcode_widgetbay_list_hero_6 {
+    height: 1090px
+}
+
+.shortcode_widgetbay_list_hero_7 {
+    height: 1225px
+}
+
+.shortcode_widgetbay_list_hero_8 {
+    height: 1360px
+}
+
+.shortcode_widgetbay_list_hero_9 {
+    height: 1495px
+}
+
+.shortcode_widgetbay_list_hero_10 {
+    height: 1630px
+}
+
+@media (min-width: 405px) {
+
+    /* + 135px */
+    .shortcode_widgetbay_list_hero_2 {
+        height: 535px
+    }
+
+    .shortcode_widgetbay_list_hero_3 {
+        height: 670px
+    }
+
+    .shortcode_widgetbay_list_hero_4 {
+        height: 805px
+    }
+
+    .shortcode_widgetbay_list_hero_5 {
+        height: 940px
+    }
+
+    .shortcode_widgetbay_list_hero_6 {
+        height: 1070px
+    }
+
+    .shortcode_widgetbay_list_hero_7 {
+        height: 1205px
+    }
+
+    .shortcode_widgetbay_list_hero_8 {
+        height: 1340px
+    }
+
+    .shortcode_widgetbay_list_hero_9 {
+        height: 1475px
+    }
+
+    .shortcode_widgetbay_list_hero_10 {
+        height: 1610px
+    }
+}
+
+@media (min-width: 647px) {
+
+    /* + 90 */
+    .shortcode_widgetbay_list_hero_2 {
+        height: 305px
+    }
+
+    .shortcode_widgetbay_list_hero_3 {
+        height: 395px
+    }
+
+    .shortcode_widgetbay_list_hero_4 {
+        height: 485px
+    }
+
+    .shortcode_widgetbay_list_hero_5 {
+        height: 575px
+    }
+
+    .shortcode_widgetbay_list_hero_6 {
+        height: 665px
+    }
+
+    .shortcode_widgetbay_list_hero_7 {
+        height: 755px
+    }
+
+    .shortcode_widgetbay_list_hero_8 {
+        height: 845px
+    }
+
+    .shortcode_widgetbay_list_hero_9 {
+        height: 935px
+    }
+
+    .shortcode_widgetbay_list_hero_10 {
+        height: 1025px
+    }
+}
+
 /*TMDB*/
 
 .shortcode_tmdb {

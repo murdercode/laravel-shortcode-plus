@@ -6,27 +6,30 @@ class WidgetbayShortcode
 {
     public function register($shortcode)
     {
-        $endpoint = 'https://widgetbay.3labs.it/widgetbox';
-        //        $endpoint = 'https://widgetbay.test/widgetbox';
+        $endpoint = config('shortcode-plus.widgetbay.endpoint');
 
         $widgetbayLink = '';
         $heightListClass = null;
         if ($shortcode->id) {
-            $widgetbayLink = $endpoint.'/'.$shortcode->id;
+            $widgetbayLink = $endpoint . '/' . $shortcode->id;
         }
 
         if ($shortcode->link) {
             $shortcode->link = str_replace('&', '%26', $shortcode->link);
-            $heightListClass = $this->calculateIframeHeight($shortcode->link);
-            $widgetbayLink = $endpoint.'?link='.$shortcode->link;
+            $heightListClass = $this->calculateIframeHeight($shortcode->link, $shortcode->layout);
+            $widgetbayLink = $endpoint . '?link=' . $shortcode->link;
         }
 
         if ($shortcode->title) {
-            $widgetbayLink .= '&title='.$shortcode->title;
+            $widgetbayLink .= '&title=' . $shortcode->title;
         }
 
         if ($shortcode->forcelink) {
-            $widgetbayLink .= '&forceLink='.$shortcode->forcelink;
+            $widgetbayLink .= '&forceLink=' . $shortcode->forcelink;
+        }
+
+        if ($shortcode->layout) {
+            $widgetbayLink .= '&layout=' . $shortcode->layout;
         }
 
         if (empty($widgetbayLink)) {
@@ -36,13 +39,14 @@ class WidgetbayShortcode
         return view('shortcode-plus::widgetbay', compact('widgetbayLink', 'heightListClass'))->render();
     }
 
-    protected function calculateIframeHeight($products)
+    protected function calculateIframeHeight($products, $layout = null)
     {
         $products = explode(',', $products);
         $count = count($products);
+        $prefix = $layout === 'hero' ? 'shortcode_widgetbay_list_hero_' : 'shortcode_widgetbay_list_';
 
         if ($count > 1) {
-            return 'shortcode_widgetbay_list_'.$count;
+            return $prefix . $count;
         }
 
         return null;
