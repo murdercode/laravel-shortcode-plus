@@ -23,7 +23,7 @@ class YoutubeShortcode
         $youtubeId = explode('?', $youtubeId)[0];
 
         $video = 'https://www.youtube.com/embed/'.$youtubeId;
-        $image = 'https://img.youtube.com/vi/'.$youtubeId.'/hqdefault.jpg';
+        $image = 'https://img.youtube.com/vi_webp/'.$youtubeId.'/hqdefault.webp';
 
         return view('shortcode-plus::youtube', compact('url', 'video', 'image'))->render();
     }
