@@ -40,7 +40,7 @@ return [
         'text' => 'Questo contenuto è ospitato su una piattaforma esterna. Per visualizzarlo, è necessario <a href="javascript:void(0)" class="iubenda-cs-preferences-link">accettare i cookie</a>',
     ],
     'widgetbay' => [
-        'endpoint' => 'https://widgetbay.3labs.it/widgetbox',
+        'endpoint' => 'https://widgetbay.3labs.it',
     ],
 
     'linksToParse' => [
