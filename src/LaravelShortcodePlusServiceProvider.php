@@ -42,9 +42,7 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
             ->hasMigration('create_laravel-shortcode-plus_table');
     }
 
-    public function packageRegistered()
-    {
-    }
+    public function packageRegistered() {}
 
     public function packageBooted(): void
     {
