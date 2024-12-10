@@ -680,3 +680,17 @@ html.dark .shortcode_nocookie {
     }
 
 }
+
+/** Stretched Link */
+.relative {
+    position: relative;
+}
+
+.stretched-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: transparent;
+    pointer-events: auto;
+}
