@@ -6,7 +6,7 @@ class WidgetbayShortcode
 {
     public function register($shortcode)
     {
-        $endpoint = config('shortcode-plus.widgetbay.endpoint');
+        $endpoint = config('shortcode-plus.widgetbay.endpoint').'/widgetbox';
 
         $widgetbayLink = '';
         $heightListClass = null;
@@ -41,8 +41,13 @@ class WidgetbayShortcode
 
     protected function calculateIframeHeight($products, $layout = null)
     {
-        $products = explode(',', $products);
-        $count = count($products);
+        $endpoint = config('shortcode-plus.widgetbay.endpoint').'/api/widgetbox-count-available-products?link='.$products;
+
+        //create HTTP request
+        $request = new \GuzzleHttp\Client;
+        $response = $request->get($endpoint);
+        $count = json_decode($response->getBody()->getContents(), true);
+
         $prefix = $layout === 'hero' ? 'shortcode_widgetbay_list_hero_' : 'shortcode_widgetbay_list_';
 
         if ($count > 1) {
@@ -50,5 +55,10 @@ class WidgetbayShortcode
         }
 
         return null;
+    }
+
+    protected function checkIfProductIsAvailable($product)
+    {
+        return $product->isAvailable();
     }
 }
