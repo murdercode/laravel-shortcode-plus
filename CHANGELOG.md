@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.7 - 2024-12-10
+
+Add widgetbay stretched link, useful for GTM tracking
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.6...v5.2.7
+
 ## v5.2.6 - 2024-11-19
 
 Change youtube thumbnail jpg to webp
