@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.10 - 2024-12-16
+
+### What's Changed
+
+* Twitter fix 2 by @murdercode in https://github.com/murdercode/laravel-shortcode-plus/pull/97
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.9...v5.2.10
+
 ## v5.2.9 - 2024-12-16
 
 ### What's Changed
