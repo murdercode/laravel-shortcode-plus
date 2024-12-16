@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.9 - 2024-12-16
+
+### What's Changed
+
+* Twitter fix by @murdercode in https://github.com/murdercode/laravel-shortcode-plus/pull/96
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.8...v5.2.9
+
 ## v5.2.7 - 2024-12-10
 
 Add widgetbay stretched link, useful for GTM tracking
