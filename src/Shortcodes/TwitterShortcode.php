@@ -27,13 +27,18 @@ class TwitterShortcode
 
     private static function getOembed(string $url): ?string
     {
-        curl_setopt_array($curl = curl_init(), [
-            CURLOPT_URL => "https://publish.twitter.com/oembed?url=$url&omit_script=1",
-            CURLOPT_RETURNTRANSFER => true,
-        ]);
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'https://publish.twitter.com/oembed?url='.urlencode($url).'&omit_script=1');
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($curl);
         curl_close($curl);
 
-        return json_decode($response)->html ?? null;
+        if ($response === false) {
+            return null;
+        }
+
+        $data = json_decode($response, true);
+
+        return $data['html'] ?? null;
     }
 }
