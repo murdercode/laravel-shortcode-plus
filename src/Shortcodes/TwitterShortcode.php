@@ -2,6 +2,10 @@
 
 namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\RequestException;
+
 class TwitterShortcode
 {
     public function register($shortcode): string
@@ -25,15 +29,41 @@ class TwitterShortcode
         return view('shortcode-plus::twitter', compact('html'))->render();
     }
 
+    /**
+     * Get oEmbed data from Twitter
+     * Note: Twitter sometimes returns 404 for valid URLs, so we retry a few times
+     *
+     * @throws GuzzleException
+     */
     private static function getOembed(string $url): ?string
     {
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://publish.twitter.com/oembed?url='.urlencode($url).'&omit_script=1');
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($curl);
-        curl_close($curl);
+        $maxAttempts = 3;
+        $attempt = 0;
+        $response = null;
 
-        if ($response === false) {
+        while ($attempt < $maxAttempts && $response === null) {
+            try {
+                $client = new Client;
+                $res = $client->request('GET', 'https://publish.twitter.com/oembed', [
+                    'query' => [
+                        'url' => $url,
+                        'omit_script' => 1,
+                    ],
+                ]);
+
+                if ($res->getStatusCode() == 200) {
+                    $response = $res->getBody()->getContents();
+                } else {
+                    usleep(100000);
+                    $attempt++;
+                }
+            } catch (RequestException $e) {
+                usleep(100000);
+                $attempt++;
+            }
+        }
+
+        if ($response === null) {
             return null;
         }
 
