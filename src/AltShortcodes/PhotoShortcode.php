@@ -17,7 +17,7 @@ class PhotoShortcode
 
         $images = Media::whereIn('id', $ids)->get();
 
-        //order images by shortcode order
+        // order images by shortcode order
         $images = $images->sortBy(function ($image) use ($ids) {
             return array_search($image->id, $ids);
         });

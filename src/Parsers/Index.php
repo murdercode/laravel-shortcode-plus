@@ -11,7 +11,7 @@ class Index
      */
     public static function parse(string $content): string
     {
-        //Get index list and new content with ID
+        // Get index list and new content with ID
         $index = self::getHeadings($content);
 
         return preg_replace_callback(
@@ -40,7 +40,7 @@ class Index
             return [];
         }
 
-        //Generate the headlines array
+        // Generate the headlines array
         foreach ($matches[1] as $key => $value) {
             $headings[] = [
                 'id' => $matches[3][$key],
@@ -68,11 +68,11 @@ class Index
             if (count($headlines) > 0 && isset($lastHeadlineChildren['level']) && $lastHeadlineChildren['level'] < $level) {
                 $headlines[$lastHeadlineKey]['childrens'][$lastHeadlineChildrenKey]['childrens'][] = $heading;
             }
-            //Second level
+            // Second level
             elseif (count($headlines) > 0 && $headlines[$lastHeadlineKey]['level'] < $level) {
                 $headlines[$lastHeadlineKey]['childrens'][] = $heading;
             }
-            //First level
+            // First level
             else {
                 $headlines[] = $heading;
             }

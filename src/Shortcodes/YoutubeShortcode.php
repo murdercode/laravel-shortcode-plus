@@ -19,7 +19,7 @@ class YoutubeShortcode
         // $shortcode->url can be also a shorter URL version like https://youtu.be/VIDEO_ID
         $youtubeId = $queryParams['v'] ?? substr($url, strrpos($url, '/') + 1);
 
-        //remove query string
+        // remove query string
         $youtubeId = explode('?', $youtubeId)[0];
 
         $video = 'https://www.youtube.com/embed/'.$youtubeId;

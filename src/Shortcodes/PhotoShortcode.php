@@ -6,7 +6,7 @@ class PhotoShortcode
 {
     public function register($shortcode): string
     {
-        if (!class_exists('\Outl1ne\NovaMediaHub\Models\Media')) {
+        if (! class_exists('\Outl1ne\NovaMediaHub\Models\Media')) {
             return '';
         }
 
@@ -17,13 +17,13 @@ class PhotoShortcode
             if (count($ids) > 1) {
                 $images = \Outl1ne\NovaMediaHub\Models\Media::whereIn('id', $ids)->get();
 
-                //order images by shortcode order
+                // order images by shortcode order
                 $images = $images->sortBy(function ($image) use ($ids) {
                     return array_search($image->id, $ids);
                 });
 
                 foreach ($images as $key => $image) {
-                    $images[$key]['src'] = $image->path . $image->file_name;
+                    $images[$key]['src'] = $image->path.$image->file_name;
                     $images[$key]['title'] = $image['data']['title'][0] ?? null;
                     $images[$key]['alt'] = $image['data']['alt'][0] ?? null;
                 }
@@ -39,17 +39,18 @@ class PhotoShortcode
 
                 $flexGallery = $shortcode->effect == 'gallery-flex' ? true : false;
                 $imageToDisplay = $flexGallery ? 3 : 5;
+
                 return view('shortcode-plus::new-gallery', compact('images', 'title', 'flexGallery', 'imageToDisplay'))->render();
             }
         }
 
         // Single image
         $media = \Outl1ne\NovaMediaHub\Models\Media::find($shortcode->id);
-        if (!$media) {
+        if (! $media) {
             return '';
         }
 
-        $path = $media->path . $media->file_name;
+        $path = $media->path.$media->file_name;
         $align = $shortcode->align ?? null;
         $link = $shortcode->link ? str_replace("'", '%27', $shortcode->link) : null;
         $shape = $shortcode->shape ?? null;
@@ -66,7 +67,7 @@ class PhotoShortcode
         if (is_array($credits)) {
             $credits = $credits[0];
         }
-        $alt = $media->data['alt'] ?? 'Immagine id ' . $shortcode->id;
+        $alt = $media->data['alt'] ?? 'Immagine id '.$shortcode->id;
         if (is_array($alt)) {
             $alt = $alt[0];
         }
@@ -95,10 +96,10 @@ class PhotoShortcode
     public static function getImageHeight(string $path, int $width = 0): float|int
     {
 
-        $localPath = storage_path('app/public/' . $path);
+        $localPath = storage_path('app/public/'.$path);
 
         // Check if file exists
-        if (!file_exists($localPath)) {
+        if (! file_exists($localPath)) {
             return 0;
         }
 

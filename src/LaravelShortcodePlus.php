@@ -96,7 +96,7 @@ final class LaravelShortcodePlus
         $compiler->add('photo', PhotoShortcode::class);
         $compiler->add('distico', DisticoShortcode::class);
         $compiler->add('leggianche', LeggiancheShortcode::class);
-        //SOCIALS
+        // SOCIALS
         $compiler->add('facebook', FacebookShortcode::class);
         $compiler->add('instagram', InstagramShortcode::class);
         $compiler->add('twitter', TwitterShortcode::class);
