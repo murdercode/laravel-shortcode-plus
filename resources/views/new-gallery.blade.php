@@ -1,51 +1,48 @@
 <div class="w-full">
     <div class="
-	grid grid-cols-4 grid-rows-2 not-prose sm:px-0">
+	 {{$flexGallery ? 'flex' : 'grid grid-cols-4 grid-rows-2'}} not-prose sm:px-0">
         @foreach ($images as $image)
-            @if ($loop->iteration <= 5)
+            @if ($loop->iteration <= $imageToDisplay)
                 <a class="
+                @if(!$flexGallery)
+                    @if($loop->count >= 5)
+                         @if($loop->iteration == 1)
+                         col-span-2 row-span-2
+                         @endif
+                    @endif
 
-				@if($loop->count >= 5)
-				 @if($loop->iteration == 1)
-				 col-span-2 row-span-2
-				 @endif
-				@endif
+                    @if($loop->count == 4) row-span-2 @endif
 
-				@if($loop->count == 4)
-				row-span-2
-				@endif
+                    @if($loop->count == 3)
+                        @if ($loop->iteration == 1)
+                            col-span-2
+                        @endif
+                        row-span-2
+                    @endif
 
-				@if($loop->count == 3)
-				@if ($loop->iteration == 1)
-				col-span-2
-				@endif
-				row-span-2
-				@endif
-
-				@if($loop->count == 2)
-				col-span-2 row-span-2
-				@endif
-
-		  glightbox hover:brightness-110 relative"
+                    @if($loop->count == 2) col-span-2 row-span-2 @endif
+                @endif
+		           glightbox hover:brightness-110 relative"
                    href="{{ asset('storage/' . $image->src )}}"
                    data-glightbox="{{ addslashes($image->title) }}">
-                    <img class="aspect-square relative object-cover w-full h-full cursor-pointer"
-                         src="{{ asset('storage/' . $image->src )}}?height=400"
-                         alt="{{ $image->alt }}"
-                         title="Clicca per vedere l'immagine originale"
+                    <img
+                        class="{{$flexGallery ? '' : 'aspect-square'}} relative object-cover w-full h-full cursor-pointer"
+                        src="{{ asset('storage/' . $image->src )}}?height=400"
+                        alt="{{ $image->alt }}"
+                        title="Clicca per vedere l'immagine originale"
                         loading="lazy" decoding="async"/>
                     {{-- Hover Count --}}
-                    @if ($loop->iteration == 5 && $loop->count > 5)
+                    @if ($loop->iteration == $imageToDisplay && $loop->count > $imageToDisplay)
                         <div
                             class="absolute inset-0 flex items-center justify-center font-black text-white bg-red-500/50">
-                            +{{ $loop->count - 5 }}
+                            +{{ $loop->count - $imageToDisplay }}
                         </div>
                     @endif
 
                 </a>
 
                 {{-- Hidden images --}}
-            @else($loop->iteration > 5)
+            @else
                 <a href="{{ asset('storage/' . $image->src) }}" class="hidden glightbox"></a>
             @endif
         @endforeach
