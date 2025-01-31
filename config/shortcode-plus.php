@@ -71,4 +71,11 @@ return [
     'bingContent' => [
         'enable_widgetbay' => false,
     ],
+
+    'gallery' => [
+        'imageToDisplay' => 5,
+        'flex' => [
+            'imageToDisplay' => 2,
+        ],
+    ],
 ];
