@@ -10,7 +10,7 @@ class TriviaShortcode
     {
         $trivia = Trivia::find($shortcode->id);
 
-        if (!$trivia) {
+        if (! $trivia) {
             return '';
         }
 
