@@ -2,12 +2,18 @@
 
 namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
+use The3labsTeam\NovaTriviaPackage\App\Models\Trivia;
+
 class TriviaShortcode
 {
     public function register($shortcode): string
     {
-        $id = $shortcode->id ?? '';
+        $trivia = Trivia::find($shortcode->id);
 
-        return view('shortcode-plus::trivia', compact('id'))->render();
+        if (!$trivia) {
+            return '';
+        }
+
+        return view('shortcode-plus::trivia', compact('trivia'))->render();
     }
 }
