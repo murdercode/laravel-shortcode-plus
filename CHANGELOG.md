@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.14 - 2025-02-14
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/100
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.13...v5.2.14
+
 ## v5.2.13 - 2025-02-03
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.12...v5.2.13
