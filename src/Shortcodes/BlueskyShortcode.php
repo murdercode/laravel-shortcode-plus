@@ -22,7 +22,7 @@ class BlueskyShortcode
 
         $html = self::getOembed($url) ?? null;
 
-        if (!isset($html)) {
+        if (! isset($html)) {
             return 'Cannot get bsky.app oEmbed';
         }
 
