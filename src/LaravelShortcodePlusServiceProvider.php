@@ -3,6 +3,7 @@
 namespace Murdercode\LaravelShortcodePlus;
 
 use Illuminate\Support\Facades\Blade;
+use Murdercode\LaravelShortcodePlus\Shortcodes\BlueskyShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\ButtonShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\DisticoShortcode;
 use Murdercode\LaravelShortcodePlus\Shortcodes\FacebookShortcode;
@@ -42,7 +43,9 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
             ->hasMigration('create_laravel-shortcode-plus_table');
     }
 
-    public function packageRegistered() {}
+    public function packageRegistered()
+    {
+    }
 
     public function packageBooted(): void
     {
@@ -79,5 +82,6 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
         Shortcode::register('tiktok', TikTokShortcode::class);
         Shortcode::register('survey', SurveyShortcode::class);
         Shortcode::register('trivia', TriviaShortcode::class);
+        Shortcode::register('bluesky', BlueskyShortcode::class);
     }
 }

@@ -552,7 +552,8 @@ html.dark .shortcode_tmdb .top-box .movie-info .release-date {
     margin-left: 3px;
 }
 
-.twitter-card blockquote {
+.twitter-card blockquote,
+.bsky-card blockquote {
     display: none;
 }
 
