@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.17 - 2025-02-26
+
+- Remove bluesky notice for non JS consent
+
 ## v5.2.16 - 2025-02-25
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.15...v5.2.16
