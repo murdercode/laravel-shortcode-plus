@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.18 - 2025-03-10
+
+- Add timeout to Twitter oEmbed (set to 5 secs)
+
 ## v5.2.17 - 2025-02-26
 
 - Remove bluesky notice for non JS consent
