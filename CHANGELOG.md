@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.19 - 2025-03-10
+
+- Better fix for Twitter timeout
+  **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.18...v5.2.19
+
 ## v5.2.18 - 2025-03-10
 
 - Add timeout to Twitter oEmbed (set to 5 secs)
