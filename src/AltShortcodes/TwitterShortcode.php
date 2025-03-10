@@ -2,6 +2,11 @@
 
 namespace Murdercode\LaravelShortcodePlus\AltShortcodes;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\RequestOptions;
+
 class TwitterShortcode
 {
     public function register($shortcode): string
@@ -16,25 +21,58 @@ class TwitterShortcode
             return 'No X.com URL defined';
         }
 
-        $html = self::getOembed($url) ?? null;
+        try {
+            $html = self::getOembed($url);
 
-        if (! isset($html)) {
-            return 'Cannot get X.com oEmbed';
+            if (! $html) {
+                return 'Cannot get X.com oEmbed';
+            }
+
+            return $html;
+        } catch (\Exception $e) {
+            // For testing purposes, you might want to log the actual error
+            // Log::error('Twitter error: ' . $e->getMessage());
+
+            // Return a consistent error message without the specific error details
+            return 'Error fetching Twitter content';
         }
-
-        return $html;
     }
 
     private static function getOembed(string $url): ?string
     {
-        curl_setopt_array($curl = curl_init(), [
-            CURLOPT_URL => "https://publish.twitter.com/oembed?url=$url&omit_script=1",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_TIMEOUT => 5,
-        ]);
-        $response = curl_exec($curl);
-        curl_close($curl);
+        try {
+            $client = new Client([
+                'timeout' => 5, // Overall timeout
+                'connect_timeout' => 5, // Connection timeout specifically
+                RequestOptions::READ_TIMEOUT => 5, // Read timeout
+                'http_errors' => false, // Don't throw exceptions on 4xx/5xx responses
+                'verify' => false, // This can help with TLS connection issues
+            ]);
 
-        return json_decode($response)->html ?? null;
+            $response = $client->get('https://publish.twitter.com/oembed', [
+                'query' => [
+                    'url' => $url,
+                    'omit_script' => 1,
+                ],
+            ]);
+
+            if ($response->getStatusCode() >= 400) {
+                throw new \Exception('Twitter service returned error: '.$response->getStatusCode());
+            }
+
+            $body = json_decode($response->getBody()->getContents());
+
+            return $body->html ?? null;
+
+        } catch (ConnectException $e) {
+            // Specific connection exceptions (like timeout)
+            throw new \Exception('Unable to connect to Twitter service');
+        } catch (GuzzleException $e) {
+            // All other Guzzle exceptions (including cURL errors)
+            throw new \Exception('Error communicating with Twitter service');
+        } catch (\Exception $e) {
+            // Catch any other exceptions that might occur
+            throw new \Exception('Error accessing Twitter service');
+        }
     }
 }
