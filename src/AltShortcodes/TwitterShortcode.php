@@ -30,6 +30,7 @@ class TwitterShortcode
         curl_setopt_array($curl = curl_init(), [
             CURLOPT_URL => "https://publish.twitter.com/oembed?url=$url&omit_script=1",
             CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 5,
         ]);
         $response = curl_exec($curl);
         curl_close($curl);
