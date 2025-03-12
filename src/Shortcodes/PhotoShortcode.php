@@ -95,7 +95,6 @@ class PhotoShortcode
      */
     public static function getImageHeight(string $path, int $width = 0): float|int
     {
-
         $localPath = storage_path('app/public/'.$path);
 
         // Check if file exists
@@ -106,6 +105,12 @@ class PhotoShortcode
         // Get image sizes
         $sizes = [];
         $imageSizes = @getimagesize($localPath);
+
+        // Check if getimagesize was successful
+        if ($imageSizes === false) {
+            return 0;
+        }
+
         $sizes['width'] = $imageSizes[0];
         $sizes['height'] = $imageSizes[1];
 
