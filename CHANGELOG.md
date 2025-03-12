@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.20 - 2025-03-12
+
+Fix image sizes not defined
+
 ## v5.2.19 - 2025-03-10
 
 - Better fix for Twitter timeout
