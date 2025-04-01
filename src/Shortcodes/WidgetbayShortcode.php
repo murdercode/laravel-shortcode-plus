@@ -15,7 +15,7 @@ class WidgetbayShortcode
         }
 
         if ($shortcode->link) {
-            $shortcode->link = str_replace('&', '%26', $shortcode->link);
+            $shortcode->link = urlencode($shortcode->link);
             $heightListClass = $this->calculateIframeHeight($shortcode->link, $shortcode->layout);
             $widgetbayLink = $endpoint.'?link='.$shortcode->link;
         }
@@ -25,6 +25,7 @@ class WidgetbayShortcode
         }
 
         if ($shortcode->forcelink) {
+            $shortcode->forceLink = urlencode($shortcode->forceLink);
             $widgetbayLink .= '&forceLink='.$shortcode->forcelink;
         }
 
