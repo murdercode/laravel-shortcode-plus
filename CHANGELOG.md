@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.21 - 2025-04-01
+
+Fix encoded URL in laravel shortcode plus
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.20...v5.2.21
+
 ## v5.2.20 - 2025-03-12
 
 Fix image sizes not defined
