@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.22 - 2025-04-03
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.21...v5.2.22
+
 ## v5.2.21 - 2025-04-01
 
 Fix encoded URL in laravel shortcode plus
