@@ -15,7 +15,9 @@ class WidgetbayShortcode
         }
 
         if ($shortcode->link) {
-            $shortcode->link = urlencode($shortcode->link);
+            $parts = explode(',', $shortcode->link);
+            $encodedParts = array_map('urlencode', $parts);
+            $shortcode->link = implode(',', $encodedParts);
             $heightListClass = $this->calculateIframeHeight($shortcode->link, $shortcode->layout);
             $widgetbayLink = $endpoint.'?link='.$shortcode->link;
         }
