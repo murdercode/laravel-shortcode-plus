@@ -6,7 +6,7 @@ class ButtonShortcode
 {
     public function register($shortcode): string
     {
-        $link = $shortcode->link ?? '#';
+        $link = $shortcode->link ? urldecode($shortcode->link) : '#';
         $label = $shortcode->label ?? 'Click here';
         $isSponsored = $this->isSponsored($link);
 
