@@ -42,15 +42,15 @@ class Sanitizer
                     if ((@preg_match($linkToCheck, $link) || strpos($link, $linkToCheck) === 0)) {
                         if ($rel === 'dofollow') {
                             if (preg_match('/rel="noopener"/', $matches[0])) {
-                                return str_replace('rel="noopener"', 'rel="'.$rel.'"', $matches[0]);
-                            } elseif (! preg_match('/rel="/', $matches[0])) {
-                                return str_replace('<a '.$matches[1], '<a '.$matches[1].' rel="'.$rel.'"', $matches[0]);
+                                return str_replace('rel="noopener"', 'rel="' . $rel . '"', $matches[0]);
+                            } elseif (!preg_match('/rel="/', $matches[0])) {
+                                return str_replace('<a ' . $matches[1], '<a ' . $matches[1] . ' rel="' . $rel . '"', $matches[0]);
                             }
                         } else {
                             if (preg_match('/rel="noopener"/', $matches[0])) {
-                                return str_replace('rel="noopener"', 'rel="'.$rel.' noopener"', $matches[0]);
-                            } elseif (! preg_match('/rel="/', $matches[0])) {
-                                return str_replace('<a '.$matches[1], '<a '.$matches[1].' rel="'.$rel.' noopener"', $matches[0]);
+                                return str_replace('rel="noopener"', 'rel="' . $rel . ' noopener"', $matches[0]);
+                            } elseif (!preg_match('/rel="/', $matches[0])) {
+                                return str_replace('<a ' . $matches[1], '<a ' . $matches[1] . ' rel="' . $rel . ' noopener"', $matches[0]);
                             }
                         }
                     }
@@ -59,5 +59,23 @@ class Sanitizer
 
             return $matches[0];
         }, $content);
+    }
+
+    /**
+     * Remove square brackets from the link inside the shortcode.
+     * [shortname link="https://example.com/[link]"] => [shortname link="https://example.com/%5Blink%5D"]
+     * @param string $content
+     * @return string
+     */
+    public static function parseLinkWithSquareBrackets(string $content): string
+    {
+        $pattern = '/(\[[^\]]+link=")([^"]*?)(".*?\])/i';
+
+        $replacement = function ($matches) {
+            $encodedLink = str_replace(['[', ']'], ['%5B', '%5D'], $matches[2]);
+            return $matches[1] . $encodedLink . $matches[3];
+        };
+
+        return preg_replace_callback($pattern, $replacement, $content);
     }
 }
