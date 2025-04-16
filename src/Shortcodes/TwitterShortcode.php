@@ -3,8 +3,10 @@
 namespace Murdercode\LaravelShortcodePlus\Shortcodes;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\RequestOptions;
 
 class TwitterShortcode
 {
@@ -20,55 +22,55 @@ class TwitterShortcode
             return 'No X.com URL defined';
         }
 
-        $html = self::getOembed($url) ?? null;
+        try {
+            $html = self::getOembed($url);
 
-        if (! isset($html)) {
-            return 'Cannot get X.com oEmbed';
+            if (! $html) {
+                return 'Cannot get X.com oEmbed';
+            }
+
+            return view('shortcode-plus::twitter', compact('html'))->render();
+        } catch (\Exception $e) {
+            // Return a consistent error message without the specific error details
+            return 'Error fetching Twitter content';
         }
-
-        return view('shortcode-plus::twitter', compact('html'))->render();
     }
 
     /**
      * Get oEmbed data from Twitter
-     * Note: Twitter sometimes returns 404 for valid URLs, so we retry a few times
      *
-     * @throws GuzzleException
+     * @return string|null HTML from Twitter oEmbed
      */
     private static function getOembed(string $url): ?string
     {
-        $maxAttempts = 3;
-        $attempt = 0;
-        $response = null;
+        try {
+            $client = new Client([
+                'timeout' => 5, // Overall timeout
+                'connect_timeout' => 5, // Connection timeout specifically
+                RequestOptions::READ_TIMEOUT => 5, // Read timeout
+                'http_errors' => false, // Don't throw exceptions on 4xx/5xx responses
+                'verify' => false, // This can help with TLS connection issues
+            ]);
 
-        while ($attempt < $maxAttempts && $response === null) {
-            try {
-                $client = new Client;
-                $res = $client->request('GET', 'https://publish.twitter.com/oembed', [
-                    'query' => [
-                        'url' => $url,
-                        'omit_script' => 1,
-                    ],
-                ]);
+            $res = $client->request('GET', 'https://publish.twitter.com/oembed', [
+                'query' => [
+                    'url' => $url,
+                    'omit_script' => 1,
+                ],
+            ]);
 
-                if ($res->getStatusCode() == 200) {
-                    $response = $res->getBody()->getContents();
-                } else {
-                    usleep(100000);
-                    $attempt++;
-                }
-            } catch (RequestException $e) {
-                usleep(100000);
-                $attempt++;
+            if ($res->getStatusCode() != 200) {
+                return null;
             }
-        }
 
-        if ($response === null) {
+            $response = $res->getBody()->getContents();
+            $data = json_decode($response, true);
+
+            return $data['html'] ?? null;
+
+        } catch (RequestException|ConnectException|GuzzleException $e) {
+            // Any exception means we can't get the oEmbed
             return null;
         }
-
-        $data = json_decode($response, true);
-
-        return $data['html'] ?? null;
     }
 }

@@ -2,6 +2,32 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.23 - 2025-04-15
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.22...v5.2.23
+
+## v5.2.22 - 2025-04-03
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.21...v5.2.22
+
+## v5.2.21 - 2025-04-01
+
+Fix encoded URL in laravel shortcode plus
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.20...v5.2.21
+
+## v5.2.20 - 2025-03-12
+
+Fix image sizes not defined
+
+## v5.2.19 - 2025-03-10
+
+- Better fix for Twitter timeout
+  **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.18...v5.2.19
+
+## v5.2.18 - 2025-03-10
+
+- Add timeout to Twitter oEmbed (set to 5 secs)
+
 ## v5.2.17 - 2025-02-26
 
 - Remove bluesky notice for non JS consent

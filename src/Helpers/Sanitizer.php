@@ -60,4 +60,21 @@ class Sanitizer
             return $matches[0];
         }, $content);
     }
+
+    /**
+     * Remove square brackets from the link inside the shortcode.
+     * [shortname link="https://example.com/[link]"] => [shortname link="https://example.com/%5Blink%5D"]
+     */
+    public static function parseLinkWithSquareBrackets(string $content): string
+    {
+        $pattern = '/(\[[^\]]+link=")([^"]*?)(".*?\])/i';
+
+        $replacement = function ($matches) {
+            $encodedLink = str_replace(['[', ']'], ['%5B', '%5D'], $matches[2]);
+
+            return $matches[1].$encodedLink.$matches[3];
+        };
+
+        return preg_replace_callback($pattern, $replacement, $content);
+    }
 }

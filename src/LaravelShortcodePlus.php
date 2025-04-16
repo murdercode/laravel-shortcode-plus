@@ -82,6 +82,18 @@ final class LaravelShortcodePlus
     }
 
     /**
+     * Cleans the content by removing shortcodes and empty paragraphs.
+     *
+     * @param  string  $content  The content to be cleaned.
+     */
+    public static function cleanHtmlAndShortcodes(string $content): string
+    {
+        $content = preg_replace('/\[.*?]/', '', $content);
+
+        return preg_replace('/<p><\/p>\r\n/', '', $content);
+    }
+
+    /**
      * Return the content for Bing Feed.
      */
     public function parseBingContent(): string
@@ -108,17 +120,5 @@ final class LaravelShortcodePlus
         $this->content = $compiler->compile($this->content);
 
         return self::cleanHtmlAndShortcodes($this->content);
-    }
-
-    /**
-     * Cleans the content by removing shortcodes and empty paragraphs.
-     *
-     * @param  string  $content  The content to be cleaned.
-     */
-    public static function cleanHtmlAndShortcodes(string $content): string
-    {
-        $content = preg_replace('/\[.*?]/', '', $content);
-
-        return preg_replace('/<p><\/p>\r\n/', '', $content);
     }
 }

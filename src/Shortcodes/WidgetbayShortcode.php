@@ -15,7 +15,7 @@ class WidgetbayShortcode
         }
 
         if ($shortcode->link) {
-            $shortcode->link = str_replace('&', '%26', $shortcode->link);
+            $shortcode->link = urlencode($shortcode->link);
             $heightListClass = $this->calculateIframeHeight($shortcode->link, $shortcode->layout);
             $widgetbayLink = $endpoint.'?link='.$shortcode->link;
         }
@@ -25,6 +25,7 @@ class WidgetbayShortcode
         }
 
         if ($shortcode->forcelink) {
+            $shortcode->forceLink = urlencode($shortcode->forceLink);
             $widgetbayLink .= '&forceLink='.$shortcode->forcelink;
         }
 
@@ -41,7 +42,7 @@ class WidgetbayShortcode
 
     protected function calculateIframeHeight($products, $layout = null)
     {
-        $products = explode(',', $products);
+        $products = explode('%2C', $products);
         $count = count($products);
         $prefix = $layout === 'hero' ? 'shortcode_widgetbay_list_hero_' : 'shortcode_widgetbay_list_';
 
