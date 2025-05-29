@@ -21,6 +21,6 @@
     </div>
 @else
     <aside class="shortcode_nocookie">
-        {!! config('shortcode-plus.nocookie.text') !!} - Facebook.com
+        {!! config('shortcode-plus.nocookie.text') !!}
     </aside>
 @endif
