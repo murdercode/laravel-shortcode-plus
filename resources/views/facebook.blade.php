@@ -3,9 +3,7 @@
 {{--        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"--}}
 {{--        nonce="UcAjseAO"></script>--}}
 
-<span class="shortcode_facebook fb-post" data-lazy="true" data-width="auto" data-show-text="true"
+<span class="shortcode_with_paywall shortcode_facebook fb-post" data-lazy="true" data-width="auto" data-show-text="true"
       data-href="{{ $url }}">
-      <aside class="shortcode_nocookie">
-        {!! config('shortcode-plus.nocookie.text') !!} - Facebook.com
-      </aside>
+        @include('shortcode-plus::components.paywall')
 </span>

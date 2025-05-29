@@ -142,6 +142,28 @@ if (purposeId === "3") {
 }
 ```
 
+#### Use Paywall with Iubenda Cookie
+
+In config, set `cookiePaywall` to `true`
+
+In your iubenda cookie script, add the following code:
+(/organisms/cookie-solution.blade.php)
+
+```blade
+    _iub.csConfiguration.callback.onPreferenceExpressed = manageShortcodePaywall;
+    _iub.csConfiguration.callback.onReady = manageShortcodePaywall;
+    
+    ...
+    
+    <script>
+        var paywallPrefBtn = document.querySelector('.shortcode_paywall button');
+        paywallPrefBtn.addEventListener('click', function(ev) {
+            ev.preventDefault();
+            _iub.cs.api.acceptAll();
+        });
+    </script>
+```
+
 ### Indexing feature
 
 If you want to use the `[index]` shortcode, you can add the `withAutoHeadingIds()` method to your source **before**
