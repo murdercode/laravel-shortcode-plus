@@ -78,5 +78,5 @@ return [
             'imageToDisplay' => 2,
         ],
     ],
-    'cookiePaywall' => true,
+    'cookiePaywall' => false,
 ];
