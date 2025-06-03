@@ -24,21 +24,21 @@
                                 sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 803px"
                                 @if($flexGallery)
                                     srcset="
-                                        {{ asset('storage/'.$path) }}?height=320&aspect_ratio=9:16 380w,
-                                        {{ asset('storage/'.$path) }}?height=405&aspect_ratio=9:16 480w,
-                                        {{ asset('storage/'.$path) }}?height=538&aspect_ratio=9:16 640w,
-                                        {{ asset('storage/'.$path) }}?height=647&aspect_ratio=9:16 768w,
-                                        {{ asset('storage/'.$path) }}?height=662&aspect_ratio=9:16 1024w,
-                                        {{ asset('storage/'.$path) }}?height=663&aspect_ratio=9:16 1025w,
+                                        {{ asset('storage/'.$path) }}?height=320 380w,
+                                        {{ asset('storage/'.$path) }}?height=405 480w,
+                                        {{ asset('storage/'.$path) }}?height=538 640w,
+                                        {{ asset('storage/'.$path) }}?height=647 768w,
+                                        {{ asset('storage/'.$path) }}?height=662 1024w,
+                                        {{ asset('storage/'.$path) }}?height=663 1025w,
                                     "
                                 @else
                                     srcset="
-                                        {{ asset('storage/'.$path) }}?height=214&aspect_ratio=16:9 380w,
-                                        {{ asset('storage/'.$path) }}?height=320&aspect_ratio=16:9 480w,
-                                        {{ asset('storage/'.$path) }}?height=333&aspect_ratio=16:9 640w,
-                                        {{ asset('storage/'.$path) }}?height=257&aspect_ratio=16:9 768w,
-                                        {{ asset('storage/'.$path) }}?height=348&aspect_ratio=16:9 1024w,
-                                        {{ asset('storage/'.$path) }}?height=376&aspect_ratio=16:9 1025w,
+                                        {{ asset('storage/'.$path) }}?height=214 380w,
+                                        {{ asset('storage/'.$path) }}?height=320 480w,
+                                        {{ asset('storage/'.$path) }}?height=333 640w,
+                                        {{ asset('storage/'.$path) }}?height=257 768w,
+                                        {{ asset('storage/'.$path) }}?height=348 1024w,
+                                        {{ asset('storage/'.$path) }}?height=376 1025w,
                                     "
                                 @endif
                                 alt="{{ $alt }}"
