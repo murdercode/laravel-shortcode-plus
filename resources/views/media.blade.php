@@ -19,7 +19,7 @@
                             @endif
 
                             <img
-                                class="!my-0 mx-auto {{$flexGallery ? 'sm:max-h-[500px] object-contain' : 'aspect-video'}} @if($shape === 'rounded') rounded-full @endif"
+                                class="!my-0 mx-auto object-contain {{$flexGallery ? 'sm:max-h-[500px]' : 'aspect-video'}} @if($shape === 'rounded') rounded-full @endif"
                                 src="{{asset('storage/'.$path)}}?width={{ $width }}"
                                 sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 803px"
                                 @if($flexGallery)
