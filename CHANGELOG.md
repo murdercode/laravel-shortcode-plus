@@ -2,6 +2,36 @@
 
 All notable changes to `laravel-shortcode-plus` will be documented in this file.
 
+## v5.2.29 - 2025-06-03
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.28...v5.2.29
+
+## v5.2.28 - 2025-06-03
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.27...v5.2.28
+
+## v5.2.27 - 2025-05-30
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.26...v5.2.27
+
+## v5.2.26 - 2025-05-30
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.24...v5.2.26
+
+## v5.2.25 - 2025-05-30
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.24...v5.2.25
+New gallery style
+
+## v5.2.24 - 2025-05-29
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/101
+* Bump vite from 4.5.9 to 4.5.14 by @dependabot in https://github.com/murdercode/laravel-shortcode-plus/pull/102
+
+**Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.23...v5.2.24
+
 ## v5.2.23 - 2025-04-15
 
 **Full Changelog**: https://github.com/murdercode/laravel-shortcode-plus/compare/v5.2.22...v5.2.23

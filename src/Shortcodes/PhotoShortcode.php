@@ -11,6 +11,7 @@ class PhotoShortcode
         }
 
         $multipleIds = preg_match('/\d+(,\s*\d+)*/', $shortcode->id, $matches) ? $matches[0] : null;
+        $flexGallery = $shortcode->effect == 'gallery-flex' ? true : false;
 
         if ($multipleIds) {
             $ids = explode(',', $multipleIds);
@@ -37,7 +38,6 @@ class PhotoShortcode
                     return view('shortcode-plus::juxtapose', compact('images', 'title'))->render();
                 }
 
-                $flexGallery = $shortcode->effect == 'gallery-flex' ? true : false;
                 $imageToDisplay = $flexGallery ? config('shortcode-plus.gallery.flex.imageToDisplay') : config('shortcode-plus.gallery.imageToDisplay');
 
                 return view('shortcode-plus::new-gallery', compact('images', 'title', 'flexGallery', 'imageToDisplay'))->render();
@@ -51,7 +51,7 @@ class PhotoShortcode
         }
 
         $path = $media->path.$media->file_name;
-        $align = $shortcode->align ?? null;
+        //        $align = $shortcode->align ?? null;
         $link = $shortcode->link ? str_replace("'", '%27', $shortcode->link) : null;
         $shape = $shortcode->shape ?? null;
 
@@ -87,7 +87,7 @@ class PhotoShortcode
         $width = $shortcode->width ?? $maxWidth;
         $height = $shortcode->height ?? self::getImageHeight($path, $width);
 
-        return view('shortcode-plus::media', compact('path', 'align', 'maxWidth', 'link', 'shape', 'didascalia', 'credits', 'alt', 'title', 'width', 'height'))->render();
+        return view('shortcode-plus::media', compact('path', 'flexGallery', 'maxWidth', 'link', 'shape', 'didascalia', 'credits', 'alt', 'title', 'width', 'height'))->render();
     }
 
     /**
