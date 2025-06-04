@@ -54,6 +54,15 @@ the best SEO practices around.
 
 ---
 
+## Requirements
+
+| Package Version     | Requirement | Version      |
+|---------------------|-------------|--------------|
+| 5.x.x               | Laravel     | 10.x or 11.x |
+| 5.x.x               | Nova        | 4.x          |
+| dev-beta-laravel-12 | Laravel     | 12.x         |
+| dev-beta-laravel-12 | Nova        | 5.x          |
+
 ## Installation
 
 You can install the package via composer:
