@@ -37,7 +37,7 @@
                                         {{ asset('storage/' . $path) }}?height=320 480w,
                                         {{ asset('storage/' . $path) }}?height=333 640w,
                                         {{ asset('storage/' . $path) }}?height=257 768w,
-                                        {{ asset('storage/' . $path) }}?height=348 1024w,
+                                        {{ asset('storage/' . $path) }}?height=368 1024w,
                                         {{ asset('storage/' . $path) }}?height=376 1025w,
                                     " @endif
                 @endif
