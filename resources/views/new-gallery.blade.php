@@ -64,53 +64,42 @@
                                 {{ asset('storage/' . $image->src) }}?height=500&aspect_ratio=9:19 1025w,
                             " @endif
                     @else
-
-                        @if (count($images) === 2) 
-                            sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 80px) / 2), 393px"
-                            srcset="
-                                {{ asset('storage/' . $image->src) }}?height=196&aspect_ratio=16:9 380w,
-                                {{ asset('storage/' . $image->src) }}?height=252&aspect_ratio=16:9 480w,
-                                {{ asset('storage/' . $image->src) }}?height=342&aspect_ratio=16:9 640w,
-                                {{ asset('storage/' . $image->src) }}?height=314&aspect_ratio=16:9 768w,
-                                {{ asset('storage/' . $image->src) }}?height=265&aspect_ratio=16:9 1024w,
-                                {{ asset('storage/' . $image->src) }}?height=221&aspect_ratio=16:9 1025w,
-                           " 
-                        @endif
-
-                        @if (count($images) === 3) 
-                            sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 80px) / 1.5), 304px"
-                            srcset="
-                                {{ asset('storage/' . $image->src) }}?height=196&aspect_ratio=16:9 380w,
-                                {{ asset('storage/' . $image->src) }}?height=122&aspect_ratio=16:9 480w,
-                                {{ asset('storage/' . $image->src) }}?height=167&aspect_ratio=16:9 640w,
-                                {{ asset('storage/' . $image->src) }}?height=314&aspect_ratio=16:9 768w,
-                                {{ asset('storage/' . $image->src) }}?height=364&aspect_ratio=16:9 1024w,
-                                {{ asset('storage/' . $image->src) }}?height=304&aspect_ratio=16:9 1025w,
-                            " 
-                        @endif
-
-                        @if (count($images) === 4) 
-                            sizes="(max-width: 768px) calc((100vw - 48px) / 2), (max-width: 1024px) calc((100vw - 80px) / 2), 393px"
-                            srcset="
-                                {{ asset('storage/' . $image->src) }}?height=93&aspect_ratio=16:9 380w,
-                                {{ asset('storage/' . $image->src) }}?height=121&aspect_ratio=16:9 480w,
-                                {{ asset('storage/' . $image->src) }}?height=167&aspect_ratio=16:9 640w,
-                                {{ asset('storage/' . $image->src) }}?height=202&aspect_ratio=16:9 768w,
-                                {{ asset('storage/' . $image->src) }}?height=265&aspect_ratio=16:9 1024w,
-                                {{ asset('storage/' . $image->src) }}?height=221&aspect_ratio=16:9 1025w,
-                            " 
-                        @endif
-
-                        @if (count($images) >= 5) 
-                            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc((100vw - 80px) / 2), 393px"
-                            srcset="
-                                {{ asset('storage/' . $image->src) }}?height=195&aspect_ratio=16:9 380w,
-                                {{ asset('storage/' . $image->src) }}?height=251&aspect_ratio=16:9 480w,
-                                {{ asset('storage/' . $image->src) }}?height=340&aspect_ratio=16:9 640w,
-                                {{ asset('storage/' . $image->src) }}?height=206&aspect_ratio=16:9 768w,
-                                {{ asset('storage/' . $image->src) }}?height=265&aspect_ratio=16:9 1024w,
-                                {{ asset('storage/' . $image->src) }}?height=221&aspect_ratio=16:9 1025w,
-                            " 
+                        @if (count($images) === 2) sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 80px) / 2), 393px"
+                                srcset="
+                                    {{ asset('storage/' . $image->src) }}?height=196&aspect_ratio=16:9 380w,
+                                    {{ asset('storage/' . $image->src) }}?height=252&aspect_ratio=16:9 480w,
+                                    {{ asset('storage/' . $image->src) }}?height=342&aspect_ratio=16:9 640w,
+                                    {{ asset('storage/' . $image->src) }}?height=314&aspect_ratio=16:9 768w,
+                                    {{ asset('storage/' . $image->src) }}?height=265&aspect_ratio=16:9 1024w,
+                                    {{ asset('storage/' . $image->src) }}?height=221&aspect_ratio=16:9 1025w,
+                                " @endif
+                        @if (count($images) === 3) sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 80px) / 1.5), 304px"
+                        srcset="
+                                        {{ asset('storage/' . $image->src) }}?height=196&aspect_ratio=16:9 380w,
+                                        {{ asset('storage/' . $image->src) }}?height=122&aspect_ratio=16:9 480w,
+                                        {{ asset('storage/' . $image->src) }}?height=167&aspect_ratio=16:9 640w,
+                                        {{ asset('storage/' . $image->src) }}?height=314&aspect_ratio=16:9 768w,
+                                        {{ asset('storage/' . $image->src) }}?height=364&aspect_ratio=16:9 1024w,
+                                        {{ asset('storage/' . $image->src) }}?height=304&aspect_ratio=16:9 1025w,
+                                    " @endif
+                        @if (count($images) === 4) sizes="(max-width: 768px) calc((100vw - 48px) / 2), (max-width: 1024px) calc((100vw - 80px) / 2), 393px"
+                        srcset="
+                                    {{ asset('storage/' . $image->src) }}?height=93&aspect_ratio=16:9 380w,
+                                    {{ asset('storage/' . $image->src) }}?height=121&aspect_ratio=16:9 480w,
+                                    {{ asset('storage/' . $image->src) }}?height=167&aspect_ratio=16:9 640w,
+                                    {{ asset('storage/' . $image->src) }}?height=202&aspect_ratio=16:9 768w,
+                                    {{ asset('storage/' . $image->src) }}?height=265&aspect_ratio=16:9 1024w,
+                                    {{ asset('storage/' . $image->src) }}?height=221&aspect_ratio=16:9 1025w,
+                                " @endif
+                        @if (count($images) >= 5) sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc((100vw - 80px) / 2), 393px"
+                        srcset="
+                                        {{ asset('storage/' . $image->src) }}?height=195&aspect_ratio=16:9 380w,
+                                        {{ asset('storage/' . $image->src) }}?height=251&aspect_ratio=16:9 480w,
+                                        {{ asset('storage/' . $image->src) }}?height=340&aspect_ratio=16:9 640w,
+                                        {{ asset('storage/' . $image->src) }}?height=206&aspect_ratio=16:9 768w,
+                                        {{ asset('storage/' . $image->src) }}?height=265&aspect_ratio=16:9 1024w,
+                                        {{ asset('storage/' . $image->src) }}?height=221&aspect_ratio=16:9 1025w,
+                                " @endif
                         @endif
                     alt="{{ $image->alt }}"
                     title="Clicca per vedere l'immagine originale"

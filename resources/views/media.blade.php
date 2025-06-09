@@ -23,7 +23,7 @@
             <img class="!my-0 mx-auto object-contain {{ $flexGallery ? 'sm:max-h-[500px]' : ($isSquare ? 'aspect-square' : 'aspect-video') }} @if ($shape === 'rounded') rounded-full @endif"
                 src="{{ asset('storage/' . $path) }}?width={{ $width }}&height={{ $height }}"
                 sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 803px"
-                @if (!$isSquare && $width > 300) @if ($flexGallery) srcset="
+                @if (!$hasMaxWidth) @if ($flexGallery) srcset="
                                         {{ asset('storage/' . $path) }}?height=320 380w,
                                         {{ asset('storage/' . $path) }}?height=405 480w,
                                         {{ asset('storage/' . $path) }}?height=538 640w,
