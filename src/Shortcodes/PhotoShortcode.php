@@ -24,7 +24,7 @@ class PhotoShortcode
                 });
 
                 foreach ($images as $key => $image) {
-                    $images[$key]['src'] = $image->path . $image->file_name;
+                    $images[$key]['src'] = $image->path.$image->file_name;
                     $images[$key]['title'] = $image['data']['title'][0] ?? null;
                     $images[$key]['alt'] = $image['data']['alt'][0] ?? null;
                 }
@@ -50,7 +50,7 @@ class PhotoShortcode
             return '';
         }
 
-        $path = $media->path . $media->file_name;
+        $path = $media->path.$media->file_name;
         $align = $shortcode->align ?? null;
         $link = $shortcode->link ? str_replace("'", '%27', $shortcode->link) : null;
         $shape = $shortcode->shape ?? null;
@@ -68,7 +68,7 @@ class PhotoShortcode
         if (is_array($credits)) {
             $credits = $credits[0];
         }
-        $alt = $media->data['alt'] ?? 'Immagine id ' . $shortcode->id;
+        $alt = $media->data['alt'] ?? 'Immagine id '.$shortcode->id;
         if (is_array($alt)) {
             $alt = $alt[0];
         }
@@ -82,7 +82,6 @@ class PhotoShortcode
             $shortcode->get(0),
             $matches
         );
-
 
         $hasMaxWidth = $matches !== [] && isset($matches[1]) ? true : false;
         $maxWidth = $matches ? $matches[1] : 896;
@@ -105,7 +104,7 @@ class PhotoShortcode
      */
     public static function getImageHeight(string $path, int $width = 0): float|int
     {
-        $localPath = storage_path('app/public/' . $path);
+        $localPath = storage_path('app/public/'.$path);
 
         // Check if file exists
         if (! file_exists($localPath)) {
