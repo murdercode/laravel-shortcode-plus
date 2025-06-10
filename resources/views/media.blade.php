@@ -45,7 +45,8 @@
             height="{{ $height }}" />
 
             @if ($didascalia && !$align)
-                <figcaption class="font-sans !text-sm text-gray-700 dark:text-zinc-100 italic !mt-0 pt-1">
+                <figcaption
+                    class="font-sans text-center max-w-xl mx-auto !text-sm text-gray-700 dark:text-zinc-100 italic !mt-0 pt-1">
                     {!! html_entity_decode($didascalia) !!}
                 </figcaption>
             @endif
