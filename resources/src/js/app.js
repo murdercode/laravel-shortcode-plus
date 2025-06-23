@@ -41,6 +41,8 @@ const ytbPlayers = document.querySelectorAll('.ytb-player');
 
 ytbPlayers.forEach((ytbPlayer) => {
     const ytbPlayerElement = ytbPlayer.querySelector('.ytb-player-element');
+    if (!ytbPlayerElement) return; // Prevent error if element is missing
+
     ytbPlayerElement.addEventListener('click', function (e) {
         e.preventDefault();
 
