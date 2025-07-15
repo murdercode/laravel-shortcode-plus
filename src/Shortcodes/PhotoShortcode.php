@@ -24,7 +24,7 @@ class PhotoShortcode
                 });
 
                 foreach ($images as $key => $image) {
-                    $images[$key]['src'] = 'https://cdn.tomshw.it/storage/media/2025/06/61928/Cuktech-15-9.jpg' ?? asset('/storage/'.$image->path.$image->file_name);
+                    $images[$key]['src'] = asset('/storage/'.$image->path.$image->file_name);
                     $images[$key]['title'] = $image['data']['title'][0] ?? null;
                     $images[$key]['alt'] = $image['data']['alt'][0] ?? null;
                 }
@@ -50,7 +50,7 @@ class PhotoShortcode
             return '';
         }
 
-        $path = 'https://cdn.tomshw.it/storage/media/2025/06/61928/Cuktech-15-9.jpg' ?? asset('/storage/'.$media->path.$media->file_name);
+        $path = asset('/storage/'.$media->path.$media->file_name);
         $align = $shortcode->align ?? null;
         $link = $shortcode->link ? str_replace("'", '%27', $shortcode->link) : null;
         $shape = $shortcode->shape ?? null;
