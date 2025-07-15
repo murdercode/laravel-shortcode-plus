@@ -18,27 +18,27 @@
                 <a class="stretched-link" target="_blank" href="{!! $link !!}"
                     rel="nofollow norefereer sponsored">
                 @else
-                    <a class="glightbox hover:brightness-110 !no-underline" href="{{ asset('storage/' . $path) }}">
+                    <a class="glightbox hover:brightness-110 !no-underline" href="{{ $path }}">
             @endif
             <img class="!my-0 mx-auto object-contain {{ $flexGallery ? 'sm:max-h-[500px]' : ($isSquare ? 'aspect-square' : 'aspect-video') }} @if ($shape === 'rounded') rounded-full @endif"
-                src="{{ asset('storage/' . $path) }}?width={{ $width }}&height={{ $height }}"
+                src="{{ $path }}?width={{ $width }}&height={{ $height }}"
                 sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 803px"
                 @if (!$hasMaxWidth) @if ($flexGallery) srcset="
-                                        {{ asset('storage/' . $path) }}?height=320 380w,
-                                        {{ asset('storage/' . $path) }}?height=405 480w,
-                                        {{ asset('storage/' . $path) }}?height=538 640w,
-                                        {{ asset('storage/' . $path) }}?height=647 768w,
-                                        {{ asset('storage/' . $path) }}?height=662 1024w,
-                                        {{ asset('storage/' . $path) }}?height=663 1025w,
+                                        {{ $path }}?height=320 380w,
+                                        {{ $path }}?height=405 480w,
+                                        {{ $path }}?height=538 640w,
+                                        {{ $path }}?height=647 768w,
+                                        {{ $path }}?height=662 1024w,
+                                        {{ $path }}?height=663 1025w,
                                     "
                                 @else
                                     srcset="
-                                        {{ asset('storage/' . $path) }}?height=214 380w,
-                                        {{ asset('storage/' . $path) }}?height=320 480w,
-                                        {{ asset('storage/' . $path) }}?height=333 640w,
-                                        {{ asset('storage/' . $path) }}?height=257 768w,
-                                        {{ asset('storage/' . $path) }}?height=368 1024w,
-                                        {{ asset('storage/' . $path) }}?height=376 1025w,
+                                        {{ $path }}?height=214 380w,
+                                        {{ $path }}?height=320 480w,
+                                        {{ $path }}?height=333 640w,
+                                        {{ $path }}?height=257 768w,
+                                        {{ $path }}?height=368 1024w,
+                                        {{ $path }}?height=376 1025w,
                                     " @endif
                 @endif
             alt="{{ $alt }}" title="{{ $title }}" loading="lazy" width="{{ $width }}"

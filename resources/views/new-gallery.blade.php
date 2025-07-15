@@ -25,11 +25,11 @@
 
                 @endif
 		           glightbox hover:brightness-110 relative"
-                    href="{{ asset('storage/' . $image->src) }}" data-glightbox="{{ addslashes($image->title) }}">
+                    href="{{ $image->src }}" data-glightbox="{{ addslashes($image->title) }}">
                     @if ($loop->iteration === 1)
                         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"
                             fill="none"
-                            class="absolute top-2 left-2 z-20 w-10 h-10 group-hover:scale-110 transition-all duration-200">
+                            class="absolute z-20 w-10 h-10 transition-all duration-200 top-2 left-2 group-hover:scale-110">
                             <circle cx="17" cy="17" r="16" stroke="white" stroke-width="2" />
                             <g clip-path="url(#clip0_2652_3)">
                                 <path
@@ -44,61 +44,65 @@
                         </svg>
                     @endif
                     <img class="{{ $flexGallery ? 'md:max-h-[500px]' : 'aspect-video' }} relative object-cover w-full h-full cursor-pointer"
-                        src="{{ asset('storage/' . $image->src) }}?width=1920&aspect_ratio=16:9"
+                        src="{{ $image->src }}?width=1920&aspect_ratio=16:9"
                         @if ($flexGallery) @if (count($images) === 2)
                                 srcset="
-                                {{ asset('storage/' . $image->src) }}?height=365&aspect_ratio=9:19 380w,
-                                {{ asset('storage/' . $image->src) }}?height=475&aspect_ratio=9:19 480w,
-                                {{ asset('storage/' . $image->src) }}?height=500&aspect_ratio=9:19 640w,
-                                {{ asset('storage/' . $image->src) }}?height=500&aspect_ratio=9:19 768w,
-                                {{ asset('storage/' . $image->src) }}?height=500&aspect_ratio=9:19 1024w,
-                                {{ asset('storage/' . $image->src) }}?height=500&aspect_ratio=9:19 1025w,
+                                {{ $image->src }}?height=365&aspect_ratio=9:19 380w,
+                                {{ $image->src }}?height=475&aspect_ratio=9:19 480w,
+                                {{ $image->src }}?height=500&aspect_ratio=9:19 640w,
+                                {{ $image->src }}?height=500&aspect_ratio=9:19 768w,
+                                {{ $image->src }}?height=500&aspect_ratio=9:19 1024w,
+                                {{ $image->src }}?height=500&aspect_ratio=9:19 1025w,
                             "
                         @else
                             srcset="
-                                {{ asset('storage/' . $image->src) }}?height=231&aspect_ratio=9:19 380w,
-                                {{ asset('storage/' . $image->src) }}?height=305&aspect_ratio=9:19 480w,
-                                {{ asset('storage/' . $image->src) }}?height=500&aspect_ratio=9:19 640w,
-                                {{ asset('storage/' . $image->src) }}?height=500&aspect_ratio=9:19 768w,
-                                {{ asset('storage/' . $image->src) }}?height=500&aspect_ratio=9:19 1024w,
-                                {{ asset('storage/' . $image->src) }}?height=500&aspect_ratio=9:19 1025w,
+                                {{ $image->src }}?height=231&aspect_ratio=9:19 380w,
+                                {{ $image->src }}?height=305&aspect_ratio=9:19 480w,
+                                {{ $image->src }}?height=500&aspect_ratio=9:19 640w,
+                                {{ $image->src }}?height=500&aspect_ratio=9:19 768w,
+                                {{ $image->src }}?height=500&aspect_ratio=9:19 1024w,
+                                {{ $image->src }}?height=500&aspect_ratio=9:19 1025w,
                             " @endif
                     @else
                         @if (count($images) === 2) sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 80px) / 2), 393px"
                                 srcset="
-                                    {{ asset('storage/' . $image->src) }}?height=196&aspect_ratio=16:9 380w,
-                                    {{ asset('storage/' . $image->src) }}?height=252&aspect_ratio=16:9 480w,
-                                    {{ asset('storage/' . $image->src) }}?height=342&aspect_ratio=16:9 640w,
-                                    {{ asset('storage/' . $image->src) }}?height=314&aspect_ratio=16:9 768w,
-                                    {{ asset('storage/' . $image->src) }}?height=265&aspect_ratio=16:9 1024w,
-                                    {{ asset('storage/' . $image->src) }}?height=221&aspect_ratio=16:9 1025w,
+                                    {{ $image->src }}?height=146&aspect_ratio=16:9 260w,
+                                    {{ $image->src }}?height=186&aspect_ratio=16:9 330w,
+                                    {{ $image->src }}?height=221&aspect_ratio=16:9 393w,
+                                    {{ $image->src }}?height=265&aspect_ratio=16:9 470w,
+                                    {{ $image->src }}?height=298&aspect_ratio=16:9 530w,
+                                    {{ $image->src }}?height=371&aspect_ratio=16:9 660w,
+                                    {{ $image->src }}?height=443&aspect_ratio=16:9 786w
                                 " @endif
-                        @if (count($images) === 3) sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 80px) / 1.5), 304px"
+                        @if (count($images) === 3) sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 80px) / 1.5), 530"
                         srcset="
-                                        {{ asset('storage/' . $image->src) }}?height=196&aspect_ratio=16:9 380w,
-                                        {{ asset('storage/' . $image->src) }}?height=122&aspect_ratio=16:9 480w,
-                                        {{ asset('storage/' . $image->src) }}?height=167&aspect_ratio=16:9 640w,
-                                        {{ asset('storage/' . $image->src) }}?height=314&aspect_ratio=16:9 768w,
-                                        {{ asset('storage/' . $image->src) }}?height=364&aspect_ratio=16:9 1024w,
-                                        {{ asset('storage/' . $image->src) }}?height=304&aspect_ratio=16:9 1025w,
-                                    " @endif
-                        @if (count($images) === 4) sizes="(max-width: 768px) calc((100vw - 48px) / 2), (max-width: 1024px) calc((100vw - 80px) / 2), 393px"
+                            {{ $image->src }}?height=146&aspect_ratio=16:9 260w,
+                            {{ $image->src }}?height=186&aspect_ratio=16:9 330w,
+                            {{ $image->src }}?height=221&aspect_ratio=16:9 393w,
+                            {{ $image->src }}?height=265&aspect_ratio=16:9 470w,
+                            {{ $image->src }}?height=298&aspect_ratio=16:9 530w,
+                            {{ $image->src }}?height=371&aspect_ratio=16:9 660w,
+                            {{ $image->src }}?height=443&aspect_ratio=16:9 786w,
+                            {{ $image->src }}?height=528&aspect_ratio=16:9 940w,
+                            {{ $image->src }}?height=596&aspect_ratio=16:9 1060w
+                        " @endif
+                        @if (count($images) === 4) sizes="(max-width: 768px) calc((100vw - 48px) / 2), (max-width: 1024px) calc((100vw - 80px) / 2), 393"
                         srcset="
-                                    {{ asset('storage/' . $image->src) }}?height=93&aspect_ratio=16:9 380w,
-                                    {{ asset('storage/' . $image->src) }}?height=121&aspect_ratio=16:9 480w,
-                                    {{ asset('storage/' . $image->src) }}?height=167&aspect_ratio=16:9 640w,
-                                    {{ asset('storage/' . $image->src) }}?height=202&aspect_ratio=16:9 768w,
-                                    {{ asset('storage/' . $image->src) }}?height=265&aspect_ratio=16:9 1024w,
-                                    {{ asset('storage/' . $image->src) }}?height=221&aspect_ratio=16:9 1025w,
-                                " @endif
+                            {{ $image->src }}?height=146&aspect_ratio=16:9 260w,
+                            {{ $image->src }}?height=186&aspect_ratio=16:9 330w,
+                            {{ $image->src }}?height=221&aspect_ratio=16:9 393w,
+                            {{ $image->src }}?height=266&aspect_ratio=16:9 470w,
+                            {{ $image->src }}?height=304&aspect_ratio=16:9 540w,
+                            {{ $image->src }}?height=371&aspect_ratio=16:9 660w,
+                        " @endif
                         @if (count($images) >= 5) sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc((100vw - 80px) / 2), 393px"
                         srcset="
-                                        {{ asset('storage/' . $image->src) }}?height=195&aspect_ratio=16:9 380w,
-                                        {{ asset('storage/' . $image->src) }}?height=251&aspect_ratio=16:9 480w,
-                                        {{ asset('storage/' . $image->src) }}?height=340&aspect_ratio=16:9 640w,
-                                        {{ asset('storage/' . $image->src) }}?height=206&aspect_ratio=16:9 768w,
-                                        {{ asset('storage/' . $image->src) }}?height=265&aspect_ratio=16:9 1024w,
-                                        {{ asset('storage/' . $image->src) }}?height=221&aspect_ratio=16:9 1025w,
+                            {{ $image->src }}?height=146&aspect_ratio=16:9 260w,
+                            {{ $image->src }}?height=186&aspect_ratio=16:9 330w,
+                            {{ $image->src }}?height=221&aspect_ratio=16:9 393w,
+                            {{ $image->src }}?height=266&aspect_ratio=16:9 470w,
+                            {{ $image->src }}?height=304&aspect_ratio=16:9 540w,
+                            {{ $image->src }}?height=371&aspect_ratio=16:9 660w,
                                 " @endif
                         @endif
                     alt="{{ $image->alt }}"
@@ -111,7 +115,7 @@
                             class="absolute inset-0 flex items-center justify-center font-black !text-base text-white bg-black/50">
                             +{{ $loop->count - $imageToDisplay }}
                             <svg xmlns="http://www.w3.org/2000/svg" width="55" height="47" viewBox="0 0 55 47"
-                                fill="none" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                fill="none" class="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                                 <path
                                     d="M14.352 8.69434C13.8944 9.41848 13.284 10.0338 12.5635 10.497C11.843 10.9602 11.0298 11.2601 10.1811 11.3758C9.21525 11.513 8.25704 11.6605 7.29883 11.8206C4.62246 12.2654 2.71875 14.6215 2.71875 17.3335V38.7495C2.71875 40.2662 3.32126 41.7208 4.39373 42.7933C5.46621 43.8658 6.92079 44.4683 8.4375 44.4683H46.5625C48.0792 44.4683 49.5338 43.8658 50.6063 42.7933C51.6787 41.7208 52.2813 40.2662 52.2813 38.7495V17.3335C52.2813 14.6215 50.375 12.2654 47.7012 11.8206C46.7422 11.6608 45.7814 11.5125 44.8189 11.3758C43.9706 11.2598 43.158 10.9597 42.4379 10.4965C41.7179 10.0333 41.1078 9.41818 40.6506 8.69434L38.5613 5.3495C38.0921 4.58725 37.4461 3.94928 36.6781 3.4896C35.91 3.02992 35.0425 2.76207 34.149 2.70871C29.7195 2.47079 25.2805 2.47079 20.851 2.70871C19.9575 2.76207 19.09 3.02992 18.3219 3.4896C17.5539 3.94928 16.9079 4.58725 16.4387 5.3495L14.352 8.69434Z"
                                     stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -123,13 +127,13 @@
 
                 {{-- Hidden images --}}
             @else
-                <a href="{{ asset('storage/' . $image->src) }}" class="hidden glightbox"></a>
+                <a href="{{ $image->src }}" class="hidden glightbox"></a>
             @endif
         @endforeach
     </div>
 
     @if ($title)
-        <div class="font-sans text-sm text-center text-gray-700 dark:text-zinc-100 italic mt-4">
+        <div class="mt-4 font-sans text-sm italic text-center text-gray-700 dark:text-zinc-100">
             {!! html_entity_decode($title) !!}
         </div>
     @endif
