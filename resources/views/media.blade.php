@@ -41,7 +41,7 @@
                             </defs>
                         </svg>
                 @endif                
-                <img class="!my-0 mx-auto object-contain {{ $flexGallery ? 'sm:max-h-[500px]' : ($isSquare ? 'aspect-square' : 'aspect-video') }} @if ($shape === 'rounded') rounded-full @endif"
+                <img class="!my-0 mx-auto object-contain {{ $flexGallery ? 'sm:max-h-[500px]' : ($isSquare ? 'aspect-square' : 'aspect-auto') }} @if ($shape === 'rounded') rounded-full @endif"
                     src="{{ $path }}?width={{ $width }}&height={{ $height }}"
                     sizes="(max-width: 768px) calc(100vw - 32px)
                     , (max-width: 1024px) calc(100vw - 64px), 803px"
