@@ -6,7 +6,7 @@
     
     <div class="vertical-list">
         @foreach ($products as $index => $product)
-            <div class="vertical-item {{ $index >= 3 ? 'vertical-item-collapsible' : '' }}" data-index="{{ $index }}" {{ $index >= 3 ? 'style=display:none;' : '' }}>
+            <div class="vertical-item" data-index="{{ $index }}">
                 <div class="vertical-item-content">
                     @if (isset($product['image']) && $product['image'])
                         <div class="vertical-image">
@@ -71,16 +71,4 @@
         @endforeach
     </div>
     
-    @if (count($products) > 3)
-        <div class="vertical-footer" x-data="{ expanded: false }">
-            <button class="btn btn-link btn-sm vertical-toggle" 
-                    @click="expanded = !expanded; 
-                            document.querySelectorAll('.vertical-item-collapsible').forEach(item => {
-                                item.style.display = expanded ? 'block' : 'none';
-                            })">
-                <span x-show="!expanded">Mostra tutti i {{ count($products) }} prodotti</span>
-                <span x-show="expanded">Mostra meno</span>
-            </button>
-        </div>
-    @endif
 </div>

@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Livewire\Attributes\Lazy;
 use The3LabsTeam\Widgetbay\Facades\Widgetbay;
 
+#[Lazy]
 class WidgetbayRenderer extends Component
 {
     public string $link;
@@ -23,34 +24,21 @@ class WidgetbayRenderer extends Component
     {
         $this->link = $link;
         $this->layout = $layout;
-        
-        // Carica immediatamente nel mount
-        $this->loadWidget();
     }
 
-    public function hydrate()
+    public function placeholder()
     {
-        // Questo viene chiamato dopo il primo render
-        if (!$this->loaded && $this->widgetData === null && !$this->error) {
-            $this->loadWidget();
-        }
+        return view('laravel-shortcode-plus::livewire.widgetbay-placeholder', [
+            'link' => $this->link
+        ]);
     }
 
 
     public function render()
     {
-        Log::info('WidgetbayRenderer: render() called', [
-            'hasWidgetData' => $this->widgetData !== null,
-            'hasError' => $this->error,
-            'productCount' => $this->productCount,
-            'loaded' => $this->loaded
-        ]);
-        
-        // Se non è ancora stato caricato, mostra il placeholder
+        // Con lazy loading, carichiamo i dati solo se non sono già stati caricati
         if (!$this->loaded && $this->widgetData === null && !$this->error) {
-            return view('laravel-shortcode-plus::livewire.widgetbay-placeholder', [
-                'link' => $this->link
-            ]);
+            $this->loadWidget();
         }
         
         return view('laravel-shortcode-plus::livewire.widgetbay-renderer');
@@ -61,10 +49,6 @@ class WidgetbayRenderer extends Component
         if ($this->loaded) {
             return; // Già caricato
         }
-        
-        $this->loaded = true;
-        
-        Log::info('WidgetbayRenderer: Starting loadWidget', ['link' => $this->link]);
         
         // Verifica che la dipendenza sia disponibile
         if (!class_exists('\The3LabsTeam\Widgetbay\Facades\Widgetbay')) {
@@ -77,8 +61,6 @@ class WidgetbayRenderer extends Component
             // Supporta link multipli separati da virgola
             $links = $this->parseLinks($this->link);
             $allWidgetData = [];
-            
-            Log::info('WidgetbayRenderer: Parsed links', ['links' => $links]);
             
             foreach ($links as $singleLink) {
                 // Crea una cache key unica per questo link
@@ -102,27 +84,17 @@ class WidgetbayRenderer extends Component
                 return;
             }
             
-            // Log dei dati ricevuti per debug
-            Log::info('WidgetbayRenderer: Raw data received', [
-                'dataCount' => count($allWidgetData),
-                'dataTypes' => array_map('gettype', $allWidgetData),
-                'firstItemType' => !empty($allWidgetData) ? get_class($allWidgetData[0]) : 'empty',
-                'firstItemContent' => !empty($allWidgetData) ? json_encode($allWidgetData[0], JSON_PRETTY_PRINT) : 'empty'
-            ]);
-            
             // Converti oggetti in array per compatibilità con le viste
             $this->widgetData = $this->normalizeWidgetData($allWidgetData);
             $this->productCount = count($this->widgetData);
-            
-            Log::info('WidgetbayRenderer: Widget data loaded successfully', [
-                'productCount' => $this->productCount,
-                'layout' => $this->layout
-            ]);
             
             // Auto-detect layout se non specificato
             if ($this->layout === 'default') {
                 $this->layout = $this->detectOptimalLayout($this->productCount);
             }
+            
+            // Marca come caricato solo se tutto è andato a buon fine
+            $this->loaded = true;
 
         } catch (\Exception $e) {
             $this->handleError($e->getMessage());
@@ -137,6 +109,8 @@ class WidgetbayRenderer extends Component
     {
         $this->error = false;
         $this->errorMessage = '';
+        $this->loaded = false;
+        $this->widgetData = null;
         
         // Rimuovi dalla cache per tutti i link e riprova
         $links = $this->parseLinks($this->link);
