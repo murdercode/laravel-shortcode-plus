@@ -56,6 +56,11 @@ class LaravelShortcodePlusServiceProvider extends PackageServiceProvider
             'Murdercode\LaravelShortcodePlus\View\Components',
             'laravel-shortcode-plus'
         );
+
+        // Registra i componenti Livewire se Livewire è disponibile
+        if (class_exists(\Livewire\Livewire::class)) {
+            \Livewire\Livewire::component('widgetbay-renderer', \Murdercode\LaravelShortcodePlus\Livewire\WidgetbayRenderer::class);
+        }
     }
 
     public function register(): void

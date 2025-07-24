@@ -41,6 +41,7 @@ return [
     ],
     'widgetbay' => [
         'endpoint' => 'https://widgetbay.3labs.it/widgetbox',
+        'use_new_render' => true, // Set to true to use the new rendering system
     ],
 
     'linksToParse' => [
