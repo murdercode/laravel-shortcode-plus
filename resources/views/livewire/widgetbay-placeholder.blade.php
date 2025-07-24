@@ -5,7 +5,8 @@
     $skeletonLayout = $estimatedProducts === 1 ? 'hero' : ($estimatedProducts <= 3 ? 'compact' : 'vertical');
 @endphp
 
-<div class="widgetbay-lazy-placeholder widgetbay-skeleton-{{ $skeletonLayout }}" data-estimated-products="{{ $estimatedProducts }}">
+<div class="widgetbay-lazy-placeholder widgetbay-skeleton-{{ $skeletonLayout }}" 
+     data-estimated-products="{{ $estimatedProducts }}">
 
 
 
@@ -67,6 +68,12 @@
     <p class="lazy-loading-text">
         Caricamento {{ $estimatedProducts === 1 ? 'prodotto' : ($estimatedProducts . ' prodotti') }}...
     </p>
+    
+    <script>
+    console.log('Placeholder loaded for:', @json($link));
+    console.log('Alpine.js available:', typeof Alpine !== 'undefined');
+    </script>
+    
 
     <style>
 /* Base Skeleton Styles */

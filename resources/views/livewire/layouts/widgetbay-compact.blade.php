@@ -53,10 +53,4 @@
             </div>
         @endforeach
     </div>
-    
-    @if (count($products) > 1)
-        <div class="compact-footer">
-            <small class="text-muted">{{ count($products) }} prodotti trovati</small>
-        </div>
-    @endif
 </div>

@@ -26,27 +26,39 @@ class WidgetbayRenderer extends Component
         $this->layout = $layout;
     }
 
-    public function placeholder()
+    public function placeholder(array $params = [])
     {
-        return view('laravel-shortcode-plus::livewire.widgetbay-placeholder', [
-            'link' => $this->link
-        ]);
+        return <<<'HTML'
+<div class="widgetbay-loading" x-data x-init="setTimeout(() => $wire.$refresh(), 100)">
+    <div style="border: 1px solid #e0e0e0; padding: 20px; text-align: center; background: #f9f9f9;">
+        <div style="height: 100px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: skeleton-loading 1.5s infinite;"></div>
+        <p>Caricamento widget...</p>
+    </div>
+    <style>
+    @keyframes skeleton-loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    </style>
+</div>
+HTML;
     }
 
-
     public function render()
-    {
-        // Con lazy loading, carichiamo i dati solo se non sono già stati caricati
-        if (!$this->loaded && $this->widgetData === null && !$this->error) {
-            $this->loadWidget();
-        }
-        
+    {       
+        $this->loadWidget();
         return view('laravel-shortcode-plus::livewire.widgetbay-renderer');
     }
 
     public function loadWidget()
     {
+        Log::info('WidgetbayRenderer: loadWidget() called', [
+            'loaded' => $this->loaded,
+            'link' => $this->link
+        ]);
+        
         if ($this->loaded) {
+            Log::info('WidgetbayRenderer: Widget already loaded, skipping');
             return; // Già caricato
         }
         
@@ -95,6 +107,10 @@ class WidgetbayRenderer extends Component
             
             // Marca come caricato solo se tutto è andato a buon fine
             $this->loaded = true;
+            Log::info('WidgetbayRenderer: Widget loaded successfully', [
+                'productCount' => $this->productCount,
+                'layout' => $this->layout
+            ]);
 
         } catch (\Exception $e) {
             $this->handleError($e->getMessage());
