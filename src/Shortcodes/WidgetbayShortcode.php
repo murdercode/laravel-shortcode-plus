@@ -12,11 +12,11 @@ class WidgetbayShortcode
     {
         // Verifica se utilizzare il nuovo rendering
         $useNewRender = config('shortcode-plus.widgetbay.use_new_render', false);
-        
+
         if ($useNewRender) {
             return $this->renderWithLivewire($shortcode);
         }
-        
+
         return $this->renderWithIframe($shortcode);
     }
 
@@ -27,11 +27,11 @@ class WidgetbayShortcode
     {
         // Estrae il link dal shortcode
         $link = $this->extractLinkFromShortcode($shortcode);
-        
+
         if (empty($link)) {
             return '<div class="widgetbay-error">Errore: parametro link mancante per il widget</div>';
         }
-        
+
         // Determina il layout dal shortcode o usa default
         $layout = $shortcode->layout ?? 'default';
 
@@ -45,14 +45,15 @@ class WidgetbayShortcode
     protected function getWidgetDataFromApi($link)
     {
         // Crea una cache key unica per questo link
-        $cacheKey = 'widgetbay_' . md5($link);
-        
+        $cacheKey = 'widgetbay_'.md5($link);
+
         // Prova a ottenere i dati dalla cache (TTL: 1 ora)
         return Cache::remember($cacheKey, 3600, function () use ($link) {
             try {
                 return Widgetbay::make()->getByLink($link);
             } catch (\Exception $e) {
-                Log::error('Widgetbay API error: ' . $e->getMessage(), ['link' => $link]);
+                Log::error('Widgetbay API error: '.$e->getMessage(), ['link' => $link]);
+
                 return null;
             }
         });
@@ -105,13 +106,14 @@ class WidgetbayShortcode
         if ($shortcode->link) {
             return urldecode($shortcode->link);
         }
-        
+
         if ($shortcode->id) {
             // Se abbiamo solo un ID, costruiamo il link completo
             $endpoint = config('shortcode-plus.widgetbay.endpoint');
-            return $endpoint . '/' . $shortcode->id;
+
+            return $endpoint.'/'.$shortcode->id;
         }
-        
+
         return null;
     }
 
