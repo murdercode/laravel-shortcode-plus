@@ -9,13 +9,17 @@
             </button>
         </div>
     @elseif ($widgetData && is_array($widgetData) && count($widgetData) > 0)
-        <div class="divide-y divide-gray-200 dark:divide-zinc-700">
-            @foreach ($widgetData as $index => $product)
-                <div class="{{ $index > 0 ? 'pt-4' : '' }}">
-                    @include('laravel-shortcode-plus::livewire.layouts.widgetbay-hero', ['product' => $product])
-                </div>
-            @endforeach
-        </div>
+        @if (count($widgetData) === 1)
+            @include('laravel-shortcode-plus::livewire.layouts.widgetbay-hero', ['product' => $widgetData[0]])
+        @else
+            <div class="divide-y divide-gray-200 dark:divide-zinc-700">
+                @foreach ($widgetData as $index => $product)
+                    <div class="{{ $index > 0 ? 'pt-4' : '' }}">
+                        @include('laravel-shortcode-plus::livewire.layouts.widgetbay-hero-compact', ['product' => $product])
+                    </div>
+                @endforeach
+            </div>
+        @endif
     @else
         <div class="p-4 text-center text-gray-600 border border-gray-200 rounded dark:text-zinc-400 dark:border-zinc-600 bg-gray-50 dark:bg-zinc-700">
             <p class="text-gray-600 dark:text-zinc-400">Widget non disponibile</p>
