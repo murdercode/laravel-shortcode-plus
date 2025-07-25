@@ -95,14 +95,7 @@ HTML;
 
     public function loadWidget()
     {
-        Log::info('WidgetbayRenderer: loadWidget() called', [
-            'loaded' => $this->loaded,
-            'link' => $this->link,
-        ]);
-
         if ($this->loaded) {
-            Log::info('WidgetbayRenderer: Widget already loaded, skipping');
-
             return; // Già caricato
         }
 
@@ -127,6 +120,17 @@ HTML;
                 $data = Cache::remember($cacheKey, 3600, function () use ($singleLink) {
                     $apiResponse = Widgetbay::make()->getByLink($singleLink);
 
+                    // DEBUG: Dump solo prodotti AliExpress
+                    if (str_contains(strtolower($singleLink), 'aliexpress')) {
+                        Log::info('WidgetbayRenderer: AliExpress Raw API Response', [
+                            'link' => $singleLink,
+                            'response_type' => gettype($apiResponse),
+                            'response_data' => $apiResponse,
+                            'is_array' => is_array($apiResponse),
+                            'response_json' => json_encode($apiResponse, JSON_PRETTY_PRINT)
+                        ]);
+                    }
+
                     // L'API restituisce un array, prendiamo tutti i prodotti
                     return is_array($apiResponse) ? $apiResponse : [$apiResponse];
                 });
@@ -137,7 +141,6 @@ HTML;
             }
 
             if (empty($allWidgetData)) {
-                Log::warning('WidgetbayRenderer: No widget data found');
                 $this->handleError('Widget data not found');
 
                 return;
@@ -146,8 +149,37 @@ HTML;
             // Converti oggetti in array per compatibilità con le viste
             $normalizedData = $this->normalizeWidgetData($allWidgetData);
             
+            // DEBUG: Dump solo prodotti AliExpress normalizzati
+            $aliexpressProducts = array_filter($normalizedData, function($product) {
+                return isset($product['shop_name']) && strtolower($product['shop_name']) === 'aliexpress';
+            });
+            
+            if (!empty($aliexpressProducts)) {
+                Log::info('WidgetbayRenderer: AliExpress Normalized Data', [
+                    'count' => count($aliexpressProducts),
+                    'data' => $aliexpressProducts
+                ]);
+            }
+            
             // Filtra solo i prodotti disponibili (che hanno link valido)
             $this->widgetData = $this->filterAvailableProducts($normalizedData);
+            
+            // DEBUG: Dump solo prodotti AliExpress filtrati
+            $aliexpressFiltered = array_filter($this->widgetData, function($product) {
+                return isset($product['shop_name']) && strtolower($product['shop_name']) === 'aliexpress';
+            });
+            
+            if (!empty($aliexpressFiltered)) {
+                Log::info('WidgetbayRenderer: AliExpress Filtered Products', [
+                    'count' => count($aliexpressFiltered),
+                    'data' => $aliexpressFiltered
+                ]);
+            } elseif (!empty($aliexpressProducts)) {
+                Log::warning('WidgetbayRenderer: AliExpress products were filtered out', [
+                    'original_aliexpress_count' => count($aliexpressProducts),
+                    'original_data' => $aliexpressProducts
+                ]);
+            }
             $this->productCount = count($normalizedData);
             $this->availableProductCount = count($this->widgetData);
 
@@ -158,11 +190,6 @@ HTML;
 
             // Marca come caricato solo se tutto è andato a buon fine
             $this->loaded = true;
-            Log::info('WidgetbayRenderer: Widget loaded successfully', [
-                'totalProducts' => $this->productCount,
-                'availableProducts' => $this->availableProductCount,
-                'layout' => $this->layout
-            ]);
 
         } catch (\Exception $e) {
             $this->handleError($e->getMessage());
@@ -407,6 +434,7 @@ HTML;
             'mediaworld' => 'MediaWorld',
             'unieuro' => 'Unieuro',
             'euronics' => 'Euronics',
+            'aliexpress' => 'AliExpress',
         ];
 
         $lowerShopName = strtolower($shopName);
