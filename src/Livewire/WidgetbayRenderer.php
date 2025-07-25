@@ -200,6 +200,7 @@ HTML;
 
         // Se è un oggetto, accediamo alle proprietà
         if (is_object($item)) {
+            $shopName = $item->type ?? null;
             return [
                 'title' => $this->sanitizeTitle($item->title ?? null),
                 'description' => $this->sanitizeDescription($item->description ?? null),
@@ -207,12 +208,15 @@ HTML;
                 'price' => $this->formatPrice($item->price ?? null),
                 'original_price' => $this->formatPrice($item->original_price ?? null),
                 'link' => $item->link ?? null,
-                'shop_name' => $item->type ?? null,
+                'shop_name' => $shopName,
+                'shop_label' => $this->formatShopLabel($shopName),
+                'isPrimeExclusive' => $item->isPrimeExclusive ?? false,
             ];
         }
 
         // Se è già un array, accediamo agli indici
         if (is_array($item)) {
+            $shopName = $item['shop_name'] ?? null;
             return [
                 'title' => $this->sanitizeTitle($item['title'] ?? null),
                 'description' => $this->sanitizeDescription($item['description'] ?? null),
@@ -220,7 +224,9 @@ HTML;
                 'price' => $this->formatPrice($item['price'] ?? null),
                 'original_price' => $this->formatPrice($item['original_price'] ?? null),
                 'link' => $item['link'] ?? null,
-                'shop_name' => $item['shop_name'] ?? null,
+                'shop_name' => $shopName,
+                'shop_label' => $this->formatShopLabel($shopName),
+                'isPrimeExclusive' => $item['isPrimeExclusive'] ?? false,
             ];
         }
 
@@ -233,6 +239,8 @@ HTML;
             'original_price' => null,
             'link' => null,
             'shop_name' => null,
+            'shop_label' => null,
+            'isPrimeExclusive' => false,
         ];
     }
 
@@ -334,5 +342,35 @@ HTML;
         } else {
             return 'vertical';
         }
+    }
+
+    /**
+     * Format shop name for display with proper capitalization
+     */
+    private function formatShopLabel(?string $shopName): ?string
+    {
+        if (!$shopName) {
+            return null;
+        }
+
+        // Map di shop specifici con i loro nomi formattati
+        $shopLabels = [
+            'instantgaming' => 'Instant Gaming',
+            'amazon' => 'Amazon',
+            'ebay' => 'eBay',
+            'mediaworld' => 'MediaWorld',
+            'unieuro' => 'Unieuro',
+            'euronics' => 'Euronics',
+        ];
+
+        $lowerShopName = strtolower($shopName);
+        
+        // Se abbiamo una mappatura specifica, usala
+        if (isset($shopLabels[$lowerShopName])) {
+            return $shopLabels[$lowerShopName];
+        }
+
+        // Altrimenti capitalizza ogni parola
+        return Str::title($shopName);
     }
 }
