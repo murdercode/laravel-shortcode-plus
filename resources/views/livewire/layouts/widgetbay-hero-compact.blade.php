@@ -53,7 +53,7 @@
             @endif
             
             @if (isset($product['title']) && $product['title'])
-                <h3 class="!mt-0 !mb-2 text-lg font-bold tracking-tight !leading-5 text-gray-900 dark:text-zinc-100 line-clamp-2">{{ $product['title'] }}</h3>
+                <h3 class="!mt-0 !mb-2 text-lg md:text-base font-bold tracking-tight !leading-5 md:!leading-6 text-gray-900 dark:text-zinc-100 line-clamp-2">{{ $product['title'] }}</h3>
             @endif
         </div>
         

@@ -12,7 +12,7 @@
             </div>
         @endif
         
-        <div class="flex-1 w-full">
+        <div class="flex-1 w-full min-w-0">
             @if (isset($product['shop_name']))
                 @php
                     $shopName = strtolower($product['shop_name']);
@@ -52,7 +52,7 @@
                 @endif
             @endif
             @if (isset($product['title']) && $product['title'])
-                <h3 class="!mt-0 !mb-3 text-2xl font-black tracking-tight text-gray-900 dark:text-zinc-100 line-clamp-2 md:truncate">{{ $product['title'] }}</h3>
+                <h3 class="!mt-0 !mb-3 text-2xl font-black tracking-tight text-gray-900 dark:text-zinc-100 truncate">{{ $product['title'] }}</h3>
             @endif
         
             
@@ -65,8 +65,9 @@
                                 @php
                                     $discount = round((($product['original_price'] - $product['price']) / $product['original_price']) * 100);
                                 @endphp
+                                <span class="hidden text-base text-gray-600 line-through md:inline dark:text-zinc-400">{{ number_format($product['original_price'], 2, ',', '.') }}€</span>
                                 @if ($discount > 20)
-                                    <span class="hidden text-base text-gray-600 line-through md:inline dark:text-zinc-400">{{ number_format($product['original_price'], 2, ',', '.') }}€</span>
+                                    
                                     <span class="text-sm font-bold text-red-500">-{{ $discount }}%</span>
                                 @endif
                             @endif

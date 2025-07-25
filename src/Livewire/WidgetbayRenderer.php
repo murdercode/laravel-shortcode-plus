@@ -34,12 +34,47 @@ class WidgetbayRenderer extends Component
 
     public function placeholder(array $params = [])
     {
-        return <<<'HTML'
-<div class="widgetbay-loading" x-data x-init="setTimeout(() => $wire.$refresh(), 100)">
-    <div style="border: 1px solid #e0e0e0; padding: 20px; text-align: center; background: #f9f9f9;">
-        <div style="height: 100px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: skeleton-loading 1.5s infinite;"></div>
-        <p>Caricamento widget...</p>
+        $heights = $this->calculateResponsivePlaceholderHeight();
+        $isDebug = config('app.debug', false);
+        
+        $debugInfo = '';
+        if ($isDebug) {
+            $debugInfo = <<<HTML
+    <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.8); color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-family: monospace; z-index: 10;">
+        <div x-text="'📱 M: {$heights['mobile']}px'"></div>
+        <div x-text="'📱 T: {$heights['tablet']}px'"></div>
+        <div x-text="'💻 D: {$heights['desktop']}px'"></div>
+        <div x-text="'Current: ' + currentHeight + 'px'" style="border-top: 1px solid #666; margin-top: 2px; padding-top: 2px; font-weight: bold;"></div>
     </div>
+HTML;
+        }
+        
+        return <<<HTML
+<div class="widgetbay-loading" x-data="{ 
+    currentHeight: {$heights['mobile']},
+    currentDevice: 'mobile',
+    updateHeight() {
+        if (window.innerWidth >= 768) {
+            this.currentHeight = {$heights['desktop']};
+            this.currentDevice = 'desktop';
+        } else if (window.innerWidth >= 405) {
+            this.currentHeight = {$heights['tablet']};
+            this.currentDevice = 'tablet';
+        } else {
+            this.currentHeight = {$heights['mobile']};
+            this.currentDevice = 'mobile';
+        }
+    }
+}" x-init="
+    updateHeight();
+    window.addEventListener('resize', () => updateHeight());
+    setTimeout(() => \$wire.\$refresh(), 100);
+" style="position: relative;">
+    <div style="border: 1px solid #e0e0e0; padding: 16px; text-align: center; background: #f9f9f9; border-radius: 0.5rem;">
+        <div x-bind:style="'height: ' + currentHeight + 'px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: skeleton-loading 1.5s infinite; border-radius: 0.5rem;'"></div>
+        <p style="margin: 8px 0 0 0; font-size: 14px; color: #666;">Caricamento widget...</p>
+    </div>
+    $debugInfo
     <style>
     @keyframes skeleton-loading {
         0% { background-position: 200% 0; }
@@ -372,5 +407,100 @@ HTML;
 
         // Altrimenti capitalizza ogni parola
         return Str::title($shopName);
+    }
+
+    /**
+     * Calculate responsive placeholder heights for all device types
+     */
+    private function calculateResponsivePlaceholderHeight(): array
+    {
+        // Get expected product count from links
+        $links = $this->parseLinks($this->link);
+        $expectedProducts = count($links);
+        
+        // Detect layout based on expected products if not set
+        $currentLayout = $this->layout === 'default' ? $this->detectOptimalLayout($expectedProducts) : $this->layout;
+        
+        // Base container padding and styling
+        $baseHeight = 32; // 16px padding top + 16px padding bottom
+        
+        if ($currentLayout === 'hero' || $expectedProducts === 1) {
+            // Hero layout - single product with large image
+            return [
+                'mobile' => $this->calculateHeroHeight($baseHeight, 'mobile'),
+                'tablet' => $this->calculateHeroHeight($baseHeight, 'tablet'),
+                'desktop' => $this->calculateHeroHeight($baseHeight, 'desktop')
+            ];
+        } else {
+            // Compact layout - multiple products
+            return [
+                'mobile' => $this->calculateCompactHeight($baseHeight, $expectedProducts, 'mobile'),
+                'tablet' => $this->calculateCompactHeight($baseHeight, $expectedProducts, 'tablet'),
+                'desktop' => $this->calculateCompactHeight($baseHeight, $expectedProducts, 'desktop')
+            ];
+        }
+    }
+
+    /**
+     * Calculate height for hero layout (single product) per device
+     * Updated with real measurements from debug data
+     */
+    private function calculateHeroHeight(int $baseHeight, string $device): int
+    {
+        // Hero layout dimensions based on real measurements from screenshots
+        switch ($device) {
+            case 'mobile': // <405px
+                // Based on real measurement: actual=324px, so content=292px
+                // Mobile hero layout is taller due to vertical stacking of content
+                return $baseHeight + 292; // 324px total
+                
+            case 'tablet': // 405-767px  
+                // Based on real measurement: actual=322px, so content=290px
+                return $baseHeight + 290; // 322px total
+                
+            case 'desktop': // ≥768px
+                // Desktop: horizontal layout, image height determines total
+                return $baseHeight + 160; // 192px total
+                
+            default:
+                return $baseHeight + 292; // Use mobile as default for narrow screens
+        }
+    }
+
+    /**
+     * Calculate height for compact layout (multiple products) per device
+     * Updated with real measurements from debug data
+     */
+    private function calculateCompactHeight(int $baseHeight, int $productCount, string $device): int
+    {
+        // Compact layout per-product height based on real measurements:
+        // Reverse engineered from actual widget heights:
+        // Desktop: 2prod=227px, 3prod=332px, 4prod=437px → ~89px per product
+        switch ($device) {
+            case 'mobile': // <405px
+                // Updated based on real measurements from screenshot:
+                // 2prod: actual=213px, expected=232px → (213-32-16)/2 = 82.5px per product
+                // 3prod: actual=311px, expected=340px → (311-32-32)/3 = 82.3px per product
+                $perProductHeight = 82; 
+                break;
+                
+            case 'tablet': // 405-767px
+                // Based on real measurements: 2prod=213px, 3prod=311px → ~82px per product
+                $perProductHeight = 82;  
+                break;
+                
+            case 'desktop': // ≥768px
+                // Based on real measurements: ~89px per product
+                $perProductHeight = 89;
+                break;
+                
+            default:
+                $perProductHeight = 92;
+        }
+        
+        // Spacing between products: pt-4 class = 16px, not 4px
+        $spacingHeight = ($productCount - 1) * 16;
+        
+        return $baseHeight + ($productCount * $perProductHeight) + $spacingHeight;
     }
 }
