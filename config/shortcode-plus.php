@@ -42,6 +42,7 @@ return [
     'widgetbay' => [
         'endpoint' => 'https://widgetbay.3labs.it/widgetbox',
         'use_new_render' => true, // Set to true to use the new rendering system
+        'debug' => env('WIDGETBAY_DEBUG', false), // Enable debug mode for CLS debugging
     ],
 
     'linksToParse' => [

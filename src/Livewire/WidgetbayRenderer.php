@@ -24,6 +24,8 @@ class WidgetbayRenderer extends Component
 
     public int $productCount = 0;
 
+    public int $availableProductCount = 0;
+
     public bool $loaded = false;
 
     public function mount(string $link, string $layout = 'default')
@@ -35,7 +37,7 @@ class WidgetbayRenderer extends Component
     public function placeholder(array $params = [])
     {
         $heights = $this->calculateResponsivePlaceholderHeight();
-        $isDebug = config('app.debug', false);
+        $isDebug = config('shortcode-plus.widgetbay.debug', false);
         
         $debugInfo = '';
         if ($isDebug) {
@@ -141,18 +143,23 @@ HTML;
             }
 
             // Converti oggetti in array per compatibilità con le viste
-            $this->widgetData = $this->normalizeWidgetData($allWidgetData);
-            $this->productCount = count($this->widgetData);
+            $normalizedData = $this->normalizeWidgetData($allWidgetData);
+            
+            // Filtra solo i prodotti disponibili (che hanno link valido)
+            $this->widgetData = $this->filterAvailableProducts($normalizedData);
+            $this->productCount = count($normalizedData);
+            $this->availableProductCount = count($this->widgetData);
 
             // Auto-detect layout se non specificato
             if ($this->layout === 'default') {
-                $this->layout = $this->detectOptimalLayout($this->productCount);
+                $this->layout = $this->detectOptimalLayout($this->availableProductCount);
             }
 
             // Marca come caricato solo se tutto è andato a buon fine
             $this->loaded = true;
             Log::info('WidgetbayRenderer: Widget loaded successfully', [
-                'productCount' => $this->productCount,
+                'totalProducts' => $this->productCount,
+                'availableProducts' => $this->availableProductCount,
                 'layout' => $this->layout
             ]);
 
@@ -188,6 +195,7 @@ HTML;
         $this->errorMessage = $message;
         $this->widgetData = null;
         $this->productCount = 0;
+        $this->availableProductCount = 0;
     }
 
     /**
@@ -410,6 +418,22 @@ HTML;
     }
 
     /**
+     * Filter products that are available (have valid link and price/title)
+     */
+    private function filterAvailableProducts(array $products): array
+    {
+        return array_filter($products, function ($product) {
+            // Un prodotto è considerato disponibile se ha:
+            // 1. Un link valido
+            // 2. Un titolo
+            // 3. Un prezzo O un'immagine (alcuni prodotti potrebbero non avere prezzo visibile)
+            return !empty($product['link']) && 
+                   !empty($product['title']) && 
+                   (!empty($product['price']) || !empty($product['image']));
+        });
+    }
+
+    /**
      * Calculate responsive placeholder heights for all device types
      */
     private function calculateResponsivePlaceholderHeight(): array
@@ -417,6 +441,16 @@ HTML;
         // Get expected product count from links
         $links = $this->parseLinks($this->link);
         $expectedProducts = count($links);
+        
+        // Se abbiamo già caricato i dati, usa il conteggio effettivo dei prodotti disponibili
+        if ($this->loaded) {
+            $expectedProducts = $this->availableProductCount;
+        }
+        
+        // Se non ci sono prodotti disponibili, calcola l'altezza per il messaggio di fallback
+        if ($this->loaded && $this->availableProductCount === 0) {
+            return $this->calculateUnavailableProductsHeight();
+        }
         
         // Detect layout based on expected products if not set
         $currentLayout = $this->layout === 'default' ? $this->detectOptimalLayout($expectedProducts) : $this->layout;
@@ -502,5 +536,21 @@ HTML;
         $spacingHeight = ($productCount - 1) * 16;
         
         return $baseHeight + ($productCount * $perProductHeight) + $spacingHeight;
+    }
+
+    /**
+     * Calculate height for unavailable products message
+     */
+    private function calculateUnavailableProductsHeight(): array
+    {
+        // Altezza fissa per il messaggio "prodotti non disponibili"
+        // Basata su padding (32px) + testo + pulsante riprova
+        $unavailableHeight = 120;
+        
+        return [
+            'mobile' => $unavailableHeight,
+            'tablet' => $unavailableHeight,
+            'desktop' => $unavailableHeight
+        ];
     }
 }
