@@ -36,7 +36,7 @@ class WidgetbayRenderer extends Component
     {
         $heights = $this->calculateResponsivePlaceholderHeight();
         $isDebug = config('app.debug', false);
-        
+
         $debugInfo = '';
         if ($isDebug) {
             $debugInfo = <<<HTML
@@ -48,7 +48,7 @@ class WidgetbayRenderer extends Component
     </div>
 HTML;
         }
-        
+
         return <<<HTML
 <div class="widgetbay-loading" x-data="{ 
     currentHeight: {$heights['mobile']},
@@ -86,8 +86,9 @@ HTML;
     }
 
     public function render()
-    {       
+    {
         $this->loadWidget();
+
         return view('laravel-shortcode-plus::livewire.widgetbay-renderer');
     }
 
@@ -95,11 +96,12 @@ HTML;
     {
         Log::info('WidgetbayRenderer: loadWidget() called', [
             'loaded' => $this->loaded,
-            'link' => $this->link
+            'link' => $this->link,
         ]);
-        
+
         if ($this->loaded) {
             Log::info('WidgetbayRenderer: Widget already loaded, skipping');
+
             return; // Già caricato
         }
 
@@ -153,7 +155,7 @@ HTML;
             $this->loaded = true;
             Log::info('WidgetbayRenderer: Widget loaded successfully', [
                 'productCount' => $this->productCount,
-                'layout' => $this->layout
+                'layout' => $this->layout,
             ]);
 
         } catch (\Exception $e) {
@@ -236,6 +238,7 @@ HTML;
         // Se è un oggetto, accediamo alle proprietà
         if (is_object($item)) {
             $shopName = $item->type ?? null;
+
             return [
                 'title' => $this->sanitizeTitle($item->title ?? null),
                 'description' => $this->sanitizeDescription($item->description ?? null),
@@ -252,6 +255,7 @@ HTML;
         // Se è già un array, accediamo agli indici
         if (is_array($item)) {
             $shopName = $item['shop_name'] ?? null;
+
             return [
                 'title' => $this->sanitizeTitle($item['title'] ?? null),
                 'description' => $this->sanitizeDescription($item['description'] ?? null),
@@ -338,7 +342,7 @@ HTML;
     private function replaceAmazonImageSize(string $imageUrl, int $newSize): string
     {
         // Replace _SL500 with the new size (e.g., _SL160)
-        return str_replace('_SL500', '_SL' . $newSize, $imageUrl);
+        return str_replace('_SL500', '_SL'.$newSize, $imageUrl);
     }
 
     /**
@@ -384,7 +388,7 @@ HTML;
      */
     private function formatShopLabel(?string $shopName): ?string
     {
-        if (!$shopName) {
+        if (! $shopName) {
             return null;
         }
 
@@ -399,7 +403,7 @@ HTML;
         ];
 
         $lowerShopName = strtolower($shopName);
-        
+
         // Se abbiamo una mappatura specifica, usala
         if (isset($shopLabels[$lowerShopName])) {
             return $shopLabels[$lowerShopName];
@@ -417,26 +421,26 @@ HTML;
         // Get expected product count from links
         $links = $this->parseLinks($this->link);
         $expectedProducts = count($links);
-        
+
         // Detect layout based on expected products if not set
         $currentLayout = $this->layout === 'default' ? $this->detectOptimalLayout($expectedProducts) : $this->layout;
-        
+
         // Base container padding and styling
         $baseHeight = 32; // 16px padding top + 16px padding bottom
-        
+
         if ($currentLayout === 'hero' || $expectedProducts === 1) {
             // Hero layout - single product with large image
             return [
                 'mobile' => $this->calculateHeroHeight($baseHeight, 'mobile'),
                 'tablet' => $this->calculateHeroHeight($baseHeight, 'tablet'),
-                'desktop' => $this->calculateHeroHeight($baseHeight, 'desktop')
+                'desktop' => $this->calculateHeroHeight($baseHeight, 'desktop'),
             ];
         } else {
             // Compact layout - multiple products
             return [
                 'mobile' => $this->calculateCompactHeight($baseHeight, $expectedProducts, 'mobile'),
                 'tablet' => $this->calculateCompactHeight($baseHeight, $expectedProducts, 'tablet'),
-                'desktop' => $this->calculateCompactHeight($baseHeight, $expectedProducts, 'desktop')
+                'desktop' => $this->calculateCompactHeight($baseHeight, $expectedProducts, 'desktop'),
             ];
         }
     }
@@ -453,15 +457,15 @@ HTML;
                 // Based on real measurement: actual=324px, so content=292px
                 // Mobile hero layout is taller due to vertical stacking of content
                 return $baseHeight + 292; // 324px total
-                
-            case 'tablet': // 405-767px  
+
+            case 'tablet': // 405-767px
                 // Based on real measurement: actual=322px, so content=290px
                 return $baseHeight + 290; // 322px total
-                
+
             case 'desktop': // ≥768px
                 // Desktop: horizontal layout, image height determines total
                 return $baseHeight + 160; // 192px total
-                
+
             default:
                 return $baseHeight + 292; // Use mobile as default for narrow screens
         }
@@ -481,26 +485,26 @@ HTML;
                 // Updated based on real measurements from screenshot:
                 // 2prod: actual=213px, expected=232px → (213-32-16)/2 = 82.5px per product
                 // 3prod: actual=311px, expected=340px → (311-32-32)/3 = 82.3px per product
-                $perProductHeight = 82; 
+                $perProductHeight = 82;
                 break;
-                
+
             case 'tablet': // 405-767px
                 // Based on real measurements: 2prod=213px, 3prod=311px → ~82px per product
-                $perProductHeight = 82;  
+                $perProductHeight = 82;
                 break;
-                
+
             case 'desktop': // ≥768px
                 // Based on real measurements: ~89px per product
                 $perProductHeight = 89;
                 break;
-                
+
             default:
                 $perProductHeight = 92;
         }
-        
+
         // Spacing between products: pt-4 class = 16px, not 4px
         $spacingHeight = ($productCount - 1) * 16;
-        
+
         return $baseHeight + ($productCount * $perProductHeight) + $spacingHeight;
     }
 }
