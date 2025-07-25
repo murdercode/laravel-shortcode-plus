@@ -160,7 +160,7 @@ HTML;
                     'data' => $aliexpressProducts
                 ]);
             }
-            
+
             // Filtra solo i prodotti disponibili (che hanno link valido)
             $this->widgetData = $this->filterAvailableProducts($normalizedData);
             
@@ -458,9 +458,9 @@ HTML;
             // 1. Un link valido
             // 2. Un titolo
             // 3. Un prezzo O un'immagine (alcuni prodotti potrebbero non avere prezzo visibile)
-            return !empty($product['link']) && 
-                   !empty($product['title']) && 
-                   (!empty($product['price']) || !empty($product['image']));
+            return ! empty($product['link']) &&
+                   ! empty($product['title']) &&
+                   (! empty($product['price']) || ! empty($product['image']));
         });
     }
 
@@ -472,12 +472,12 @@ HTML;
         // Get expected product count from links
         $links = $this->parseLinks($this->link);
         $expectedProducts = count($links);
-        
+
         // Se abbiamo già caricato i dati, usa il conteggio effettivo dei prodotti disponibili
         if ($this->loaded) {
             $expectedProducts = $this->availableProductCount;
         }
-        
+
         // Se non ci sono prodotti disponibili, calcola l'altezza per il messaggio di fallback
         if ($this->loaded && $this->availableProductCount === 0) {
             return $this->calculateUnavailableProductsHeight();
@@ -577,7 +577,7 @@ HTML;
         return [
             'mobile' => 148,  // Misurazione reale per smartphone
             'tablet' => 148,  // Misurazione reale per tablet
-            'desktop' => 152  // Misurazione reale per desktop
+            'desktop' => 152,  // Misurazione reale per desktop
         ];
     }
 }
