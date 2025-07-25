@@ -207,8 +207,7 @@ HTML;
                 'price' => $this->formatPrice($item->price ?? null),
                 'original_price' => $this->formatPrice($item->original_price ?? null),
                 'link' => $item->link ?? null,
-                'cta_text' => $item->cta_text ?? 'Visualizza offerta',
-                'additional_info' => $item->additional_info ?? [],
+                'shop_name' => $item->type ?? null,
             ];
         }
 
@@ -221,8 +220,7 @@ HTML;
                 'price' => $this->formatPrice($item['price'] ?? null),
                 'original_price' => $this->formatPrice($item['original_price'] ?? null),
                 'link' => $item['link'] ?? null,
-                'cta_text' => $item['cta_text'] ?? 'Visualizza offerta',
-                'additional_info' => $item['additional_info'] ?? [],
+                'shop_name' => $item['shop_name'] ?? null,
             ];
         }
 
@@ -234,8 +232,7 @@ HTML;
             'price' => null,
             'original_price' => null,
             'link' => null,
-            'cta_text' => 'Visualizza offerta',
-            'additional_info' => [],
+            'shop_name' => null,
         ];
     }
 
@@ -278,6 +275,9 @@ HTML;
             return null;
         }
 
+        // Replace Amazon image size from 500 to 160
+        $imageUrl = $this->replaceAmazonImageSize($imageUrl, 160);
+
         // Add image optimization parameters if supported
         if (Str::contains($imageUrl, ['cdn', 'cloudfront', 'cloudinary'])) {
             // Add basic optimization params (this depends on the CDN used)
@@ -287,6 +287,15 @@ HTML;
         }
 
         return $imageUrl;
+    }
+
+    /**
+     * Replace Amazon image size in URL
+     */
+    private function replaceAmazonImageSize(string $imageUrl, int $newSize): string
+    {
+        // Replace _SL500 with the new size (e.g., _SL160)
+        return str_replace('_SL500', '_SL' . $newSize, $imageUrl);
     }
 
     /**

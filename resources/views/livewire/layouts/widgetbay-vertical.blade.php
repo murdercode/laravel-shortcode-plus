@@ -28,15 +28,6 @@
                             </div>
                         @endif
                         
-                        @if (isset($product['additional_info']) && is_array($product['additional_info']))
-                            <div class="flex flex-wrap gap-4 text-xs text-gray-500">
-                                @foreach (array_slice($product['additional_info'], 0, 2) as $key => $value)
-                                    <span class="whitespace-nowrap">
-                                        <strong class="font-medium">{{ ucfirst(str_replace('_', ' ', $key)) }}:</strong> {{ $value }}
-                                    </span>
-                                @endforeach
-                            </div>
-                        @endif
                     </div>
                     
                     <div class="flex-none text-right flex flex-col items-end md:items-end gap-2 text-center md:text-right">
@@ -61,7 +52,7 @@
                                    target="_blank" 
                                    rel="noopener noreferrer sponsored"
                                    class="px-3 py-1.5 border border-blue-500 text-blue-500 bg-transparent no-underline rounded text-xs font-bold transition-all hover:bg-blue-500 hover:text-white">
-                                    {{ $product['cta_text'] ?? 'Vedi' }}
+                                    {{ $product['shop_name'] ?? 'Vedi' }}
                                 </a>
                             </div>
                         @endif

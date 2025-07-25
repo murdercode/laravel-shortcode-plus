@@ -44,7 +44,7 @@
                                    target="_blank" 
                                    rel="noopener noreferrer sponsored"
                                    class="px-4 py-2 bg-blue-500 text-white no-underline rounded text-sm font-bold transition-colors hover:bg-blue-700">
-                                    {{ $product['cta_text'] ?? 'Vedi offerta' }}
+                                    Vedi su {{ $product['shop_name'] ?? 'Shop' }}
                                 </a>
                             </div>
                         @endif
