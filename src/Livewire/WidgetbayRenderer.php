@@ -127,7 +127,7 @@ HTML;
                             'response_type' => gettype($apiResponse),
                             'response_data' => $apiResponse,
                             'is_array' => is_array($apiResponse),
-                            'response_json' => json_encode($apiResponse, JSON_PRETTY_PRINT)
+                            'response_json' => json_encode($apiResponse, JSON_PRETTY_PRINT),
                         ]);
                     }
 
@@ -148,36 +148,36 @@ HTML;
 
             // Converti oggetti in array per compatibilità con le viste
             $normalizedData = $this->normalizeWidgetData($allWidgetData);
-            
+
             // DEBUG: Dump solo prodotti AliExpress normalizzati
-            $aliexpressProducts = array_filter($normalizedData, function($product) {
+            $aliexpressProducts = array_filter($normalizedData, function ($product) {
                 return isset($product['shop_name']) && strtolower($product['shop_name']) === 'aliexpress';
             });
-            
-            if (!empty($aliexpressProducts)) {
+
+            if (! empty($aliexpressProducts)) {
                 Log::info('WidgetbayRenderer: AliExpress Normalized Data', [
                     'count' => count($aliexpressProducts),
-                    'data' => $aliexpressProducts
+                    'data' => $aliexpressProducts,
                 ]);
             }
 
             // Filtra solo i prodotti disponibili (che hanno link valido)
             $this->widgetData = $this->filterAvailableProducts($normalizedData);
-            
+
             // DEBUG: Dump solo prodotti AliExpress filtrati
-            $aliexpressFiltered = array_filter($this->widgetData, function($product) {
+            $aliexpressFiltered = array_filter($this->widgetData, function ($product) {
                 return isset($product['shop_name']) && strtolower($product['shop_name']) === 'aliexpress';
             });
-            
-            if (!empty($aliexpressFiltered)) {
+
+            if (! empty($aliexpressFiltered)) {
                 Log::info('WidgetbayRenderer: AliExpress Filtered Products', [
                     'count' => count($aliexpressFiltered),
-                    'data' => $aliexpressFiltered
+                    'data' => $aliexpressFiltered,
                 ]);
-            } elseif (!empty($aliexpressProducts)) {
+            } elseif (! empty($aliexpressProducts)) {
                 Log::warning('WidgetbayRenderer: AliExpress products were filtered out', [
                     'original_aliexpress_count' => count($aliexpressProducts),
-                    'original_data' => $aliexpressProducts
+                    'original_data' => $aliexpressProducts,
                 ]);
             }
             $this->productCount = count($normalizedData);
